@@ -1,56 +1,563 @@
----
-layout: page
---- 
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌">
+  <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
+  <meta name="robots" content="all">
 
-<div class="container">
-  {% for sketch in paginator.posts %}
-  <div class="container sketch-container">
-    {% case sketch.layout %}
-    {% when 'media' %}
-    {%- include sketch/media/general.html -%}
-    {% when 'post' %}
-    {%- include sketch/post/general.html -%}
-    {% endcase %}
+  <meta property="og:type" content="page" />
+  
+  <meta property="og:title" content="傅杭波的博客 | UhfunBlog" />
+
+  <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
+
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="">
+  
+  <meta property="article:author" content="傅杭波">
+  
+  
+
+    
+  <meta property="og:image" content="" >
+  <meta property="og:url" content="http://uhfun.cn/">
+  
+  <meta property="og:site_name" content="傅杭波的博客 | UhfunBlog">
+
+  <title>傅杭波的博客 | UhfunBlog</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon-32x32.ico">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css"><link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" /><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
+</head><body><header class="navbar has-shadow is-spaced" role="banner">
+  <div class="container">
+    
+    
+    
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src='/assets/img/logo.png' width="160">
+        <h1>&nbsp&nbsp建设中...</h1>
+      </a>
+      <div role="button" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class='navbar-item' href='/'>HOME</a>
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/tag/">
+          TAG
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/life/">
+          LIFE
+        </a>
+        
+        
+        <a class="navbar-item" href="/tech/">
+          TECH
+        </a>
+        
+        
+        
+        
+        
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+              <!-- <img class="is-rounded" src="/img/avatar.png"> -->
+              <img class="is-rounded" src='/assets/img/avatar.png'>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="icon-dropdown navbar-item" href="/about.html">
+              <i class="far fa-user" aria-hidden="true"></i>
+              About
+            </a>
+            <a class="icon-dropdown navbar-item" href="https://github.com/uhfun/uhfun.github.io">
+              <i class="fab fa-github" aria-hidden="true"></i>
+              Github
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/about.html#gitmentContainer">
+              Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </div>
-  {% endfor %}
-
-  {% if paginator.total_pages > 1 %}
-  <nav class="pagination is-right is-small" role="navigation" aria-label="pagination">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | replace: '//', '/' }}"
-      class="pagination-previous pagination-link">&lt;</a>
-    {% endif %}
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | replace: '//', '/' }}" class="pagination-next pagination-link">&gt;</a>
-    {% endif %}
-    <ul class="pagination-list">
-    {% assign size = paginator.total_pages %}
-    {% assign size_minus1 = size | minus:1 %}
-   
-    {% for page in (1..paginator.total_pages) %}
-    {% assign current = paginator.page %}
+</header><div class="section">
+    <div class="container">
+      <article class="page">
+  <div class="content">
+    <div class="container">
+  
+  <div class="container sketch-container">
+    
+<div class="post_article"><a class="title" href="/tech/2019/12/11/%E6%B5%8B%E8%AF%95.html">测试!</a>
+<div class="content">
+  <div class='columns'>
+    <div class="column">
+      <a class="excerpt" href="/tech/2019/12/11/%E6%B5%8B%E8%AF%95.html">
+        <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a fil...
+      </a>
       
-    {% assign current_plus1 = current | plus:1 %}
-    {% assign current_minus1 = current | minus:1 %}   
-    {% if page == 1 or page == size or page == current or page == current_plus1 or page == current_minus1 %}          
-      {% if page == current_minus1 and current_minus1 > 2 %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-      {% endif %}
-      <li>
-          {% if page == current %}
-          <a class="pagination-link is-current">{{ page }}</a>
-          {% elsif page == 1 %}
-          <a href="{{ '/' | relative_url }}" class="pagination-link">{{ page }}</a>
-          {% else %}
-          <a href="{{ site.paginate_path | replace: ':num', page }}" class="pagination-link">{{ page }}</a> 
-          {% endif %}  
-      </li>        
-      {% if page == current_plus1 and current_plus1 < size_minus1 %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-      {% endif %}       
-    {% endif %}
-    {% endfor %} 
-    </ul>
-  </nav>  
-  {% endif %}
+      <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/Jekyll">Jekyll</a>
+        
+        <a href="/tag/%E6%B5%8B%E8%AF%95">测试</a>
+        
+        <a href="/tag/JAVA">JAVA</a>
+        
+        <a href="/tag/TEST">TEST</a>
+        
+        <a href="/tag/test">test</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/12/11 13:01:38">
+            2019-12-11
+        </span>
+    </div>
+</div></div>
+    
+  </div>
+</div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="post_article"><a class="title" href="/tech/2019/12/05/%E6%A6%82%E8%BF%B0-part-2.html">概述2!</a>
+<div class="content">
+  <div class='columns'>
+    <div class="column">
+      <a class="excerpt" href="/tech/2019/12/05/%E6%A6%82%E8%BF%B0-part-2.html">
+        <p>我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</p>
+
+
+      </a>
+      
+      <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E4%BA%A7%E5%93%81">产品</a>
+        
+        <a href="/tag/%E6%A6%82%E8%BF%B02222">概述2222</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/12/05 13:14:00">
+            2019-12-05
+        </span>
+    </div>
+</div></div>
+    
+    <div class="sketch-article-img column is-one-quarter image">
+      <a href="/tech/2019/12/05/%E6%A6%82%E8%BF%B0-part-2.html">
+        
+        
+
+
+        
+        <img src='https://www.huhexian.com/wp-content/uploads/2019/09/2019093022490964.jpg'>
+        
+      </a>
+    </div>
+    
+  </div>
+</div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="post_article"><a class="title" href="/tech/2019/12/04/%E6%A6%82%E8%BF%B0.html">概述!</a>
+<div class="content">
+  <div class='columns'>
+    <div class="column">
+      <a class="excerpt" href="/tech/2019/12/04/%E6%A6%82%E8%BF%B0.html">
+        <p>我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</p>
+
+
+      </a>
+      
+      <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E4%BA%A7%E5%93%81">产品</a>
+        
+        <a href="/tag/%E6%A6%82%E8%BF%B0">概述</a>
+        
+        <a href="/tag/Java">Java</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/12/04 13:14:00">
+            2019-12-04
+        </span>
+    </div>
+</div></div>
+    
+    <div class="sketch-article-img column is-one-quarter image">
+      <a href="/tech/2019/12/04/%E6%A6%82%E8%BF%B0.html">
+        
+        
+
+
+        
+        <img src='https://www.huhexian.com/wp-content/uploads/2019/09/2019093022490964.jpg'>
+        
+      </a>
+    </div>
+    
+  </div>
+</div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="post_article"><a class="title" href="/2019/12/02/UUU.html">UUU</a>
+<div class="content">
+  <div class='columns'>
+    <div class="column">
+      <a class="excerpt" href="/2019/12/02/UUU.html">
+        <p>我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</p>
+
+      </a>
+      
+      <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E4%BA%A7%E5%93%81">产品</a>
+        
+        <a href="/tag/%E6%A6%82%E8%BF%B0">概述</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/12/02 15:14:00">
+            2019-12-02
+        </span>
+    </div>
+</div></div>
+    
+  </div>
+</div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="media-music-kg">
+    <div class="content">
+    <div class="columns">
+        
+        
+        
+        <div class="column is-two-thirds  sketch-media-music-kg">
+            <a href="https://node.kg.qq.com/play?s=5K918H5Htvmdg5ZG&shareuid=669999842124308c&topsource=a0_pn201001006_z1_u44414977_l0_t1575116080__" class='columns is-mobile'>
+                <img class='column sketch-media-music-kg-img' src="https://kg.qq.com/music/photo_new/T002R300x300M000000XiCya3Js8Yi.jpg?max_age=2592000">                
+                <span class='column sketch-media-music-kg-content'>
+                    <span class='qmkg-title'>崇拜(live)</span>                                      
+                    
+                    <div class='qmkg-level' style="margin-top: 12px;">SSS</div>
+                       
+                    <img class='qmkg-logo' src='/assets/img/qmkg.png'>
+                </span>
+            </a>
+        </div>
+
+        
+        <div class="column sketch-media-music-kg-right-content">
+            我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。"所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读"是基础
+        </div>
+        
+    </div>
+    
+    <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E7%BF%BB%E5%94%B1">翻唱</a>
+        
+        <a href="/tag/JJ%E6%9E%97%E4%BF%8A%E6%9D%B0">JJ林俊杰</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/12/02 14:01:38">
+            2019-12-02
+        </span>
+    </div>
+</div></div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="post_article"><a class="title" href="/tech/2019/11/30/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+<div class="content">
+  <div class='columns'>
+    <div class="column">
+      <a class="excerpt" href="/tech/2019/11/30/welcome-to-jekyll.html">
+        <p>You’ll find this post in your <code class="language-plaintext highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="language-plaintext highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a fil...
+      </a>
+      
+      <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/java">java</a>
+        
+        <a href="/tag/test">test</a>
+        
+        <a href="/tag/welcome">welcome</a>
+        
+        <a href="/tag/JEKYLL">JEKYLL</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/11/30 14:01:38">
+            2019-11-30
+        </span>
+    </div>
+</div></div>
+    
+    <div class="sketch-article-img column is-one-quarter image">
+      <a href="/tech/2019/11/30/welcome-to-jekyll.html">
+        
+        
+
+
+        
+        <img src='http://uhfun.cn/assets/img/head/20191211150239.jpg'>
+        
+      </a>
+    </div>
+    
+  </div>
+</div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="post_breif"><div class='breif-content'>
+    <div class='breif-content-title'>
+        <a href="/life/2019/11/29/%E7%AE%80%E5%8D%95%E7%9A%84.html">
+            简单的 - 131231213
+        </a>        
+    </div>
+    
+        <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E5%90%90%E6%A7%BD">吐槽</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/11/29 14:01:38">
+            2019-11-29
+        </span>
+    </div>
+</div></div></div>
+
+  </div>
+  
+  <div class="container sketch-container">
+    
+<div class="media-music-kg">
+    <div class="content">
+    <div class="columns">
+        
+        
+        
+        <div class="column is-four-fifths  sketch-media-music-kg">
+            <a href="https://changba.com/s/M6lyzdOFkbW70Q5d3OYzWQ" class='columns is-mobile'>
+                <img class='column sketch-media-music-kg-img' src="https://aliimg.changba.com/cache/photo/4433f5b0-ff7b-4a2b-9f53-faf5e9e2c3ae_640_640.jpg">                
+                <span class='column sketch-media-music-kg-content'>
+                    <span class='qmkg-title'>你瞒我瞒</span>                                      
+                    
+                    <div class='qmkg-level' style="margin-top: 12px;"></div>
+                       
+                    <img class='qmkg-logo' src='/assets/img/changba.png'>
+                </span>
+            </a>
+        </div>
+
+        
+        <div class="column sketch-media-music-kg-right-content">
+            无言的亲亲亲 侵袭我心<br>仍宁愿亲口讲你累得很<br>如除我以外在你心<br>还多出一个人 你瞒住我<br>我亦瞒住我太合衬<br>
+        </div>
+        
+    </div>
+    
+    <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/%E7%BF%BB%E5%94%B1">翻唱</a>
+        
+        <a href="/tag/%E9%99%88%E6%9F%8F%E5%AE%87">陈柏宇</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2019/11/28 14:01:38">
+            2019-11-28
+        </span>
+    </div>
+</div></div></div>
+
+  </div>
+  
+
+  
 </div>
+  </div>
+</article>
+
+    </div>
+  </div><footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Copyright © Uhfun Blog 2019<br>
+        Powered by <strong> <a target="_blank" href="https://github.com/uhfun/uhfun.github.io">Uhfun</a></strong>
+        | licensed
+        <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
+      </p>
+    </div>
+  </div>
+</footer>
+<div class="back-to-top is-info">
+    <a class="icon-stack">
+        <ion-icon name="arrow-dropup">
+            <svg class="svg-icon">
+                <use xlink:href="/assets/arrow-dropup.svg"></use>
+            </svg>
+        </ion-icon>
+        <span class="back-to-top-text">Top</span>
+    </a>
+</div>
+<script src="/assets/js/back-to-top.js"></script>
+<script src="/assets/js/hash-code.js"></script>
+<script src="/assets/js/drop-down.js"></script>
+<script>
+    $('.breif-content-title a').each((i, e) => {
+        $bt = $(e);
+        const hashCode = $bt.text().hashCode();
+        const list = [
+        
+        '#ff9207bf',
+        
+        '#ff0000c7',
+        
+        '#41c7b6b3',
+        ];       
+        const color =  list[(hashCode % list.length)];
+        console.log(color)
+        $bt.css('color', color)
+    })
+</script></body>
+<script src="/assets/js/date-format.js"></script>
+</html>
