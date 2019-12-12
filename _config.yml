@@ -61,6 +61,3 @@ defaults:
       path:            "assets/**/*.pdf"
     values:
       sitemap:         false
-
-
-theme: jekyll-theme-cayman
