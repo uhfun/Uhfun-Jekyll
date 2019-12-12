@@ -6,7 +6,7 @@
         </span>
         {% endif %}
         {% for tag in tags %}
-        <a href="{{ tag | url_encode | prepend: '/tag/'}}">{{ tag }}</a>
+        <a href="{{ tag | url_encode | downcase | prepend: '/tag/'}}">{{ tag }}</a>
         {% endfor %}
         {% if date%}
         <span class="spot">•</span>
