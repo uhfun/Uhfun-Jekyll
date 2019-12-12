@@ -1,0 +1,52 @@
+---
+layout: page
+---
+<article class="post">
+  {% if page.title %}
+  <h1 class="title is-spaced">{{ page.title | escape }}</h1>
+  {% endif %}
+  {% assign tags = page.tags %}
+  {% assign date = page.date%}
+  {%- include component/tag-and-date.html -%}
+  <div class='post-img'>
+    {% assign head-img = page.head-img %}
+    {% include component/head-img.html %}
+    {% if head-image %}
+    <img src='{{ head-image }}'>
+    {% endif %}
+  </div>
+  <div class='post-content'>
+    {% if page.post.type == "breif" %}
+    <p>{{ page.post.content }}</p>
+    {% endif %}
+    {{ content }}
+  </div>
+
+  <div class='post-footer'>
+    {% assign c = 0 %}
+    {% for post in site.posts %}
+    {% if c == 1 and post.layout == 'post' %}
+    {% assign c = 0 %}
+    <a class='post-previous' href="{{ post.url }}"> &nbsp;←  {{ post.title }}</a>
+    {% endif %}
+    {% if post == page %}
+    {% assign c = 1 %}
+    {% endif %}
+    {% endfor %}
+
+    {% assign c = 0 %}
+    {% for post in site.posts reversed%}
+    {% if c == 1 and post.layout == 'post' %}
+    {% assign c = 0 %}
+    <a class='post-next' href="{{ post.url }}">{{ post.title }} →&nbsp;</a>
+    {% endif %}
+    {% if post == page %}
+    {% assign c = 1 %}
+    {% endif %}
+    {% endfor %}
+  </div>
+
+</article>
+{%- if site.gitment.name -%}
+{%- include gitment.html -%}
+{%- endif -%}

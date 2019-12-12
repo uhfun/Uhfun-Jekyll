@@ -1,0 +1,20 @@
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="{{ '/assets/css/default.css' | relative_url }}">
+<script src="{{ '/assets/js/gitment.js' | relative_url }}"></script>
+<script>
+console.log('e-unique-title: {{ page.e-unique-title }}, ' + 'title: {{ page.title }}, ')
+var eTitle = '{{ page.e-unique-title }}';
+if (eTitle == '') {
+    eTitle = '{{ page.title }}';
+}
+var gitment = new Gitment({
+    owner: '{{ site.gitment.name }}',
+    id: eTitle ,
+    repo: '{{ site.gitment.repo }}',
+    oauth: {
+        client_id: '{{ site.gitment.clientID }}',
+        client_secret: '{{ site.gitment.clientSecret }}',
+    },
+});
+gitment.render('gitmentContainer');
+</script>

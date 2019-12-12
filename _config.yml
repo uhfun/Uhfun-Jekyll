@@ -1,0 +1,64 @@
+
+title: UhfunBlog
+SEOTitle: 傅杭波的博客 | UhfunBlog
+status: "&nbsp&nbsp建设中..."
+keyword: "傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌"
+email: mynameisfhb@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  代码与生活、热爱唱歌的boy | 傅杭波的个人博客
+avatar: /img/avatar.png
+author: 傅杭波
+baseurl: "" # the subpath of your site, e.g. /blog
+url: http://uhfun.cn
+timezone: Asia/Shanghai
+
+github_username:  uhfun
+plugins:
+  - jekyll-feed
+  - jekyll-paginate 
+  - jekyll-sitemap
+  - jekyll-archives
+
+paginate: 10
+paginate_path: "/page/:num"
+
+category_archive:
+  type: jekyll-archives
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: jekyll-archives
+  type: liquid
+  path: /tags/
+
+jekyll-archives:
+  enabled: 
+    - categories
+    - tags  
+  layouts: 
+    category: category
+    tag: tag
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/:name/'
+
+gitment:
+  name: fu85
+  repo: uhfun_comments
+  clientID: 84e2fe14ccc9f6d56240
+  clientSecret: 4fbad0f6ed21f166b24bd88d239a02f53ca326c6
+
+
+breif:
+  color: 
+    - "#ff9207bf"
+    - "#ff0000c7"
+    - "#41c7b6b3"
+
+defaults:
+  -
+    scope:
+      path:            "assets/**/*.pdf"
+    values:
+      sitemap:         false
+

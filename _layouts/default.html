@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'zh-CN' }}">
+{%- include head.html -%}
+<body>
+  {%- include header.html -%}
+  <div class="section">
+    <div class="container">
+      {{ content }}
+    </div>
+  </div>
+  {%- include footer.html -%}
+</body>
+<script src="{{ '/assets/js/date-format.js' | relative_url }}"></script>
+</html>

@@ -1,0 +1,19 @@
+---
+layout: media
+media: 
+  type: "qmkg"
+  title:  崇拜(live)
+  level: SSS
+  img: https://kg.qq.com/music/photo_new/T002R300x300M000000XiCya3Js8Yi.jpg?max_age=2592000
+  link: https://node.kg.qq.com/play?s=5K918H5Htvmdg5ZG&shareuid=669999842124308c&topsource=a0_pn201001006_z1_u44414977_l0_t1575116080__
+  # source: http://tx.stream.kg.qq.com/shkge-btfs/4f3b2d46ef72b10d695a0611943c74085a754451?ftnrkey=aee0de13db19b8ce3311ee4f5a92c5a8ca120618dad6cc534b84a44d700094336ac49b25e0df182a31efc0248b06a2aed91fc3ed4930f57d11e69ad6d59951a7&vkey=EF0270770CCAA14C8ADE17A46A282E845C903F2F43A51C9228BA284447E25C4C1D986551A022950CF583CF7181B3F2B3C1FB0DED1FAA65657F65DCDFA5D4A5DC7B91E7311E880C829BD1C351D1C84006D1A0EC3E21D4EE99&fname=1021_969c10e814a5a2b9547e47ef83f966fc6d8135ae.0.m4a&fromtag=1018&sdtfrom=v1018&ugcid=44414977_1572680133_729
+  box-size: 2/3
+  content: 我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。"所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读"是基础  
+
+date:   2019-12-02 14:01:38 +0800
+categories: life
+tags: 
+  - 翻唱
+  - JJ林俊杰
+---
+
