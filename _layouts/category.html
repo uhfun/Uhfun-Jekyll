@@ -43,16 +43,16 @@ layout: page
         <a class="excerpt" href="{{ post.media.link }}">
         {% case post.media.type %}
         {% when 'qmkg' %}
-        我在「 全名k歌 」唱了一首
+        我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
         {% when 'changba' %}
-        我在「 唱吧 」唱了一首                       
+        我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
         {% endcase %}
         {{ post.title }}
         </a>
         {% else %}
         <a class="excerpt" href="{{ post.url }}">{{ post.title }}</a>
         {% endif %}
-        <p>{{ post.excerpt | strip_html| truncate:80,'...' }}</p>
+        <p>{{ post.excerpt | strip_html| truncate:50,'...' }}</p>
     </li>
     {% endfor %}
     </ul></li></ul>
