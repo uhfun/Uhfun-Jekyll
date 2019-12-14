@@ -48,7 +48,7 @@ layout: page
             {% when 'changba' %}
             我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
             {% endcase %}
-            {{ post.title }}</a>
+            《 {{ post.title }} 》</a>
             <p>{{ post.media.content | strip_html | truncate:75, '...'}}</p>
 
             {% when 'post' %}
