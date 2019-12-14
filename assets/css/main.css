@@ -177,7 +177,7 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list li { margin: .6em 0; line-height: 1.8em; color: #8c8787; overflow: hidden; text-overflow: ellipsis; }
 .category-posts .month-list .month .day-list li a { border: none !important; color: #161616; font-weight: 500; margin-left: .3rem; }
 .category-posts .month-list .month .day-list li a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
-.category-posts .month-list .month .day-list li p { font-size: 0.9rem !important; margin: .5rem 0 .5rem 2.8rem; color: #4a576b !important; }
+.category-posts .month-list .month .day-list li p { font-size: 0.9rem !important; margin: .5rem 0 .5rem 2.8rem; color: #273448 !important; }
 
 /** Site header */
 .site-header { font-family: Segoe UI, "Microsoft Yahei" !important; border-top: 5px solid #424242; border-bottom: 1px solid #e8e8e8; min-height: 55.95px; position: relative; }
