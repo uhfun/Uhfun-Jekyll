@@ -1,12 +1,59 @@
 ---
 layout: page
 ---
-<h1>{{ paginator.total_pages }} | Archive of posts with {{ page.type }} '{{ page.title }}'</h1>
-<ul class="posts">
-    {% for post in page.posts %}
+<div class="category-head">
+    {% for cat in site.custom_categories %}
+    {% if cat[0] == page.title %}
+    <h1 class="title">{{ cat[0] | upcase }}</h1>
+    <p>{{ cat[1].head-title }}</p>
+    {% endif %}
+    {% endfor %}
+</div>
+<div class="category-posts">
+    {% assign tmpYear = '' %}
+    {% assign tmpMonth = '' %}
+    {% for post in  page.posts %}
+    {% assign year = post.date | date: '%Y' %}
+    {% assign month = post.date | date: '%m' %}
+    {% assign day = post.date | date: '%d' %}
+
+    {% if year != tmpYear %}
+    {% unless forloop.first %}
+    </ul></li></ul>
+    {% endunless %}
+    <h2 class="head-year" onclick="$(this).next().slideToggle(400)">{{ year }}&nbsp;年</h2><ul class="month-list">     
+    {% endif %}
+
+    {% if month != tmpMonth %}     
+    {% unless forloop.first or tmpYear != year %}
+    </li></ul>
+    {% endunless %}
+    <li class="container month">
+    <span class="head-month" onclick="$(this).next().slideToggle(400)">{{ month }}&nbsp;月<span class="head-month-post-num"></span></span>   
+    <ul class="day-list">
+    {% assign tmpMonth = month %}        
+    {% endif %}   
+
+    {% if year != tmpYear %}
+    {% assign tmpYear = year %}   
+    {% endif %}
     <li>
-        <span class="post-date">{{ forloop.index }}{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        {{ day }}日:
+        {% if post.layout == 'media' %}
+        <a class="excerpt" href="{{ post.media.link }}">
+        {% case post.media.type %}
+        {% when 'qmkg' %}
+        我在「 全名k歌 」唱了一首
+        {% when 'changba' %}
+        我在「 唱吧 」唱了一首                       
+        {% endcase %}
+        {{ post.title }}
+        </a>
+        {% else %}
+        <a class="excerpt" href="{{ post.url }}">{{ post.title }}</a>
+        {% endif %}
+        <p>{{ post.excerpt | strip_html| truncate:80,'...' }}</p>
     </li>
     {% endfor %}
-</ul>
+    </ul></li></ul>
+</div>

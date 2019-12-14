@@ -31,6 +31,12 @@ tag_archive:
   type: liquid
   path: /tags/
 
+custom_categories:
+  life:
+    head-title: 不要为了梦想而忘记生活 ！！！
+  tech:
+    head-title: 不要为了生活而忘记梦想 ！！！
+
 jekyll-archives:
   enabled: 
     - categories
