@@ -3,7 +3,7 @@
   <div class='columns'>
     <div class="column">
       <a class="excerpt" href="{{ sketch.url }}">
-        {{ sketch.excerpt | truncate:400 }}
+        {{ sketch.excerpt | truncate:400,'...' }}
       </a>
       {% assign tags = sketch.tags %}
       {% assign date = sketch.date %}
