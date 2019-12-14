@@ -52,7 +52,7 @@ layout: page
         {% else %}
         <a class="excerpt" href="{{ post.url }}">{{ post.title }}</a>
         {% endif %}
-        <p>{{ post.excerpt | strip_html| truncate:50,'...' }}</p>
+        <p>{{ post.excerpt | strip_html| truncate:75,'...' }}</p>
     </li>
     {% endfor %}
     </ul></li></ul>
