@@ -39,20 +39,28 @@ layout: page
     {% endif %}
     <li>
         {{ day }}日: 
-        {% if post.layout == 'media' %}
-        <a class="excerpt" href="{{ post.media.link }}">
-        {% case post.media.type %}
-        {% when 'qmkg' %}
-        我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
-        {% when 'changba' %}
-        我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
-        {% endcase %}
-        {{ post.title }}
-        </a>
-        {% else %}
-        <a class="excerpt" href="{{ post.url }}">{{ post.title }}</a>
-        {% endif %}
-        <p>{{ post.excerpt | strip_html| truncate:75,'...' }}</p>
+        {% case post.layout %}
+            {% when 'media' %}
+            <a class="excerpt" href="{{ post.media.link }}">
+            {% case post.media.type %}
+            {% when 'qmkg' %}
+            我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
+            {% when 'changba' %}
+            我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
+            {% endcase %}
+            {{ post.title }}</a>
+            <p>{{ post.media.content | strip_html | truncate:75, '...'}}</p>
+
+            {% when 'post' %}
+            <a class="excerpt" href="{{ post.url }}">{{ post.post.title }}</a>
+            {% case post.post.type %}                        
+            {% when 'article' %}            
+            {% assign post-content = post.excerpt %}
+            {% when 'breif' %}
+            {% assign post-content = post.post.content %}
+            {% endcase %}
+            <p>{{ post-content | strip_html | truncate:75, '...' }}</p>
+        {% endcase %}        
     </li>
     {% endfor %}
     </ul></li></ul>
