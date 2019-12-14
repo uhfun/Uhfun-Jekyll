@@ -437,11 +437,11 @@
     margin-bottom: 5px;
     font-family: Microsoft Yahei, "微软雅黑", "Helvetica Neue", Helvetica, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
 
-    &::before {
+    &::after {
       font-weight: 600;
       position: absolute;
       top: 0;
-      left: -15px;
+      left: 80px;
       content: '#';
       color: $base-color;
     }

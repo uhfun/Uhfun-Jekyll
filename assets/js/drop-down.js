@@ -1,1 +1,1 @@
-$(document).ready(()=>{$(".navbar-burger").click(()=>{$(".navbar-burger").toggleClass("is-active");$(".navbar-menu").slideToggle(400).addClass("is-active")})});
+$(document).ready(()=>{$(".navbar-burger").click(()=>{$(".navbar-burger").toggleClass("is-active");$(".navbar-menu").slideToggle(400)})});
