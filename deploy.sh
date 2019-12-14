@@ -5,7 +5,7 @@ echo '重新编译生成静态文件' && bundle install && bundle exec jekyll bu
 cd _site
 echo '自定义域名' && echo 'uhfun.cn' > CNAME
 git config user.email "2512500628@qq.com"
-git config user.name "unfun"
+git config user.name "uhfun"
 git add -A .
 git commit -m "Commit ${CI_COMMIT_ID} ${CI_COMMIT_MESSAGE} to branch gh-pages"
 echo '提交重新生成的静态资源' && git push origin gh-pages
