@@ -7,5 +7,5 @@ echo '自定义域名' && echo 'uhfun.cn' > CNAME
 git config user.email "2512500628@qq.com"
 git config user.name "unfun"
 git add -A .
-git commit -m "Commit: ${CI_COMMIT_ID}, ${CI_COMMIT_MESSAGE} to branch gh-pages"
+git commit -m "Commit ${CI_COMMIT_ID} ${CI_COMMIT_MESSAGE} to branch gh-pages"
 echo '提交重新生成的静态资源' && git push origin gh-pages
