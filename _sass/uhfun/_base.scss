@@ -94,6 +94,7 @@ ul,
 ol {
   margin-left: $spacing-unit;
 }
+
 .content ul {
   margin-top: 0px !important;
 }
@@ -243,6 +244,10 @@ pre {
 /**
  * Icons
  */
+
+svg {
+  font-size: 10px !important;
+}
 
 .svg-icon {
   width: 16px;

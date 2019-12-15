@@ -404,17 +404,24 @@
         align-items: center;
       }
 
-      .breif-tag-date {
+      .breif-tag {
+        margin-top: 25px !important;
+        svg {
+          color: $base-color !important;
+        }
+      }
+
+      .breif-footer {
         font-size: smaller;
         color: #161616;
         margin-left: auto;
         margin-right: 5%;
-        margin-top: 15px;
+        margin-top: 10px;
         color: #7a8b9a !important;
 
         a {
           color: $base-color !important;
-          margin-right: 5px;
+          margin-left: 5px;
 
           &:hover {
             color: $minor-color !important;
@@ -424,7 +431,7 @@
 
       .title-content {
 
-        font-size: .875rem !important;
+        font-size: .95rem !important;
         position: relative;
 
         .quote-left {
