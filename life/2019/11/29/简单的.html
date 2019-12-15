@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="zh-CN"><head>
+<html lang="zh-CN">
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,9 +38,16 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/img/favicon-32x32.ico">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/assets/css/main.css"><link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" /><script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" />
+  
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
-</head><body><header class="navbar has-shadow is-spaced" role="banner">
+</head>
+<body>
+  <header class="navbar has-shadow is-spaced" role="banner">
   <div class="container">
     
     
@@ -59,6 +67,12 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class='navbar-item' href='/'>HOME</a>
+        
+        
+        
+        
+        
+        
         
         
         
@@ -108,14 +122,67 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <a class="navbar-item" href="/tech/">
           TECH
         </a>
         
         
+        
+        
+        
         <a class="navbar-item" href="/life/">
           LIFE
         </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -142,13 +209,15 @@
     </div>
     
   </div>
-</header><div class="section">
+</header>
+  <div class="section">
     <div class="container">
       <article class="page">
   <div class="content">
     <article class="post">
   
   <h1 class="title is-spaced">简单的</h1>
+  
   
   
   <div class="tags">
@@ -168,7 +237,8 @@
             2019-11-29
         </span>
     </div>
-</div><div class='post-img'>
+</div>
+  <div class='post-img'>
     
     
 
@@ -177,7 +247,7 @@
   </div>
   <div class='post-content'>
     
-    <p>131231213</p>
+    <p>建大时代峻峰束带结发世纪东方四大行覅US很多覅还是收到了发生的回复哦UI红皮未如期完全噢IEUR欧文缷</p>
     
     
 
@@ -245,7 +315,9 @@
     
   </div>
 
-</article><div id="gitmentContainer"></div>
+</article>
+
+<div id="gitmentContainer"></div>
 <link rel="stylesheet" href="/assets/css/default.css">
 <script src="/assets/js/gitment.js"></script>
 <script>
@@ -265,11 +337,13 @@ var gitment = new Gitment({
 });
 gitment.render('gitmentContainer');
 </script>
+
   </div>
 </article>
 
     </div>
-  </div><footer class="footer">
+  </div>
+  <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <p>
@@ -297,21 +371,24 @@ gitment.render('gitmentContainer');
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script>
-    $('.breif-content-title a').each((i, e) => {
+    $('.breif-content .content .title-content').each((i, e) => {
         $bt = $(e);
         const hashCode = $bt.text().hashCode();
         const list = [
         
-        '#ff9207bf',
+        '#f16181',
         
-        '#ff0000c7',
+        '#fd7676',
         
-        '#41c7b6b3',
+        '#53aee4',
         ];       
-        const color =  list[(hashCode % list.length)];
+        const n = hashCode % list.length;
+        const color =  list[(n < 0 ? n + list.length : n)];
         console.log(color)
-        $bt.css('color', color)
+        $bt.css('color', color);
+        $bt.children('.breif-quote').css('color', color);
     })
-</script></body>
+</script>
+</body>
 <script src="/assets/js/date-format.js"></script>
 </html>
