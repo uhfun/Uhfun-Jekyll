@@ -8,11 +8,15 @@ code {
 }
 
 .highlight {
+  pre {
+    border: none;
+  }
+  margin: 20px 0px;
   background: #fff;
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #f8f8f8;
+    background: #f5f5f5;
     border-radius: 0.2em;
   }
 
@@ -34,7 +38,8 @@ code {
 
   // Keyword
   .o {
-    font-weight: bold
+    font-weight: bold;
+    color: #2d9dee
   }
 
   // Operator
@@ -51,7 +56,7 @@ code {
 
   // Comment.Preproc
   .c1 {
-    color: #998;
+    color: #8c8b8b;
     font-style: italic
   }
 
@@ -126,14 +131,18 @@ code {
     color: #a00
   }
 
+  .k {
+    color: #ce0fad;
+  }
+
   // Generic.Traceback
   .kc {
     font-weight: bold
   }
 
   // Keyword.Constant
-  .kd {
-    font-weight: bold
+  .kd {    
+    color: #c35bb1
   }
 
   // Keyword.Declaration
@@ -159,12 +168,16 @@ code {
 
   // Literal.Number
   .s {
-    color: #d14
+    color: #24c5b7
+  }
+
+  .n {
+    color: #303031
   }
 
   // Literal.String
   .na {
-    color: #008080
+    color: #da4f4f
   }
 
   // Name.Attribute
@@ -174,8 +187,11 @@ code {
 
   // Name.Builtin
   .nc {
-    color: #458;
-    font-weight: bold
+    color: #c78829;    
+  }
+
+  .nd {
+    color: #2439d2;
   }
 
   // Name.Class
@@ -196,8 +212,7 @@ code {
 
   // Name.Exception
   .nf {
-    color: #900;
-    font-weight: bold
+    color: #de7777;
   }
 
   // Name.Function
@@ -207,7 +222,7 @@ code {
 
   // Name.Namespace
   .nt {
-    color: #000080
+    color: #2564f5
   }
 
   // Name.Tag

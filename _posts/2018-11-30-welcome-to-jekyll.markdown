@@ -33,6 +33,48 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 ```
 
+```html
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <img src="https://bulma.io/images/placeholders/128x128.png" alt="Image">
+      </figure>
+    </div>   
+  </article>
+</div>
+```
+
+```java
+public class DepartmentNode implements Serializable {
+
+    private static final long serialVersionUID = 4845938329488625366L;
+    @ApiModelProperty(value = "组织结构id", required = true, example = "ej6bqq1gPq")
+    private String id;
+
+    @ApiModelProperty(value = "节点类型", required = true, example = "department", allowableValues = "shop, department")
+    private String type;
+
+    @ApiModelProperty(value = "子级节点", allowEmptyValue = true)
+    private List<DepartmentNode> belows = Lists.newArrayList();
+
+    @ApiModelProperty(value = "当前节点用户")
+    private List<User> currentNodeUsers = Lists.newArrayList();
+
+    private int userTotal;
+
+    public static DepartmentNode fromDepartment(Department dept) {
+        DepartmentNode node = new DepartmentNode();
+        node.setId(dept.getId());
+        node.setName(dept.getName());
+        node.setOrgId(dept.getOrgId());
+        node.setType(dept.getType());
+        node.setBelows(Lists.newArrayList());
+        return node;
+    }
+}
+```
+
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
