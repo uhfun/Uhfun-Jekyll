@@ -153,11 +153,12 @@ table td { border: 1px solid #e8e8e8; }
 .post_article .content .excerpt p:hover, .post_article .content .excerpt:hover { cursor: pointer; }
 .post_article .content .tags .container span, .post_article .content .tags .container a { font-size: .875rem !important; }
 
+.post_breif { padding-bottom: 1rem; }
 .post_breif .breif-content { position: relative; width: 90%; height: 80%; background: #fff; box-shadow: 3px 4px 12px #e2dfdf; border-radius: 25px; margin-left: auto; }
 .post_breif .breif-content .content { align-items: center; display: flex; flex-direction: column; padding: 0 25px; }
 .post_breif .breif-content .content .column { display: flex !important; justify-content: center; align-items: center; }
 .post_breif .breif-content .content .breif-tag-date { font-size: smaller; color: #161616; margin-left: auto; margin-right: 5%; margin-top: 15px; color: #7a8b9a !important; }
-.post_breif .breif-content .content .breif-tag-date a { color: #0bd2b4d1 !important; margin-right: 10px; }
+.post_breif .breif-content .content .breif-tag-date a { color: #0bd2b4d1 !important; margin-right: 5px; }
 .post_breif .breif-content .content .breif-tag-date a:hover { color: #161616 !important; }
 .post_breif .breif-content .content a { position: relative; }
 .post_breif .breif-content .content a .quote-left { left: -50px; }
