@@ -18,15 +18,15 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class='navbar-item' href='/'>HOME</a>
-        {%- for path in page_paths -%}
+        {% for path in page_paths %}
         {% assign my_page = site.html_pages | where: "path", path | first %}
         {% assign my_path = my_page.title | downcase | append:'/index.html' %}
         {% if my_path == my_page.path %}
         <a class="navbar-item" href="{{ my_page.url | relative_url }}">
           {{ my_page.title | escape | upcase}}
         </a>
-        {%- endif -%}
-        {%- endfor -%}
+        {% endif %}
+        {% endfor %}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
               <!-- <img class="is-rounded" src="{{ site.avatar }}"> -->

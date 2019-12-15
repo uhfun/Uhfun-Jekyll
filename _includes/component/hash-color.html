@@ -1,13 +1,15 @@
 <script>
-    $('.breif-content-title a').each((i, e) => {
+    $('.breif-content .content .title-content').each((i, e) => {
         $bt = $(e);
         const hashCode = $bt.text().hashCode();
         const list = [
         {% for item in site.breif.color %}
         '{{ item }}',
         {% endfor %}];       
-        const color =  list[(hashCode % list.length)];
+        const n = hashCode % list.length;
+        const color =  list[(n < 0 ? n + list.length : n)];
         console.log(color)
-        $bt.css('color', color)
+        $bt.css('color', color);
+        $bt.children('.breif-quote').css('color', color);
     })
 </script>

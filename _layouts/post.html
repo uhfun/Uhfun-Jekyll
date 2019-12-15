@@ -7,7 +7,7 @@ layout: page
   {% endif %}
   {% assign tags = page.tags %}
   {% assign date = page.date%}
-  {%- include component/tag-and-date.html -%}
+  {% include component/tag-and-date.html %}
   <div class='post-img'>
     {% assign head-img = page.head-img %}
     {% include component/head-img.html %}
@@ -47,6 +47,6 @@ layout: page
   </div>
 
 </article>
-{%- if site.gitment.name -%}
-{%- include gitment.html -%}
-{%- endif -%}
+{% if site.gitment.name %}
+{% include gitment.html %}
+{% endif %}

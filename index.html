@@ -7,9 +7,9 @@ layout: page
   <div class="container sketch-container">
     {% case sketch.layout %}
     {% when 'media' %}
-    {%- include sketch/media/general.html -%}
+    {% include sketch/media/general.html %}
     {% when 'post' %}
-    {%- include sketch/post/general.html -%}
+    {% include sketch/post/general.html %}
     {% endcase %}
   </div>
   {% endfor %}
