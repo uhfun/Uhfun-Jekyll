@@ -201,15 +201,16 @@ table td { border: 1px solid #e8e8e8; }
 /** Syntax highlighting styles */
 code { background-color: #f8f8f8 !important; margin: 0 4px; padding: 0.3em 0.6em 0.3em !important; }
 
-.highlight { background: #fff; }
-.highlighter-rouge .highlight { background: #f8f8f8; border-radius: 0.2em; }
+.highlight { margin: 20px 0px; background: #fff; }
+.highlight pre { border: none; }
+.highlighter-rouge .highlight { background: #f5f5f5; border-radius: 0.2em; }
 .highlight .c { color: #998; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { font-weight: bold; }
-.highlight .o { font-weight: bold; }
+.highlight .o { font-weight: bold; color: #2d9dee; }
 .highlight .cm { color: #998; font-style: italic; }
 .highlight .cp { color: #999; font-weight: bold; }
-.highlight .c1 { color: #998; font-style: italic; }
+.highlight .c1 { color: #8c8b8b; font-style: italic; }
 .highlight .cs { color: #999; font-weight: bold; font-style: italic; }
 .highlight .gd { color: #000; background-color: #fdd; }
 .highlight .gd .x { color: #000; background-color: #faa; }
@@ -223,22 +224,25 @@ code { background-color: #f8f8f8 !important; margin: 0 4px; padding: 0.3em 0.6em
 .highlight .gs { font-weight: bold; }
 .highlight .gu { color: #aaa; }
 .highlight .gt { color: #a00; }
+.highlight .k { color: #ce0fad; }
 .highlight .kc { font-weight: bold; }
-.highlight .kd { font-weight: bold; }
+.highlight .kd { color: #c35bb1; }
 .highlight .kp { font-weight: bold; }
 .highlight .kr { font-weight: bold; }
 .highlight .kt { color: #458; font-weight: bold; }
 .highlight .m { color: #099; }
-.highlight .s { color: #d14; }
-.highlight .na { color: #008080; }
+.highlight .s { color: #24c5b7; }
+.highlight .n { color: #303031; }
+.highlight .na { color: #da4f4f; }
 .highlight .nb { color: #0086B3; }
-.highlight .nc { color: #458; font-weight: bold; }
+.highlight .nc { color: #e89f30; }
+.highlight .nd { color: #2439d2; }
 .highlight .no { color: #008080; }
 .highlight .ni { color: #800080; }
 .highlight .ne { color: #900; font-weight: bold; }
-.highlight .nf { color: #900; font-weight: bold; }
+.highlight .nf { color: #de7777; }
 .highlight .nn { color: #555; }
-.highlight .nt { color: #000080; }
+.highlight .nt { color: #2564f5; }
 .highlight .nv { color: #008080; }
 .highlight .ow { font-weight: bold; }
 .highlight .w { color: #bbb; }
