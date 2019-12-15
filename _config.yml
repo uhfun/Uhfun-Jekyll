@@ -57,9 +57,12 @@ gitment:
 
 breif:
   color: 
-    - "#ff9207bf"
-    - "#ff0000c7"
-    - "#41c7b6b3"
+    - "#f16181"
+    # pink
+    - "#fd7676"
+    # red
+    - "#53aee4"
+    # blue
 
 defaults:
   -

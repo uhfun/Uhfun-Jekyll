@@ -1,10 +1,18 @@
-<div class='breif-content'>
-    <div class='breif-content-title'>
-        <a href="{{ sketch.url }}">
-            {{ sketch.post.title }} - {{ sketch.post.content}}
-        </a>        
+<div class='box breif-content'>
+    <div class="content">
+        <a class='title-content' href="{{ sketch.url }}">
+            <span class="breif-quote quote-left">“</span>
+            {{ sketch.post.title }} - {{ sketch.post.content}}             
+            <span class="breif-quote quote-right">”</span>                  
+        </a>          
+        {% if sketch.date %}              
+        <span class="breif-tag-date">
+            {% for tag in tags %}
+            <a href="{{ tag | url_encode | downcase | prepend: '/tag/'}}">{{ tag }}</a>
+            {% endfor %}
+            发表于 {{ sketch.date | date: "%Y-%m-%d" }}
+        </span>
+        {% endif %}   
     </div>
-    {% assign tags = sketch.tags %}
-        {% assign date = sketch.date %}
-        {%- include component/tag-and-date.html -%}
+</div>
 </div>
