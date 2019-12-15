@@ -38,8 +38,9 @@ layout: page
     {% assign tmpYear = year %}   
     {% endif %}
     <li>
-        {{ day }}日: 
-        {% case post.layout %}
+        <div class="day" onclick="$(this).next().children('p').slideToggle(400)">{{ day }}日: </div>   
+        <div class="day-content">
+            {% case post.layout %}
             {% when 'media' %}
             <a class="excerpt" href="{{ post.media.link }}">
             {% case post.media.type %}
@@ -60,7 +61,8 @@ layout: page
             {% assign post-content = post.post.content %}
             {% endcase %}
             <p>{{ post-content | strip_html | truncate:75, '...' }}</p>
-        {% endcase %}        
+        {% endcase %} 
+        </div>                    
     </li>
     {% endfor %}
     </ul></li></ul>
