@@ -177,9 +177,11 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list li { margin: .6em 0; line-height: 1.8em; color: #8c8787; overflow: hidden; text-overflow: ellipsis; display: flex; }
 .category-posts .month-list .month .day-list li .day { width: 300px; max-width: max-content; cursor: pointer; height: 100%; }
 .category-posts .month-list .month .day-list li .day-content { padding-left: .4rem; }
-.category-posts .month-list .month .day-list li .day-content a { border: none !important; color: #161616; font-weight: 500; }
-.category-posts .month-list .month .day-list li .day-content a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
-.category-posts .month-list .month .day-list li .day-content p { font-size: 0.9rem !important; margin: .5rem 0 .5rem; color: #333e48 !important; }
+.category-posts .month-list .month .day-list li .day-content .excerpt { border: none !important; color: #161616; font-weight: 500; }
+.category-posts .month-list .month .day-list li .day-content .excerpt:hover { color: #0bd2b4d1 !important; cursor: pointer; }
+.category-posts .month-list .month .day-list li .day-content .day-post-content .day-post-tags a { color: #7a8b9a !important; margin-right: 5px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; }
+.category-posts .month-list .month .day-list li .day-content .day-post-content .day-post-tags a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
+.category-posts .month-list .month .day-list li .day-content .day-post-content p { font-size: 0.9rem !important; margin: .5rem 0 .5rem; color: #333e48 !important; }
 
 /** Syntax highlighting styles */
 code { background-color: #f8f8f8 !important; margin: 0 4px; padding: 0.3em 0.6em 0.3em !important; }
