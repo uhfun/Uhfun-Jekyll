@@ -382,9 +382,10 @@
 // breif sketch
 .post_breif {
   padding-bottom: 1rem;
+
   .breif-content {
     position: relative;
-    width: 90%;
+    width: 85%;
     height: 80%;
     background: #fff;
     box-shadow: 3px 4px 12px #e2dfdf;
@@ -421,7 +422,9 @@
         }
       }
 
-      a {
+      .title-content {
+
+        font-size: .875rem !important;
         position: relative;
 
         .quote-left {
