@@ -381,6 +381,7 @@
 
 // breif sketch
 .post_breif {
+  padding-bottom: 1rem;
   .breif-content {
     position: relative;
     width: 90%;
@@ -412,7 +413,7 @@
 
         a {
           color: $base-color !important;
-          margin-right: 10px;
+          margin-right: 5px;
 
           &:hover {
             color: $minor-color !important;
