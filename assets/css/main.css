@@ -175,7 +175,7 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list { list-style: none; overflow: hidden; padding-left: 1.2rem; margin-left: 0px !important; }
 @media screen and (max-width: 500px) { .category-posts .month-list .month .day-list { padding-left: .8rem; } }
 .category-posts .month-list .month .day-list li { margin: .6em 0; line-height: 1.8em; color: #8c8787; overflow: hidden; text-overflow: ellipsis; display: flex; }
-.category-posts .month-list .month .day-list li .day { width: 300px; max-width: max-content; cursor: pointer; }
+.category-posts .month-list .month .day-list li .day { width: 300px; max-width: max-content; cursor: pointer; height: 100%; }
 .category-posts .month-list .month .day-list li .day-content { padding-left: .4rem; }
 .category-posts .month-list .month .day-list li .day-content a { border: none !important; color: #161616; font-weight: 500; }
 .category-posts .month-list .month .day-list li .day-content a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
