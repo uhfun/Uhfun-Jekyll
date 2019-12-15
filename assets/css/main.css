@@ -156,7 +156,7 @@ table td { border: 1px solid #e8e8e8; }
 .post_article .content .tags .container span, .post_article .content .tags .container a { font-size: .875rem !important; }
 
 .post_breif { padding-bottom: 1rem; }
-.post_breif .breif-content { position: relative; width: 85%; height: 80%; background: #fff; box-shadow: 3px 4px 12px #e2dfdf; border-radius: 25px; margin-left: auto; }
+.post_breif .breif-content { position: relative; width: 85%; height: 80%; background: #fff; box-shadow: 3px 4px 20px #ececec; border-radius: 25px; margin-left: auto; }
 .post_breif .breif-content .content { align-items: center; display: flex; flex-direction: column; padding: 0 25px; }
 .post_breif .breif-content .content .column { display: flex !important; justify-content: center; align-items: center; }
 .post_breif .breif-content .content .breif-tag { margin-top: 25px !important; }
@@ -168,7 +168,7 @@ table td { border: 1px solid #e8e8e8; }
 .post_breif .breif-content .content .title-content .quote-left { left: -50px; }
 .post_breif .breif-content .content .title-content .quote-right { right: -50px; }
 .post_breif .breif-content .content .title-content .breif-quote { position: absolute; display: block; top: -10px; width: 60px; height: 60px; font-size: 40px; line-height: 60px; color: #0bd2b4d1; font-family: sans-serif; text-align: center; z-index: 1; }
-.post_breif .breif-content:after { position: absolute; display: inline-block; bottom: -9px; right: 60px; width: 0; height: 0px; content: ''; border-style: solid; border-width: 10px; border-color: #fff #fff transparent transparent; transform: rotate(135deg); box-shadow: 1.2px -4.8px 5px -1px #e0dfdf; }
+.post_breif .breif-content:after { position: absolute; display: inline-block; bottom: -9px; right: 60px; width: 0; height: 0px; content: ''; border-style: solid; border-width: 10px; border-color: #fff #fff transparent transparent; transform: rotate(135deg); box-shadow: 1.2px -4.8px 10px -1px #ececec; }
 
 .pagination { margin-top: 40px !important; }
 
