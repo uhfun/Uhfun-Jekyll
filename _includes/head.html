@@ -16,7 +16,7 @@
   {% else %}
   {% assign og-title = site.SEOTitle %}
   {% endif %}
-  <meta property="og:title" content="{{ og-title | url_encode }}" />
+  <meta property="og:title" content="{{ og-title }}" />
 
   <meta property="og:image" content='{{ site.url }}{{ "/assets" | append: site.avatar | relative_url }}' />
 
