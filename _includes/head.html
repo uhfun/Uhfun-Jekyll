@@ -12,10 +12,11 @@
   {% elsif page.media.title %}
   {% assign og-title = page.media.title %}
   {% elsif page.title %}
-  {% assign og-title = page.title %}
+  {% assign og-title = page.title %}  
   {% else %}
-  {% assign og-title = site.SEOTitle %}
+  {% assign og-title = site.sub_title %}
   {% endif %}
+  {% assign og-title = og-title | append:' | ' | append:site.title %}
   <meta property="og:title" content="{{ og-title }}" />
 
   <meta property="og:image" content='{{ site.url }}{{ "/assets" | append: site.avatar | relative_url }}' />
@@ -33,9 +34,9 @@
   {% for tag in page.tags %}
   <meta property="article:tag" content="{{ tag }}">
   {% endfor %}
-  <meta property="og:site_name" content="{{ site.SEOTitle }}">
+  <meta property="og:site_name" content="{{ site.sub_title | append: site.title }}">
 
-  <title>{{ og-title }} | {{ site.title }}</title>
+  <title>{{ og-title }}</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{ '/assets/img/favicon-32x32.ico' | relative_url }}">
