@@ -5,19 +5,14 @@ code {
   background-color: #f8f8f8 !important;
   margin: 0 4px;
   padding: 0.3em 0.6em 0.3em !important;
+  span {
+    background-color: #f8f8f8;
+  }
 }
 
 .highlight {
   pre {
     border: none;
-
-    code {
-      background-color: #f5f5f5 !important;
-
-      span {
-        background-color: #f5f5f5;
-      }
-    }
   }
 
   margin: 20px 0px;
@@ -25,7 +20,7 @@ code {
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #f5f5f5;
+    background: #f8f8f8;
     border-radius: 0.2em;
   }
 
@@ -195,7 +190,7 @@ code {
 
   // Name.Builtin
   .nc {
-    color: #e89f30;
+    color: #e29e39;
   }
 
   .nd {
