@@ -10,7 +10,16 @@ code {
 .highlight {
   pre {
     border: none;
+
+    code {
+      background-color: #f5f5f5 !important;
+
+      span {
+        background-color: #f5f5f5;
+      }
+    }
   }
+
   margin: 20px 0px;
   background: #fff;
   @extend %vertical-rhythm;
@@ -141,7 +150,7 @@ code {
   }
 
   // Keyword.Constant
-  .kd {    
+  .kd {
     color: #c35bb1
   }
 
@@ -168,7 +177,7 @@ code {
 
   // Literal.Number
   .s {
-    color: #24c5b7
+    color: #1ea2b6
   }
 
   .n {
@@ -187,7 +196,7 @@ code {
 
   // Name.Builtin
   .nc {
-    color: #e89f30;    
+    color: #e89f30;
   }
 
   .nd {
@@ -222,7 +231,7 @@ code {
 
   // Name.Namespace
   .nt {
-    color: #2564f5
+    color: #4c94fc
   }
 
   // Name.Tag
