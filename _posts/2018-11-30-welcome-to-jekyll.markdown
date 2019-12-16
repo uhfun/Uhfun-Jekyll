@@ -25,13 +25,6 @@ You’ll find this post in your `_posts` directory. Go ahead and edit it and re-
 Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
 Jekyll also offers powerful support for code snippets:
-```ruby
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-```
 
 ```html
 <div class="box">
@@ -48,30 +41,30 @@ print_hi('Tom')
 ```java
 public class DepartmentNode implements Serializable {
 
-    private static final long serialVersionUID = 4845938329488625366L;
-    @ApiModelProperty(value = "组织结构id", required = true, example = "ej6bqq1gPq")
-    private String id;
+  private static final long serialVersionUID = 4845938329488625366L;
+  @ApiModelProperty(value = "组织结构id", required = true, example = "ej6bqq1gPq")
+  private String id;
 
-    @ApiModelProperty(value = "节点类型", required = true, example = "department", allowableValues = "shop, department")
-    private String type;
+  // @ApiModelProperty(value = "节点类型", required = true, example = "department", allowableValues = "shop, department")
+  private String type;
 
-    @ApiModelProperty(value = "子级节点", allowEmptyValue = true)
-    private List<DepartmentNode> belows = Lists.newArrayList();
+  @ApiModelProperty(value = "子级节点", allowEmptyValue = true)
+  private List<DepartmentNode> belows = Lists.newArrayList();
 
-    @ApiModelProperty(value = "当前节点用户")
-    private List<User> currentNodeUsers = Lists.newArrayList();
+  @ApiModelProperty(value = "当前节点用户")
+  private List<User> currentNodeUsers = Lists.newArrayList();
 
-    private int userTotal;
+  private int userTotal;
 
-    public static DepartmentNode fromDepartment(Department dept) {
-        DepartmentNode node = new DepartmentNode();
-        node.setId(dept.getId());
-        node.setName(dept.getName());
-        node.setOrgId(dept.getOrgId());
-        node.setType(dept.getType());
-        node.setBelows(Lists.newArrayList());
-        return node;
-    }
+  public static DepartmentNode fromDepartment(Department dept) {
+      DepartmentNode node = new DepartmentNode();
+      node.setId(dept.getId());
+      node.setName(dept.getName());
+      node.setOrgId(dept.getOrgId());
+      node.setType(dept.getType());
+      node.setBelows(Lists.newArrayList());
+      return node;
+  }
 }
 ```
 
