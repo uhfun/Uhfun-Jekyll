@@ -315,6 +315,10 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .gitment-header-like-btn { margin-right: 20px !important; }
 
+.utterances-comments-header { margin-top: 20px; display: flex; justify-content: space-between; }
+.utterances-comments-header a { color: #161616; font-weight: bold; }
+.utterances-comments-header a:hover { color: #0bd2b4d1 !important; }
+
 .utterances { max-width: 100%; margin: 0; margin-top: 20px; padding-top: 30px; border-top: 1px solid #d4d4d4; }
 
 /*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
