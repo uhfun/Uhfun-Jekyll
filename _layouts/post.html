@@ -47,6 +47,9 @@ layout: page
   </div>
 
 </article>
+{% if site.utterances %}
+{% include utterances.html %}
+{% endif %}
 {% if site.gitment.name %}
 {% include gitment.html %}
 {% endif %}
