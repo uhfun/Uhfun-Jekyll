@@ -3,11 +3,11 @@ layout: post
 
 e-unique-title: 19_Nov_29_Fri_simple
 post: 
-  title: "✅"
+  title: "✅222"
   type: breif
-  content: "莫名其妙的"
+  content: "完成哒哒哒"
 
-date: 2019-11-29 14:01:38 +0800
+date: 2019-12-16 08:01:38 +0800
 categories: life
 tags: 
   - 吐槽

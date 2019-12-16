@@ -381,22 +381,44 @@
 
 // breif sketch
 .post_breif {
-  padding-bottom: 1rem;
+
+  @include media-max(500px) {
+    padding-bottom: 1rem;
+  }
 
   .breif-content {
-    position: relative;
-    width: 85%;
-    height: 80%;
-    background: #fff;
-    box-shadow: 3px 4px 20px #ececec;
-    border-radius: 25px;
-    margin-left: auto;
+    @include media-max(500px) {
+      background-color: white;
+      border-radius: 6px;
+      box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+      color: #4a4a4a;
+      display: block;
+      padding: 1.25rem !important;
+      position: relative;
+      width: 85%;
+      height: 80%;
+      background: #fff;
+      box-shadow: 3px 4px 20px #ececec;
+      border-radius: 25px;
+      margin-left: auto;
+    }
 
     .content {
-      align-items: center;
+      @include media-max(500px) {
+        align-items: center;
+        padding: 0 25px;
+      }
+
+      .tags {
+        @include media-max(500px) {
+          display: none;
+        }
+
+        display: flex;
+      }
+
       display: flex;
       flex-direction: column;
-      padding: 0 25px;
 
       .column {
         display: flex !important;
@@ -406,12 +428,17 @@
 
       .breif-tag {
         margin-top: 25px !important;
+
         svg {
           color: $base-color !important;
         }
       }
 
       .breif-footer {
+        @include media-min(500px) {
+          display: none;
+        }
+
         font-size: smaller;
         color: #161616;
         margin-left: auto;
@@ -433,6 +460,11 @@
 
         font-size: .95rem !important;
         position: relative;
+        margin-bottom: 1rem;
+
+        @include media-max(500px) {
+          margin-bottom: 0px;
+        }
 
         .quote-left {
           left: -50px;
@@ -443,6 +475,10 @@
         }
 
         .breif-quote {
+          @include media-min(500px) {
+            display: none;
+          }
+
           position: absolute;
           display: block;
           top: -10px;
@@ -458,19 +494,21 @@
       }
     }
 
-    &:after {
-      position: absolute;
-      display: inline-block;
-      bottom: -9px;
-      right: 60px;
-      width: 0;
-      height: 0px;
-      content: '';
-      border-style: solid;
-      border-width: 10px;
-      border-color: #fff #fff transparent transparent;
-      transform: rotate(135deg);
-      box-shadow: 1.2px -4.8px 10px -1px #ececec;
+    @include media-max(500px) {
+      &:after {
+        position: absolute;
+        display: inline-block;
+        bottom: -9px;
+        right: 60px;
+        width: 0;
+        height: 0px;
+        content: '';
+        border-style: solid;
+        border-width: 10px;
+        border-color: #fff #fff transparent transparent;
+        transform: rotate(135deg);
+        box-shadow: 9px -12px 10px -1px #eeeeee;
+      }
     }
   }
 
