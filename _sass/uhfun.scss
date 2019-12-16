@@ -59,6 +59,13 @@ $fullhd: 1200px;
   }
 }
 
+
+@mixin media-min($min) {
+  @media screen and (min-width: $min) {
+    @content;
+  }
+}
+
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;

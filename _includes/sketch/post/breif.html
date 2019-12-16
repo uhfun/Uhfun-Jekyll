@@ -1,10 +1,13 @@
-<div class='box breif-content'>
+<div class='breif-content'>
     <div class="content">
         <a class='title-content' href="{{ sketch.url }}">
             <span class="breif-quote quote-left">“</span>
-            {{ sketch.post.title }} - {{ sketch.post.content}}             
+            {{ sketch.post.content}}             
             <span class="breif-quote quote-right">”</span>                  
-        </a>          
+        </a>         
+        {% assign tags = sketch.tags %}
+        {% assign date = sketch.date %}
+        {% include component/tag-and-date.html %} 
         {% if sketch.date %}              
         <span class="breif-footer breif-tag">
             <span class="icon is-small">
