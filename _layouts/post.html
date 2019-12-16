@@ -48,7 +48,10 @@ layout: page
 
 </article>
 {% if site.utterances %}
-Comments : &nbsp;
+<div class="utterances-comments-header">
+  <span>Comments : &nbsp;</span>
+  <a href="https://github.com/{{ site.utterances.repo }}">Issue Page</a>
+</div>
 {% include utterances.html %}
 {% endif %}
 {% if site.gitment.name %}

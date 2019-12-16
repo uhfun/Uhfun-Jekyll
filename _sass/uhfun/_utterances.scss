@@ -1,3 +1,16 @@
+.utterances-comments-header {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    a {
+        color: $minor-color;
+        font-weight: bold;
+        &:hover {
+            color: $base-color !important;
+        }
+    }
+}
+
 .utterances {
     max-width: 100%;
     margin: 0;
