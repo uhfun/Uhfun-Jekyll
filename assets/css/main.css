@@ -206,12 +206,11 @@ table td { border: 1px solid #e8e8e8; }
 
 /** Syntax highlighting styles */
 code { background-color: #f8f8f8 !important; margin: 0 4px; padding: 0.3em 0.6em 0.3em !important; }
+code span { background-color: #f8f8f8; }
 
 .highlight { margin: 20px 0px; background: #fff; }
 .highlight pre { border: none; }
-.highlight pre code { background-color: #f5f5f5 !important; }
-.highlight pre code span { background-color: #f5f5f5; }
-.highlighter-rouge .highlight { background: #f5f5f5; border-radius: 0.2em; }
+.highlighter-rouge .highlight { background: #f8f8f8; border-radius: 0.2em; }
 .highlight .c { color: #998; font-style: italic; }
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
 .highlight .k { font-weight: bold; }
@@ -243,7 +242,7 @@ code { background-color: #f8f8f8 !important; margin: 0 4px; padding: 0.3em 0.6em
 .highlight .n { color: #303031; }
 .highlight .na { color: #da4f4f; }
 .highlight .nb { color: #0086B3; }
-.highlight .nc { color: #e89f30; }
+.highlight .nc { color: #e29e39; }
 .highlight .nd { color: #2439d2; }
 .highlight .no { color: #008080; }
 .highlight .ni { color: #800080; }
