@@ -315,6 +315,8 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .gitment-header-like-btn { margin-right: 20px !important; }
 
+.utterances { max-width: 100%; margin: 0; }
+
 /*! bulma.io v0.8.0 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround { from { transform: rotate(0deg); }
   to { transform: rotate(359deg); } }

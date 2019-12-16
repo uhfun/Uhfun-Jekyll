@@ -354,26 +354,14 @@
 
 </article>
 
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="/assets/css/default.css">
-<script src="/assets/js/gitment.js"></script>
-<script>
-console.log('e-unique-title: 19_Nov_25_Mon_test, ' + 'title: 测试, ')
-var eTitle = '19_Nov_25_Mon_test';
-if (eTitle == '') {
-    eTitle = '测试';
-}
-var gitment = new Gitment({
-    owner: 'fu85',
-    id: eTitle ,
-    repo: 'uhfun_comments',
-    oauth: {
-        client_id: '84e2fe14ccc9f6d56240',
-        client_secret: '4fbad0f6ed21f166b24bd88d239a02f53ca326c6',
-    },
-});
-gitment.render('gitmentContainer');
+<script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
 </script>
+
 
   </div>
 </article>
