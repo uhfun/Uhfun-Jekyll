@@ -2,11 +2,11 @@
 layout: page
 ---
 <div class="container">
-    <div id='tag_cloud' class="tags tags-sup js-tags">
-        <a class="tag-button--all" href="/tag">
+    <div class="tag-cloud">
+        <!-- <a class="tag-button--all" href="/tag">
             Show All
             <sup>{{ site.posts.size }}</sup>
-        </a>
+        </a> -->
 
         {% assign tags_set = '' %}
         {% for tag in site.tags %}
@@ -17,6 +17,10 @@ layout: page
         {% endfor %}
 
         {% assign tags_set = tags_set | split:'###' %}
+        {% assign tags_size = tags_set.size %}
+
+        <div class="tag-cloud-tags">    
+
         {% for _tag in tags_set %}
             {% assign _size = 0 %}
             {% for tag in site.tags %}
@@ -25,11 +29,14 @@ layout: page
                     {% assign _size  = _size | plus:tag[1].size %}                    
                 {% endif %}
             {% endfor %}
-            <a class="tag-button" href="/tag/{{ _tag }}" >            
+            <a class="tag-button" href="/tag/{{ _tag }}" style="font-size: {{ _size | times:4.0 | divided_by: tags_size | plus: 1 }}rem !important; font-weight: {{ _size | times: 400.0 | divided_by: tags_size | plus: 400 }};" >            
                 {{ _tag }}            
-                <sup>{{ _size }}</sup>
+                <sup style="display: none;">{{ _size }}</sup>
             </a>
         {% endfor %}
+        </div>
+
+
     </div>
     {% assign current_tag = page.url | url_decode | replace:'/tag/','' | replace: '/', '' | downcase %}
     {% for post in site.posts %}  
