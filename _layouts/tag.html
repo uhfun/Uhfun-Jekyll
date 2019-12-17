@@ -40,36 +40,57 @@ layout: page
             </a>
         {% endfor %}
         </div>
-    </div>    
+    </div> 
     {% for post in site.posts %}  
     {% assign _tags = post.tags | downcase %}  
     {% if _tags contains current_tag or current_tag == '' %} 
+    <div class="container sketch-container">
+        <div class="post_article">
+            <a class="title" href="{{ post-link }}">
+                {% case post.layout %}
+                {% when 'media' %}
+                    {% case post.media.type %}
+                    {% when 'qmkg' %}
+                    我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
+                    {% when 'changba' %}
+                    我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
+                    {% endcase %}
+                    {{ post.media.title }}
+                    {% assign post-link = post.media.link %}
+                    {% assign post-content = post.media.content %}
+                {% when 'post' %}
+                    {% case post.post.type %}
+                    {% when 'article' %}            
+                    {% assign post-content = post.excerpt %}
+                    {% when 'breif' %}
+                    {% assign post-content = post.post.content %}  
+                    {% endcase %}
+                    {% assign post-link = post.url %}
+                    {{ post.post.title }}
+                {% endcase %}
+            </a>
 
-    {% case post.layout %}
-        {% when 'media' %}
-        <a class="excerpt" href="{{ post.media.link }}">
-        {% case post.media.type %}
-        {% when 'qmkg' %}
-        我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
-        {% when 'changba' %}
-        我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
-        {% endcase %}
-        《 {{ post.title }} 》</a>
-        {% assign post-content  = post.media.content %}
-
-        {% when 'post' %}           
-        <a class="excerpt" href="{{ post.url }}">{{ post.post.title }}</a>
-        {% case post.post.type %}                        
-        {% when 'article' %}            
-        {% assign post-content = post.excerpt %}
-        {% when 'breif' %}
-        {% assign post-content = post.post.content %}
-        {% endcase %}        
-    {% endcase %}
-    <div class="tag-post-content">                  
-        <p>{{ post-content | strip_html | truncate:75, '...' }}</p> 
-    </div> 
-
-    {% endif %}
+            <div class="content">
+                <div class='columns'>
+                    <div class="column">
+                        <p>
+                            <a class="excerpt" href="{{ post-link }}">
+                                {{ post-content | truncate:200,'...' }}
+                            </a>  
+                        </p>                        
+                        <div class="tags">
+                            <div class="container">
+                                <span class='formated-date' data-time="{{ post.date | date: '%Y/%m/%d %H:%M:%S' }}">
+                                    {{ post.date | date: "%Y-%m-%d" }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>                                    
+                </div>
+            </div>             
+        </div>
+    </div>    
+    {% endif %}        
     {% endfor %}
+  
 </div>
