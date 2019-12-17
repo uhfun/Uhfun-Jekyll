@@ -19,8 +19,9 @@ layout: page
         {% assign tags_set = tags_set | split:'###' %}
         {% assign tags_size = tags_set.size %}
 
-        <div class="tag-cloud-tags">    
+        {% assign current_tag = page.url | url_decode | replace:'/tag/','' | replace: '/', '' | downcase %}
 
+        <div class="tag-cloud-tags">    
         {% for _tag in tags_set %}
             {% assign _size = 0 %}
             {% for tag in site.tags %}
@@ -29,16 +30,15 @@ layout: page
                     {% assign _size  = _size | plus:tag[1].size %}                    
                 {% endif %}
             {% endfor %}
-            <a class="tag-button" href="/tag/{{ _tag }}" style="font-size: {{ _size | times:4.0 | divided_by: tags_size | plus: 1 }}rem !important; font-weight: {{ _size | times: 400.0 | divided_by: tags_size | plus: 400 }};" >            
+            <a class="tag-button {% if _tag == current_tag %} current-tag {% endif %}" href="/tag/{{ _tag }}" 
+            style="font-size: {{ _size | times:1.5 | divided_by: tags_size | plus: 1 }}rem !important; 
+            font-weight: {{ _size | times: 400.0 | divided_by: tags_size | plus: 400 }};" >            
                 {{ _tag }}            
                 <sup style="display: none;">{{ _size }}</sup>
             </a>
         {% endfor %}
         </div>
-
-
-    </div>
-    {% assign current_tag = page.url | url_decode | replace:'/tag/','' | replace: '/', '' | downcase %}
+    </div>    
     {% for post in site.posts %}  
     {% assign _tags = post.tags | downcase %}  
     {% if _tags contains current_tag or current_tag == '' %}    
