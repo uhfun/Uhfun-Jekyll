@@ -186,7 +186,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .tag-cloud .tag-cloud-tags { text-align: center; font-family: Athelas, STHeiti, Microsoft Yahei, serif; border: 1px solid #f5f5f5; position: relative; padding: 30px 10px; margin: 30px 0; border-radius: 5px; }
 .tag-cloud .tag-cloud-tags::before { background: #0bd2b4d1; border-radius: 2px 2px 0 0; bottom: 100%; color: rgba(0, 0, 0, 0.7); content: "All Tags"; display: inline-block; font-size: 7px; font-weight: 700; left: -1px; letter-spacing: 1px; margin-left: -1px; padding: 5px 8px; position: absolute; text-transform: uppercase; vertical-align: top; }
-.tag-cloud .tag-cloud-tags .current-tag { color: #0bd2b4d1; }
+.tag-cloud .tag-cloud-tags .current-tag { color: #0bd2b4d1; font-size: 2rem !important; }
 .tag-cloud .tag-cloud-tags .current-tag:hover { color: #161616 !important; }
 .tag-cloud .tag-cloud-tags a { color: #161616; display: inline-block; position: relative; margin: 5px 10px; word-wrap: break-word; transition-duration: .2s; transition-property: transform; transition-timing-function: ease-out; }
 .tag-cloud .tag-cloud-tags a:hover { color: #0bd2b4d1 !important; }
