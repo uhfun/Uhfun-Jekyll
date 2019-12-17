@@ -550,6 +550,50 @@
   }
 }
 
+//tag_cloud
+.tag-cloud {
+  .tag-cloud-tags {
+    text-align: center;
+    font-family: Athelas, STHeiti, Microsoft Yahei, serif;
+    border: 1px solid #f5f5f5;
+    position: relative;
+    padding: 30px 0;
+    margin: 30px 0;    
+    border-radius: 5px;
+    &::before {
+      background: $base-color;
+      border-radius: 2px 2px 0 0;
+      bottom: 100%;
+      color: rgba(0,0,0,.7);
+      content: "All Tags";
+      display: inline-block;
+      font-size: 7px;
+      font-weight: 700;
+      left: -1px;
+      letter-spacing: 1px;
+      margin-left: -1px;
+      padding: 5px 8px;
+      position: absolute;
+      text-transform: uppercase;
+      vertical-align: top;
+    }
+    a {
+      color: $minor-color;
+      display: inline-block;
+      position: relative;
+      margin: 5px 10px;
+      word-wrap: break-word;
+      transition-duration: .2s;
+      transition-property: transform;
+      transition-timing-function: ease-out;
+
+      &:hover {
+        color: $base-color !important;
+      }
+    }
+  }
+}
+
 // category
 .category-head {
   margin-bottom: 3rem;
