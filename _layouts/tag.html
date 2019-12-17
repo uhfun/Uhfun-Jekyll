@@ -46,6 +46,11 @@ layout: page
     {% if _tags contains current_tag or current_tag == '' %} 
     <div class="container sketch-container">
         <div class="post_article">
+            {% if post.layout == 'post' %}
+            {% assign post-link = post.url %}
+            {% elsif post.layout == 'media' %}
+            {% assign post-link = post.media.link %}
+            {% endif %}
             <a class="title" href="{{ post-link }}">
                 {% case post.layout %}
                 {% when 'media' %}
@@ -64,8 +69,7 @@ layout: page
                     {% assign post-content = post.excerpt %}
                     {% when 'breif' %}
                     {% assign post-content = post.post.content %}  
-                    {% endcase %}
-                    {% assign post-link = post.url %}
+                    {% endcase %}                    
                     {{ post.post.title }}
                 {% endcase %}
             </a>
