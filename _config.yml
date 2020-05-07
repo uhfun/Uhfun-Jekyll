@@ -11,6 +11,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: http://uhfun.cn
 timezone: Asia/Shanghai
 baidu_site_verification: 9DYfdd4yEo
+google_site_verification: uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo
 
 github_username:  uhfun
 plugins:
