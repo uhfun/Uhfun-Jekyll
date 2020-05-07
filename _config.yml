@@ -10,6 +10,7 @@ author: 傅杭波
 baseurl: "" # the subpath of your site, e.g. /blog
 url: http://uhfun.cn
 timezone: Asia/Shanghai
+baidu_site_verification: KkzXhsPgcA
 
 github_username:  uhfun
 plugins:
