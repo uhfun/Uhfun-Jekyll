@@ -1,0 +1,13 @@
+#toc {
+  margin-bottom: 30px;
+  border: 1px solid #e8e8e8;
+  padding-bottom: 20px;
+  border-radius: 0.2em;
+  box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important;
+  .toc-link {
+    color: $content-p-color !important;
+    &:hover {
+      color: $base-color !important;
+    }
+  }
+}

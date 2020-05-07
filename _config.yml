@@ -13,6 +13,10 @@ timezone: Asia/Shanghai
 baidu_site_verification: 9DYfdd4yEo
 google_site_verification: uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo
 
+markdown: redcarpet
+redcarpet:
+  extensions: [with_toc_data]
+
 github_username:  uhfun
 plugins:
   - jekyll-feed
