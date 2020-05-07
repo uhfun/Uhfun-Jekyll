@@ -221,6 +221,7 @@
 
     
   </div>
+  <div id="toc"></div>
   <div class='post-content'>
     
     <p><strong>记录生活中的美好</strong></p>
@@ -339,6 +340,11 @@
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  }); </script>
 <script>
     $('.brief-content .content .title-content').each((i, e) => {
         $bt = $(e);

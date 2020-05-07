@@ -239,6 +239,7 @@
 
     
   </div>
+  <div id="toc"></div>
   <div class='post-content'>
     
     <p>在大学本科的课程中我们学习的是Java，而在实际开发中应用最广的还是基于Java的Spring框架，Spring入门从这里开始，Spring中有许多优秀的设计理念例如Ioc、AOP,以及反射、代理的充分应用，需要不断的学习总结，这里只是我作为初学者的一点记录。</p>
@@ -506,19 +507,22 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
 <h3 id="bean生命周期init-methoddestroy-method属性">Bean生命周期（init-method、destroy-method属性）</h3>
 <p>　　当一个 bean 被实例化时，在它被使用前需要执行一些初始化工作。当bean不再需要，并且从容器中移除时，可能需要做一些清除工作。
 　　还有一些在 Bean 实例化和销毁之间发生的活动，但是现在只讨论两个重要的生命周期回调方法，它们在 bean 的初始化和销毁的时候是必需的。
-　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。</p>
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"exampleBean"</span> <span class="na">class=</span><span class="s">"ExampleBean"</span> <span class="na">init-method=</span><span class="s">"initMethod"</span> <span class="na">destroy-method=</span><span class="s">"destroyMethod"</span><span class="nt">/&gt;</span>
+　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。
+​````xml</p>
+<bean name="exampleBean" class="ExampleBean" init-method="initMethod" destroy-method="destroyMethod" />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+#### 初始化回调
+1. 可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
+
+````java
+public class ExampleBean implements InitializingBean {
+   public void afterPropertiesSet() {
+      // do some initialization work
+   }
+}
 </code></pre></div></div>
-<h4 id="初始化回调">初始化回调</h4>
 <ol>
-  <li>可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">InitializingBean</span> <span class="o">{</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPropertiesSet</span><span class="o">()</span> <span class="o">{</span>
-   <span class="c1">// do some initialization work</span>
-<span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div>    </div>
-  </li>
   <li>在基于XML的配置元数据的情况下，你可以使用 init-method 属性来指定带有 void 无参数方法的名称。例如：
     <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initMethod</span><span class="o">()</span> <span class="o">{</span>
@@ -563,7 +567,6 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
   <li>调用 <Bean destory-method="customerDestory"> 指定销毁方法 customerDestory</Bean></li>
 </ol>
 
-<p>　　　</p>
 <h3 id="bean的其他参数属性class属性">Bean的其他参数属性（class属性）</h3>
 <p>　　指定用来创建 bean 的 bean 类。</p>
 <h2 id="5ioc容器装配bean">5、IoC容器装配Bean</h2>
@@ -893,59 +896,50 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
 <h3 id="多种装配bean方式比较">多种装配Bean方式比较</h3>
 
 <table>
-  <tbody>
+  <thead>
     <tr>
-      <td>基于XML配置</td>
-      <td>基于注解配置</td>
-      <td>基于Java类配置 —-</td>
-      <td>—</td>
-      <td>—-</td>
-      <td>—</td>
+      <th> </th>
+      <th>基于XML配置</th>
+      <th>基于注解配置</th>
+      <th>基于Java类配置</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
       <td>Bean定义</td>
       <td>&lt; bean id=”…” class=”…” /&gt;</td>
-      <td>@Component衍生类  @Repository  @Service  @Controller</td>
+      <td>@Component衍生类 @Repository @Service @Controller</td>
       <td>@Configuration标注类，@Bean标注提供Bean方法</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Bean名称</td>
       <td>通过 id或name指定</td>
       <td>@Component(“person”)</td>
       <td>@Bean(“person”)</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Bean注入</td>
       <td>&lt; property&gt; 或者 通过p命名空间</td>
       <td>@Autowired 按类型注入@Qualifier按名称注入</td>
       <td>在方法内部编写注入代码逻辑</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>Bean作用范围、生命过程</td>
       <td>scope属性 init-method destroy-method范围</td>
       <td>@Scope设置作用范围@PostConstruct 初始化@PreDestroy销毁</td>
       <td>@Scope指定范围在方法内部调用初始化方法</td>
-      <td> </td>
-      <td> </td>
     </tr>
     <tr>
       <td>适合场景</td>
       <td>Bean来自第三方，使用其它命名空间</td>
       <td>Bean的实现类由用户自己开发</td>
       <td>实例化Bean的逻辑比较复杂</td>
-      <td> </td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="6xml配置文件">6、XML配置文件</h2>
+
 <h3 id="配置">配置</h3>
 <h4 id="添加context命名空间">添加context命名空间</h4>
 <p>　　引入context命名空间</p>
@@ -1133,6 +1127,11 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  }); </script>
 <script>
     $('.brief-content .content .title-content').each((i, e) => {
         $bt = $(e);

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T00:24:33+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T01:35:21+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
 &lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 
@@ -970,19 +970,22 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
 &lt;h3 id=&quot;bean生命周期init-methoddestroy-method属性&quot;&gt;Bean生命周期（init-method、destroy-method属性）&lt;/h3&gt;
 &lt;p&gt;　　当一个 bean 被实例化时，在它被使用前需要执行一些初始化工作。当bean不再需要，并且从容器中移除时，可能需要做一些清除工作。
 　　还有一些在 Bean 实例化和销毁之间发生的活动，但是现在只讨论两个重要的生命周期回调方法，它们在 bean 的初始化和销毁的时候是必需的。
-　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。&lt;/p&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;exampleBean&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ExampleBean&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;init-method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;initMethod&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;destroy-method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;destroyMethod&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。
+​````xml&lt;/p&gt;
+&lt;bean name=&quot;exampleBean&quot; class=&quot;ExampleBean&quot; init-method=&quot;initMethod&quot; destroy-method=&quot;destroyMethod&quot; /&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+#### 初始化回调
+1. 可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
+
+````java
+public class ExampleBean implements InitializingBean {
+   public void afterPropertiesSet() {
+      // do some initialization work
+   }
+}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h4 id=&quot;初始化回调&quot;&gt;初始化回调&lt;/h4&gt;
 &lt;ol&gt;
-  &lt;li&gt;可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
-    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExampleBean&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InitializingBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;afterPropertiesSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-   &lt;span class=&quot;c1&quot;&gt;// do some initialization work&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
   &lt;li&gt;在基于XML的配置元数据的情况下，你可以使用 init-method 属性来指定带有 void 无参数方法的名称。例如：
     &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ExampleBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -1027,7 +1030,6 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
   &lt;li&gt;调用 &lt;Bean destory-method=&quot;customerDestory&quot;&gt; 指定销毁方法 customerDestory&lt;/Bean&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;　　　&lt;/p&gt;
 &lt;h3 id=&quot;bean的其他参数属性class属性&quot;&gt;Bean的其他参数属性（class属性）&lt;/h3&gt;
 &lt;p&gt;　　指定用来创建 bean 的 bean 类。&lt;/p&gt;
 &lt;h2 id=&quot;5ioc容器装配bean&quot;&gt;5、IoC容器装配Bean&lt;/h2&gt;
@@ -1357,59 +1359,50 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法&l
 &lt;h3 id=&quot;多种装配bean方式比较&quot;&gt;多种装配Bean方式比较&lt;/h3&gt;
 
 &lt;table&gt;
-  &lt;tbody&gt;
+  &lt;thead&gt;
     &lt;tr&gt;
-      &lt;td&gt;基于XML配置&lt;/td&gt;
-      &lt;td&gt;基于注解配置&lt;/td&gt;
-      &lt;td&gt;基于Java类配置 —-&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
-      &lt;td&gt;—-&lt;/td&gt;
-      &lt;td&gt;—&lt;/td&gt;
+      &lt;th&gt; &lt;/th&gt;
+      &lt;th&gt;基于XML配置&lt;/th&gt;
+      &lt;th&gt;基于注解配置&lt;/th&gt;
+      &lt;th&gt;基于Java类配置&lt;/th&gt;
     &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;Bean定义&lt;/td&gt;
       &lt;td&gt;&amp;lt; bean id=”…” class=”…” /&amp;gt;&lt;/td&gt;
-      &lt;td&gt;@Component衍生类  @Repository  @Service  @Controller&lt;/td&gt;
+      &lt;td&gt;@Component衍生类 @Repository @Service @Controller&lt;/td&gt;
       &lt;td&gt;@Configuration标注类，@Bean标注提供Bean方法&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Bean名称&lt;/td&gt;
       &lt;td&gt;通过 id或name指定&lt;/td&gt;
       &lt;td&gt;@Component(“person”)&lt;/td&gt;
       &lt;td&gt;@Bean(“person”)&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Bean注入&lt;/td&gt;
       &lt;td&gt;&amp;lt; property&amp;gt; 或者 通过p命名空间&lt;/td&gt;
       &lt;td&gt;@Autowired 按类型注入@Qualifier按名称注入&lt;/td&gt;
       &lt;td&gt;在方法内部编写注入代码逻辑&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;Bean作用范围、生命过程&lt;/td&gt;
       &lt;td&gt;scope属性 init-method destroy-method范围&lt;/td&gt;
       &lt;td&gt;@Scope设置作用范围@PostConstruct 初始化@PreDestroy销毁&lt;/td&gt;
       &lt;td&gt;@Scope指定范围在方法内部调用初始化方法&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;适合场景&lt;/td&gt;
       &lt;td&gt;Bean来自第三方，使用其它命名空间&lt;/td&gt;
       &lt;td&gt;Bean的实现类由用户自己开发&lt;/td&gt;
       &lt;td&gt;实例化Bean的逻辑比较复杂&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
 &lt;h2 id=&quot;6xml配置文件&quot;&gt;6、XML配置文件&lt;/h2&gt;
+
 &lt;h3 id=&quot;配置&quot;&gt;配置&lt;/h3&gt;
 &lt;h4 id=&quot;添加context命名空间&quot;&gt;添加context命名空间&lt;/h4&gt;
 &lt;p&gt;　　引入context命名空间&lt;/p&gt;

@@ -255,6 +255,7 @@
 
     
   </div>
+  <div id="toc"></div>
   <div class='post-content'>
     
     <p>服务器软件的安装记录，包括科学上网ss、nginx、git、ftp服务器、java环境、内网穿透ngrok、Nexus</p>
@@ -843,6 +844,11 @@ bashrc类：为非交互式登陆的shell提供配置（定义别名、本地变
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  }); </script>
 <script>
     $('.brief-content .content .title-content').each((i, e) => {
         $bt = $(e);
