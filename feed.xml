@@ -1,118 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2019-12-17T20:24:44+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">213</title><link href="http://uhfun.cn/life/2019/12/16/213.html" rel="alternate" type="text/html" title="213" /><published>2019-12-16T08:01:38+08:00</published><updated>2019-12-16T08:01:38+08:00</updated><id>http://uhfun.cn/life/2019/12/16/213</id><content type="html" xml:base="http://uhfun.cn/life/2019/12/16/213.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">测试</title><link href="http://uhfun.cn/tech/2019/12/11/%E6%B5%8B%E8%AF%95.html" rel="alternate" type="text/html" title="测试" /><published>2019-12-11T13:01:38+08:00</published><updated>2019-12-11T13:01:38+08:00</updated><id>http://uhfun.cn/tech/2019/12/11/%E6%B5%8B%E8%AF%95</id><content type="html" xml:base="http://uhfun.cn/tech/2019/12/11/%E6%B5%8B%E8%AF%95.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-07T17:25:09+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
-&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="Jekyll" /><category term="测试" /><category term="JAVA" /><category term="TEST" /><category term="test" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry><entry><title type="html">概述 part 2</title><link href="http://uhfun.cn/tech/2019/12/05/%E6%A6%82%E8%BF%B0-part-2.html" rel="alternate" type="text/html" title="概述 part 2" /><published>2019-12-05T13:14:00+08:00</published><updated>2019-12-05T13:14:00+08:00</updated><id>http://uhfun.cn/tech/2019/12/05/%E6%A6%82%E8%BF%B0%20part%202</id><content type="html" xml:base="http://uhfun.cn/tech/2019/12/05/%E6%A6%82%E8%BF%B0-part-2.html">&lt;p&gt;我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://baidu.com&quot;&gt;需求文档&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;功能&quot;&gt;功能&lt;/h3&gt;
-
-&lt;h4 id=&quot;列表管理---新建编辑&quot;&gt;列表管理 - 新建/编辑&lt;/h4&gt;
-
-&lt;h4 id=&quot;配置&quot;&gt;配置&lt;/h4&gt;
-&lt;blockquote&gt;
-
-  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;listUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;排期&quot;&gt;排期&lt;/h3&gt;
+&lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
     &lt;tr&gt;
-      &lt;th&gt;功能&lt;/th&gt;
-      &lt;th&gt;说明&lt;/th&gt;
-      &lt;th&gt;排期&lt;/th&gt;
+      &lt;th&gt;属性&lt;/th&gt;
+      &lt;th&gt;含义&lt;/th&gt;
+      &lt;th&gt;示例&lt;/th&gt;
     &lt;/tr&gt;
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;新建/编辑列表&lt;/td&gt;
-      &lt;td&gt;权限列表&lt;/td&gt;
-      &lt;td&gt;0.5&lt;/td&gt;
+      &lt;td&gt;date&lt;/td&gt;
+      &lt;td&gt;创建时间&lt;/td&gt;
+      &lt;td&gt;2020-05-07 15:11:00 +0800&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td&gt;添加列表类型&lt;/td&gt;
-      &lt;td&gt;用户列表&lt;/td&gt;
-      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;categories&lt;/td&gt;
+      &lt;td&gt;目录（在主页的导航栏展示，目前只定义了LIFE和TECH，可以在_config.yml配置）&lt;/td&gt;
+      &lt;td&gt;tech 或 life  或者多个使用 yaml格式 &lt;br /&gt;categories:&lt;br /&gt;    - tech&lt;br /&gt;    - life&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tags&lt;/td&gt;
+      &lt;td&gt;标签&lt;/td&gt;
+      &lt;td&gt;同categories&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>傅杭波</name></author><category term="产品" /><category term="概述2222" /><summary type="html">我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</summary></entry><entry><title type="html">Uuu</title><link href="http://uhfun.cn/2019/12/02/UUU.html" rel="alternate" type="text/html" title="Uuu" /><published>2019-12-02T15:14:00+08:00</published><updated>2019-12-02T15:14:00+08:00</updated><id>http://uhfun.cn/2019/12/02/UUU</id><content type="html" xml:base="http://uhfun.cn/2019/12/02/UUU.html">&lt;p&gt;我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="产品" /><category term="概述" /><summary type="html">我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</summary></entry><entry><title type="html">崇拜(live)</title><link href="http://uhfun.cn/life/2019/12/02/%E5%B4%87%E6%8B%9C(live).html" rel="alternate" type="text/html" title="崇拜(live)" /><published>2019-12-02T14:01:38+08:00</published><updated>2019-12-02T14:01:38+08:00</updated><id>http://uhfun.cn/life/2019/12/02/%E5%B4%87%E6%8B%9C(live)</id><content type="html" xml:base="http://uhfun.cn/life/2019/12/02/%E5%B4%87%E6%8B%9C(live).html"></content><author><name>傅杭波</name></author><category term="翻唱" /><category term="JJ林俊杰" /><summary type="html"></summary></entry><entry><title type="html">简单的</title><link href="http://uhfun.cn/life/2019/11/29/%E7%AE%80%E5%8D%95%E7%9A%84.html" rel="alternate" type="text/html" title="简单的" /><published>2019-11-29T14:01:38+08:00</published><updated>2019-11-29T14:01:38+08:00</updated><id>http://uhfun.cn/life/2019/11/29/%E7%AE%80%E5%8D%95%E7%9A%84</id><content type="html" xml:base="http://uhfun.cn/life/2019/11/29/%E7%AE%80%E5%8D%95%E7%9A%84.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">你瞒我瞒</title><link href="http://uhfun.cn/life/2019/11/28/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92.html" rel="alternate" type="text/html" title="你瞒我瞒" /><published>2019-11-28T14:01:38+08:00</published><updated>2019-11-28T14:01:38+08:00</updated><id>http://uhfun.cn/life/2019/11/28/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92</id><content type="html" xml:base="http://uhfun.cn/life/2019/11/28/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92.html"></content><author><name>傅杭波</name></author><category term="翻唱" /><category term="陈柏宇" /><summary type="html"></summary></entry><entry><title type="html">概述</title><link href="http://uhfun.cn/tech/2019/10/04/%E6%A6%82%E8%BF%B0.html" rel="alternate" type="text/html" title="概述" /><published>2019-10-04T13:14:00+08:00</published><updated>2019-10-04T13:14:00+08:00</updated><id>http://uhfun.cn/tech/2019/10/04/%E6%A6%82%E8%BF%B0</id><content type="html" xml:base="http://uhfun.cn/tech/2019/10/04/%E6%A6%82%E8%BF%B0.html">&lt;p&gt;我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础&lt;/p&gt;
+&lt;/table&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://baidu.com&quot;&gt;需求文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;功能&quot;&gt;功能&lt;/h3&gt;
-
-&lt;h4 id=&quot;列表管理---新建编辑&quot;&gt;列表管理 - 新建/编辑&lt;/h4&gt;</content><author><name>傅杭波</name></author><category term="产品" /><category term="概述" /><category term="Java" /><summary type="html">我读过的书不算多，仅是书店里库存的一小部分，但我会继续阅读，保持阅读、思考以及写作。这是作为一种习惯。 阅读 高尔基说过：“书籍是人类进步的阶梯。”所谓阅读，其实也是一个人进步的过程，学习的过程。我认为，阅读、思考和写作这三者中，“阅读”是基础</summary></entry><entry><title type="html">Welcome To Jekyll</title><link href="http://uhfun.cn/tech/2018/11/30/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome To Jekyll" /><published>2018-11-30T14:01:38+08:00</published><updated>2018-11-30T14:01:38+08:00</updated><id>http://uhfun.cn/tech/2018/11/30/welcome-to-jekyll</id><content type="html" xml:base="http://uhfun.cn/tech/2018/11/30/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;box&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;media&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;media-left&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;image is-64x64&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://bulma.io/images/placeholders/128x128.png&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Image&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;   
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;2020-05-07 15:11:00 +0800&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;categories&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;tech&lt;/span&gt;
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;life&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;教程&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DepartmentNode&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Serializable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;h3 id=&quot;post文字类型&quot;&gt;post文字类型&lt;/h3&gt;
 
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialVersionUID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4845938329488625366L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;@ApiModelProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;组织结构id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;example&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;ej6bqq1gPq&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;属性&lt;/th&gt;
+      &lt;th&gt;含义&lt;/th&gt;
+      &lt;th&gt;示例&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;layout&lt;/td&gt;
+      &lt;td&gt;布局类型&lt;/td&gt;
+      &lt;td&gt;post&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;head-img&lt;/td&gt;
+      &lt;td&gt;头部图片&lt;/td&gt;
+      &lt;td&gt;https://xxx.jpg&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;title&lt;/td&gt;
+      &lt;td&gt;文章标题&lt;/td&gt;
+      &lt;td&gt;这是文章标题&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;type&lt;/td&gt;
+      &lt;td&gt;类型&lt;/td&gt;
+      &lt;td&gt;article 或 brief&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;content&lt;/td&gt;
+      &lt;td&gt;内容（brief类型使用）&lt;/td&gt;
+      &lt;td&gt;我是brief的内容&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-  &lt;span class=&quot;c1&quot;&gt;// @ApiModelProperty(value = &quot;节点类型&quot;, required = true, example = &quot;department&quot;, allowableValues = &quot;shop, department&quot;)&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;h5 id=&quot;示例&quot;&gt;示例&lt;/h5&gt;
 
-  &lt;span class=&quot;nd&quot;&gt;@ApiModelProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;子级节点&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allowEmptyValue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DepartmentNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;belows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lists&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;post&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;head-img&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://xxx.jpg&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;我是article标题&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;article&lt;/span&gt;
 
-  &lt;span class=&quot;nd&quot;&gt;@ApiModelProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;当前节点用户&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;currentNodeUsers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Lists&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;userTotal&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DepartmentNode&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fromDepartment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Department&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nc&quot;&gt;DepartmentNode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DepartmentNode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setOrgId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOrgId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dept&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setBelows&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Lists&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;我是brief的标题&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;brief&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;我是brief的内容&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="java" /><category term="test" /><category term="welcome" /><category term="JEKYLL" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;h4 id=&quot;media媒体类型&quot;&gt;media媒体类型&lt;/h4&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;属性&lt;/th&gt;
+      &lt;th&gt;含义&lt;/th&gt;
+      &lt;th&gt;示例&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;layout&lt;/td&gt;
+      &lt;td&gt;布局类型&lt;/td&gt;
+      &lt;td&gt;media&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;type&lt;/td&gt;
+      &lt;td&gt;头部图片&lt;/td&gt;
+      &lt;td&gt;changba&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;level&lt;/td&gt;
+      &lt;td&gt;全民k歌的歌曲级别展示&lt;/td&gt;
+      &lt;td&gt;SSS&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;title&lt;/td&gt;
+      &lt;td&gt;媒体标题&lt;/td&gt;
+      &lt;td&gt;这是文章标题&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;img&lt;/td&gt;
+      &lt;td&gt;媒体图片&lt;/td&gt;
+      &lt;td&gt;https://xxx.jpg&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;link&lt;/td&gt;
+      &lt;td&gt;跳转链接&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;box-size&lt;/td&gt;
+      &lt;td&gt;面板占比（1/5、1/4、1/3、2/5、1/2、3/5、2/3、3/4、4/5）&lt;/td&gt;
+      &lt;td&gt;1/5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;content&lt;/td&gt;
+      &lt;td&gt;文字内容&lt;/td&gt;
+      &lt;td&gt;XXXX&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h5 id=&quot;示例-1&quot;&gt;示例&lt;/h5&gt;
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;media&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;media&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; 
+  &lt;span class=&quot;na&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;changba&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;你瞒我瞒&lt;/span&gt;  
+  &lt;span class=&quot;na&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://aliimg.changba.com/cache/photo/4433f5b0-ff7b-4a2b-9f53-faf5e9e2c3ae_640_640.jpg&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://changba.com/s/M6lyzdOFkbW70Q5d3OYzWQ&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# source: http://qiniuuwmp3.changba.com/1060496974.mp3&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;box-size&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;4/5&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;无言的亲亲亲 侵袭我心&amp;lt;br&amp;gt;仍宁愿亲口讲你累得很&amp;lt;br&amp;gt;如除我以外在你心&amp;lt;br&amp;gt;还多出一个人 你瞒住我&amp;lt;br&amp;gt;我亦瞒住我太合衬&amp;lt;br&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>傅杭波</name></author><category term="教程" /><summary type="html">我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)</summary></entry><entry><title type="html">处处吻</title><link href="http://uhfun.cn/life/2020/01/16/%E5%A4%84%E5%A4%84%E5%90%BB.html" rel="alternate" type="text/html" title="处处吻" /><published>2020-01-16T20:10:00+08:00</published><updated>2020-01-16T20:10:00+08:00</updated><id>http://uhfun.cn/life/2020/01/16/%E5%A4%84%E5%A4%84%E5%90%BB</id><content type="html" xml:base="http://uhfun.cn/life/2020/01/16/%E5%A4%84%E5%A4%84%E5%90%BB.html"></content><author><name>傅杭波</name></author><category term="翻唱" /><category term="杨千嬅" /><summary type="html"></summary></entry><entry><title type="html">你瞒我瞒</title><link href="http://uhfun.cn/life/2018/05/11/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92.html" rel="alternate" type="text/html" title="你瞒我瞒" /><published>2018-05-11T15:24:02+08:00</published><updated>2018-05-11T15:24:02+08:00</updated><id>http://uhfun.cn/life/2018/05/11/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92</id><content type="html" xml:base="http://uhfun.cn/life/2018/05/11/%E4%BD%A0%E7%9E%92%E6%88%91%E7%9E%92.html"></content><author><name>傅杭波</name></author><category term="翻唱" /><category term="陈柏宇" /><summary type="html"></summary></entry></feed>

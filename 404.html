@@ -109,49 +109,9 @@
         
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        <a class="navbar-item" href="/life/">
+          LIFE
+        </a>
         
         
         
@@ -159,14 +119,6 @@
         
         <a class="navbar-item" href="/tech/">
           TECH
-        </a>
-        
-        
-        
-        
-        
-        <a class="navbar-item" href="/life/">
-          LIFE
         </a>
         
         
@@ -262,7 +214,7 @@
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script>
-    $('.breif-content .content .title-content').each((i, e) => {
+    $('.brief-content .content .title-content').each((i, e) => {
         $bt = $(e);
         const hashCode = $bt.text().hashCode();
         const list = [
@@ -277,7 +229,7 @@
         const color =  list[(n < 0 ? n + list.length : n)];
         console.log(color)
         $bt.css('color', color);
-        $bt.children('.breif-quote').css('color', color);
+        $bt.children('.brief-quote').css('color', color);
     })
 </script>
 </body>
