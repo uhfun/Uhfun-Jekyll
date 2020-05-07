@@ -88,7 +88,10 @@
     html += "</"+settings.listType+">";
     if (!settings.noBackToTopLinks) {
       $(document).on('click', '.back-to-top', function() {
-        $(window).scrollTop(0);
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
         window.location.hash = '';
       });
     }

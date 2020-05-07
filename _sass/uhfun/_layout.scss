@@ -279,10 +279,10 @@
 // back-to-top
 .back-to-top {
 
-  @include media-max(800px) {
-    overflow: hidden;
-    opacity: 0 !important;
-  }
+  // @include media-max(800px) {
+  //   overflow: hidden;
+  //   opacity: 0 !important;
+  // }
 
   cursor: pointer;
   position: fixed;
