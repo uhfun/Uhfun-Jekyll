@@ -8,15 +8,19 @@
   <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
   <meta name="robots" content="all">
 
-  <meta property="og:type" content="category" />
+  <meta property="og:type" content="post" />
   
   
-  <meta property="og:title" content="life | UhfunBlog" />
+  <meta property="og:title" content="Ubuntu-server 安装后续 | UhfunBlog" />
 
   <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
 
   <meta property="og:type" content="article">
-  <meta property="og:description" content="">
+  <meta property="og:description" content="安装完 Ubuntu-server 后，额外的一些设置
+
+">
+  
+  <meta property="article:published_time" content='2018-07-23T22:31:00Z'>
   
   <meta property="article:author" content="傅杭波">
   
@@ -24,13 +28,15 @@
 
     
   <meta property="og:image" content="" >
-  <meta property="og:url" content="http://uhfun.cn/life/">
+  <meta property="og:url" content="http://uhfun.cn/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html">
+  
+  <meta property="article:tag" content="Ubuntu">
   
   <meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
 
   <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
   <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
-  <title>life | UhfunBlog</title>
+  <title>Ubuntu-server 安装后续 | UhfunBlog</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/img/favicon-32x32.ico">
@@ -198,17 +204,138 @@
     <div class="container">
       <article class="page">
   <div class="content">
-    <div class="category-head">
-    
-    
-    <h1 class="title">LIFE</h1>
-    <p>不要为了梦想而忘记生活 ！！！</p>
-    
-    
-    
-    
+    <article class="post">
+  
+  <h1 class="title is-spaced">Ubuntu-server 安装后续</h1>
+  
+  
+  
+  <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/ubuntu">Ubuntu</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2018/07/23 22:31:00">
+            2018-07-23
+        </span>
+    </div>
 </div>
-<div class="category-posts">
+  <div class='post-img'>
+    
+    
+
+
+    
+  </div>
+  <div class='post-content'>
+    
+    <p>安装完 Ubuntu-server 后，额外的一些设置</p>
+
+<h3 id="1-修改-root-密码">1. 修改 root 密码</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>passwd root
+</code></pre></div></div>
+<h3 id="2-使用root开启ssh登录">2. 使用root开启ssh登录</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vi /etc/ssh/sshd_config
+</code></pre></div></div>
+<p><strong>找到下面的配置</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Authentication:</span>
+LoginGraceTime 120
+PermitRootLogin prohibit-password
+StrictModes <span class="nb">yes</span>
+</code></pre></div></div>
+
+<p><strong>改为</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Authentication:</span>
+LoginGraceTime 120
+<span class="c">#PermitRootLogin prohibit-password</span>
+PermitRootLogin <span class="nb">yes
+</span>StrictModes <span class="nb">yes</span>
+</code></pre></div></div>
+
+<p><strong>重启ssh</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service ssh restart
+</code></pre></div></div>
+
+<h3 id="3-设置开机默认root账户登录">3. 设置开机默认root账户登录</h3>
+<p><strong>将当前用户切换为root账户</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su root
+</code></pre></div></div>
+<p><strong>安装mingetty</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get <span class="nb">install </span>mingetty
+</code></pre></div></div>
+<p><strong>修改启动文件</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/init/tty1.conf
+</code></pre></div></div>
+<p><strong>找到下面的配置</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">exec</span> /sbin/getty <span class="nt">-8</span> 38400 tty1
+</code></pre></div></div>
+<p><strong>改为</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#exec /sbin/getty -8 38400 tty1</span>
+<span class="nb">exec</span> /sbin/mingetty –-autologin root tty1
+</code></pre></div></div>
+
+<h3 id="4-修改dns">4. 修改DNS</h3>
+<p><strong>修改文件 /etc/network/interfaces</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dns-nameservers 114.114.114.114
+dns-nameservers 8.8.8.8
+</code></pre></div></div>
+
+<p><strong>通过/etc/resolv.conf查看DNS设置</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nameserver 114.114.114.114
+nameserver 8.8.8.8
+</code></pre></div></div>
+
+<h3 id="5-安装-shell-integration--iterm2-">5. 安装 Shell Integration （ iterm2 ）</h3>
+<p>好东西，前提得先安装 <strong>iterm2</strong><br />
+解决了我虚拟机Ubuntu上 下载文件慢，开代理也无济于事的问题 <br />
+直接把主机下载的文件拖上去上传就行。<br />
+<a href="https://phpor.net/blog/post/3665">查看 Shell Integration 使用 </a></p>
+<blockquote>
+  <p>我在使用时，出现连接不上的问题，item2 不知道对应虚拟机主机名的ip 所以你必须自己在host里面加上对应主机名的ip地址
+例如 192.168.56.101 UU (主机名是 <strong><code class="language-plaintext highlighter-rouge">root@UU:~#</code></strong> 的 UU 是在创建时自己设置的)</p>
+</blockquote>
+
+  </div>
+
+  <div class='post-footer'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-previous' href="/tech/2018/05/22/Spring%E5%85%A5%E9%97%A8.html"> &nbsp;←  Spring入门</a>
     
     
     
@@ -218,152 +345,50 @@
 
     
     
-    <h2 class="head-year" onclick="$(this).next().slideToggle(400)">2020&nbsp;年</h2><ul class="month-list">     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-next' href="/tech/2018/10/10/Linux%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE.html">Linux软件环境安装配置 →&nbsp;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
 
-         
-    
-    <li class="container month">
-    <span class="head-month" onclick="$(this).next().slideToggle(400)">05&nbsp;月<span class="head-month-post-num"></span></span>   
-    <ul class="day-list">
-            
-       
+</article>
 
-    
-    <li>
-        <div class="day" onclick="$(this).next().children('div').slideToggle(400)">07日: </div>          
-        <div class="day-content">
-                       
-                <a class="excerpt" href="/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html">✅</a>
-                        
-            
-            <div class="day-post-content">                  
-                <p>我只是一个brief！！！</p>
-                <div class="day-post-tags">
-                    
-                    <a href="/tag/%e6%95%99%e7%a8%8b">教程</a>
-                    
-                </div>     
-            </div>             
-        </div>                    
-    </li>
-    
-    
-    
-    
-
-    
-
-       
-
-    
-    <li>
-        <div class="day" onclick="$(this).next().children('div').slideToggle(400)">07日: </div>          
-        <div class="day-content">
-                       
-                <a class="excerpt" href="/tech/life/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">Uhfun博客使用教程</a>
-                        
-            
-            <div class="day-post-content">                  
-                <p>我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为mi...</p>
-                <div class="day-post-tags">
-                    
-                    <a href="/tag/%e6%95%99%e7%a8%8b">教程</a>
-                    
-                </div>     
-            </div>             
-        </div>                    
-    </li>
-    
-    
-    
-    
-
-    
-
-         
-    
-    </li></ul>
-    
-    <li class="container month">
-    <span class="head-month" onclick="$(this).next().slideToggle(400)">01&nbsp;月<span class="head-month-post-num"></span></span>   
-    <ul class="day-list">
-            
-       
-
-    
-    <li>
-        <div class="day" onclick="$(this).next().children('div').slideToggle(400)">16日: </div>          
-        <div class="day-content">
-            
-                <a class="excerpt" href="https://node.kg.qq.com/play?s=JvVN36J6WlLUfJpM">
-                
-                我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
-                
-            《处处吻》</a>
-            
-
-            
-            <div class="day-post-content">                  
-                <p>你小心一吻便颠倒众生一吻便救一个人给你拯救的体温总会再捐给某人一吻便偷一个心一吻便杀一个人一寸吻感一寸金一脸崎岖的旅行</p>
-                <div class="day-post-tags">
-                    
-                    <a href="/tag/%e7%bf%bb%e5%94%b1">翻唱</a>
-                    
-                    <a href="/tag/%e6%9d%a8%e5%8d%83%e5%ac%85">杨千嬅</a>
-                    
-                </div>     
-            </div>             
-        </div>                    
-    </li>
-    
-    
-    
-    
-
-    
-    
-    </ul></li></ul>
-    
-    <h2 class="head-year" onclick="$(this).next().slideToggle(400)">2018&nbsp;年</h2><ul class="month-list">     
-    
-
-         
-    
-    <li class="container month">
-    <span class="head-month" onclick="$(this).next().slideToggle(400)">05&nbsp;月<span class="head-month-post-num"></span></span>   
-    <ul class="day-list">
-            
-       
-
-    
-    <li>
-        <div class="day" onclick="$(this).next().children('div').slideToggle(400)">11日: </div>          
-        <div class="day-content">
-            
-                <a class="excerpt" href="https://changba.com/s/M6lyzdOFkbW70Q5d3OYzWQ">
-                
-                我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
-            
-            《你瞒我瞒》</a>
-            
-
-            
-            <div class="day-post-content">                  
-                <p>无言的亲亲亲 侵袭我心仍宁愿亲口讲你累得很如除我以外在你心还多出一个人 你瞒住我我亦瞒住我太合衬</p>
-                <div class="day-post-tags">
-                    
-                    <a href="/tag/%e7%bf%bb%e5%94%b1">翻唱</a>
-                    
-                    <a href="/tag/%e9%99%88%e6%9f%8f%e5%ae%87">陈柏宇</a>
-                    
-                </div>     
-            </div>             
-        </div>                    
-    </li>
-    
-    </ul></li></ul>
+<div class="utterances-comments-header">
+  <div>
+    <div>Comments </div>
+    <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
+  </div>
+  <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html">Issue Page</a>
 </div>
+<script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
   </div>
 </article>
 

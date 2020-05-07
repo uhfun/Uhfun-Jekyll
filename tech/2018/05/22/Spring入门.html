@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌">
+  <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
+  <meta name="robots" content="all">
+
+  <meta property="og:type" content="post" />
+  
+  
+  <meta property="og:title" content="Spring 入门 | UhfunBlog" />
+
+  <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
+
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="在大学本科的课程中我们学习的是Java，而在实际开发中应用最广的还是基于Java的Spring框架，Spring入门从这里开始，Spring中有许多优秀的设计理念例如Ioc、AOP,以及反射、代理的充分应用，需要不断的学习总结，这里只是我作为初学者的一点记录。
+
+">
+  
+  <meta property="article:published_time" content='2018-05-22T15:10:00Z'>
+  
+  <meta property="article:author" content="傅杭波">
+  
+  
+
+    
+  <meta property="og:image" content="" >
+  <meta property="og:url" content="http://uhfun.cn/tech/2018/05/22/Spring%E5%85%A5%E9%97%A8.html">
+  
+  <meta property="article:tag" content="Spring">
+  
+  <meta property="article:tag" content="入门">
+  
+  <meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
+
+  <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
+  <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
+  <title>Spring 入门 | UhfunBlog</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon-32x32.ico">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" />
+  
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
+</head>
+<body>
+  <header class="navbar has-shadow is-spaced" role="banner">
+  <div class="container">
+    
+    
+    
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src='/assets/img/logo.png' width="160">
+      </a>
+      <div role="button" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class='navbar-item' href='/'>HOME</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/tag/">
+          TAG
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/life/">
+          LIFE
+        </a>
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/tech/">
+          TECH
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+              <!-- <img class="is-rounded" src="/img/avatar.png"> -->
+              <img class="is-rounded" src='/assets/img/avatar.png'>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="icon-dropdown navbar-item" href="/about.html">
+              <i class="far fa-user" aria-hidden="true"></i> About
+            </a>
+            <a class="icon-dropdown navbar-item" href="https://github.com/uhfun/Uhfun-Jekyll">
+              <i class="fab fa-github" aria-hidden="true"></i> Github
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/about.html#utterances"> Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+  <div class="section">
+    <div class="container">
+      <article class="page">
+  <div class="content">
+    <article class="post">
+  
+  <h1 class="title is-spaced">Spring 入门</h1>
+  
+  
+  
+  <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/spring">Spring</a>
+        
+        <a href="/tag/%e5%85%a5%e9%97%a8">入门</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2018/05/22 15:10:00">
+            2018-05-22
+        </span>
+    </div>
+</div>
+  <div class='post-img'>
+    
+    
+
+
+    
+  </div>
+  <div class='post-content'>
+    
+    <p>在大学本科的课程中我们学习的是Java，而在实际开发中应用最广的还是基于Java的Spring框架，Spring入门从这里开始，Spring中有许多优秀的设计理念例如Ioc、AOP,以及反射、代理的充分应用，需要不断的学习总结，这里只是我作为初学者的一点记录。</p>
+
+<h2 id="1了解spring">1、了解Spring</h2>
+<h3 id="什么是spring">什么是Spring？</h3>
+
+<p>　　Spring是分层的JavaSE/EE full-stack(一站式) 轻量级开源框架</p>
+<ul>
+  <li>一站式（对三层结构每一层的解决方案）
+    + Web层：SpringMVC
+    + 业务层：IOC、AOP完成Bean管理
+    + 持久层：JDBC Template</li>
+</ul>
+
+<h3 id="spring核心">Spring核心</h3>
+<ul>
+  <li>**IoC（Inverse of Control）  **<br />
+ 控制反转：将对象创建权交给Spring，由Spring自动创建对象</li>
+  <li><strong>AOP (Aspect Oriented Programming）面向切面编程</strong><br />
+ 面向对象功能的延伸，不是替换OOP，用来解决OOP开发中的一些问题。</li>
+</ul>
+
+<h3 id="ioc控制反转">IoC控制反转</h3>
+
+<h4 id="什么是控制反转">什么是控制反转</h4>
+<p>　　控制反转（Inversion of Control）是一种是面向对象编程中的一种设计原则，用来减低计算机代码之间的耦合度。其基本思想是：借助于“第三方”实现具有依赖关系的对象之间的解耦。<br />
+　　这个第三方在Spring框架里就是Spring，它来负责所有对象的生命周期和对象间的关系。由于引进了中间位置的“第三方”，也就是Spring，使得各个对象没有了耦合关系，全部对象的控制权全部上缴给“第三方”容器。</p>
+
+<h4 id="什么是依赖注入">什么是依赖注入？</h4>
+<p>　　依赖注入(Dependency Injection)：DI，简单的说，实例变量传入到一个对象中去。
+　　Spring全权负责组件的装配，它会把符合依赖关系的对象通过属性（JavaBean中的setter）或者是构造子传递给需要的对象。<br />
+　　相对于IoC而言，依赖注入(DI)更加准确地描述了IoC的设计理念。所谓依赖注入，即组件之间的依赖关系由容器在应用系统运行期来决定，也就是由容器<strong>动态</strong>地将某种依赖关系的目标对象实例注入到应用系统中的各个关联的组件之中。</p>
+
+<h4 id="ioc实现原理">IoC实现原理</h4>
+<p>　　提供一个工厂，解析配置后通过反射获得到一个类的实例。<br />
+　　工厂+配置+反射</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeanFactory</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="nc">UserService</span> <span class="nf">getUserService</span><span class="o">(){</span>
+ <span class="err"> </span>  	<span class="c1">//反射+配置文件</span>
+ <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span><span class="k">return</span> <span class="nc">Class</span><span class="o">.</span><span class="na">forname</span><span class="o">(</span><span class="err">类名</span><span class="o">).</span><span class="na">newInstance</span><span class="o">;</span>
+ <span class="err"> </span> <span class="err"> </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="spring优点">Spring优点</h3>
+<ul>
+  <li>方便解耦，简化开发<br />
+　　Spring就是一个大工厂，可以将所有对象创建和依赖关系维护，交给Spring管理</li>
+  <li>AOP编程的支持<br />
+　　Spring提供面向切面编程，可以方便的实现对程序进行权限拦截、运行监控等功能</li>
+  <li>声明式事务的支持<br />
+　　只需要通过配置就可以完成对事务的管理，而无需手动编程</li>
+  <li>方便程序的测试<br />
+　　Spring对Junit4支持，可以通过注解方便的测试Spring程序</li>
+  <li>方便集成各种优秀框架<br />
+　　Spring不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz等）的直接支持</li>
+  <li>降低JavaEE API的使用难度<br />
+　　Spring 对JavaEE开发中非常难用的一些API（JDBC、JavaMail、远程调用等），都提供了封装，使这些API应用难度大大降低</li>
+</ul>
+
+<h2 id="2spring简单案例">2、Spring简单案例</h2>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+       <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
+    	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"TT"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"car"</span> <span class="na">ref=</span><span class="s">"tt_car"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"tt_car"</span> <span class="na">class=</span><span class="s">"Car"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"宝马"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<p>Person.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">getCar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCar</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">who</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">getName</span><span class="o">()+</span><span class="s">"正在"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Car.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+    	<span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"开着"</span><span class="o">+</span><span class="n">getName</span><span class="o">()+</span><span class="s">"车……"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>test.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.support.ClassPathXmlApplicationContext</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span> <span class="o">{</span>
+   <span class="nd">@Test</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+       <span class="nc">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"applicationContext.xml"</span><span class="o">);</span>
+       <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="n">applicationContext</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"person"</span><span class="o">);</span>
+       <span class="n">person</span><span class="o">.</span><span class="na">who</span><span class="o">();</span>
+       <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="n">person</span><span class="o">.</span><span class="na">getCar</span><span class="o">();</span>
+       <span class="n">car</span><span class="o">.</span><span class="na">drive</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>输出结果：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">TT</span><span class="err">正在开着宝马车……</span>
+</code></pre></div></div>
+<p>Spring框架加载配置文件</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//加载classpath路径下</span>
+<span class="nc">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"applicationContext.xml"</span><span class="o">);</span>
+<span class="c1">//加载磁盘路径下</span>
+<span class="nc">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FileSystemXmlApplicationContext</span><span class="o">(</span><span class="s">"applicationContext.xml"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="beanfactory和applicationcontext的区别">BeanFactory和ApplicationContext的区别？</h3>
+<ul>
+  <li>ApplicationContext类继承了BeanFactory</li>
+  <li>BeanFactory在用到这个类的时候，getBean()方法才会加载</li>
+  <li>ApplicationContext加载配置文件的时候，创建了所有类的实例对象</li>
+  <li>ApplicationContext是对BeanFactory扩展，提供了更多功能
+    <ul>
+      <li>国际化处理</li>
+      <li>事件传递</li>
+      <li>Bean自动装配</li>
+      <li>各种不同应用层的Context实现</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3ioc容器">3、Ioc容器</h2>
+<p>　　Spring 容器是 Spring 框架的核心。容器将创建对象，把它们连接在一起，配置并管理他们的整个生命周期。Spring 容器使用依赖注入（DI）来管理组成一个应用程序的组件。这些对象被称为 Spring Beans。
+　　通过解析配置元数据，容器知道对哪些对象进行实例化，配置和组装。配置元数据可以通过 XML，Java 注释或 Java 代码来表示。Spring IoC 容器利用 Java 的 POJO 类和配置元数据来生成完全配置和可执行的系统或应用程序。
+　　Spring 提供了以下两种不同类型的容器。</p>
+
+<p>容器 | 描述
+—-|—
+BeanFactory 容器 | 它是最简单的容器，给 DI 提供了基本的支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的。
+ApplicationContext 容器| 该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义。</p>
+<h2 id="4spring-bean">4、Spring Bean</h2>
+<h3 id="什么是bean">什么是Bean</h3>
+<p>　　由Spring IoC容器所管理的对象称为bean。</p>
+<h3 id="bean的定义">Bean的定义</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>属性</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>class</td>
+      <td>必需，并指定 bean 类被用来创建bean</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>指定唯一 bean 标识符。在基于 XML 的配置元数据时，可以使用 id 或 name 属性来指定 bean 标识符</td>
+    </tr>
+    <tr>
+      <td>scope</td>
+      <td>bean 作用域</td>
+    </tr>
+    <tr>
+      <td>constructor-arg</td>
+      <td>构造方法的注入</td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td>注入的依赖关系</td>
+    </tr>
+    <tr>
+      <td>lazy-init</td>
+      <td>IoC 容器在需要时创建 bean 实例，不是在启动时创建</td>
+    </tr>
+    <tr>
+      <td>init-method</td>
+      <td>回调只是在 bean 的所有必要属性后调用已设置的容器</td>
+    </tr>
+    <tr>
+      <td>destroy-method</td>
+      <td>当包含该 bean 容器被销毁所使用的回调</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bean的命名-id属性和name属性">Bean的命名 id属性和name属性</h3>
+<p>　　一般情况下，装配一个Bean时，通过指定一个id属性作为Bean的名称</p>
+<ul>
+  <li>id 属性在IoC容器中必须是唯一的</li>
+  <li>id 的命名要满足XML对ID属性命名规范<br />
+必须以字母开始，可以使用字母、数字、连字符、下划线、句话、冒号<br />
+如果Bean的名称中含有特殊字符，就需要使用name属性
+例如：
+````xml</li>
+</ul>
+<bean name="#person" class="Person" />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* 因为name属性可以相同，所以后出现Bean会覆盖之前出现的同名的Bean  
+***现在开发都使用id即可***
+
+### Bean的作用域（scope属性）
+  ````xml
+  &lt;bean name="person" class="Person" scope="singleton"/&gt;
+</code></pre></div></div>
+<style>
+  table {
+  	width:94%;
+  	margin: auto;
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>类别</th>
+      <th>说明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>singleton （默认）</strong></td>
+      <td>在Spring IoC容器中仅存在一个Bean实例，Bean以单例方式存在</td>
+    </tr>
+    <tr>
+      <td>prototype</td>
+      <td>每次从容器中调用Bean时，都返回一个新的实例，即每次调用getBean()时 ，相当于执行new XxxBean()</td>
+    </tr>
+    <tr>
+      <td>request</td>
+      <td>每次HTTP请求都会创建一个新的Bean，该作用域仅适用于WebApplicationContext环境</td>
+    </tr>
+    <tr>
+      <td>session</td>
+      <td>同一个HTTP Session 共享一个Bean，不同Session使用不同Bean，仅适用于WebApplicationContext 环境</td>
+    </tr>
+    <tr>
+      <td>globalSession</td>
+      <td>一般用于Porlet应用环境，该作用域仅适用于WebApplicationContext 环境</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="bean生命周期init-methoddestroy-method属性">Bean生命周期（init-method、destroy-method属性）</h3>
+<p>　　当一个 bean 被实例化时，在它被使用前需要执行一些初始化工作。当bean不再需要，并且从容器中移除时，可能需要做一些清除工作。
+　　还有一些在 Bean 实例化和销毁之间发生的活动，但是现在只讨论两个重要的生命周期回调方法，它们在 bean 的初始化和销毁的时候是必需的。
+　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"exampleBean"</span> <span class="na">class=</span><span class="s">"ExampleBean"</span> <span class="na">init-method=</span><span class="s">"initMethod"</span> <span class="na">destroy-method=</span><span class="s">"destroyMethod"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+<h4 id="初始化回调">初始化回调</h4>
+<ol>
+  <li>可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">InitializingBean</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPropertiesSet</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// do some initialization work</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>在基于XML的配置元数据的情况下，你可以使用 init-method 属性来指定带有 void 无参数方法的名称。例如：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initMethod</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// do some initialization work</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+    <h4 id="销毁回调">销毁回调</h4>
+  </li>
+  <li>org.springframework.beans.factory.DisposableBean destroy()方法：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">DisposableBean</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroy</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// do some destruction work</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>在基于 XML 的配置元数据的情况下，你可以使用 destroy-method 属性来指定带有 void 无参数方法的名称。例如：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroyMethod</span><span class="o">()</span> <span class="o">{</span>
+   <span class="c1">// do some destruction work</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p><strong><em>建议不要使用 InitializingBean 或者 DisposableBean 的回调方法，因为 XML 配置在命名方法上提供了极大的灵活性。</em></strong></p>
+
+<h4 id="生命周期的步骤">生命周期的步骤</h4>
+<ol>
+  <li>instantiate bean对象实例化</li>
+  <li>populate properties封装属性</li>
+  <li>如果 Bean 实现 BeanNameAware 执行 setBeanName</li>
+  <li>如何 Bean 实现 BeanFactoryAware 或者 ApplicationContextAware 设置工厂 setBeanFactory 或者上下文对象 setApplicationContext</li>
+  <li>** 如果存在实现 BeanPostProcessor（Bean后处理器），执行postProcessBeforeInitialization **</li>
+  <li>如果 Bean 实现 InitializingBean 执行 afterPropertiesSet</li>
+  <li>调用 <Bean init-method="init"> 指定初始化方法 init</Bean></li>
+  <li>** 如果存在实现 BeanPostProcessor （Bean后处理器），执行 执行postProcessBeforeInitialization **</li>
+  <li>执行业务处理</li>
+  <li>如果 Bean 实现 DisposableBean 执行 destory</li>
+  <li>调用 <Bean destory-method="customerDestory"> 指定销毁方法 customerDestory</Bean></li>
+</ol>
+
+<p>　　　</p>
+<h3 id="bean的其他参数属性class属性">Bean的其他参数属性（class属性）</h3>
+<p>　　指定用来创建 bean 的 bean 类。</p>
+<h2 id="5ioc容器装配bean">5、IoC容器装配Bean</h2>
+<h3 id="基于xml配置">基于XML配置</h3>
+<h4 id="bean实例化">Bean实例化</h4>
+<p><strong>Spring框架实例化Bean的三种方式</strong></p>
+<ul>
+  <li><strong>构造方法实例化</strong>（默认使用无参数的构造方法实例化）</li>
+  <li>静态工厂实例化
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"person2"</span> <span class="na">class=</span><span class="s">"PersonFactory"</span> <span class="na">factory-method=</span><span class="s">"getPersonBean"</span><span class="nt">/&gt;</span>
+</code></pre></div>    </div>
+    <p>PersonFactory.java</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">PersonFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="nc">Person</span> <span class="nf">getPersonBean</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Person</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>实例工厂实例化
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"person3"</span> <span class="na">class=</span><span class="s">"PersonFactory2"</span> <span class="na">factory-method=</span><span class="s">"getPersonBean"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"PersonFactory2"</span> <span class="na">class=</span><span class="s">"PersonFactory2"</span><span class="nt">/&gt;</span>
+</code></pre></div>    </div>
+    <p>PersonFactory.java</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">PersonFactory2</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nc">Person</span> <span class="nf">getPersonBean</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">Person</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+    <h4 id="bean依赖注入">Bean依赖注入</h4>
+    <h5 id="通过构造方法注入">通过构造方法注入</h5>
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"詹姆斯"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"id"</span> <span class="na">value=</span><span class="s">"123456"</span><span class="nt">&gt;</span>
+ <span class="c">&lt;!--构造方法的参数下标索引--&gt;</span>
+  <span class="c">&lt;!--&lt;constructor-arg index="0" type="java.lang.String" value="詹姆斯"/&gt;--&gt;</span>
+  <span class="c">&lt;!--&lt;constructor-arg index="1" type="java.lang.String" value="123456"/&gt;--&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div>    </div>
+
+    <p>Person.java</p>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>
+<span class="err"> </span> <span class="err"> </span><span class="c1">//通过构造方法注入</span>
+<span class="err"> </span> <span class="err"> </span><span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h5 id="通过setter方法注入">通过setter方法注入</h5>
+<h6 id="普通方法注入">普通方法注入</h6>
+<ul>
+  <li>value: 引入普通属性</li>
+  <li>ref: 引入引用其他 Bean 对象属性</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"TT"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"car"</span> <span class="na">ref=</span><span class="s">"tt_car"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+<p>Person.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">getCar</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCar</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="nc">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">who</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">getName</span><span class="o">()+</span><span class="s">"正在"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h6 id="名称空间p注入property">名称空间p注入property</h6>
+<ul>
+  <li>为了简化XML文件配置，Spring从2.5开始引入一个新的p名称空间</li>
+  <li>p:<属性名>="xxx" 引入常量值</属性名></li>
+  <li>p:<属性名>-ref="xxx" 引用其它Bean对象</属性名></li>
+</ul>
+
+<p>引入名称空间：</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xmlns:p="http://www.springframework.org/schema/p
+</code></pre></div></div>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span> <span class="na">p:name=</span><span class="s">"詹姆斯"</span> <span class="na">P:id=</span><span class="s">"123456"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+<h6 id="spel注入property">SpEL注入property</h6>
+<p>　　SpEL：spring expression language ，spring表达式语言，对依赖注入进行简化。 <br />
+　　语法：#{表达式}</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"tt_car"</span> <span class="na">class=</span><span class="s">"Car"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"宝马"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"#{'詹姆斯'}"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"id"</span> <span class="na">value=</span><span class="s">"#{'123456'}"</span><span class="nt">/&gt;</span>
+  <span class="c">&lt;!--直接通过表达式获取tt_car--&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"car"</span> <span class="na">ref=</span><span class="s">"#{tt_car}"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+<h6 id="集合属性的注入">集合属性的注入</h6>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"tt_car"</span> <span class="na">class=</span><span class="s">"Car"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"宝马"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"passengerNameList"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--注入list集合--&gt;</span>
+    <span class="nt">&lt;list&gt;</span>
+      <span class="nt">&lt;value&gt;</span>乐福<span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;value&gt;</span>JR<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/list&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"passengerNameSet"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--注入set集合--&gt;</span>
+    <span class="nt">&lt;set&gt;</span>
+      <span class="nt">&lt;value&gt;</span>乐福<span class="nt">&lt;/value&gt;</span>
+      <span class="nt">&lt;value&gt;</span>JR<span class="nt">&lt;/value&gt;</span>
+    <span class="nt">&lt;/set&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"passengerNameMap"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--注入map集合--&gt;</span>
+    <span class="nt">&lt;map&gt;</span>
+      <span class="nt">&lt;entry</span> <span class="na">key=</span><span class="s">"1"</span> <span class="na">value=</span><span class="s">"乐福"</span><span class="nt">&gt;&lt;/entry&gt;</span>
+      <span class="nt">&lt;entry</span> <span class="na">key=</span><span class="s">"2"</span> <span class="na">value=</span><span class="s">"JR"</span><span class="nt">&gt;&lt;/entry&gt;</span>      
+    <span class="nt">&lt;/map&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"properties"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--注入properties--&gt;</span>
+    <span class="nt">&lt;pros&gt;</span>
+      <span class="nt">&lt;pro</span> <span class="na">key=</span><span class="s">"1"</span><span class="nt">&gt;</span>乐福<span class="nt">&lt;/pro&gt;</span>
+      <span class="nt">&lt;pro</span> <span class="na">key=</span><span class="s">"2"</span><span class="nt">&gt;</span>JR<span class="nt">&lt;/pro&gt;</span>      
+    <span class="nt">&lt;/pros&gt;</span>
+  <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+<p>Car.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">List</span> <span class="n">passengerNameList</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Set</span> <span class="n">passengerNameSet</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Map</span> <span class="n">passengerNameMap</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">Properties</span> <span class="n">properties</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">Properties</span> <span class="nf">getProperties</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">properties</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setProperties</span><span class="o">(</span><span class="nc">Properties</span> <span class="n">properties</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">properties</span> <span class="o">=</span> <span class="n">properties</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">Map</span> <span class="nf">getPassengerNameMap</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">passengerNameMap</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassengerNameMap</span><span class="o">(</span><span class="nc">Map</span> <span class="n">passengerNameMap</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">passengerNameMap</span> <span class="o">=</span> <span class="n">passengerNameMap</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">Set</span> <span class="nf">getPassengerNameSet</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">passengerNameSet</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassengerNameSet</span><span class="o">(</span><span class="nc">Set</span> <span class="n">passengerNameSet</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">passengerNameSet</span> <span class="o">=</span> <span class="n">passengerNameSet</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">List</span> <span class="nf">getPassengerNameList</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">passengerNameList</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setPassengerNameList</span><span class="o">(</span><span class="nc">List</span> <span class="n">passengerNameList</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">passengerNameList</span> <span class="o">=</span> <span class="n">passengerNameList</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">drive</span><span class="o">(){</span> <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"开着"</span><span class="o">+</span><span class="n">getName</span><span class="o">()+</span><span class="s">"车……"</span><span class="o">);</span> <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<h4 id="bean作用范围">Bean作用范围</h4>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+<h4 id="bean初始化方法和销毁方法">Bean初始化方法和销毁方法</h4>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"exampleBean"</span> <span class="na">class=</span><span class="s">"ExampleBean"</span> <span class="na">init-method=</span><span class="s">"initMethod"</span> <span class="na">destroy-method=</span><span class="s">"destroyMethod"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h3 id="基于注解配置">基于注解配置</h3>
+<h4 id="bean实例化-1">Bean实例化</h4>
+<p>　　@Component，描述框架中的Bean。
+　　除了@Component外，Spring提供了3个功能基本和@Component等效的注解</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"person"</span><span class="o">)</span>
+<span class="c1">//只有一个属性value，可以省略value，直接填入id。</span>
+</code></pre></div></div>
+<ul>
+  <li>@Repository 用于对DAO实现类进行标注</li>
+  <li>@Service 用于对Service实现类进行标注</li>
+  <li>@Controller 用于对Controller实现类进行标注</li>
+</ul>
+
+<p><strong><em>这三个注解是为了让标注类本身的用途清晰，Spring在后续版本会对其增强</em></strong></p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="c">&lt;!--引入context命名空间--&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+       <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="na">xmlns:context=</span><span class="s">"http://www.springframework.org/schema/context"</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"</span><span class="nt">&gt;</span>
+<span class="c">&lt;!--配置自动扫描--&gt;</span>
+<span class="nt">&lt;context:annotation-config/&gt;</span>
+<span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">"cn.hbson.web.bean"</span><span class="nt">&gt;&lt;/context:component-scan&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<h4 id="bean依赖注入-1">Bean依赖注入</h4>
+<h5 id="普通属性">普通属性</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Value</span><span class="o">(</span><span class="s">"勒布朗"</span><span class="o">)</span>
+<span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+</code></pre></div></div>
+<h5 id="对象属性">对象属性</h5>
+<ul>
+  <li>使用@Autowired 进行自动注入  ** 默认按类型注入**</li>
+  <li>使用@Autowired @Qualifier 进行注入  ** 按名称注入**</li>
+  <li>使用@Resource 进行注入 （@Autowired @Qualifier 效果相同）</li>
+</ul>
+
+<p>Car.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">(</span><span class="s">"jr_car"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">"奥迪"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getName</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setName</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Person.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"jr_car"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">"勒布朗"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>     
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">getCar</span><span class="o">()</span> <span class="o">{</span><span class="k">return</span> <span class="n">car</span><span class="o">;}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setCar</span><span class="o">(</span><span class="nc">Car</span> <span class="n">car</span><span class="o">)</span> <span class="o">{</span><span class="k">this</span><span class="o">.</span><span class="na">car</span> <span class="o">=</span> <span class="n">car</span><span class="o">;}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<ul>
+  <li>通过@Autowired的required属性，设置一定要找到匹配的Bean<br />
+  <strong>如果设置为false，没有匹配的Bean时忽略异常，注入<code class="language-plaintext highlighter-rouge">null</code></strong></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Autowired</span><span class="o">(</span><span class="n">required</span><span class="o">=</span><span class="kc">false</span><span class="o">)</span>
+</code></pre></div></div>
+<h4 id="bean作用范围-1">Bean作用范围</h4>
+<p>@Scope注解用于指定Bean的作用范围</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span><span class="o">()</span>
+<span class="nd">@Scope</span><span class="o">(</span><span class="s">"prototype"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+  <span class="c1">//...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h4 id="bean初始化方法和销毁方法-1">Bean初始化方法和销毁方法</h4>
+<ul>
+  <li><strong>初始化</strong>：当 bean 被载入到容器的时候调用 <strong>initMethod</strong>   
+注解方式下: 
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@PostConstruct</span> 
+</code></pre></div>    </div>
+  </li>
+  <li><strong>销毁</strong>：当 bean 从容器中删除的时候调用 <strong>destoryMethod (scope= singleton有效)</strong><br />
+注解方式如下:
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@PreDestroy</span>  
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="基于java类配置">基于Java类配置</h3>
+<p>**手动方式加载@Configuration配置类 **<br />
+Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</p>
+<ul>
+  <li>@Configuration 指定POJO类为Spring提供Bean定义信息</li>
+  <li>@Bean 提供一个Bean定义信息</li>
+  <li>Spring提供 AnnotationConfigApplicationContext 用于加载使用 <code class="language-plaintext highlighter-rouge">@Configuration</code>配置注解工厂类</li>
+  <li>register方法 用于向 注解上下文对象 添加一个配置类</li>
+  <li>refresh 刷新容器以应用这些注册的配置类</li>
+</ul>
+
+<p>BeanConfig.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BeanConfig</span> <span class="o">{</span>
+    <span class="nd">@Bean</span>
+    <span class="c1">//没有指定name，默认id为方法名</span>
+    <span class="kd">public</span> <span class="nc">Car</span> <span class="nf">tt_car</span><span class="o">(){</span>
+        <span class="nc">Car</span> <span class="n">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Car</span><span class="o">();</span>
+        <span class="n">c</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"保时捷"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="nd">@Bean</span><span class="o">(</span><span class="s">"JR"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">Person</span> <span class="nf">person</span><span class="o">(){</span>
+        <span class="nc">Person</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Person</span><span class="o">();</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="s">"123456"</span><span class="o">);</span>
+        <span class="n">p</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"我是JR"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">p</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Test.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">test</span><span class="o">{</span>
+	<span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test5</span><span class="o">(){</span>
+    	<span class="nc">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"applicationContext.xml"</span><span class="o">);</span>
+        <span class="nc">Person</span> <span class="n">person</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Person</span><span class="o">)</span> <span class="n">applicationContext</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"JR"</span><span class="o">);</span>
+        <span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="o">(</span><span class="nc">Car</span><span class="o">)</span> <span class="n">applicationContext</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">"tt_car"</span><span class="o">);</span>
+        <span class="n">person</span><span class="o">.</span><span class="na">setCar</span><span class="o">(</span><span class="n">car</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">person</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>输出结果：</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Person</span><span class="o">{</span><span class="n">car</span><span class="o">=</span><span class="nc">Car</span><span class="o">{</span><span class="n">name</span><span class="o">=</span><span class="err">'保时捷'</span><span class="o">},</span> <span class="n">name</span><span class="o">=</span><span class="err">'我是</span><span class="no">JR</span><span class="err">'</span><span class="o">,</span> <span class="n">id</span><span class="o">=</span><span class="err">'</span><span class="mi">123456</span><span class="err">'</span><span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="多种装配bean方式比较">多种装配Bean方式比较</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td>基于XML配置</td>
+      <td>基于注解配置</td>
+      <td>基于Java类配置 —-</td>
+      <td>—</td>
+      <td>—-</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td>Bean定义</td>
+      <td>&lt; bean id=”…” class=”…” /&gt;</td>
+      <td>@Component衍生类  @Repository  @Service  @Controller</td>
+      <td>@Configuration标注类，@Bean标注提供Bean方法</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Bean名称</td>
+      <td>通过 id或name指定</td>
+      <td>@Component(“person”)</td>
+      <td>@Bean(“person”)</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Bean注入</td>
+      <td>&lt; property&gt; 或者 通过p命名空间</td>
+      <td>@Autowired 按类型注入@Qualifier按名称注入</td>
+      <td>在方法内部编写注入代码逻辑</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>Bean作用范围、生命过程</td>
+      <td>scope属性 init-method destroy-method范围</td>
+      <td>@Scope设置作用范围@PostConstruct 初始化@PreDestroy销毁</td>
+      <td>@Scope指定范围在方法内部调用初始化方法</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>适合场景</td>
+      <td>Bean来自第三方，使用其它命名空间</td>
+      <td>Bean的实现类由用户自己开发</td>
+      <td>实例化Bean的逻辑比较复杂</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="6xml配置文件">6、XML配置文件</h2>
+<h3 id="配置">配置</h3>
+<h4 id="添加context命名空间">添加context命名空间</h4>
+<p>　　引入context命名空间</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+     <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+     <span class="na">xmlns:context=</span><span class="s">"http://www.springframework.org/schema/context"</span>
+     <span class="na">xsi:schemaLocation=</span><span class="s">"http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<h4 id="添加contextannotation-config标签">添加context:annotation-config标签</h4>
+<p>　　使@Resource、@ PostConstruct、@ PreDestroy、@Autowired注解生效</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;context:annotation-config/&gt;</span>
+</code></pre></div></div>
+<h3 id="使用多个配置文件">使用多个配置文件</h3>
+<h4 id="方式一">方式一</h4>
+<p>　　可以在创建ApplicationContext对象时传入多个配置文件</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> 
+<span class="nc">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">"beans1.xml"</span><span class="o">,</span> <span class="s">"beans2.xml"</span><span class="o">);</span>
+</code></pre></div></div>
+<h4 id="方式二">方式二</h4>
+<p>　　可以在配置文件中通过<import>引入其他配置文件</import></p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">"classpath:bean2.xml"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+<h2 id="7spring整合web开发">7、Spring整合Web开发</h2>
+<h3 id="配置webxml">配置web.xml</h3>
+<ol>
+  <li>将Spring容器初始化，交由web容器负责</li>
+  <li>配置核心监听器 ContextLoaderListener</li>
+  <li>配置全局参数 contextConfigLocation<br />
+  用于指定Spring的框架的配置文件位置</li>
+</ol>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;context-param&gt;</span>
+  <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+  <span class="nt">&lt;param-value&gt;</span>classpath:spring/applicationContext.xml<span class="nt">&lt;/param-value&gt;</span>
+<span class="nt">&lt;/context-param&gt;</span>
+<span class="nt">&lt;listener&gt;</span>
+  <span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+<span class="nt">&lt;/listener&gt;</span>
+</code></pre></div></div>
+<h3 id="获得webapplicationcontext对象">获得WebApplicationContext对象</h3>
+<p>　　因为Spring容器已经交由web容器初始化和管理。
+　　获得WebApplicationContext对象，需要依赖ServletContext对象通常在Servlet中完成</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">WebApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="nc">WebApplicationContextUtils</span><span class="o">.</span><span class="na">getWebApplicationContext</span><span class="o">(</span><span class="n">getServletContext</span><span class="o">());</span>
+</code></pre></div></div>
+<p>　　另一种方式</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">WebApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="o">(</span><span class="nc">WebApplicationContext</span><span class="o">)</span> 
+<span class="n">getServletContext</span><span class="o">().</span><span class="na">getAttribute</span><span class="o">(</span><span class="nc">WebApplicationContext</span><span class="o">.</span><span class="na">ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE</span><span class="o">);</span>
+</code></pre></div></div>
+<h2 id="8spring集成junit测试">8、Spring集成Junit测试</h2>
+<ul>
+  <li>导入Spring test测试jar包</li>
+  <li>spring-test-3.2.0.RELEASE.jar</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.ContextConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class="o">;</span>
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span> <span class="n">locations</span> <span class="o">=</span> <span class="s">"classpath:applicationContext.xml"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">Person</span> <span class="n">person</span><span class="o">;</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">person</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>测试结果</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Person</span><span class="o">{</span><span class="n">car</span><span class="o">=</span><span class="nc">Car</span><span class="o">{</span><span class="n">name</span><span class="o">=</span><span class="err">'奥迪'</span><span class="o">},</span> <span class="n">name</span><span class="o">=</span><span class="err">'勒布朗'</span><span class="o">,</span> <span class="n">id</span><span class="o">=</span><span class="err">'</span><span class="mi">123456</span><span class="err">'</span><span class="o">}</span>
+</code></pre></div></div>
+<h2 id="9spring-aop">9、Spring AOP</h2>
+<p>　　内容太多了，可以看下一篇<a href="http://hbson.cn/2018/05/23/Spring_AOP_start/">Spring AOP入门</a>。</p>
+
+  </div>
+
+  <div class='post-footer'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-next' href="/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html">Ubuntu Server 安装后续 →&nbsp;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+
+</article>
+
+<div class="utterances-comments-header">
+  <div>
+    <div>Comments </div>
+    <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
+  </div>
+  <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=/tech/2018/05/22/Spring%E5%85%A5%E9%97%A8.html">Issue Page</a>
+</div>
+<script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Copyright © Uhfun Blog 2019<br>
+        Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
+        &nbsp;|&nbsp;Themed by <strong> <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll">Uhfun-Jekyll</a></strong> 
+        &nbsp; <br> licensed <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
+        &nbsp;
+      </p>
+    </div>
+  </div>
+</footer>
+<div class="back-to-top is-info">
+    <a class="icon-stack">
+        <ion-icon name="arrow-dropup">
+            <svg class="svg-icon">
+                <use xlink:href="/assets/arrow-dropup.svg"></use>
+            </svg>
+        </ion-icon>
+        <span class="back-to-top-text">Top</span>
+    </a>
+</div>
+<script src="/assets/js/back-to-top.js"></script>
+<script src="/assets/js/hash-code.js"></script>
+<script src="/assets/js/drop-down.js"></script>
+<script src="/assets/js/category-post-num.js"></script>
+<script src="/assets/js/baidu-push.js"></script>
+<script>
+    $('.brief-content .content .title-content').each((i, e) => {
+        $bt = $(e);
+        const hashCode = $bt.text().hashCode();
+        const list = [
+        
+        '#f16181',
+        
+        '#fd7676',
+        
+        '#53aee4',
+        ];       
+        const n = hashCode % list.length;
+        const color =  list[(n < 0 ? n + list.length : n)];
+        console.log(color)
+        $bt.css('color', color);
+        $bt.children('.brief-quote').css('color', color);
+    })
+</script>
+</body>
+<script src="/assets/js/date-format.js"></script>
+</html>
