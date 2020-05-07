@@ -30,6 +30,7 @@ tag_archive:
   type: liquid
   path: /tags/
 
+# 非插件变量，自定义的categories变量，用于categories页面展示
 custom_categories:
   life:
     head-title: 不要为了梦想而忘记生活 ！！！
@@ -60,7 +61,7 @@ utterances:
 #   clientSecret: 4fbad0f6ed21f166b24bd88d239a02f53ca326c6
 
 
-breif:
+brief:
   color: 
     - "#f16181"
     # pink

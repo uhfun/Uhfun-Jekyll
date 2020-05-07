@@ -380,14 +380,14 @@
   }
 }
 
-// breif sketch
-.post_breif {
+// brief sketch
+.post_brief {
 
   @include media-max(500px) {
     padding-bottom: 1rem;
   }
 
-  .breif-content {
+  .brief-content {
     @include media-max(500px) {
       background-color: white;
       border-radius: 6px;
@@ -427,7 +427,7 @@
         align-items: center;
       }
 
-      .breif-tag {
+      .brief-tag {
         margin-top: 25px !important;
 
         svg {
@@ -435,7 +435,7 @@
         }
       }
 
-      .breif-footer {
+      .brief-footer {
         @include media-min(500px) {
           display: none;
         }
@@ -475,7 +475,7 @@
           right: -50px;
         }
 
-        .breif-quote {
+        .brief-quote {
           @include media-min(500px) {
             display: none;
           }
@@ -683,7 +683,7 @@
           text-overflow: ellipsis;
           display: flex;
           border-radius: 0.2rem !important;
-          box-shadow: 3px 3px 11px 0px #f3f1f1;
+          border-bottom: 1px solid #e7e4e4;
           padding: 10px;
 
           .day {

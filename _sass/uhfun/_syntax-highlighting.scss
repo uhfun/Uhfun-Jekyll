@@ -1,26 +1,20 @@
 /**
  * Syntax highlighting styles
  */
-code {
-  background-color: #f8f8f8 !important;
-  margin: 0 4px;
-  padding: 0.3em 0.6em 0.3em !important;
-  span {
-    background-color: #f8f8f8;
-  }
+ 
+pre {
+  background-color: #fdfdfd !important;
+  box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important;
 }
 
 .highlight {
-  pre {
-    border: none;
-  }
 
-  margin: 20px 0px;
-  background: #fff;
+  margin-bottom: 10px;
+  // background: #fff;
   @extend %vertical-rhythm;
 
   .highlighter-rouge & {
-    background: #f8f8f8;
+    // background: #f8f8f8;
     border-radius: 0.2em;
   }
 

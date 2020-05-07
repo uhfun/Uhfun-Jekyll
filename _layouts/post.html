@@ -3,7 +3,7 @@ layout: page
 ---
 <article class="post">
   {% if page.title %}
-  <h1 class="title is-spaced">{{ page.title | escape }}</h1>
+  <h1 class="title is-spaced">{{ page.post.title | escape }}</h1>
   {% endif %}
   {% assign tags = page.tags %}
   {% assign date = page.date%}
@@ -16,7 +16,7 @@ layout: page
     {% endif %}
   </div>
   <div class='post-content'>
-    {% if page.post.type == "breif" %}
+    {% if page.post.type == "brief" %}
     <p>{{ page.post.content }}</p>
     {% endif %}
     {{ content }}
