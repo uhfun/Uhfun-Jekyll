@@ -1,15 +1,16 @@
 ---
 layout: post
 title: ABOUT
-e-unique-title: about
+# e-unique-title: about
 ---
 
-**热爱生活，热爱唱歌，热爱代码**
+**记录生活中的美好**
 
-> 我是谁 ？
+> 关于我
+
+我是一个来自浙江舟山的小伙子，本来也不善言辞。
 
 
-
-> More About Me：
+> 关于这个博客
 
  

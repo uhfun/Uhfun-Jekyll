@@ -276,6 +276,7 @@ table {
   color: lighten($text-color, 18%);
   border-collapse: collapse;
   border: 1px solid $grey-color-light;
+  box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important;
 
   tr {
     &:nth-child(even) {

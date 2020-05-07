@@ -67,7 +67,7 @@ layout: page
                     {% case post.post.type %}
                     {% when 'article' %}            
                     {% assign post-content = post.excerpt %}
-                    {% when 'breif' %}
+                    {% when 'brief' %}
                     {% assign post-content = post.post.content %}  
                     {% endcase %}                    
                     {{ post.post.title }}
