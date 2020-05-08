@@ -4,6 +4,9 @@
   box-shadow: 1px 6px 29px -2px rgba(0, 0, 0, 0.1) !important;
 }
 
+.section {
+  background-color: #fff !important;
+}
 // nav
 .navbar-item {
   img {
@@ -268,7 +271,7 @@
 
 // footer
 .footer {
-  background-color: white;
+  background-color: #fff !important;
 
   .container .content p {
     font-size: .75rem !important;
