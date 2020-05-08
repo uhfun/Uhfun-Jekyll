@@ -272,10 +272,10 @@
     
     <p>安装完 Ubuntu-server 后，额外的一些设置</p>
 
-<h3 id="1-修改-root-密码">1. 修改 root 密码</h3>
+<h3 id="修改-root-密码">修改 root 密码</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>passwd root
 </code></pre></div></div>
-<h3 id="2-使用root开启ssh登录">2. 使用root开启ssh登录</h3>
+<h3 id="使用root开启ssh登录">使用root开启ssh登录</h3>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>vi /etc/ssh/sshd_config
 </code></pre></div></div>
 <p><strong>找到下面的配置</strong></p>
@@ -300,7 +300,7 @@ PermitRootLogin <span class="nb">yes
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service ssh restart
 </code></pre></div></div>
 
-<h3 id="3-设置开机默认root账户登录">3. 设置开机默认root账户登录</h3>
+<h3 id="设置开机默认root账户登录">设置开机默认root账户登录</h3>
 <p><strong>将当前用户切换为root账户</strong></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su root
@@ -323,7 +323,7 @@ PermitRootLogin <span class="nb">yes
 <span class="nb">exec</span> /sbin/mingetty –-autologin root tty1
 </code></pre></div></div>
 
-<h3 id="4-修改dns">4. 修改DNS</h3>
+<h3 id="修改dns">修改DNS</h3>
 <p><strong>修改文件 /etc/network/interfaces</strong></p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dns-nameservers 114.114.114.114
@@ -336,7 +336,7 @@ dns-nameservers 8.8.8.8
 nameserver 8.8.8.8
 </code></pre></div></div>
 
-<h3 id="5-安装-shell-integration--iterm2-">5. 安装 Shell Integration （ iterm2 ）</h3>
+<h3 id="安装-shell-integration--iterm2-">安装 Shell Integration （ iterm2 ）</h3>
 <p>好东西，前提得先安装 <strong>iterm2</strong><br />
 解决了我虚拟机Ubuntu上 下载文件慢，开代理也无济于事的问题 <br />
 直接把主机下载的文件拖上去上传就行。<br />

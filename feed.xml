@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T18:29:05+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T20:59:02+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
 &lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 
@@ -1271,10 +1271,10 @@ ConditionalOnMissingBean: 表示指定的bean classes and/or bean names不存在
 
 &lt;p&gt;使用此方法，我们可以向每个应用程序层添加日志记录，性能管理，审计或其他行为。&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="Spring" /><category term="注解" /><category term="annotation" /><summary type="html">这里罗列一些Spring的注解，不断巩固</summary></entry><entry><title type="html">Ubuntu Server 安装后续</title><link href="http://uhfun.cn/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html" rel="alternate" type="text/html" title="Ubuntu Server 安装后续" /><published>2018-07-23T22:31:00+08:00</published><updated>2018-07-23T22:31:00+08:00</updated><id>http://uhfun.cn/tech/2018/07/23/Ubuntu-server%20%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD</id><content type="html" xml:base="http://uhfun.cn/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html">&lt;p&gt;安装完 Ubuntu-server 后，额外的一些设置&lt;/p&gt;
 
-&lt;h3 id=&quot;1-修改-root-密码&quot;&gt;1. 修改 root 密码&lt;/h3&gt;
+&lt;h3 id=&quot;修改-root-密码&quot;&gt;修改 root 密码&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;passwd root
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;2-使用root开启ssh登录&quot;&gt;2. 使用root开启ssh登录&lt;/h3&gt;
+&lt;h3 id=&quot;使用root开启ssh登录&quot;&gt;使用root开启ssh登录&lt;/h3&gt;
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;vi /etc/ssh/sshd_config
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;找到下面的配置&lt;/strong&gt;&lt;/p&gt;
@@ -1299,7 +1299,7 @@ PermitRootLogin &lt;span class=&quot;nb&quot;&gt;yes
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service ssh restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;3-设置开机默认root账户登录&quot;&gt;3. 设置开机默认root账户登录&lt;/h3&gt;
+&lt;h3 id=&quot;设置开机默认root账户登录&quot;&gt;设置开机默认root账户登录&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;将当前用户切换为root账户&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su root
@@ -1322,7 +1322,7 @@ PermitRootLogin &lt;span class=&quot;nb&quot;&gt;yes
 &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; /sbin/mingetty –-autologin root tty1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;4-修改dns&quot;&gt;4. 修改DNS&lt;/h3&gt;
+&lt;h3 id=&quot;修改dns&quot;&gt;修改DNS&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;修改文件 /etc/network/interfaces&lt;/strong&gt;&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dns-nameservers 114.114.114.114
@@ -1335,7 +1335,7 @@ dns-nameservers 8.8.8.8
 nameserver 8.8.8.8
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;5-安装-shell-integration--iterm2-&quot;&gt;5. 安装 Shell Integration （ iterm2 ）&lt;/h3&gt;
+&lt;h3 id=&quot;安装-shell-integration--iterm2-&quot;&gt;安装 Shell Integration （ iterm2 ）&lt;/h3&gt;
 &lt;p&gt;好东西，前提得先安装 &lt;strong&gt;iterm2&lt;/strong&gt;&lt;br /&gt;
 解决了我虚拟机Ubuntu上 下载文件慢，开代理也无济于事的问题 &lt;br /&gt;
 直接把主机下载的文件拖上去上传就行。&lt;br /&gt;
