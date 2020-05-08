@@ -25,6 +25,7 @@ figcaption { font-size: 14px; }
 ul, ol { margin-left: 30px; }
 
 .content ul { margin-top: 0px !important; }
+.content ol { margin-top: 0.4em !important; }
 
 li > ul, li > ol { margin-bottom: 0; }
 
@@ -324,7 +325,7 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .gitment-header-like-btn { margin-right: 20px !important; }
 
-#toc { margin-bottom: 30px; border: 1px solid #e8e8e8; padding-bottom: 20px; border-radius: 0.2em; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
+#toc { margin-bottom: 30px; padding: 20px; border: 1px solid #e8e8e8; padding-bottom: 20px; border-radius: 0.2em; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
 #toc .toc-link { color: #1f314d !important; }
 #toc .toc-link:hover { color: #0bd2b4d1 !important; }
 
