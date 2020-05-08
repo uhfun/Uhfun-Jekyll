@@ -39,9 +39,9 @@ tag_archive:
 # 非插件变量，自定义的categories变量，用于categories页面展示
 custom_categories:
   life:
-    head-title: 不要为了梦想而忘记生活 ！！！
+    head-title: 我们站着，不说话，就十分美好。
   tech:
-    head-title: 不要为了生活而忘记梦想 ！！！
+    head-title: 历史上任何伟大的成就都可以称为热情的胜利。
 
 jekyll-archives:
   enabled: 
