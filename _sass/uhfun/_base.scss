@@ -95,8 +95,13 @@ ol {
   margin-left: $spacing-unit;
 }
 
-.content ul {
-  margin-top: 0px !important;
+.content {
+  ul {
+    margin-top: 0px !important;
+  }
+  ol {
+    margin-top: 0.4em !important;
+  }
 }
 
 li {
