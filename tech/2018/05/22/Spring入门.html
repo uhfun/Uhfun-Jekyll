@@ -171,6 +171,18 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <a class="navbar-item" href="/life/">
           LIFE
         </a>
@@ -182,6 +194,10 @@
         <a class="navbar-item" href="/tech/">
           TECH
         </a>
+        
+        
+        
+        
         
         
         
@@ -797,7 +813,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"</span><span class="nt">&gt;</span>
 <span class="c">&lt;!--配置自动扫描--&gt;</span>
 <span class="nt">&lt;context:annotation-config/&gt;</span>
-<span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">"cn.hbson.web.bean"</span><span class="nt">&gt;&lt;/context:component-scan&gt;</span>
+<span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">"cn.uhfun.web.bean"</span><span class="nt">&gt;&lt;/context:component-scan&gt;</span>
 <span class="nt">&lt;/beans&gt;</span>
 </code></pre></div></div>
 <h4 id="bean依赖注入-1">Bean依赖注入</h4>
@@ -874,7 +890,7 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
 </ul>
 
 <p>BeanConfig.java</p>
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">uhfun</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
 <span class="nd">@Configuration</span>
@@ -1016,7 +1032,7 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
   <li>spring-test-3.2.0.RELEASE.jar</li>
 </ul>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">uhfun</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
@@ -1074,6 +1090,12 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
     
     
     
+    
+    
+    
+    
+    
+    
 
     
     
@@ -1086,6 +1108,12 @@ Spring3.0以JavaConfig为核心，提供使用Java类定义Bean信息的方法</
     
     
     <a class='post-next' href="/tech/2018/05/23/Spring-AOP%E5%85%A5%E9%97%A8.html">Spring aop入门 →&nbsp;</a>
+    
+    
+    
+    
+    
+    
     
     
     
