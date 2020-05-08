@@ -14,6 +14,7 @@ swagger more是一个基于Springfox swagger2扩展的Dubbo Api工具，这里�
 
 ### 引入依赖
 > SNAPSHOT版本
+
 ```xml
 <repositories>
     <repository>
@@ -24,6 +25,7 @@ swagger more是一个基于Springfox swagger2扩展的Dubbo Api工具，这里�
 </repositories>
 ```
 1. 在Api模块中引入注解的依赖
+
 ```xml
 <dependency>
     <groupId>com.github.uhfun</groupId>
@@ -32,6 +34,7 @@ swagger more是一个基于Springfox swagger2扩展的Dubbo Api工具，这里�
 </dependency>
 ```
 2. 在server层引入核心依赖
+
 ```xml
 <dependency>
      <groupId>com.github.uhfun</groupId>
@@ -118,7 +121,9 @@ public interface UserService {
     String save(User user);
 }
 ```
+
 > 如果api包的pom里加上 plugin , 可以将注解替换为注释, 在项目启动前执行mvn package
+
 ```java
 /**
  * 用户API
@@ -136,6 +141,7 @@ public interface UserService {
     String save(User user);
 }
 ```
+
 #### 实体类注解
 [@ApiModelProperty ](https://springfox.github.io/springfox/docs/current/#overriding-resolver-via-properties) 中的参数可以参考官方文档或者里面的官方注释
 
@@ -159,6 +165,7 @@ public class User implements Serializable {
 
 ### 启动项目、访问文档页面
 如果配置了plugin，启动前执行 `mvn package` 
+
 ```
 官方页面: 
 http://baseUrl:port/swagger-ui.html
