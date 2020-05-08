@@ -21,7 +21,7 @@ layout: page
     {% unless forloop.first %}
     </ul></li></ul>
     {% endunless %}
-    <h2 class="head-year" onclick="$(this).next().slideToggle(400)">{{ year }}&nbsp;年</h2><ul class="month-list">     
+    <h2 class="head-year" onclick="$(this).next().slideToggle(240)">{{ year }}&nbsp;年</h2><ul class="month-list">     
     {% endif %}
 
     {% if month != tmpMonth %}     
@@ -29,7 +29,7 @@ layout: page
     </li></ul>
     {% endunless %}
     <li class="container month">
-    <span class="head-month" onclick="$(this).next().slideToggle(400)">{{ month }}&nbsp;月<span class="head-month-post-num"></span></span>   
+    <span class="head-month" onclick="$(this).next().slideToggle(240)">{{ month }}&nbsp;月<span class="head-month-post-num"></span></span>   
     <ul class="day-list">
     {% assign tmpMonth = month %}        
     {% endif %}   
@@ -38,7 +38,7 @@ layout: page
     {% assign tmpYear = year %}   
     {% endif %}
     <li>
-        <div class="day" onclick="$(this).next().children('div').slideToggle(400)">{{ day }}日: </div>          
+        <div class="day" onclick="$(this).next().children('div').slideToggle(240)">{{ day }}日: </div>          
         <div class="day-content">
             {% case post.layout %}
                 {% when 'media' %}
@@ -53,7 +53,7 @@ layout: page
             {% assign post-content  = post.media.content %}
 
             {% when 'post' %}           
-                <span class="excerpt" onclick="$(this).next().slideToggle(400)" >{{ post.post.title }}</span>
+                <span class="excerpt" onclick="$(this).next().slideToggle(240)" >{{ post.post.title }}</span>
                 
                 {% case post.post.type %}                        
                 {% when 'article' %}                       
