@@ -11,3 +11,12 @@
     }
   }
 }
+.toc-sub-ol {
+  display: none;
+}
+span.show-sub {
+  margin-left: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: $base-color;
+}
