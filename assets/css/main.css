@@ -76,6 +76,8 @@ table td { border: 1px solid #e8e8e8; }
 
 .main { border-radius: 0.2rem !important; box-shadow: 1px 6px 29px -2px rgba(0, 0, 0, 0.1) !important; }
 
+.section { background-color: #fff !important; }
+
 .navbar-item img { max-height: 3.75rem !important; }
 .navbar-item h1 { color: #161616; font-size: 28px; font-family: "Microsoft Yahei"; }
 
@@ -134,7 +136,7 @@ table td { border: 1px solid #e8e8e8; }
 .has-dropdown .navbar-dropdown { font-size: 15px; box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1) !important; }
 .has-dropdown .navbar-dropdown .icon-dropdown svg { margin-right: 10px; font-size: 20px !important; }
 
-.footer { background-color: white; }
+.footer { background-color: #fff !important; }
 .footer .container .content p { font-size: .75rem !important; color: #7a8b9a !important; }
 
 .back-to-top { cursor: pointer; position: fixed; width: 48px; height: 48px; right: 25px; bottom: 25px; z-index: 10000; opacity: 0; }
