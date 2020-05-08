@@ -33,8 +33,8 @@ layout: page
                 {% endif %}
             {% endfor %}
             <a class="tag-button {% if _tag == current_tag %} current-tag {% endif %}" href="/tag/{{ _tag }}" 
-            style="font-size: {{ _size | times:1.5 | divided_by: tags_size | plus: 1 }}rem; 
-            font-weight: {{ _size | times: 400.0 | divided_by: tags_size | plus: 400 }};" >            
+            style="font-size: {{ _size | times:7.2 | divided_by: tags_size | plus: 0.8 }}rem; 
+            font-weight: {{ _size | times: 500.0 | divided_by: tags_size | plus: 300 }};" >            
                 {{ _tag }}            
                 <sup style="display: none;">{{ _size }}</sup>
             </a>
