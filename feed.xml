@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T10:33:05+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-08T10:37:18+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Brief示例</title><link href="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="Brief示例" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/brief%E7%A4%BA%E4%BE%8B.html"></content><author><name>傅杭波</name></author><category term="教程" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
 &lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 
@@ -160,46 +160,54 @@
 
 &lt;h3 id=&quot;引入依赖&quot;&gt;引入依赖&lt;/h3&gt;
 &lt;blockquote&gt;
-  &lt;p&gt;SNAPSHOT版本
-```xml&lt;/p&gt;
+  &lt;p&gt;SNAPSHOT版本&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;repositories&gt;
-    &lt;repository&gt;
-        &lt;id&gt;oss&lt;/id&gt;
-        &lt;name&gt;nexus-snapshots&lt;/name&gt;
-        &lt;url&gt;https://oss.sonatype.org/content/repositories/snapshots/&lt;/url&gt;
-    &lt;/repository&gt;
-&lt;/repositories&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. 在Api模块中引入注解的依赖
-```xml
-&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;com.github.uhfun&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;swagger-more-annotations&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;1.0.2-SNAPSHOT&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;repositories&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;repository&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;oss&lt;span class=&quot;nt&quot;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;nexus-snapshots&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;url&amp;gt;&lt;/span&gt;https://oss.sonatype.org/content/repositories/snapshots/&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/repository&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/repositories&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;ol&gt;
-  &lt;li&gt;在server层引入核心依赖
-```xml&lt;/li&gt;
+  &lt;li&gt;在Api模块中引入注解的依赖&lt;/li&gt;
 &lt;/ol&gt;
-&lt;dependency&gt;
-     &lt;groupId&gt;com.github.uhfun&lt;/groupId&gt;
-    &lt;artifactId&gt;swagger-more-core&lt;/artifactId&gt;
-    &lt;version&gt;1.0.2-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;3. 如果需要使用接口方法的Javadoc生成注解在api包的pom里加上 plugin    
-- 替换 &quot;your.app.api.package&quot; 为你自己的包名
-  例如 com.mygroup.my-porject-api
-  如果有多个用 「,」或「:」或「;」 隔开
-- 替换项目API模块 的 your.groupId, your.artifacId, your.version
 
-   ````xml
-   &amp;lt;docletArtifact&amp;gt;
-   	&amp;lt;groupId&amp;gt;your.groupId&amp;lt;/groupId&amp;gt;
-   	&amp;lt;artifactId&amp;gt;your.artifactId&amp;lt;/artifactId&amp;gt;   
-   	&amp;lt;version&amp;gt;your.version&amp;lt;/version&amp;gt;
-   &amp;lt;/docletArtifact&amp;gt;
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.github.uhfun&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;swagger-more-annotations&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0.2-SNAPSHOT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;在server层引入核心依赖&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+     &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.github.uhfun&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;swagger-more-core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0.2-SNAPSHOT&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ol&gt;
+  &lt;li&gt;如果需要使用接口方法的Javadoc生成注解在api包的pom里加上 plugin
+    &lt;ul&gt;
+      &lt;li&gt;替换 “your.app.api.package” 为你自己的包名
+例如 com.mygroup.my-porject-api
+如果有多个用 「,」或「:」或「;」 隔开&lt;/li&gt;
+      &lt;li&gt;替换项目API模块 的 your.groupId, your.artifacId, your.version&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;docletArtifact&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;your.groupId&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;your.artifactId&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;   
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;your.version&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/docletArtifact&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;具体配置如下&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;build&amp;gt;&lt;/span&gt;
@@ -263,27 +271,30 @@ name为请求时的参数   value为解释&lt;/p&gt;
     &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;blockquote&gt;
-  &lt;p&gt;如果api包的pom里加上 plugin , 可以将注解替换为注释, 在项目启动前执行mvn package
-```java
-/**&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;用户API
- *&lt;/li&gt;
-    &lt;li&gt;@author uhfun
- */
-public interface UserService {&lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;p&gt;如果api包的pom里加上 plugin , 可以将注解替换为注释, 在项目启动前执行mvn package&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
- * 保存用户
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * 用户API
  *
- * @param user         用户
- * @return id
- */
-String save(User user); } ``` #### 实体类注解 [@ApiModelProperty ](https://springfox.github.io/springfox/docs/current/#overriding-resolver-via-properties) 中的参数可以参考官方文档或者里面的官方注释
+ * @author uhfun
+ */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UserService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * 保存用户
+     *
+     * @param user         用户
+     * @return id
+     */&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;实体类注解&quot;&gt;实体类注解&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&quot;https://springfox.github.io/springfox/docs/current/#overriding-resolver-via-properties&quot;&gt;@ApiModelProperty &lt;/a&gt; 中的参数可以参考官方文档或者里面的官方注释&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@ApiModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;用户&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;User&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Serializable&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -304,6 +315,7 @@ String save(User user); } ``` #### 实体类注解 [@ApiModelProperty ](https://
 
 &lt;h3 id=&quot;启动项目访问文档页面&quot;&gt;启动项目、访问文档页面&lt;/h3&gt;
 &lt;p&gt;如果配置了plugin，启动前执行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mvn package&lt;/code&gt;&lt;/p&gt;
+
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;官方页面: 
 http://baseUrl:port/swagger-ui.html
 

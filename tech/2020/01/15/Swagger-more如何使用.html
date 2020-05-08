@@ -248,46 +248,54 @@
 
 <h3 id="引入依赖">引入依赖</h3>
 <blockquote>
-  <p>SNAPSHOT版本
-```xml</p>
+  <p>SNAPSHOT版本</p>
 </blockquote>
-<repositories>
-    <repository>
-        <id>oss</id>
-        <name>nexus-snapshots</name>
-        <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-    </repository>
-</repositories>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. 在Api模块中引入注解的依赖
-```xml
-&lt;dependency&gt;
-    &lt;groupId&gt;com.github.uhfun&lt;/groupId&gt;
-    &lt;artifactId&gt;swagger-more-annotations&lt;/artifactId&gt;
-    &lt;version&gt;1.0.2-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+        <span class="nt">&lt;id&gt;</span>oss<span class="nt">&lt;/id&gt;</span>
+        <span class="nt">&lt;name&gt;</span>nexus-snapshots<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
 </code></pre></div></div>
 <ol>
-  <li>在server层引入核心依赖
-```xml</li>
+  <li>在Api模块中引入注解的依赖</li>
 </ol>
-<dependency>
-     <groupId>com.github.uhfun</groupId>
-    <artifactId>swagger-more-core</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
-</dependency>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3. 如果需要使用接口方法的Javadoc生成注解在api包的pom里加上 plugin    
-- 替换 "your.app.api.package" 为你自己的包名
-  例如 com.mygroup.my-porject-api
-  如果有多个用 「,」或「:」或「;」 隔开
-- 替换项目API模块 的 your.groupId, your.artifacId, your.version
 
-   ````xml
-   &lt;docletArtifact&gt;
-   	&lt;groupId&gt;your.groupId&lt;/groupId&gt;
-   	&lt;artifactId&gt;your.artifactId&lt;/artifactId&gt;   
-   	&lt;version&gt;your.version&lt;/version&gt;
-   &lt;/docletArtifact&gt;
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.github.uhfun<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>swagger-more-annotations<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre></div></div>
+<ol>
+  <li>在server层引入核心依赖</li>
+</ol>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+     <span class="nt">&lt;groupId&gt;</span>com.github.uhfun<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>swagger-more-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+<ol>
+  <li>如果需要使用接口方法的Javadoc生成注解在api包的pom里加上 plugin
+    <ul>
+      <li>替换 “your.app.api.package” 为你自己的包名
+例如 com.mygroup.my-porject-api
+如果有多个用 「,」或「:」或「;」 隔开</li>
+      <li>替换项目API模块 的 your.groupId, your.artifacId, your.version</li>
+    </ul>
+
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;docletArtifact&gt;</span>
+	<span class="nt">&lt;groupId&gt;</span>your.groupId<span class="nt">&lt;/groupId&gt;</span>
+	<span class="nt">&lt;artifactId&gt;</span>your.artifactId<span class="nt">&lt;/artifactId&gt;</span>   
+	<span class="nt">&lt;version&gt;</span>your.version<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/docletArtifact&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
 
 <p><strong>具体配置如下</strong></p>
 <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;build&gt;</span>
@@ -351,27 +359,30 @@ name为请求时的参数   value为解释</p>
     <span class="nc">String</span> <span class="nf">save</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
+
 <blockquote>
-  <p>如果api包的pom里加上 plugin , 可以将注解替换为注释, 在项目启动前执行mvn package
-```java
-/**</p>
-  <ul>
-    <li>用户API
- *</li>
-    <li>@author uhfun
- */
-public interface UserService {</li>
-  </ul>
+  <p>如果api包的pom里加上 plugin , 可以将注解替换为注释, 在项目启动前执行mvn package</p>
 </blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
- * 保存用户
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 用户API
  *
- * @param user         用户
- * @return id
- */
-String save(User user); } ``` #### 实体类注解 [@ApiModelProperty ](https://springfox.github.io/springfox/docs/current/#overriding-resolver-via-properties) 中的参数可以参考官方文档或者里面的官方注释
+ * @author uhfun
+ */</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserService</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * 保存用户
+     *
+     * @param user         用户
+     * @return id
+     */</span>
+    <span class="nc">String</span> <span class="nf">save</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre></div></div>
+
+<h4 id="实体类注解">实体类注解</h4>
+<p><a href="https://springfox.github.io/springfox/docs/current/#overriding-resolver-via-properties">@ApiModelProperty </a> 中的参数可以参考官方文档或者里面的官方注释</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ApiModel</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"用户"</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">User</span> <span class="kd">implements</span> <span class="nc">Serializable</span> <span class="o">{</span>
@@ -392,6 +403,7 @@ String save(User user); } ``` #### 实体类注解 [@ApiModelProperty ](https://
 
 <h3 id="启动项目访问文档页面">启动项目、访问文档页面</h3>
 <p>如果配置了plugin，启动前执行 <code class="language-plaintext highlighter-rouge">mvn package</code></p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>官方页面: 
 http://baseUrl:port/swagger-ui.html
 
