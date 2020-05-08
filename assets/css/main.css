@@ -88,6 +88,7 @@ table td { border: 1px solid #e8e8e8; }
 .navbar-burger { margin-top: auto; margin-bottom: auto; }
 
 .title { margin-bottom: 2.8rem !important; }
+.title a { color: #161616 !important; }
 
 .tags { margin-bottom: 1.2em !important; }
 .tags .icon { margin-right: 5px; }
@@ -147,13 +148,14 @@ table td { border: 1px solid #e8e8e8; }
 .back-to-top .icon-stack .back-to-top-text { display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: .05em; line-height: 1em; transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1); }
 .back-to-top .icon-stack .back-to-top-text:hover { transform: translateY(6px); }
 
-.sketch-container { padding: 2rem 0; border-bottom: 1px solid #f4f5f9; border-radius: .22rem; }
+.sketch-container { padding: 1.6rem 0; border-bottom: 1px solid #f4f5f9; border-radius: .22rem; }
 
 .post_article a { font-size: 1.25rem !important; }
 .post_article a:hover { color: #0bd2b4d1 !important; }
 .post_article .content { margin-top: 1rem !important; }
 .post_article .content .excerpt p, .post_article .content .excerpt { color: #333e48 !important; font-size: .875rem !important; }
 .post_article .content .excerpt p:hover, .post_article .content .excerpt:hover { cursor: pointer; }
+.post_article .content .title { margin-bottom: 1rem !important; }
 .post_article .content .tags .container span, .post_article .content .tags .container a { font-size: .875rem !important; }
 
 @media screen and (max-width: 500px) { .post_brief { padding-bottom: 1rem; } }
