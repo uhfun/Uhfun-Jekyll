@@ -41,6 +41,9 @@
 // title
 .title {
   margin-bottom: 2.8rem !important;
+  a {
+    color: $minor-color !important;
+  }
 }
 
 // tag
@@ -344,7 +347,7 @@
 }
 
 .sketch-container {
-  padding: 2rem 0;
+  padding: 1.6rem 0;
   border-bottom: 1px solid #f4f5f9;
   border-radius: .22rem;
 }
@@ -371,6 +374,10 @@
       &:hover {
         cursor: pointer;
       }
+    }
+
+    .title {
+      margin-bottom: 1rem !important;
     }
 
     .tags .container {
