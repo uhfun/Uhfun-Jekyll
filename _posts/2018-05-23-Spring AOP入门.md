@@ -44,7 +44,7 @@ date: 2018-05-23 16:49:00 +0800
 ## JDK动态代理
 UserDao.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public interface UserDao {
     public void update();
 }
@@ -52,7 +52,7 @@ public interface UserDao {
 
 UserDaoImpl.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class UserDaoImpl implements UserDao {
     @Override
     public void update() {
@@ -63,7 +63,7 @@ public class UserDaoImpl implements UserDao {
 
 JDKProxy.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -91,7 +91,7 @@ public class JDKProxy implements InvocationHandler {
 
 ProxyTest.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.junit.Test;
 public class ProxyTest {
@@ -116,7 +116,7 @@ JDK Proxy :我在调用update()。。。。。前。。。。update()执行自�
 
 CGLibProxy
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -145,7 +145,7 @@ public class JDKProxy implements InvocationHandler {
 
 ProxyTest.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.junit.Test;
 public class ProxyTest {
@@ -190,7 +190,7 @@ Spring按照通知Advice在目标类方法的连接点位置，可以分为5类
 
   UserDao.java
   ````java
-  package cn.hbson.web.bean;
+  package cn.uhfun.web.bean;
   public interface UserDao {
       public void update();
       public void add();
@@ -198,7 +198,7 @@ Spring按照通知Advice在目标类方法的连接点位置，可以分为5类
   ````
   UserDaoImpl.java
   ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class UserDaoImpl implements UserDao {
     @Override
     public void update() {
@@ -214,7 +214,7 @@ public class UserDaoImpl implements UserDao {
 ##### 2、编写增强代码  
 MyBeforeAdvice.java
   ````java
-  package cn.hbson.web.bean;
+  package cn.uhfun.web.bean;
 
   import org.springframework.aop.MethodBeforeAdvice;
 
@@ -256,16 +256,16 @@ MyBeforeAdvice.java
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--配置被代理对象（目标对象）-->
-    <bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+    <bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--配置增强-->
-    <bean id="myBeforeAdvice" class="cn.hbson.web.bean.MyBeforeAdvice"/>
+    <bean id="myBeforeAdvice" class="cn.uhfun.web.bean.MyBeforeAdvice"/>
     <!--Spring支持生成代理-->
     <bean id="userDapProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="target" ref="userDao"/>
         <!--针对类的代理-->
         <property name="proxyTargetClass" value="true"/>
         <!--或者针对接口的代理-->
-        <!--<property name="proxyInterfaces" value="cn.hbson.web.bean.UserDao"/>-->
+        <!--<property name="proxyInterfaces" value="cn.uhfun.web.bean.UserDao"/>-->
         <property name="interceptorNames" value="myBeforeAdvice"/>
     </bean>
 </beans>
@@ -274,7 +274,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 ##### 4、编写测试类
 
    ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -312,7 +312,7 @@ public class SpringTest {
 
 	UserDao.java
   ````java
-  package cn.hbson.web.bean;
+  package cn.uhfun.web.bean;
   public interface UserDao {
       public void update();
       public void add();
@@ -321,7 +321,7 @@ public class SpringTest {
 
   UserDaoImpl.java
   ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class UserDaoImpl implements UserDao {
     @Override
     public void update() {
@@ -338,7 +338,7 @@ public class UserDaoImpl implements UserDao {
 
 MyBeforeAdvice.java
   ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 public class MyAroundAdvice implements MethodInterceptor {
@@ -364,9 +364,9 @@ public class MyAroundAdvice implements MethodInterceptor {
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--配置被代理对象（目标对象）-->
-    <bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+    <bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--配置增强-->
-    <bean id="myAroundAdvice" class="cn.hbson.web.bean.MyAroundAdvice"/>
+    <bean id="myAroundAdvice" class="cn.uhfun.web.bean.MyAroundAdvice"/>
     <!--定义切点切面-->
     <bean id="myPointCutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <!--定义表达式，规定拦截哪些方法进行增强-->
@@ -388,7 +388,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <!--针对类的代理-->
         <property name="proxyTargetClass" value="true"/>
         <!--针对接口的代理-->
-        <!--<property name="proxyInterfaces" value="cn.hbson.web.bean.UserDao"/>-->
+        <!--<property name="proxyInterfaces" value="cn.uhfun.web.bean.UserDao"/>-->
         <property name="interceptorNames" value="myPointCutAdvisor"/>
     </bean>
 </beans>
@@ -396,7 +396,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 ##### 4、编写测试类
 
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -436,9 +436,9 @@ public class SpringTest {
 
 ````xml
 <!--配置被代理对象（目标对象）-->
-    <bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+    <bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--配置增强-->
-    <bean id="myAroundAdvice" class="cn.hbson.web.bean.MyAroundAdvice"/>
+    <bean id="myAroundAdvice" class="cn.uhfun.web.bean.MyAroundAdvice"/>
     <bean id="myPointCutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <!--定义表达式，规定拦截哪些方法进行增强-->
         <property name="pattern" value=".*add"/>
@@ -452,9 +452,9 @@ public class SpringTest {
 ````
 ##### DefaultAdvisorAutoProxyCreator（根据Advisor本身包含信息创建代理）
 ````xml
-  <bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+  <bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--配置增强-->
-    <bean id="myAroundAdvice" class="cn.hbson.web.bean.MyAroundAdvice"/>
+    <bean id="myAroundAdvice" class="cn.uhfun.web.bean.MyAroundAdvice"/>
     <bean id="myPointCutAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <!--定义表达式，规定拦截哪些方法进行增强-->
         <property name="pattern" value=".*add"/>
@@ -491,7 +491,7 @@ public class SpringTest {
 * @Before 前置通知，相当于BeforeAdvice  
 **可以在方法中传入JoinPoint对象，用来获得切点信息**
 ````java
-@Before("execution(* cn.hbson.web.bean.UserDao.add(..))")
+@Before("execution(* cn.uhfun.web.bean.UserDao.add(..))")
     public void before(JoinPoint joinPoint){
         System.out.println("aspectj：前置增强");
     }
@@ -499,7 +499,7 @@ public class SpringTest {
 * @AfterReturning 后置通知，相当于AfterReturningAdvice  
 **通过returning属性 可以定义方法返回值，作为参数**
 ````java
-@AfterReturning(value = "execution(* cn.hbson.web.bean.UserDao.add(..))", returning = "returnVal")
+@AfterReturning(value = "execution(* cn.uhfun.web.bean.UserDao.add(..))", returning = "returnVal")
     public void afterReturning(JoinPoint joinPoint, Object returnVal){
         System.out.println("aspectj：后置增强");
     }
@@ -507,7 +507,7 @@ public class SpringTest {
 * @Around 环绕通知，相当于MethodInterceptor  
 **around方法的返回值就是目标代理方法执行返回值参数为ProceedingJoinPoint   可以调用拦截目标方法执行**
 ````java
-@Around("execution(* cn.hbson.web.bean.UserDao.add(..))")
+@Around("execution(* cn.uhfun.web.bean.UserDao.add(..))")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("aspectj：前置通知");
         Object returnValue = joinPoint.proceed();
@@ -518,7 +518,7 @@ public class SpringTest {
 * @AfterThrowing抛出通知，相当于ThrowAdvice
 **通过设置throwing属性，可以设置发生异常对象参数**
 ````java
- @AfterThrowing(value = "execution(* cn.hbson.web.bean.UserDao.add(..))",throwing = "ex")
+ @AfterThrowing(value = "execution(* cn.uhfun.web.bean.UserDao.add(..))",throwing = "ex")
     public void afterThrowing(Exception ex){
         System.out.print(ex.getMessage());//异常信息
     }
@@ -526,7 +526,7 @@ public class SpringTest {
 * @After 最终final通知，不管是否异常，该通知都会执行
 **无论目标方法是否异常，都会执行**
 ````java
-@After("execution(* cn.hbson.web.bean.UserDao.add(..))")
+@After("execution(* cn.uhfun.web.bean.UserDao.add(..))")
     public void after(JoinPoint joinPoint){
         System.out.println("aspectj：无论目标方法是否异常，都会执行");
     }
@@ -538,7 +538,7 @@ public class SpringTest {
 ##### 1、编写被代理类
 UserDao.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public interface UserDao {
     public void update();
     public void add();
@@ -546,7 +546,7 @@ public interface UserDao {
 ````
 UserDaoImpl.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class UserDaoImpl implements UserDao {
     @Override
     public void update() {
@@ -561,12 +561,12 @@ public class UserDaoImpl implements UserDao {
 ##### 2、编写增强代码及注解
 MyAspect.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 @Aspect
 public class MyAspect {
-    @Before("execution(* cn.hbson.web.bean.UserDao.add(..))")
+    @Before("execution(* cn.uhfun.web.bean.UserDao.add(..))")
     public void before(JoinPoint joinPoint){
         System.out.println("aspectj： "+joinPoint+"前置增强");
     }
@@ -590,14 +590,14 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
    <!--开启自动生成代理 底层AnnotationAwareAspectJAutoProxyCreator 基于Bean中的AspectJ 注解进行自动代理-->
     <aop:aspectj-autoproxy />
     <!--配置被代理对象（目标对象）-->
-    <bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+    <bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--配置切面-->
-    <bean id="myAspect" class="cn.hbson.web.bean.MyAspect"/>
+    <bean id="myAspect" class="cn.uhfun.web.bean.MyAspect"/>
 </beans>
 ````
 ##### 4、编写测试类
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -620,7 +620,7 @@ public class SpringTest {
 ##### 5、测试结果
 ````java
 执行自身方法update()
-aspectj： execution(void cn.hbson.web.bean.UserDao.add())前置增强
+aspectj： execution(void cn.uhfun.web.bean.UserDao.add())前置增强
 执行自身方法add()
 ````
 
@@ -631,13 +631,13 @@ aspectj： execution(void cn.hbson.web.bean.UserDao.add())前置增强
 - 当通知多个切点时，可以使用 `||** 进行连接 
 
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 @Aspect
 public class MyAspect {
-    @Pointcut(value = "execution(* cn.hbson.web.bean.UserDao.add(..))")
+    @Pointcut(value = "execution(* cn.uhfun.web.bean.UserDao.add(..))")
     private void pointcut1(){}
     @Before("MyAspect.pointcut1()")
     public void before(JoinPoint joinPoint){
@@ -651,7 +651,7 @@ public class MyAspect {
 ##### 1、编写被代理类
 UserDao.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public interface UserDao {
     public void update();
     public void add();
@@ -659,7 +659,7 @@ public interface UserDao {
 ````
 UserDaoImpl.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class UserDaoImpl implements UserDao {
     @Override
     public void update() {
@@ -674,7 +674,7 @@ public class UserDaoImpl implements UserDao {
 ##### 2、编写增强代码
 MyAspect.java
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 public class MyAspect {
     public void before(){
         System.out.println("aspectj：前置增强");
@@ -692,12 +692,12 @@ public class MyAspect {
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-<bean id="userDao" class="cn.hbson.web.bean.UserDaoImpl"/>
+<bean id="userDao" class="cn.uhfun.web.bean.UserDaoImpl"/>
     <!--定义切面-->
-    <bean id="myAspect" class="cn.hbson.web.bean.MyAspect"/>
+    <bean id="myAspect" class="cn.uhfun.web.bean.MyAspect"/>
     <aop:config>
         <!--定义切点-->
-        <aop:pointcut id="myPointcut" expression="execution(* cn.hbson.web.bean.UserDao.add(..))"/>
+        <aop:pointcut id="myPointcut" expression="execution(* cn.uhfun.web.bean.UserDao.add(..))"/>
         <aop:aspect ref="myAspect">
             <aop:before method="before" pointcut-ref="myPointcut"/>
         </aop:aspect>
@@ -707,7 +707,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
 ##### 4、编写测试类
 
 ````java
-package cn.hbson.web.bean;
+package cn.uhfun.web.bean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
