@@ -429,10 +429,25 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
 　　通过解析配置元数据，容器知道对哪些对象进行实例化，配置和组装。配置元数据可以通过 XML，Java 注释或 Java 代码来表示。Spring IoC 容器利用 Java 的 POJO 类和配置元数据来生成完全配置和可执行的系统或应用程序。
 　　Spring 提供了以下两种不同类型的容器。</p>
 
-<p>容器 | 描述
-—-|—
-BeanFactory 容器 | 它是最简单的容器，给 DI 提供了基本的支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的。
-ApplicationContext 容器| 该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义。</p>
+<table>
+  <thead>
+    <tr>
+      <th>容器</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>BeanFactory 容器</td>
+      <td>它是最简单的容器，给 DI 提供了基本的支持，它用 org.springframework.beans.factory.BeanFactory 接口来定义。BeanFactory 或者相关的接口，如 BeanFactoryAware，InitializingBean，DisposableBean，在 Spring 中仍然存在具有大量的与 Spring 整合的第三方框架的反向兼容性的目的。</td>
+    </tr>
+    <tr>
+      <td>ApplicationContext 容器</td>
+      <td>该容器添加了更多的企业特定的功能，例如从一个属性文件中解析文本信息的能力，发布应用程序事件给感兴趣的事件监听器的能力。该容器是由 org.springframework.context.ApplicationContext 接口定义。</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="spring-bean">Spring Bean</h2>
 <h3 id="什么是bean">什么是Bean</h3>
 <p>　　由Spring IoC容器所管理的对象称为bean。</p>
@@ -488,17 +503,20 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
   <li>id 的命名要满足XML对ID属性命名规范<br />
 必须以字母开始，可以使用字母、数字、连字符、下划线、句话、冒号<br />
 如果Bean的名称中含有特殊字符，就需要使用name属性
-例如：
-````xml</li>
+例如：</li>
 </ul>
-<bean name="#person" class="Person" />
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* 因为name属性可以相同，所以后出现Bean会覆盖之前出现的同名的Bean  
-***现在开发都使用id即可***
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"#person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
 
-### Bean的作用域（scope属性）
-  ````xml
-  &lt;bean name="person" class="Person" scope="singleton"/&gt;
+<ul>
+  <li>因为name属性可以相同，所以后出现Bean会覆盖之前出现的同名的Bean<br />
+<strong><em>现在开发都使用id即可</em></strong></li>
+</ul>
+
+<h3 id="bean的作用域scope属性">Bean的作用域（scope属性）</h3>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span> <span class="na">scope=</span><span class="s">"singleton"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
 <style>
   table {
@@ -541,45 +559,47 @@ ApplicationContext 容器| 该容器添加了更多的企业特定的功能，�
 <h3 id="bean生命周期init-methoddestroy-method属性">Bean生命周期（init-method、destroy-method属性）</h3>
 <p>　　当一个 bean 被实例化时，在它被使用前需要执行一些初始化工作。当bean不再需要，并且从容器中移除时，可能需要做一些清除工作。
 　　还有一些在 Bean 实例化和销毁之间发生的活动，但是现在只讨论两个重要的生命周期回调方法，它们在 bean 的初始化和销毁的时候是必需的。
-　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。
-​````xml</p>
-<bean name="exampleBean" class="ExampleBean" init-method="initMethod" destroy-method="destroyMethod" />
+　　我们只要声明带有 init-method 、destroy-method 参数 。init-method 属性指定一个方法，在实例化 bean 时，立即调用该方法。同样，destroy-method 指定一个方法，只有从容器中移除 bean 之后，才能调用该方法。</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-#### 初始化回调
-1. 可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
-
-````java
-public class ExampleBean implements InitializingBean {
-   public void afterPropertiesSet() {
-      // do some initialization work
-   }
-}
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"exampleBean"</span> <span class="na">class=</span><span class="s">"ExampleBean"</span> <span class="na">init-method=</span><span class="s">"initMethod"</span> <span class="na">destroy-method=</span><span class="s">"destroyMethod"</span><span class="nt">/&gt;</span>
 </code></pre></div></div>
+
+<h4 id="初始化回调">初始化回调</h4>
 <ol>
-  <li>在基于XML的配置元数据的情况下，你可以使用 init-method 属性来指定带有 void 无参数方法的名称。例如：
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">initMethod</span><span class="o">()</span> <span class="o">{</span>
-   <span class="c1">// do some initialization work</span>
-<span class="o">}</span>
-<span class="o">}</span>
+  <li>可以实现org.springframework.beans.factory.InitializingBean 接口指定的afterPropertiesSet()方法：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">InitializingBean</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterPropertiesSet</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// do some initialization work</span>
+ <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>    </div>
-    <h4 id="销毁回调">销毁回调</h4>
   </li>
+  <li>在基于XML的配置元数据的情况下，你可以使用 init-method 属性来指定带有 void 无参数方法的名称。例如：
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initMethod</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// do some initialization work</span>
+ <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="销毁回调">销毁回调</h4>
+<ol>
   <li>org.springframework.beans.factory.DisposableBean destroy()方法：
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">DisposableBean</span> <span class="o">{</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroy</span><span class="o">()</span> <span class="o">{</span>
-   <span class="c1">// do some destruction work</span>
-<span class="o">}</span>
-<span class="o">}</span>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="kd">implements</span> <span class="nc">DisposableBean</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroy</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// do some destruction work</span>
+ <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
   <li>在基于 XML 的配置元数据的情况下，你可以使用 destroy-method 属性来指定带有 void 无参数方法的名称。例如：
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroyMethod</span><span class="o">()</span> <span class="o">{</span>
-   <span class="c1">// do some destruction work</span>
-<span class="o">}</span>
-<span class="o">}</span>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExampleBean</span> <span class="o">{</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">destroyMethod</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">// do some destruction work</span>
+ <span class="o">}</span>
+  <span class="o">}</span>
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -592,10 +612,10 @@ public class ExampleBean implements InitializingBean {
   <li>populate properties封装属性</li>
   <li>如果 Bean 实现 BeanNameAware 执行 setBeanName</li>
   <li>如何 Bean 实现 BeanFactoryAware 或者 ApplicationContextAware 设置工厂 setBeanFactory 或者上下文对象 setApplicationContext</li>
-  <li>** 如果存在实现 BeanPostProcessor（Bean后处理器），执行postProcessBeforeInitialization **</li>
+  <li><strong>如果存在实现 BeanPostProcessor（Bean后处理器），执行postProcessBeforeInitialization</strong></li>
   <li>如果 Bean 实现 InitializingBean 执行 afterPropertiesSet</li>
   <li>调用 <Bean init-method="init"> 指定初始化方法 init</Bean></li>
-  <li>** 如果存在实现 BeanPostProcessor （Bean后处理器），执行 执行postProcessBeforeInitialization **</li>
+  <li><strong>如果存在实现 BeanPostProcessor （Bean后处理器），执行 执行postProcessBeforeInitialization</strong></li>
   <li>执行业务处理</li>
   <li>如果 Bean 实现 DisposableBean 执行 destory</li>
   <li>调用 <Bean destory-method="customerDestory"> 指定销毁方法 customerDestory</Bean></li>
@@ -631,32 +651,33 @@ public class ExampleBean implements InitializingBean {
     <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></div>    </div>
-    <h4 id="bean依赖注入">Bean依赖注入</h4>
-    <h5 id="通过构造方法注入">通过构造方法注入</h5>
-    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
- <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"詹姆斯"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"id"</span> <span class="na">value=</span><span class="s">"123456"</span><span class="nt">&gt;</span>
- <span class="c">&lt;!--构造方法的参数下标索引--&gt;</span>
-  <span class="c">&lt;!--&lt;constructor-arg index="0" type="java.lang.String" value="詹姆斯"/&gt;--&gt;</span>
-  <span class="c">&lt;!--&lt;constructor-arg index="1" type="java.lang.String" value="123456"/&gt;--&gt;</span>
-<span class="nt">&lt;/bean&gt;</span>
-</code></pre></div>    </div>
-
-    <p>Person.java</p>
-    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
-    <span class="kd">private</span> <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>
-<span class="err"> </span> <span class="err"> </span><span class="c1">//通过构造方法注入</span>
-<span class="err"> </span> <span class="err"> </span><span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-        <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-
-</code></pre></div>    </div>
   </li>
 </ul>
+
+<h4 id="bean依赖注入">Bean依赖注入</h4>
+<h5 id="通过构造方法注入">通过构造方法注入</h5>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;bean</span> <span class="na">name=</span><span class="s">"person"</span> <span class="na">class=</span><span class="s">"Person"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"name"</span> <span class="na">value=</span><span class="s">"詹姆斯"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">"id"</span> <span class="na">value=</span><span class="s">"123456"</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!--构造方法的参数下标索引--&gt;</span>
+    <span class="c">&lt;!--&lt;constructor-arg index="0" type="java.lang.String" value="詹姆斯"/&gt;--&gt;</span>
+    <span class="c">&lt;!--&lt;constructor-arg index="1" type="java.lang.String" value="123456"/&gt;--&gt;</span>
+  <span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+
+<p>Person.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">Person</span> <span class="o">{</span>
+      <span class="kd">private</span> <span class="nc">Car</span> <span class="n">car</span><span class="o">;</span>
+      <span class="kd">private</span> <span class="nc">String</span> <span class="n">name</span><span class="o">;</span>
+      <span class="kd">private</span> <span class="nc">String</span> <span class="n">id</span><span class="o">;</span>
+  <span class="err"> </span> <span class="err"> </span><span class="c1">//通过构造方法注入</span>
+  <span class="err"> </span> <span class="err"> </span><span class="kd">public</span> <span class="nf">Person</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">,</span> <span class="nc">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+
+</code></pre></div></div>
 
 <h5 id="通过setter方法注入">通过setter方法注入</h5>
 <h6 id="普通方法注入">普通方法注入</h6>

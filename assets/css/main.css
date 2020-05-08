@@ -328,6 +328,10 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 #toc .toc-link { color: #1f314d !important; }
 #toc .toc-link:hover { color: #0bd2b4d1 !important; }
 
+.toc-sub-ol { display: none; }
+
+span.show-sub { margin-left: 12px; cursor: pointer; font-weight: bold; color: #0bd2b4d1; }
+
 .utterances-comments-header { margin-top: 20px; display: flex; justify-content: space-between; }
 .utterances-comments-header a { color: #161616; font-weight: bold; }
 .utterances-comments-header a:hover { color: #0bd2b4d1 !important; }

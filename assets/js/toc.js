@@ -78,7 +78,8 @@
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
         for(i = this_level; i > level; i--) {
-          html += "<" + settings.listType + " class=\"" + settings.classes.list +"\">" +
+          html += "<span class='show-sub'>+</span>" + 
+                  "<" + settings.listType + " class=\"toc-sub-ol" + settings.classes.list +"\">" +
                   "<li class=\"" + settings.classes.item + "\">"
         }
         html += createLink(header);
@@ -98,4 +99,15 @@
 
     render[settings.showEffect]();
   };
+  // 隐藏/关闭
+  $(document).on('click', '.show-sub', function() {
+    var that = $(this)
+    if (that.text() == '+') {
+      that.text('-');
+      that.next().removeClass('toc-sub-ol');
+    } else {
+      that.text('+');
+      that.next().addClass('toc-sub-ol');
+    }
+  });
 })(jQuery);
