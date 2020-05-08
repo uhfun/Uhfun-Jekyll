@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌">
+  <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
+  <meta name="robots" content="all">
+
+  <meta property="og:type" content="post" />
+  
+  
+  <meta property="og:title" content="Spring AOP入门 | UhfunBlog" />
+
+  <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
+
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="内容有点多，单独另写一篇了，Spring AOP入门
+
+">
+  
+  <meta property="article:published_time" content='2018-05-23T16:49:00Z'>
+  
+  <meta property="article:author" content="傅杭波">
+  
+  
+
+    
+  <meta property="og:image" content="" >
+  <meta property="og:url" content="http://uhfun.cn/tech/2018/05/23/Spring-AOP%E5%85%A5%E9%97%A8.html">
+  
+  <meta property="article:tag" content="AOP">
+  
+  <meta property="article:tag" content="Spring">
+  
+  <meta property="article:tag" content="入门">
+  
+  <meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
+
+  <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
+  <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
+  <title>Spring AOP入门 | UhfunBlog</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon-32x32.ico">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" />
+  
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
+</head>
+<body>
+  <header class="navbar has-shadow is-spaced" role="banner">
+  <div class="container">
+    
+    
+    
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src='/assets/img/logo.png' width="160">
+      </a>
+      <div role="button" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class='navbar-item' href='/'>HOME</a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/tag/">
+          TAG
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/life/">
+          LIFE
+        </a>
+        
+        
+        
+        
+        
+        <a class="navbar-item" href="/tech/">
+          TECH
+        </a>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+              <!-- <img class="is-rounded" src="/img/avatar.png"> -->
+              <img class="is-rounded" src='/assets/img/avatar.png'>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="icon-dropdown navbar-item" href="/about.html">
+              <i class="far fa-user" aria-hidden="true"></i> About
+            </a>
+            <a class="icon-dropdown navbar-item" href="https://github.com/uhfun/Uhfun-Jekyll">
+              <i class="fab fa-github" aria-hidden="true"></i> Github
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/about.html#utterances"> Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+  <div class="section">
+    <div class="container">
+      <article class="page">
+  <div class="content">
+    <article class="post">
+  
+  <h1 class="title is-spaced">Spring AOP入门</h1>
+  
+  
+  
+  <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/aop">AOP</a>
+        
+        <a href="/tag/spring">Spring</a>
+        
+        <a href="/tag/%e5%85%a5%e9%97%a8">入门</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2018/05/23 16:49:00">
+            2018-05-23
+        </span>
+    </div>
+</div>
+  <div class='post-img'>
+    
+    
+
+
+    
+  </div>
+  <div id="toc"></div>
+  <div class='post-content'>
+    
+    <p>内容有点多，单独另写一篇了，Spring AOP入门</p>
+
+<h2 id="什么是aop">什么是AOP</h2>
+<p>　　在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。<br />
+　　利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。<br />
+　　AOP采取横向抽取机制，取代了传统纵向继承体系重复性代码（性能监视、事务管理、安全检查、缓存）</p>
+
+<p>　　例如日志功能。日志代码往往横向地散布在所有对象层次中，而与它对应的对象的核心功能毫无关系对于其他类型的代码，如安全性、异常处理和透明的持续性也都是如此，这种散布在各处的无关的代码被称为横切（cross cutting），在OOP设计中，它导致了大量代码的重复，而不利于各个模块的重用。<br />
+　　起初工程师通过继承抽取通用代码的方式（纵向拓展）解决代码冗余，但是软件开发复杂之后，工程师发现同样的功能代码在其他模块一样出现，导致代码混乱。而横向抽取机制很好的解决了这个问题。</p>
+<h2 id="什么spring-aop">什么Spring AOP</h2>
+<p>　　Spring AOP使用纯Java实现，不需要专门的编译过程和类加载器，在运行期通过代理方式向目标类织入增强代码<br />
+　　AspecJ是一个基于Java语言的AOP框架，Spring2.0开始，Spring AOP引入对Aspect的支持，AspectJ扩展了Java语言，提供了一个专门的编译器，在编译时提供横向代码的织入<br />
+　　Spring中AOP代理由Spring的IOC容器负责生成、管理，其依赖关系也由IOC容器负责管理。因此，AOP代理可以直接使用容器中的其它bean实例作为目标，这种关系可由IOC容器的依赖注入提供。Spring创建代理的规则为：</p>
+<ol>
+  <li>默认使用Java动态代理来创建AOP代理，这样就可以为任何<strong>接口实例</strong>创建代理了</li>
+  <li>当需要代理的<strong>类</strong>不是代理接口的时候，Spring会切换为使用CGLIB代理，也可强制使用CGLIB</li>
+  <li>若目标对象实现了若干接口，spring使用JDK的java.lang.reflect.Proxy类代理<br />
+若目标对象没有实现任何接口，spring使用CGLIB库生成目标对象的子类</li>
+</ol>
+
+<h2 id="aop术语">AOP术语</h2>
+<ul>
+  <li>Joinpoint(连接点):所谓连接点是指那些被拦截到的点。在spring中,这些点指的是方法,因为spring只支持方法类型的连接点.<strong>（ 哪些方法可以被拦截 ）</strong></li>
+  <li>Pointcut(切入点):所谓切入点是指我们要对哪些Joinpoint进行拦截的定义.<strong>（ 对哪些Joinpoint进行拦截 ）</strong></li>
+  <li>Advice(通知/增强):所谓通知是指拦截到Joinpoint之后所要做的事情就是通知.通知分为前置通知,后置通知,异常通知,最终通知,环绕通知(切面要完成的功能)<strong>（ 增强的代码 ）</strong></li>
+  <li>Introduction(引介):引介是一种特殊的通知在不修改类代码的前提下, Introduction可以在运行期为类动态地添加一些方法或Field.<strong>（ 特殊的Advice 类级别的增强，在原由类上添加一个属性或方法，普通Advice是对方法的增强 ）</strong></li>
+  <li>Target(目标对象):代理的目标对象<strong>（ 被增强的对象 ）</strong></li>
+  <li>Weaving(织入):是指把增强应用到目标对象来创建新的代理对象的过程.
+  spring采用动态代理织入，而AspectJ采用编译期织入和类装在期织入</li>
+  <li>Proxy（代理）:一个类被AOP织入增强后，就产生一个结果代理类</li>
+  <li>Aspect(切面): 是切入点和通知（引介）的结合</li>
+</ul>
+
+<h2 id="jdk动态代理">JDK动态代理</h2>
+<p>UserDao.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>UserDaoImpl.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDaoImpl</span> <span class="kd">implements</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"update()执行自身方法"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>JDKProxy.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.InvocationHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Proxy</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDKProxy</span> <span class="kd">implements</span> <span class="nc">InvocationHandler</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">JDKProxy</span><span class="o">(</span><span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">userDao</span> <span class="o">=</span> <span class="n">userDao</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">UserDao</span> <span class="nf">createProxy</span><span class="o">(){</span>
+        <span class="nc">UserDao</span> <span class="n">proxy</span> <span class="o">=</span> <span class="o">(</span><span class="nc">UserDao</span><span class="o">)</span> <span class="nc">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">userDao</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span>
+                <span class="n">userDao</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getInterfaces</span><span class="o">(),</span> <span class="k">this</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">proxy</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//调用目标对象的任何一个方法都相当于调用invoke()</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="nc">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="nc">Method</span> <span class="n">method</span><span class="o">,</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="s">"update"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">())){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"JDK Proxy :我在调用update()。。。。。前。。。。"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">userDao</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ProxyTest.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProxyTest</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test1</span><span class="o">(){</span>
+        <span class="nc">UserDao</span> <span class="n">userDao</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserDaoImpl</span><span class="o">();</span>
+        <span class="nc">UserDao</span> <span class="n">userDaoProxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JDKProxy</span><span class="o">(</span><span class="n">userDao</span><span class="o">).</span><span class="na">createProxy</span><span class="o">();</span>
+        <span class="n">userDaoProxy</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>测试结果</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">JDK</span> <span class="nc">Proxy</span> <span class="o">:</span><span class="err">我在调用</span><span class="n">update</span><span class="o">()</span><span class="err">。。。。。前。。。。</span><span class="n">update</span><span class="o">()</span><span class="err">执行自身方法</span>
+</code></pre></div></div>
+<p><strong><em>标记为 final 的方法，不能被代理，因为无法进行覆盖
+ JDK 动态代理，是针对接口生成子类，接口中方法不能使用 final 修饰</em></strong></p>
+
+<h2 id="使用cglib生成代理">使用CGLIB生成代理</h2>
+
+<p>CGLibProxy</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.InvocationHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Proxy</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">JDKProxy</span> <span class="kd">implements</span> <span class="nc">InvocationHandler</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">JDKProxy</span><span class="o">(</span><span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">){</span>
+        <span class="kd">super</span><span class="o">();</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">userDao</span> <span class="o">=</span> <span class="n">userDao</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">UserDao</span> <span class="nf">createProxy</span><span class="o">(){</span>
+
+        <span class="nc">UserDao</span> <span class="n">proxy</span> <span class="o">=</span> <span class="o">(</span><span class="nc">UserDao</span><span class="o">)</span> <span class="nc">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">userDao</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span>
+                <span class="n">userDao</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getInterfaces</span><span class="o">(),</span> <span class="k">this</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">proxy</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//调用目标对象的任何一个方法都相当于调用invoke()</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="nc">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="nc">Method</span> <span class="n">method</span><span class="o">,</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="s">"update"</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">())){</span>
+            <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"JDK Proxy :我在调用update()。。。。。前。。。。"</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">userDao</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>ProxyTest.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProxyTest</span> <span class="o">{</span>
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(){</span>
+        <span class="nc">UserDao</span> <span class="n">userDao</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UserDaoImpl</span><span class="o">();</span>
+        <span class="nc">UserDao</span> <span class="n">userDaoProxy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CGLibProxy</span><span class="o">(</span><span class="n">userDao</span><span class="o">).</span><span class="na">createProxy</span><span class="o">();</span>
+        <span class="n">userDaoProxy</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>测试结果</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">CGLib</span> <span class="nc">Proxy</span> <span class="o">:</span><span class="err">我在调用</span><span class="n">update</span><span class="o">()</span><span class="err">。。。。。前。。。。</span><span class="n">update</span><span class="o">()</span><span class="err">执行自身方法</span>
+</code></pre></div></div>
+
+<p><strong><em>标记为 final 的方法，不能被代理，因为无法进行覆盖 CGLib 是针对目标类生产子类，因此类或方法 不能使 final 的</em></strong></p>
+<h2 id="spring-aop-实现">Spring AOP 实现</h2>
+<h3 id="传统方法实现">传统方法实现</h3>
+<h4 id="aop通知类型">AOP通知类型</h4>
+<p>Spring按照通知Advice在目标类方法的连接点位置，可以分为5类</p>
+<ul>
+  <li>前置通知 org.springframework.aop.MethodBeforeAdvice<br />
+在目标方法执行前实施增强</li>
+  <li>后置通知 org.springframework.aop.AfterReturningAdvice<br />
+在目标方法执行后实施增强</li>
+  <li>环绕通知 org.aopalliance.intercept.MethodInterceptor<br />
+在目标方法执行前后实施增强</li>
+  <li>异常抛出通知 org.springframework.aop.ThrowsAdvice<br />
+在方法抛出异常后实施增强</li>
+  <li>引介通知 org.springframework.aop.IntroductionInterceptor<br />
+在目标类中添加一些新的方法和属性</li>
+</ul>
+
+<h4 id="aop切面类型">AOP切面类型</h4>
+<ul>
+  <li>Advisor : 代表一般切面，Advice本身就是一个切面，对目标类所有方法进行拦截 <strong>（不带切点的切面，对所有方法拦截）</strong></li>
+  <li>PointcutAdvisor : 代表具有切点的切面，可以指定拦截目标类哪些方法</li>
+  <li>IntroductionAdvisor : 代表引介切面，针对引介通知而使用切面</li>
+</ul>
+
+<h4 id="advisor切面针对所有方法增强">Advisor切面（针对所有方法增强）</h4>
+<p><strong>以前置增强为例：</strong></p>
+<h5 id="1编写被代理对象">1、编写被代理对象</h5>
+
+<p>UserDao.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDao</span> <span class="o">{</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">();</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+<p>UserDaoImpl.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDaoImpl</span> <span class="kd">implements</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法update()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法add()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<h5 id="2编写增强代码">2、编写增强代码</h5>
+<p>MyBeforeAdvice.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+
+  <span class="kn">import</span> <span class="nn">org.springframework.aop.MethodBeforeAdvice</span><span class="o">;</span>
+
+  <span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBeforeAdvice</span> <span class="kd">implements</span> <span class="nc">MethodBeforeAdvice</span> <span class="o">{</span>
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(</span><span class="nc">Method</span> <span class="n">method</span><span class="o">,</span> <span class="nc">Object</span><span class="o">[]</span> <span class="n">objects</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">o</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+          <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"前置增强"</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+<h5 id="3配置生成代理">3、配置生成代理</h5>
+<ul>
+  <li>这种代理基于ProxyFactoryBean，底层自动选择JDK动态代理还是CGLib代理</li>
+  <li>属性：
+    <ul>
+      <li>target : 代理的目标对象</li>
+      <li>proxyInterfaces : 代理要实现的接口</li>
+      <li>如果多个接口可以使用以下格式赋值</li>
+    </ul>
+
+    <div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;list&gt;</span>
+  <span class="nt">&lt;value&gt;&lt;/value&gt;</span>
+  ....
+  <span class="nt">&lt;/list&gt;</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>proxyTargetClass : 是否对类代理而不是接口，设置为true时，使用CGLib代理</li>
+      <li>interceptorNames : 需要织入目标的Advice</li>
+      <li>singleton : 返回代理是否为单实例，默认为单例</li>
+      <li>optimize : 当设置为true时，强制使用CGLib</li>
+    </ul>
+  </li>
+  <li>配置</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+       <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="na">xmlns:context=</span><span class="s">"http://www.springframework.org/schema/context"</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--配置被代理对象（目标对象）--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置增强--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myBeforeAdvice"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyBeforeAdvice"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--Spring支持生成代理--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDapProxy"</span> <span class="na">class=</span><span class="s">"org.springframework.aop.framework.ProxyFactoryBean"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"target"</span> <span class="na">ref=</span><span class="s">"userDao"</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--针对类的代理--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"proxyTargetClass"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--或者针对接口的代理--&gt;</span>
+        <span class="c">&lt;!--&lt;property name="proxyInterfaces" value="cn.hbson.web.bean.UserDao"/&gt;--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"interceptorNames"</span> <span class="na">value=</span><span class="s">"myBeforeAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+
+<h5 id="4编写测试类">4、编写测试类</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Qualifier</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.ContextConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class="o">;</span>
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span> <span class="n">locations</span> <span class="o">=</span> <span class="s">"classpath:applicationContext.xml"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"userDapProxy"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>   
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">add</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="5测试结果">5、测试结果</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">前置增强</span>
+<span class="err">执行自身方法</span><span class="n">update</span><span class="o">()</span>
+<span class="err">前置增强</span>
+<span class="err">执行自身方法</span><span class="n">add</span><span class="o">()</span>
+</code></pre></div></div>
+<h4 id="pointcutadvisor切面针对某些方法增强">PointcutAdvisor切面（针对某些方法增强）</h4>
+<ul>
+  <li>常用PointcutAdvisor 实现类：
+    <ul>
+      <li>DefaultPointcutAdvisor 最常用的切面类型，它可以通过任意 Pointcut 和 Advice  组合定义切面</li>
+      <li>RegexpMethodPointcutAdvisor 构造正则表达式切点切面</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>以环绕增强为例</strong></p>
+<h5 id="1编写被代理对象-1">1、编写被代理对象</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UserDao.java   ````java   package cn.hbson.web.bean;   public interface UserDao {
+  public void update();
+  public void add();   }   ````
+</code></pre></div></div>
+
+<p>UserDaoImpl.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDaoImpl</span> <span class="kd">implements</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法update()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法add()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+<h5 id="2编写增强代码-">2、编写增强代码  </h5>
+
+<p>MyBeforeAdvice.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aopalliance.intercept.MethodInterceptor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aopalliance.intercept.MethodInvocation</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAroundAdvice</span> <span class="kd">implements</span> <span class="nc">MethodInterceptor</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="nc">MethodInvocation</span> <span class="n">methodInvocation</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"环绕前增强"</span><span class="o">);</span>
+        <span class="nc">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">methodInvocation</span><span class="o">.</span><span class="na">proceed</span><span class="o">();</span><span class="c1">//执行目标对象的方法</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"环绕后增强"</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">;</span><span class="c1">//返回null，不执行目标对象方法</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="3配置生成代理-1">3、配置生成代理</h5>
+<ul>
+  <li>这种代理基于ProxyFactoryBean，底层自动选择JDK动态代理还是CGLib代理</li>
+  <li>配置</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+       <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="na">xmlns:context=</span><span class="s">"http://www.springframework.org/schema/context"</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--配置被代理对象（目标对象）--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置增强--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myAroundAdvice"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--定义切点切面--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myPointCutAdvisor"</span> <span class="na">class=</span><span class="s">"org.springframework.aop.support.RegexpMethodPointcutAdvisor"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!--定义表达式，规定拦截哪些方法进行增强--&gt;</span>
+     	<span class="c">&lt;!--
+我们举几个例子用进一步认识正则表达式在配置匹配方法上的具体应用： 
+    示例1：.*set.*表示所有类中的以set前缀的方法，如com.baobaotao.Waiter.setSalary()，Person.setName()等； 
+    示例2：com.advisor.*表示com.advisor包下所有类的所有方法； 
+    示例3：com.service.*Service.* 牢匹配com.service包下所有类名以Service结尾的类的所有方法。
+如com.service.UserService.save(User user)、com.service.ForumService.update(Forum forum)等方法； 
+    示例4：com.service.*.save.+	匹配com.service包中所有类中所以save为前缀的方法。
+如匹配com.service.UserService类的saveUser()和saveLoginLog()方法，但不匹配该类中的save()方法。 
+		--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"pattern"</span> <span class="na">value=</span><span class="s">".*add"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"advice"</span> <span class="na">ref=</span><span class="s">"myAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="c">&lt;!--Spring支持生成代理--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDapProxy"</span> <span class="na">class=</span><span class="s">"org.springframework.aop.framework.ProxyFactoryBean"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"target"</span> <span class="na">ref=</span><span class="s">"userDao"</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--针对类的代理--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"proxyTargetClass"</span> <span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--针对接口的代理--&gt;</span>
+        <span class="c">&lt;!--&lt;property name="proxyInterfaces" value="cn.hbson.web.bean.UserDao"/&gt;--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"interceptorNames"</span> <span class="na">value=</span><span class="s">"myPointCutAdvisor"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<h5 id="4编写测试类-1">4、编写测试类</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Qualifier</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.ContextConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class="o">;</span>
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span> <span class="n">locations</span> <span class="o">=</span> <span class="s">"classpath:applicationContext.xml"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"userDapProxy"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>   
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">add</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="5测试结果-1">5、测试结果</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">执行自身方法</span><span class="n">update</span><span class="o">()</span>
+<span class="err">环绕前增强</span>
+<span class="err">执行自身方法</span><span class="n">add</span><span class="o">()</span>
+<span class="err">环绕后增强</span>
+</code></pre></div></div>
+<h4 id="自动创建代理">自动创建代理</h4>
+<p>基于<strong>bean后处理器</strong>（在类创建过程中完成增强）<br />
+在Bean的生成过程中，就产生了代理对象，把代理对象返回，生成的Bean就是代理对象。<br />
+解决方案：  </p>
+<ul>
+  <li>BeanNameAutoProxyCreator 根据Bean名称创建代理</li>
+  <li>DefaultAdvisorAutoProxyCreator 根据Advisor本身包含信息创建代理</li>
+  <li>AnnotationAwareAspectJAutoProxyCreator 基于Bean中的AspectJ 注解进行自动代理</li>
+</ul>
+
+<h5 id="beannameautoproxycreator根据bean名称创建代理-">BeanNameAutoProxyCreator（根据Bean名称创建代理 ）</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!--配置被代理对象（目标对象）--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置增强--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myAroundAdvice"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myPointCutAdvisor"</span> <span class="na">class=</span><span class="s">"org.springframework.aop.support.RegexpMethodPointcutAdvisor"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!--定义表达式，规定拦截哪些方法进行增强--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"pattern"</span> <span class="na">value=</span><span class="s">".*add"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"advice"</span> <span class="na">ref=</span><span class="s">"myAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="c">&lt;!--自动创建代理--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"beanNames"</span> <span class="na">value=</span><span class="s">"*Dao"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"interceptorNames"</span> <span class="na">value=</span><span class="s">"myPointCutAdvisor"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+</code></pre></div></div>
+<h5 id="defaultadvisorautoproxycreator根据advisor本身包含信息创建代理">DefaultAdvisorAutoProxyCreator（根据Advisor本身包含信息创建代理）</h5>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置增强--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myAroundAdvice"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myPointCutAdvisor"</span> <span class="na">class=</span><span class="s">"org.springframework.aop.support.RegexpMethodPointcutAdvisor"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!--定义表达式，规定拦截哪些方法进行增强--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"pattern"</span> <span class="na">value=</span><span class="s">".*add"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">"advice"</span> <span class="na">ref=</span><span class="s">"myAroundAdvice"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="c">&lt;!--自动创建代理--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+<h3 id="基于aspectj-实现">基于AspectJ 实现</h3>
+<h4 id="什么是aspectj">什么是ASpectJ</h4>
+<p>　　AspectJ是一个面向切面的框架，它扩展了Java语言。AspectJ定义了AOP语法，所以它有一个专门的编译器用来生成遵守Java字节编码规范的Class文件。</p>
+<ul>
+  <li>AspectJ是一个基于Java语言的AOP框架</li>
+  <li>Spring2.0以后新增了对AspectJ切点表达式支持</li>
+  <li>@AspectJ 是AspectJ1.5新增功能，通过JDK5注解技术，允许直接在Bean类中定义切面</li>
+  <li>新版本Spring框架，建议使用AspectJ方式来开发AOP</li>
+</ul>
+
+<h4 id="aspectj表达式">AspectJ表达式</h4>
+<p>语法：<br />
+　　execution(<访问修饰符>?<返回类型><方法名>(<参数>)<异常>)  
+例如</异常></参数></方法名></返回类型></访问修饰符></p>
+<ul>
+  <li>匹配所有类public方法
+    <ul>
+      <li>execution(public * *(..))</li>
+    </ul>
+  </li>
+  <li>匹配指定包下所有类方法
+    <ul>
+      <li>execution(* cn.itcast.dao.*(..)) 不包含子包</li>
+      <li>execution(* cn.itcast.dao..<em>(..))  ..</em>表示包、子孙包下所有类</li>
+    </ul>
+  </li>
+  <li>匹配指定类所有方法
+    <ul>
+      <li>execution(* cn.itcast.service.UserService.*(..))</li>
+    </ul>
+  </li>
+  <li>匹配实现特定接口所有类方法
+    <ul>
+      <li>execution(* cn.itcast.dao.GenericDAO+.*(..))</li>
+    </ul>
+  </li>
+  <li>匹配所有save开头的方法
+    <ul>
+      <li>execution(* save*(..))</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="aop通知类型-1">AOP通知类型</h4>
+<ul>
+  <li>@Before 前置通知，相当于BeforeAdvice<br />
+<strong>可以在方法中传入JoinPoint对象，用来获得切点信息</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Before</span><span class="o">(</span><span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(</span><span class="nc">JoinPoint</span> <span class="n">joinPoint</span><span class="o">){</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：前置增强"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@AfterReturning 后置通知，相当于AfterReturningAdvice<br />
+<strong>通过returning属性 可以定义方法返回值，作为参数</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@AfterReturning</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">,</span> <span class="n">returning</span> <span class="o">=</span> <span class="s">"returnVal"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterReturning</span><span class="o">(</span><span class="nc">JoinPoint</span> <span class="n">joinPoint</span><span class="o">,</span> <span class="nc">Object</span> <span class="n">returnVal</span><span class="o">){</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：后置增强"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@Around 环绕通知，相当于MethodInterceptor<br />
+<strong>around方法的返回值就是目标代理方法执行返回值参数为ProceedingJoinPoint   可以调用拦截目标方法执行</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Around</span><span class="o">(</span><span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">Object</span> <span class="nf">around</span><span class="o">(</span><span class="nc">ProceedingJoinPoint</span> <span class="n">joinPoint</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Throwable</span> <span class="o">{</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：前置通知"</span><span class="o">);</span>
+      <span class="nc">Object</span> <span class="n">returnValue</span> <span class="o">=</span> <span class="n">joinPoint</span><span class="o">.</span><span class="na">proceed</span><span class="o">();</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：后置通知"</span><span class="o">);</span>
+      <span class="k">return</span> <span class="n">returnValue</span><span class="o">;</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@AfterThrowing抛出通知，相当于ThrowAdvice
+<strong>通过设置throwing属性，可以设置发生异常对象参数</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@AfterThrowing</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">,</span><span class="n">throwing</span> <span class="o">=</span> <span class="s">"ex"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">afterThrowing</span><span class="o">(</span><span class="nc">Exception</span> <span class="n">ex</span><span class="o">){</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">ex</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span><span class="c1">//异常信息</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@After 最终final通知，不管是否异常，该通知都会执行
+<strong>无论目标方法是否异常，都会执行</strong>
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@After</span><span class="o">(</span><span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">after</span><span class="o">(</span><span class="nc">JoinPoint</span> <span class="n">joinPoint</span><span class="o">){</span>
+      <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：无论目标方法是否异常，都会执行"</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+  <li>@DeclareParents 引介通知，相当于IntroductionInterceptor</li>
+</ul>
+
+<h4 id="基于注解开发">基于注解开发</h4>
+<p><strong>以前置增强为例：</strong></p>
+<h5 id="1编写被代理类">1、编写被代理类</h5>
+<p>UserDao.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>UserDaoImpl.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDaoImpl</span> <span class="kd">implements</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法update()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法add()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="2编写增强代码及注解">2、编写增强代码及注解</h5>
+<p>MyAspect.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aspectj.lang.annotation.Aspect</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aspectj.lang.annotation.Before</span><span class="o">;</span>
+<span class="nd">@Aspect</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAspect</span> <span class="o">{</span>
+    <span class="nd">@Before</span><span class="o">(</span><span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(</span><span class="nc">JoinPoint</span> <span class="n">joinPoint</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj： "</span><span class="o">+</span><span class="n">joinPoint</span><span class="o">+</span><span class="s">"前置增强"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="3配置生成代理-2">3、配置生成代理</h5>
+<ul>
+  <li>引入AOP命名空间和约束</li>
+  <li>开启AspectJ自动代理</li>
+  <li>添加Bean配置</li>
+</ul>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+       <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
+       <span class="na">xmlns:context=</span><span class="s">"http://www.springframework.org/schema/context"</span>
+       <span class="na">xmlns:aop=</span><span class="s">"http://www.springframework.org/schema/aop"</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"</span><span class="nt">&gt;</span>
+   <span class="c">&lt;!--开启自动生成代理 底层AnnotationAwareAspectJAutoProxyCreator 基于Bean中的AspectJ 注解进行自动代理--&gt;</span>
+    <span class="nt">&lt;aop:aspectj-autoproxy</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置被代理对象（目标对象）--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--配置切面--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myAspect"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyAspect"</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<h5 id="4编写测试类-2">4、编写测试类</h5>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Qualifier</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.ContextConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class="o">;</span>
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span> <span class="n">locations</span> <span class="o">=</span> <span class="s">"classpath:applicationContext.xml"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"userDapProxy"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>   
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">add</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="5测试结果-2">5、测试结果</h5>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">执行自身方法</span><span class="n">update</span><span class="o">()</span>
+<span class="n">aspectj</span><span class="err">：</span> <span class="n">execution</span><span class="o">(</span><span class="kt">void</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">.</span><span class="na">UserDao</span><span class="o">.</span><span class="na">add</span><span class="o">())</span><span class="err">前置增强</span>
+<span class="err">执行自身方法</span><span class="n">add</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h5 id="通过pointcut为切点命名">通过@Pointcut为切点命名</h5>
+
+<ul>
+  <li>在每个通知内定义切点，会造成工作量大，不易维护，对于重复的切点，可以使用@Poingcut进行定义</li>
+  <li>切点方法：private void 无参数方法，方法名为切点名</li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>当通知多个切点时，可以使用 `</td>
+          <td> </td>
+          <td>** 进行连接</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aspectj.lang.JoinPoint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aspectj.lang.ProceedingJoinPoint</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.aspectj.lang.annotation.*</span><span class="o">;</span>
+<span class="nd">@Aspect</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAspect</span> <span class="o">{</span>
+    <span class="nd">@Pointcut</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">pointcut1</span><span class="o">(){}</span>
+    <span class="nd">@Before</span><span class="o">(</span><span class="s">"MyAspect.pointcut1()"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(</span><span class="nc">JoinPoint</span> <span class="n">joinPoint</span><span class="o">){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：前置通知"</span><span class="o">);</span>
+    <span class="o">}</span>  
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="基于xml开发">基于XML开发</h4>
+<p><strong>以前置增强为例：</strong></p>
+<h5 id="1编写被代理类-1">1、编写被代理类</h5>
+<p>UserDao.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>UserDaoImpl.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserDaoImpl</span> <span class="kd">implements</span> <span class="nc">UserDao</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法update()"</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"执行自身方法add()"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="2编写增强代码-1">2、编写增强代码</h5>
+<p>MyAspect.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyAspect</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(){</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"aspectj：前置增强"</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h5 id="3配置生成代理-3">3、配置生成代理</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">"http://www.springframework.org/schema/beans"</span>
+    <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>       
+    <span class="na">xmlns:aop=</span><span class="s">"http://www.springframework.org/schema/aop"</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">"
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"userDao"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.UserDaoImpl"</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--定义切面--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">"myAspect"</span> <span class="na">class=</span><span class="s">"cn.hbson.web.bean.MyAspect"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;aop:config&gt;</span>
+        <span class="c">&lt;!--定义切点--&gt;</span>
+        <span class="nt">&lt;aop:pointcut</span> <span class="na">id=</span><span class="s">"myPointcut"</span> <span class="na">expression=</span><span class="s">"execution(* cn.hbson.web.bean.UserDao.add(..))"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;aop:aspect</span> <span class="na">ref=</span><span class="s">"myAspect"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;aop:before</span> <span class="na">method=</span><span class="s">"before"</span> <span class="na">pointcut-ref=</span><span class="s">"myPointcut"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/aop:aspect&gt;</span>
+    <span class="nt">&lt;/aop:config&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></div></div>
+<h5 id="4编写测试类-3">4、编写测试类</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">hbson</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.runner.RunWith</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Qualifier</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.ContextConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.test.context.junit4.SpringJUnit4ClassRunner</span><span class="o">;</span>
+<span class="nd">@RunWith</span><span class="o">(</span><span class="nc">SpringJUnit4ClassRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span> <span class="n">locations</span> <span class="o">=</span> <span class="s">"classpath:applicationContext.xml"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringTest</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="nd">@Qualifier</span><span class="o">(</span><span class="s">"userDapProxy"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">UserDao</span> <span class="n">userDao</span><span class="o">;</span>   
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(){</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">update</span><span class="o">();</span>
+        <span class="n">userDao</span><span class="o">.</span><span class="na">add</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h5 id="5测试结果-3">5、测试结果</h5>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">执行自身方法</span><span class="n">update</span><span class="o">()</span>
+<span class="n">aspectj</span><span class="err">：前置增强</span>
+<span class="err">执行自身方法</span><span class="n">add</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h3 id="proxyfactorybean类图">ProxyFactoryBean类图</h3>
+<p><img src="/images/ProxyFacotryBean类图.png" alt="ProxyFacotryBean类图" /></p>
+
+<h3 id="基于proxyfactorybean和自动代理的区别">基于ProxyFactoryBean和自动代理的区别？</h3>
+<ul>
+  <li>ProxyFactoryBean：先有被代理对象（目标对象），将被代理对象传入代理类中生成代理</li>
+  <li>自动代理：基于<strong>Bean后处理器（ BeanPostProcessor ）</strong>，在Bean的生成过程中，就产生了代理对象，把代理对象返回，所以生成的Bean就是代理对象。</li>
+</ul>
+
+  </div>
+
+  <div class='post-footer'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-previous' href="/tech/2018/05/22/Spring%E5%85%A5%E9%97%A8.html"> &nbsp;←  Spring入门</a>
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-next' href="/tech/2018/07/23/Ubuntu-server-%E5%AE%89%E8%A3%85%E5%90%8E%E7%BB%AD.html">Ubuntu Server 安装后续 →&nbsp;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+
+</article>
+
+<div class="utterances-comments-header">
+  <div>
+    <div>Comments </div>
+    <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
+  </div>
+  <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=/tech/2018/05/23/Spring-AOP%E5%85%A5%E9%97%A8.html">Issue Page</a>
+</div>
+<script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Copyright © Uhfun Blog 2019<br>
+        Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
+        &nbsp;|&nbsp;Themed by <strong> <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll">Uhfun-Jekyll</a></strong> 
+        &nbsp; <br> licensed <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
+        &nbsp;
+      </p>
+    </div>
+  </div>
+</footer>
+<div class="back-to-top is-info">
+    <a class="icon-stack">
+        <ion-icon name="arrow-dropup">
+            <svg class="svg-icon">
+                <use xlink:href="/assets/arrow-dropup.svg"></use>
+            </svg>
+        </ion-icon>
+        <span class="back-to-top-text">Top</span>
+    </a>
+</div>
+<script src="/assets/js/back-to-top.js"></script>
+<script src="/assets/js/hash-code.js"></script>
+<script src="/assets/js/drop-down.js"></script>
+<script src="/assets/js/category-post-num.js"></script>
+<script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  }); </script>
+<script>
+    $('.brief-content .content .title-content').each((i, e) => {
+        $bt = $(e);
+        const hashCode = $bt.text().hashCode();
+        const list = [
+        
+        '#f16181',
+        
+        '#fd7676',
+        
+        '#53aee4',
+        ];       
+        const n = hashCode % list.length;
+        const color =  list[(n < 0 ? n + list.length : n)];
+        console.log(color)
+        $bt.css('color', color);
+        $bt.children('.brief-quote').css('color', color);
+    })
+</script>
+</body>
+<script src="/assets/js/date-format.js"></script>
+</html>

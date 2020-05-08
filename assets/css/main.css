@@ -26,7 +26,6 @@ ul, ol { margin-left: 30px; }
 
 .content ul { margin-top: 0px !important; }
 
-li { list-style: none; }
 li > ul, li > ol { margin-bottom: 0; }
 
 /** Headings */
