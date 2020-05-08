@@ -101,13 +101,8 @@
   };
   // 隐藏/关闭
   $(document).on('click', '.show-sub', function() {
-    var that = $(this)
-    if (that.text() == '+') {
-      that.text('-');
-      that.next().removeClass('toc-sub-ol');
-    } else {
-      that.text('+');
-      that.next().addClass('toc-sub-ol');
-    }
+    var that = $(this)  
+    that.text(that.text() == '+' ? '-' : '+');
+    that.next().slideToggle(240);
   });
 })(jQuery);
