@@ -1,6 +1,6 @@
 ---
 layout: post
-head-img: https://raw.githubusercontent.com/uhfun/swagger-more/master/ui.png
+head-img: http://ww1.sinaimg.cn/large/babb3a97ly1gelc6trv2xj21a50u2agc.jpg
 post: 
   title: Swagger more如何使用
   type: article

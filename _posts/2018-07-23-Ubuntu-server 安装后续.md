@@ -11,11 +11,11 @@ tags:
 ---
 安装完 Ubuntu-server 后，额外的一些设置
 
-### 1. 修改 root 密码
+### 修改 root 密码
 ```bash
 sudo passwd root
 ```
-### 2. 使用root开启ssh登录
+### 使用root开启ssh登录
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
@@ -44,7 +44,7 @@ StrictModes yes
 sudo service ssh restart
 ```
 
-### 3. 设置开机默认root账户登录
+### 设置开机默认root账户登录
 **将当前用户切换为root账户**
 
 ```bash
@@ -72,7 +72,7 @@ exec /sbin/getty -8 38400 tty1
 exec /sbin/mingetty –-autologin root tty1
 ```
 
-### 4. 修改DNS
+### 修改DNS
 **修改文件 /etc/network/interfaces**
 
 ```bash
@@ -87,7 +87,7 @@ nameserver 114.114.114.114
 nameserver 8.8.8.8
 ```
 
-### 5. 安装 Shell Integration （ iterm2 ）
+### 安装 Shell Integration （ iterm2 ）
 好东西，前提得先安装 **iterm2**  
 解决了我虚拟机Ubuntu上 下载文件慢，开代理也无济于事的问题   
 直接把主机下载的文件拖上去上传就行。  
