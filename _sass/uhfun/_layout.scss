@@ -592,7 +592,8 @@
 
     .current-tag {
       color: $base-color;
-      font-size: 2rem !important;
+      font-size: 2.8rem !important;
+      font-weight: bolder !important;
 
       &:hover {
         color: $minor-color !important;
