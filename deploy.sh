@@ -3,9 +3,10 @@
 # GH_PAGES_BRANCH       gh-pages
 # CUSTOM_DOAMIN         uhfun.cn
 # GH_USER_EMAIL         2512500628@qq.com
-# GH_USER_NAME          uhfun
+# GH_USER_NAME          uhfun   
+# GH_PAGES_REPOSITORY   Uhfun-Jekyll
 
-echo '下载github pages 静态资源' && git clone -b ${GH_PAGES_BRANCH} git@github.com:uhfun/Uhfun-Jekyll.git _site
+echo '下载github pages 静态资源' && git clone -b ${GH_PAGES_BRANCH} git@github.com:${GH_USER_NAME}/${GH_PAGES_REPOSITORY}.git _site
 echo '删除除.git 外所有文件' && rm -rf _site/**/* || exit 0
 echo '重新编译生成静态文件' && bundle install && bundle exec jekyll build
 cd _site
