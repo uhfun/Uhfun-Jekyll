@@ -1,6 +1,7 @@
 ---
 layout: post
 title: README
+head-img: https://uhfun.cn/assets/img/logo.png
 post: 
   title: Uhfun-Jekyll README
   type: article
