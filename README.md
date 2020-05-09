@@ -226,7 +226,7 @@ The theme is available as open source under the terms of the [MIT License](http:
 layout: post
 title: README
 post: 
-  title: Uhfun-Jekyll README
+  title: README
   type: article
 ---
 
