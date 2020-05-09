@@ -8,7 +8,7 @@ post:
 
 [![Codeship Status for uhfun/Uhfun-Jekyll](https://app.codeship.com/projects/f6209f60-009c-0138-cf9c-6ab62c942013/status?branch=master)](https://app.codeship.com/projects/378092) [![Join the chat at https://gitter.im/uhfun_opoen_source/Uhfun-Jekyll](https://badges.gitter.im/uhfun_opoen_source/Uhfun-Jekyll.svg)](https://gitter.im/uhfun_opoen_source/Uhfun-Jekyll?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-<div style="text-align:center;margin:30px 0"><img src='https://uhfun.cn/assets/img/uhfun-jekyll logo.png' width = "280" height = "280" /></div>
+<p align ='center' style='margin:30px 0;'><img src='https://uhfun.cn/assets/img/uhfun-jekyll logo.png' width = "280" height = "280" /></p>
 
 　　Uhfun-Jekyll是一套基于Jekyll框架的模板，目前运行在 [UhfunBlog](https://uhfun.cn) 网站上。由于GitHub Pages 无法使用不支持的插件构建网站，如果想使用不支持的插件，需要在本地生成网站，然后将网站的静态文件推送到 GitHub。于是我选择了使用Codeship持续继承，自动提交编译后的静态文件到gh-pages分支，选择gh-pages 分支作为github pages的分支。
 
