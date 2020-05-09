@@ -15,4 +15,3 @@ git config --global user.email ${GH_USER_EMAIL}
 git config --global user.name ${GH_USER_NAME}
 git add .
 git commit -m "Commit ${CI_COMMIT_ID} ${CI_COMMIT_MESSAGE} to branch ${GH_PAGES_BRANCH}" && git push origin ${GH_PAGES_BRANCH}
-
