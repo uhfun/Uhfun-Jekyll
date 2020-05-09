@@ -7,8 +7,8 @@
 # GH_PAGES_REPOSITORY   Uhfun-Jekyll
 
 # master
-echo '添加posts分支内文章' && cd .. && git clone -b _posts git@github.com:${CI_REPO_NAME}.git _posts &&  mv _posts/*.md clone/_posts && ls _posts
-echo '下载github pages 静态资源' && git clone -b ${GH_PAGES_BRANCH} git@github.com:${CI_REPO_NAME}.git _site
+echo '添加posts分支内文章' && cd .. && git clone -b _posts git@github.com:${CI_REPO_NAME}.git _posts && ls _posts && mv _posts/*.md clone/_posts 
+echo '下载github pages 静态资源' cd clone && git clone -b ${GH_PAGES_BRANCH} git@github.com:${CI_REPO_NAME}.git _site
 echo '删除除.git 外所有文件' && rm -rf _site/**/* || exit 0
 echo '重新编译生成静态文件' && bundle install && bundle exec jekyll build
 cd _site
