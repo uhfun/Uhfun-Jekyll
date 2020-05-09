@@ -50,7 +50,7 @@ jekyll server
 2. 创建Organization
 3. 创建项目(New Project)，选择博客repository
 4. 在Deploy为**master分支**添加自定义脚本
-   ````bash
+  ````bash
   echo '添加posts分支内文章' && cd .. && git clone -b _posts git@github.com:${CI_REPO_NAME}.git _posts && ls _posts && mv _posts/*.md clone/_posts
   echo '下载github pages 静态资源' && cd clone && git clone -b ${GH_PAGES_BRANCH} git@github.com:${CI_REPO_NAME}.git _site
   echo '删除除.git 外所有文件' && rm -rf _site/**/* || exit 0
