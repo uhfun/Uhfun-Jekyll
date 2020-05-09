@@ -1,1 +1,0 @@
-$(document).ready(()=>{const now=new Date()/1000;$('.formated-date').each((i,e)=>{const that=$(e);const time=Date.parse(that.data('time'))/1000;if((now-time)<864000){that.text((()=>{if(now-time<60*60){return Math.floor((now-time)/60)+'分钟前'}if(now-time<3600*24){return Math.floor((now-time)/3600)+'小时前'}else{return Math.floor((now-time)/86400)+'天前'}})())}})});
