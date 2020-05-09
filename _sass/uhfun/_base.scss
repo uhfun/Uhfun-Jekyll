@@ -92,6 +92,9 @@ figcaption {
  */
 ul,
 ol {
+  li {
+    color: $content-p-color !important;
+  }
   margin-left: $spacing-unit;
 }
 
@@ -218,6 +221,7 @@ code {
   border: 1px solid $grey-color-light;
   border-radius: 3px;
   background-color: #eef;
+  color: $content-p-color !important;
 }
 
 code {
