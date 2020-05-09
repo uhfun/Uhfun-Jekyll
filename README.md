@@ -4,10 +4,6 @@ title: README
 post: 
   title: Uhfun-Jekyll README
   type: article
-date: 2020-05-07 15:11:00 +0800
-categories: tech
-tags: 
-  - 教程
 ---
 
 [![Codeship Status for uhfun/Uhfun-Jekyll](https://app.codeship.com/projects/f6209f60-009c-0138-cf9c-6ab62c942013/status?branch=master)](https://app.codeship.com/projects/378092)
