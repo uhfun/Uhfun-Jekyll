@@ -23,6 +23,7 @@ figcaption { font-size: 14px; }
 
 /** Lists */
 ul, ol { margin-left: 30px; }
+ul li, ol li { color: #1f314d !important; }
 
 .content ul { margin-top: 0px !important; }
 .content ol { margin-top: 0.4em !important; }
@@ -52,7 +53,7 @@ a:hover { color: #161616 !important; text-decoration: none; cursor: pointer; }
 .content p a { color: #0bd2b4d1; }
 
 /** Code formatting */
-pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; }
+pre, code { font-size: 15px; border: 1px solid #e8e8e8; border-radius: 3px; background-color: #eef; color: #1f314d !important; }
 
 code { padding: 1px 5px; }
 
