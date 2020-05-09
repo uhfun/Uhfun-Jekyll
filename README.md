@@ -2,7 +2,7 @@
 layout: post
 title: README
 post: 
-  title: Uhfun-Jekyll README
+  title: README
   type: article
 ---
 
