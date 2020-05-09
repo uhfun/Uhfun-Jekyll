@@ -24,7 +24,7 @@ layout: page
     <h2 class="head-year" onclick="$(this).next().slideToggle(240)">{{ year }}&nbsp;年</h2><ul class="month-list">     
     {% endif %}
 
-    {% if month != tmpMonth %}     
+    {% if month != tmpMonth or year != tmpYear %}     
     {% unless forloop.first or tmpYear != year %}
     </li></ul>
     {% endunless %}

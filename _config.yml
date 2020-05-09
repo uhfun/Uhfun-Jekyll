@@ -82,3 +82,9 @@ defaults:
       path:            "assets/**/*.pdf"
     values:
       sitemap:         false
+  - 
+    scope:
+      path: "README.md"
+    values:
+      permalink: "README.html"
+
