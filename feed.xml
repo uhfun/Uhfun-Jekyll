@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-13T01:05:10+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">天热的真快</title><link href="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html" rel="alternate" type="text/html" title="天热的真快" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-13T01:13:51+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">天热的真快</title><link href="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html" rel="alternate" type="text/html" title="天热的真快" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
 &lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 
@@ -1228,7 +1228,7 @@ http://baseUrl:port/api/dubbo
   &lt;p&gt;请谨慎将此默认值更改为False。这意味着在以线程安全的方式请求swagger端点之前管理插件的启动。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h4 id=&quot;64-通过属性覆盖描述&quot;&gt;6.4. 通过属性覆盖描述&lt;/h4&gt;
+&lt;h3 id=&quot;64-通过属性覆盖描述&quot;&gt;6.4. 通过属性覆盖描述&lt;/h3&gt;
 
 &lt;p&gt;添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applation.properties&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty(value=“${property1.description}”)&lt;/code&gt;将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。&lt;/p&gt;
 
@@ -1299,7 +1299,7 @@ http://baseUrl:port/api/dubbo
 
 &lt;p&gt;有关详细说明，&lt;a href=&quot;https://springfox.github.io/springfox/docs/current/#property-file-lookup&quot;&gt;请参阅此处&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h4 id=&quot;65-覆盖属性数据类型&quot;&gt;6.5. 覆盖属性数据类型&lt;/h4&gt;
+&lt;h3 id=&quot;65-覆盖属性数据类型&quot;&gt;6.5. 覆盖属性数据类型&lt;/h3&gt;
 
 &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApiModelProperty#dataType&lt;/code&gt;，我们可以覆盖推断的数据类型。但是，它被限制为只允许使用完全限定的类名指定数据类型。例如，如果我们有以下定义&lt;/p&gt;
 
