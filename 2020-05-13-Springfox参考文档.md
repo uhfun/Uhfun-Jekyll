@@ -3,7 +3,7 @@ layout: post
 post: 
   title: Springfox参考文档（Springfox Reference Documentation 中文版）
   type: article
-date: 2020-01-15 15:10:00 +0800
+date: 2020-05-13 01:10:00 +0800
 categories: 
   - tech
 tags: 
@@ -12,7 +12,7 @@ tags:
   - 文档
 ---
 
-Version 2.9.2-SNAPSHOT
+[官方文档](https://springfox.github.io/springfox/docs/current/) Version 2.9.2-SNAPSHOT
 
 ## 1. 介绍
 
