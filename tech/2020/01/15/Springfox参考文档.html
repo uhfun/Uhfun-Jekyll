@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌">
+  <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
+  <meta name="robots" content="all">
+
+  <meta property="og:type" content="post" />
+  
+  
+  <meta property="og:title" content="Springfox参考文档（Springfox Reference Documentation 中文版） | UhfunBlog" />
+
+  <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
+
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Version 2.9.2-SNAPSHOT
+
+">
+  
+  <meta property="article:published_time" content='2020-01-15T15:10:00Z'>
+  
+  <meta property="article:author" content="傅杭波">
+  
+  
+
+    
+  <meta property="og:image" content="" >
+  <meta property="og:url" content="http://uhfun.cn/tech/2020/01/15/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">
+  
+  <meta property="article:tag" content="Swagger">
+  
+  <meta property="article:tag" content="Springfox">
+  
+  <meta property="article:tag" content="文档">
+  
+  <meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
+
+  <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
+  <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
+  <title>Springfox参考文档（Springfox Reference Documentation 中文版） | UhfunBlog</title>
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <link type="application/atom+xml" rel="alternate" href="http://uhfun.cn/feed.xml" title="UhfunBlog" />
+  
+
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
+</head>
+<body>
+  <header class="navbar has-shadow is-spaced" role="banner">
+  <div class="container">
+    
+    
+    
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src='/assets/img/logo.png' width="160">
+      </a>
+      <div role="button" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <a class='navbar-item' href='/'>HOME</a>
+
+
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+        <a class="navbar-item" href="/README.html">
+          README
+        </a>
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+        <a class="navbar-item" href="/tag/">
+          TAG
+        </a>
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+        <a class="navbar-item" href="/life/">
+          LIFE
+        </a>
+        
+                 
+              
+           
+        
+        
+
+        
+        <a class="navbar-item" href="/tech/">
+          TECH
+        </a>
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+                 
+              
+           
+        
+        
+
+        
+        
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+              <!-- <img class="is-rounded" src="/img/avatar.png"> -->
+              <img class="is-rounded" src='/assets/img/avatar.png'>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="icon-dropdown navbar-item" href="/about.html">
+              <i class="far fa-user" aria-hidden="true"></i> About
+            </a>
+            <a class="icon-dropdown navbar-item" href="https://github.com/uhfun">
+              <i class="fab fa-github" aria-hidden="true"></i> Github
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/README.html#utterances"> Report an issue
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</header>
+  <div class="section">
+    <div class="container">
+      <article class="page">
+  <div class="content">
+    <article class="post">
+  
+  <h1 class="title is-spaced">Springfox参考文档（Springfox Reference Documentation 中文版）</h1>
+  
+  
+  
+  <div class="tags">
+    <div class="container">
+        
+        <span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span>
+        
+        
+        <a href="/tag/swagger">Swagger</a>
+        
+        <a href="/tag/springfox">Springfox</a>
+        
+        <a href="/tag/%e6%96%87%e6%a1%a3">文档</a>
+        
+        
+        <span class="spot">•</span>
+        
+        <span class='formated-date' data-time="2020/01/15 15:10:00">
+            2020-01-15
+        </span>
+    </div>
+</div>
+  <div class='post-img'>
+    
+    
+
+
+    
+  </div>
+  <div id="toc"></div>
+  <div class='post-content'>
+    
+    <p>Version 2.9.2-SNAPSHOT</p>
+
+<h2 id="1-介绍">1. 介绍</h2>
+
+<p>Springfox Java库套件主要是为使用<a href="http://projects.spring.io/spring-framework">Spring系列项目</a>编写的JSONAPI自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注释推断API语义。</p>
+
+<h3 id="11-历史">1.1. 历史</h3>
+
+<p>Springfox是从<a href="https://github.com/martypitt">马蒂·皮特</a>最初创建的一个项目演变而来的，并被命名为swagger-springmvc。很多荣誉都归功于马蒂。</p>
+
+<h3 id="12-目标">1.2. 目标</h3>
+
+<ul>
+  <li>扩展对许多针对JSON API规范和文档的不断发展的标准的支持，例如：<a href="http://swagger.io/">swagger</a>、<a href="http://raml.org/">Raml</a>和<a href="http://jsonapi.org/">jsonapi</a>。</li>
+  <li>扩展对<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring webmvc</a>以外的Spring技术的支持</li>
+  <li>从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注释。例如，Jackson注释应该总是胜过<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>，或者具有比<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>更大的权重，或者例如，<code class="language-plaintext highlighter-rouge">@NotNull</code>或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注释仅用于补充文档或覆盖/调整生成的规范。</li>
+</ul>
+
+<h3 id="13-它不是什么">1.3. 它不是什么</h3>
+
+<p>由Spring框架贡献者认可或批准</p>
+
+<h3 id="14-开发环境">1.4. 开发环境</h3>
+
+<ul>
+  <li>
+    <p>文件(File) » 打开(Open) » build.gradle</p>
+  </li>
+  <li>
+    <p>确保选中“使用默认Gradle包装器”选项。</p>
+  </li>
+  <li>
+    <p>首次构建</p>
+  </li>
+  <li>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew cleanIdea idea
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>要发布到本地maven存储库，请执行以下操作</p>
+  </li>
+  <li>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew clean build publishToMavenLocal <span class="nt">-i</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<blockquote>
+  <p>此版本针对将软件发布为binray/Sonatype进行了优化。为了让Gradle确定版本，Gradle插件依赖于本地文件夹作为克隆的git存储库。下载源代码存档和构建将不起作用！</p>
+</blockquote>
+
+<h4 id="141-预提交构建">1.4.1. 预提交构建</h4>
+
+<ul>
+  <li>
+    <p>代码质量(代码覆盖率、检查样式)</p>
+  </li>
+  <li>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew check
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h4 id="142-创建参考文档">1.4.2. 创建参考文档</h4>
+
+<p>构建所有当前文档(构建手写文档和javadoc)，请执行以下操作：</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew allDocs
+</code></pre></div></div>
+
+<p>档在build/all-docs文件夹中生成。发布当前文档的步骤(快照)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew publishDocs
+</code></pre></div></div>
+
+<h4 id="143-更新契约测试">1.4.3. 更新契约测试</h4>
+
+<p>在开发新契约测试时，为了便于用新契约更新现有测试，请取消对<a href="https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle">swagger-tract-test/build.gradle</a>中以下行的注释。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java">BugsController</a>或<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java">FeatureDemonstrationService</a>中创建一个端点来演示新的修复或行为。</p>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// NOTE: Uncomment to bulk update contracts</span>
+<span class="c1">//test {</span>
+<span class="c1">//  systemProperty("contract.tests.root", "$projectDir/src/test/resources")</span>
+<span class="c1">//  systemProperty("contract.tests.update", true)</span>
+<span class="c1">//}</span>
+</code></pre></div></div>
+
+<h4 id="144-持续集成环境">1.4.4. 持续集成环境</h4>
+
+<p><a href="https://circleci.com/gh/springfox/springfox">Circle CI</a></p>
+
+<h3 id="15-发布">1.5. 发布</h3>
+
+<p>要发布Springfox的非快照版本，请执行以下操作：</p>
+
+<ul>
+  <li>执行Release命令：运行Release需要以下环境变量：</li>
+  <li><code class="language-plaintext highlighter-rouge">GITHUB_TOKEN</code></li>
+  <li><code class="language-plaintext highlighter-rouge">BINTRAY_USER_NAME</code></li>
+  <li><code class="language-plaintext highlighter-rouge">BINTRAY_PASSWORD</code></li>
+  <li><code class="language-plaintext highlighter-rouge">SONATYPE_USER_NAME</code></li>
+  <li><code class="language-plaintext highlighter-rouge">SONATYPE_PASSWORD</code></li>
+</ul>
+
+<p>建议将<a href="https://github.com/kennethreitz/autoenv">autoenv</a>与Repo根目录下的.env文件一起使用。</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ./gradlew release <span class="nt">-PreleaseType</span><span class="o">=</span>&lt;MAJOR|MINOR|PATCH&gt; <span class="nt">-i</span>
+    ./gradlew publishDocs
+</code></pre></div></div>
+
+<p>发布步骤如下：</p>
+
+<ul>
+  <li>检查git工作区是否干净</li>
+  <li>检查本地git分支是否为主</li>
+  <li>检查本地git分支是否与Origin相同</li>
+  <li>Gradle测试</li>
+  <li>Gradle检查</li>
+  <li>将所有工件上传(发布)到Bintra</li>
+  <li>在<code class="language-plaintext highlighter-rouge">version.properties</code>中升级项目版本</li>
+  <li>Git tag发布</li>
+  <li>Git推送</li>
+</ul>
+
+<h4 id="151-快照">1.5.1. 快照</h4>
+
+<p>这通常由CI服务器完成</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew publishSnapshot
+</code></pre></div></div>
+
+<h4 id="152-覆盖部署">1.5.2. 覆盖部署</h4>
+
+<p>要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew clean build bintrayUpload <span class="nt">-PreleaseType</span><span class="o">=</span>&lt;MAJOR|MINOR|PATCH&gt;
+ <span class="nt">--stacktrace</span>
+</code></pre></div></div>
+
+<h4 id="153-发布文档">1.5.3. 发布文档</h4>
+
+<p>要更新现有版本的文档，请传递updateMode开关</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew releaseDocs
+</code></pre></div></div>
+
+<h4 id="154-贡献">1.5.4. 贡献</h4>
+
+<p>请参阅<a href="https://github.com/springfox/springfox/wiki">维基</a>获取一些指导原则</p>
+
+<h3 id="16-支持">1.6 支持</h3>
+
+<p>如果您发现问题或错误，请通过<a href="https://github.com/springfox/springfox/issues">Springfox Github项目</a>提交</p>
+
+<h2 id="2快速入门">2.快速入门</h2>
+
+<h3 id="21-依赖">2.1. 依赖</h3>
+
+<p>Springfox库托管在<a href="https://bintray.com/springfox/maven-repo/springfox/view">bintray</a>和JCenter上。可以在以下位置查看和访问对象：</p>
+
+<ul>
+  <li>Release：
+    <ul>
+      <li>https://jcenter.bintray.com/io/springfox/</li>
+      <li>http://jcenter.bintray.com/io/springfox/</li>
+    </ul>
+  </li>
+  <li>Snapshot
+    <ul>
+      <li>http://oss.jfrog.org/simple/oss-snapshot-local/io/springfox/</li>
+      <li>http://oss.jfrog.org/oss-snapshot-local/io/springfox/</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何包含springfox-swagger2模块，该模块生成Swagger2.0API文档。</p>
+
+<h4 id="211-gradle">2.1.1. Gradle</h4>
+
+<h5 id="release">Release</h5>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repositories</span> <span class="o">{</span>
+  <span class="n">jcenter</span><span class="o">()</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s2">"io.springfox:springfox-swagger2:2.9.2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h5 id="snapshot">Snapshot</h5>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">repositories</span> <span class="o">{</span>
+   <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">'http://oss.jfrog.org/artifactory/oss-snapshot-local/'</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s2">"io.springfox:springfox-swagger2:2.9.2-SNAPSHOT"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="212-maven">2.1.2. Maven</h4>
+
+<h5 id="release-1">Release</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+      <span class="nt">&lt;id&gt;</span>jcenter-snapshots<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;name&gt;</span>jcenter<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;url&gt;</span>https://jcenter.bintray.com/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.9.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h5 id="snapshot-1">Snapshot</h5>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;repositories&gt;</span>
+    <span class="nt">&lt;repository&gt;</span>
+      <span class="nt">&lt;id&gt;</span>jcenter-snapshots<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;name&gt;</span>jcenter<span class="nt">&lt;/name&gt;</span>
+      <span class="nt">&lt;url&gt;</span>http://oss.jfrog.org/artifactory/oss-snapshot-local/<span class="nt">&lt;/url&gt;</span>
+    <span class="nt">&lt;/repository&gt;</span>
+<span class="nt">&lt;/repositories&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-swagger2<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.9.2-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h2 id="3-快速入门指南">3. 快速入门指南</h2>
+
+<h3 id="31-springfox-spring-mvc-和-spring-boot">3.1. Springfox Spring MVC 和 Spring Boot</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ *
+ *  Copyright 2015-2018 the original author or authors.
+ *
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ *
+ *
+ */</span>
+
+<span class="kn">package</span> <span class="n">springfox</span><span class="o">.</span><span class="na">springconfig</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.classmate.TypeResolver</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.joda.time.LocalDate</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.SpringApplication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.boot.autoconfigure.SpringBootApplication</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.ComponentScan</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.http.ResponseEntity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMethod</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.context.request.async.DeferredResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.ParameterBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.PathSelectors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.RequestHandlerSelectors</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.builders.ResponseMessageBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.schema.ModelRef</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.schema.WildcardType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.ApiKey</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.AuthorizationScope</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.SecurityReference</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.Tag</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.DocumentationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.service.contexts.SecurityContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spring.web.plugins.Docket</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.DocExpansion</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.ModelRendering</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.OperationsSorter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.SecurityConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.SecurityConfigurationBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.TagsSorter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.UiConfiguration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.web.UiConfigurationBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger2.annotations.EnableSwagger2</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.petstore.controller.PetController</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">collect</span><span class="o">.</span><span class="na">Lists</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">schema</span><span class="o">.</span><span class="na">AlternateTypeRules</span><span class="o">.*;</span>
+
+<span class="nd">@SpringBootApplication</span>
+<span class="nd">@EnableSwagger2</span> <span class="c1">// 1. 启用Springfox SWAGGER 2</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackageClasses</span> <span class="o">=</span> <span class="o">{</span>
+    <span class="nc">PetController</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span> <span class="c1">// 2. 表示在哪里扫描API Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Swagger2SpringBoot</span> <span class="o">{</span>
+
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">ApplicationContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="nc">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="nc">Swagger2SpringBoot</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+  <span class="o">}</span>
+
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">petApi</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span> <span class="c1">// 3. Docket是Springfox主要的API配置机制针，它对swagger规范2.0进行了初始化。</span>
+        <span class="o">.</span><span class="na">select</span><span class="o">()</span> <span class="c1">// 4. select()返回一个ApiSelectorBuilder的实例，提供对通过swagger公开的端点的细粒度控制</span>
+          <span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="nc">RequestHandlerSelectors</span><span class="o">.</span><span class="na">any</span><span class="o">())</span> <span class="c1">// 5. apis()允许使用谓词来选择RequestHandler。示例使用any(默认)。开箱即用的谓词有any, none, withClassAnnotation, withMethodAnnotation and basePackage。</span>
+          <span class="o">.</span><span class="na">paths</span><span class="o">(</span><span class="nc">PathSelectors</span><span class="o">.</span><span class="na">any</span><span class="o">())</span> <span class="c1">// 6. paths()允许使用谓词选择路径。示例使用any(默认)。开箱即用的有regex、ant、any、one。</span>
+          <span class="o">.</span><span class="na">build</span><span class="o">()</span> <span class="c1">// 7. 选择器需要在配置Api选择器(apis)和路径选择器(paths)之后构建。</span>
+        <span class="o">.</span><span class="na">pathMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="c1">// 8. 当Servlet具有路径映射时，添加Servlet路径映射。这会使用提供的路径映射为路径添加前缀。</span>
+        <span class="o">.</span><span class="na">directModelSubstitute</span><span class="o">(</span><span class="nc">LocalDate</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="c1">// 9. 便捷规则构建器: 在渲染模型属性时使用字符串替换LocalDate，使用type参数替换泛型类型。</span>
+        <span class="o">.</span><span class="na">genericModelSubstitutes</span><span class="o">(</span><span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">alternateTypeRules</span><span class="o">(</span>
+            <span class="n">newRule</span><span class="o">(</span><span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">DeferredResult</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+                <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)),</span>
+                <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)))</span> <span class="c1">// 10. 带T的ResponseEntity&lt;T&gt; alternateTypeRules()允许更复杂的自定义规则。该示例通常将DeferredResult&lt;ResponseEntity&lt;T&gt;&gt;替换为T。</span>
+        <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="c1">// 11. 指示是否需要使用默认http响应代码的标志。</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="c1">// 12. 允许全局覆盖不同http方法的响应消息。在本例中，我们覆盖了所有GET请求…的错误代码500...</span>
+            <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ResponseMessageBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"500 message"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"Error"</span><span class="o">))</span> <span class="c1">// 13. 并指示它将使用响应模型错误(将在其他地方定义)。</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">securitySchemes</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span><span class="n">apiKey</span><span class="o">()))</span> <span class="c1">// 14. 设置用于保护API的安全方案</span>
+        <span class="o">.</span><span class="na">securityContexts</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span><span class="n">securityContext</span><span class="o">()))</span> <span class="c1">// 15. 提供全局设置操作的安全上下文的方法。这里的想法是，我们提供一种方法来选择要由指定的安全方案之一保护的操作。 </span>
+        <span class="o">.</span><span class="na">enableUrlTemplating</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="c1">// 21. 允许全局配置默认路径/请求/标头参数，这些参数对于api的每个其余操作都是通用的，但在spring控制器方法签名中不需要（例如，身份验证信息）。</span>
+        <span class="o">.</span><span class="na">globalOperationParameters</span><span class="o">(</span> <span class="c1">// 22. 此处添加的参数将是生成的swagger规范中每个API操作的一部分。根据安全性的设置方式，使用的标头的名称可能需要不同。覆盖此值是覆盖默认行为的一种方式。</span>
+            <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ParameterBuilder</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"someGlobalParameter"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">"Description of someGlobalParameter"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">modelRef</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span>
+                <span class="o">.</span><span class="na">parameterType</span><span class="o">(</span><span class="s">"query"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">required</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">tags</span><span class="o">(</span><span class="k">new</span> <span class="nc">Tag</span><span class="o">(</span><span class="s">"Pet Service"</span><span class="o">,</span> <span class="s">"All apis relating to pets"</span><span class="o">))</span> <span class="c1">// 23. 添加标签是定义服务/操作可以选择的所有可用标签的一种方式。目前只有名称和描述。</span>
+        <span class="o">.</span><span class="na">additionalModels</span><span class="o">(</span><span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">AdditionalModel</span><span class="o">.</span><span class="na">class</span><span class="o">))</span> <span class="o">;</span><span class="c1">// 24. 应用程序中是否存在无法“访问”的模型？不可达是指我们拥有想要描述但没有在任何操作中显式使用的模型。这方面的一个示例是返回序列化为字符串的模型的操作。我们确实希望传达对字符串架构的期望。这正是实现这一目标的一种方式。</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="nc">TypeResolver</span> <span class="n">typeResolver</span><span class="o">;</span>
+
+  <span class="kd">private</span> <span class="nc">ApiKey</span> <span class="nf">apiKey</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ApiKey</span><span class="o">(</span><span class="s">"mykey"</span><span class="o">,</span> <span class="s">"api_key"</span><span class="o">,</span> <span class="s">"header"</span><span class="o">);</span> <span class="c1">// 16. 这里我们使用apiKey作为由名称MyKey标识的安全架构。</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">SecurityContext</span> <span class="nf">securityContext</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">SecurityContext</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">securityReferences</span><span class="o">(</span><span class="n">defaultAuth</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">forPaths</span><span class="o">(</span><span class="nc">PathSelectors</span><span class="o">.</span><span class="na">regex</span><span class="o">(</span><span class="s">"/anyPath.*"</span><span class="o">))</span> <span class="c1">// 17. 此安全上下文应用于的路径的选择器。</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nc">List</span><span class="o">&lt;</span><span class="nc">SecurityReference</span><span class="o">&gt;</span> <span class="nf">defaultAuth</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">AuthorizationScope</span> <span class="n">authorizationScope</span>
+        <span class="o">=</span> <span class="k">new</span> <span class="nc">AuthorizationScope</span><span class="o">(</span><span class="s">"global"</span><span class="o">,</span> <span class="s">"accessEverything"</span><span class="o">);</span>
+    <span class="nc">AuthorizationScope</span><span class="o">[]</span> <span class="n">authorizationScopes</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AuthorizationScope</span><span class="o">[</span><span class="mi">1</span><span class="o">];</span>
+    <span class="n">authorizationScopes</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="n">authorizationScope</span><span class="o">;</span>
+    <span class="k">return</span> <span class="nf">newArrayList</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">SecurityReference</span><span class="o">(</span><span class="s">"mykey"</span><span class="o">,</span> <span class="n">authorizationScopes</span><span class="o">));</span> <span class="c1">// 18. 这里我们使用在安全方案MyKey中定义的相同密钥。</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="nc">SecurityConfiguration</span> <span class="nf">security</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">SecurityConfigurationBuilder</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span> <span class="c1">// 19. OAuth和apiKey设置的可选swagger-UI安全配置。</span>
+        <span class="o">.</span><span class="na">clientId</span><span class="o">(</span><span class="s">"test-app-client-id"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">clientSecret</span><span class="o">(</span><span class="s">"test-app-client-secret"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">realm</span><span class="o">(</span><span class="s">"test-app-realm"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">appName</span><span class="o">(</span><span class="s">"test-app"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">scopeSeparator</span><span class="o">(</span><span class="s">","</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">additionalQueryStringParams</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">useBasicAuthenticationWithAccessCodeGrant</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="nc">UiConfiguration</span> <span class="nf">uiConfig</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">UiConfigurationBuilder</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span> <span class="c1">// 20. 可选的swagger-ui配置当前仅支持验证url。*孵化* 设置此标志向处理器发出信号，表示生成的路径应尝试并使用表单样式查询扩展。因此，我们可以区分具有相同路径词干但查询字符串组合不同的路径。这方面的一个示例是两个API：一，http://example.org/findCustomersBy?name=Test按名称查找客户。根据RFC6570，这将表示为http://example.org/findCustomersBy{？name}.二，http://example.org/findCustomersBy?zip=76051 按邮编寻找客户。根据RFC6570，表示为http://example.org/findCustomersBy{？zip}.</span>
+        <span class="o">.</span><span class="na">deepLinking</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">displayOperationId</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">defaultModelsExpandDepth</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">defaultModelExpandDepth</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">defaultModelRendering</span><span class="o">(</span><span class="nc">ModelRendering</span><span class="o">.</span><span class="na">EXAMPLE</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">displayRequestDuration</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">docExpansion</span><span class="o">(</span><span class="nc">DocExpansion</span><span class="o">.</span><span class="na">NONE</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">maxDisplayedTags</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">operationsSorter</span><span class="o">(</span><span class="nc">OperationsSorter</span><span class="o">.</span><span class="na">ALPHA</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">showExtensions</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">tagsSorter</span><span class="o">(</span><span class="nc">TagsSorter</span><span class="o">.</span><span class="na">ALPHA</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">supportedSubmitMethods</span><span class="o">(</span><span class="nc">UiConfiguration</span><span class="o">.</span><span class="na">Constants</span><span class="o">.</span><span class="na">DEFAULT_SUBMIT_METHODS</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">validatorUrl</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="32-配置说明">3.2. 配置说明</h3>
+
+<blockquote>
+  <p>这个库广泛使用<a href="https://github.com/google/guava">谷歌的Guava库</a>。例如，当您看到newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//This guava code snippet</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Something</span><span class="o">&gt;</span> <span class="n">guavaList</span> <span class="o">=</span> <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">Something</span><span class="o">());</span>
+
+<span class="c1">//... is equivalent to</span>
+<span class="nc">List</span><span class="o">&lt;</span><span class="nc">Something</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Something</span><span class="o">());</span>
+</code></pre></div></div>
+
+<p>有很多更多的选项可以配置摘要。这应该会提供一个良好的开端。</p>
+
+<h3 id="33-springfox-spring-data-rest">3.3. Springfox Spring Data Rest</h3>
+
+<blockquote>
+  <p>这还在孵化中。</p>
+</blockquote>
+
+<p>为了使用它。</p>
+
+<ol>
+  <li>添加springfox-data-rest依赖项。</li>
+</ol>
+
+<h4 id="331-gradle">3.3.1. Gradle</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s2">"io.springfox:springfox-data-rest:2.9.2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="332-maven">3.3.2. Maven</h4>
+
+<p>从springfox-data-rest模块导入配置，如下所示</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-data-rest<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.9.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h4 id="333-java-config">3.3.3. java config</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//For java config</span>
+<span class="nd">@Import</span><span class="o">({</span> <span class="o">...</span> <span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">spring</span><span class="o">.</span><span class="na">data</span><span class="o">.</span><span class="na">rest</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">SpringDataRestConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">...})</span>
+</code></pre></div></div>
+
+<h4 id="334-xml-config">3.3.4. xml config</h4>
+
+<p>通过定义以下类型的Bean在XML配置中导入Bean</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"springfox.documentation.spring.data.rest.configuration.SpringDataRestConfiguration.class"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h4 id="34-springfox对jsr-303的支持">3.4. Springfox对JSR-303的支持</h4>
+
+<p>在2.3.2以上的版本中，添加了对bean验证注释的支持，特别是对@NotNull、@Min、@Max和@Size。</p>
+
+<p>为了使用它。</p>
+
+<ul>
+  <li>添加springfox-bean-validators依赖项。</li>
+</ul>
+
+<h4 id="341-gradle">3.4.1. Gradle</h4>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s2">"io.springfox:springfox-bean-validators:2.9.2"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="342-maven">3.4.2. Maven</h4>
+
+<p>从springfox-bean-validators模块导入配置，如下所示</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-bean-validators<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.9.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h4 id="343-java-config">3.4.3. java config</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//For java config</span>
+<span class="nd">@Import</span><span class="o">({</span> <span class="o">...</span> <span class="n">springfox</span><span class="o">.</span><span class="na">bean</span><span class="o">.</span><span class="na">validators</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">BeanValidatorPluginsConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">...})</span>
+</code></pre></div></div>
+
+<h4 id="344-xml-config">3.4.4. xml config</h4>
+
+<p>通过定义以下类型的Bean在XML配置中导入Bean</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration"</span> <span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<h3 id="35-springfox-swagger-ui">3.5. Springfox Swagger UI</h3>
+
+<p>springfox-swagger-ui <a href="http://www.webjars.org/">web jar</a>附带<a href="https://github.com/swagger-api/swagger-ui">swagger UI</a>。要将其包含在标准Spring Boot应用程序中，您可以按如下方式添加依赖项：</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">'io.springfox:springfox-swagger-ui:2.9.2'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点/swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面http://localhost:8080/swagger-ui.html</p>
+
+<p><img src="https://springfox.github.io/springfox/docs/current/images/springfox-swagger-ui.png" alt="" /></p>
+
+<p>swagger UI版本在./build.gradle中指定，其中<code class="language-plaintext highlighter-rouge">swaggerUiVersion</code>是https：//github.com/swagger-api/swagger-ui[swagger-UI repo]上的GIT tag。</p>
+
+<p>所有内容都由WebJAR约定提供，相对URL采用以下形式：webjars/springfox-swagger-ui/2.9.2/swagger-ui.html</p>
+
+<p>默认情况下，Spring Boot在提供WebJar内容时有合理的默认值。要配置vanilla Spring web mvc应用程序以提供webjar内容，请参阅<a href="http://www.webjars.org/documentation#springmvc">webjar文档</a>。</p>
+
+<p>与springfox捆绑在一起的swagger-ui使用 <em>meta-urls</em> 来配置自身并发现记录的端点。发现的URL如下所示。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Url</th>
+      <th>2.5+ 中的新URL</th>
+      <th>目的</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>/configuration/security</td>
+      <td>/swagger-resources/configuration/security</td>
+      <td>配置swagger-ui security</td>
+    </tr>
+    <tr>
+      <td>/configuration/ui</td>
+      <td>/swagger-resources/configuration/ui</td>
+      <td>配置swagger-ui 选项</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>由于swagger UI是一种静态资源，因此它需要依赖已知的端点在运行时进行自我配置。所以这些☝️是*很酷的URI，不能更改。有一些是可以<a href="https://springfox.github.io/springfox/docs/current/#q13">定制</a>的，但是swagger-UI需要在WebContext的根目录下可用。</p>
+
+<p>至于在<a href="http://springfox.github.io/springfox/docs/current/#q13">哪里提供swagger-UI本身</a>以及在<a href="http://springfox.github.io/springfox/docs/current/#customizing-the-swagger-endpoints">哪里提供API文档</a>，这些都是完全可配置的。</p>
+
+<h3 id="36-springfox-rfc6570-支持-孵化中">3.6. Springfox RFC6570 支持 <strong>孵化中</strong></h3>
+
+<blockquote>
+  <p>请记住，这是试验性的！要使用此功能，请执行以下操作</p>
+</blockquote>
+
+<p>添加springfox-swagger-ui-rfc6570而不是springfox-swagger-ui作为依赖 <a href="http://mvnrepository.com/artifact/io.springfox.ui/springfox-swagger-ui-rfc6570/1.0.0">试验swagger-ui-rfc6570</a>。</p>
+
+<p>使用Gradle:</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="s1">'io.springfox.ui:springfox-swagger-ui-rfc6570:1.0.0'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>使用Maven:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.springfox.ui<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>springfox-swagger-ui-rfc6570<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>新版本已将group id 从<em>io.springfox</em>更改为<em>io.springfox.ui</em>！</p>
+</blockquote>
+
+<ul>
+  <li>启用url模板；(<a href="http://springfox.github.io/springfox/docs/current/#springfox-swagger2-with-spring-mvc-and-spring-boot">参见#21</a>)</li>
+</ul>
+
+<h3 id="37-保护swagger-ui">3.7. 保护Swagger-ui</h3>
+
+<p><a href="https://github.com/springfox/springfox/issues/2191#issuecomment-359159833">用户贡献的示例</a>在浏览器中使用OAuth2和基于Cookie的身份验证。(归功于：<a href="https://github.com/evser">@evser</a>)</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="n">http</span><span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">anyRequest</span><span class="o">().</span><span class="na">authenticated</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">exceptionHandling</span><span class="o">().</span><span class="na">accessDeniedHandler</span><span class="o">(</span><span class="k">new</span> <span class="nc">AccessDeniedHandlerImpl</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">logout</span><span class="o">().</span><span class="na">logoutSuccessHandler</span><span class="o">(</span><span class="k">new</span> <span class="nc">HttpStatusReturningLogoutSuccessHandler</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">().</span><span class="na">csrf</span><span class="o">().</span><span class="na">csrfTokenRepository</span><span class="o">(</span><span class="nc">CookieCsrfTokenRepository</span><span class="o">.</span><span class="na">withHttpOnlyFalse</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">ssoFilter</span><span class="o">(</span><span class="nc">ApplicationConfiguration</span><span class="o">.</span><span class="na">API_BASE_PATH</span> <span class="o">+</span> <span class="s">"/login"</span><span class="o">),</span> <span class="nc">BasicAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">requiresChannel</span><span class="o">().</span><span class="na">anyRequest</span><span class="o">().</span><span class="na">requireSecure</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">FilterRegistrationBean</span> <span class="nf">oauth2ClientFilterRegistration</span><span class="o">(</span><span class="nc">OAuth2ClientContextFilter</span> <span class="n">filter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">FilterRegistrationBean</span> <span class="n">frb</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FilterRegistrationBean</span><span class="o">();</span>
+    <span class="n">frb</span><span class="o">.</span><span class="na">setFilter</span><span class="o">(</span><span class="n">filter</span><span class="o">);</span>
+    <span class="n">frb</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="nc">SecurityProperties</span><span class="o">.</span><span class="na">DEFAULT_FILTER_ORDER</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">frb</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="s">"oauth2.client"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">OAuth2ProtectedResourceDetails</span> <span class="nf">authDetails</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AuthorizationCodeResourceDetails</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">SecurityConfiguration</span> <span class="nf">swaggerSecurityConfiguration</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">SecurityConfiguration</span><span class="o">(</span><span class="s">"client-id"</span><span class="o">,</span> <span class="s">"client-secret"</span><span class="o">,</span> <span class="s">"realm"</span><span class="o">,</span>
+        <span class="s">""</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="nc">ApiKeyVehicle</span><span class="o">.</span><span class="na">HEADER</span><span class="o">,</span> <span class="s">"X-XSRF-TOKEN"</span><span class="o">,</span> <span class="s">","</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">Filter</span> <span class="nf">ssoFilter</span><span class="o">(</span><span class="nc">String</span> <span class="n">path</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">OAuth2ClientAuthenticationProcessingFilter</span> <span class="n">oAuth2ClientAuthenticationFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OAuth2ClientAuthenticationProcessingFilter</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+    <span class="nc">OAuth2RestTemplate</span> <span class="n">oAuth2RestTemplate</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OAuth2RestTemplate</span><span class="o">(</span><span class="n">authDetails</span><span class="o">(),</span> <span class="n">oauth2ClientContext</span><span class="o">);</span>
+    <span class="nc">DefaultRedirectStrategy</span> <span class="n">defaultRedirectStrategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">DefaultRedirectStrategy</span><span class="o">();</span>
+    <span class="n">oAuth2ClientAuthenticationFilter</span><span class="o">.</span><span class="na">setRestTemplate</span><span class="o">(</span><span class="n">oAuth2RestTemplate</span><span class="o">);</span>
+    <span class="n">oAuth2ClientAuthenticationFilter</span><span class="o">.</span><span class="na">setTokenServices</span><span class="o">(</span><span class="n">resourceServerTokenServices</span><span class="o">);</span>
+    <span class="n">oAuth2ClientAuthenticationFilter</span><span class="o">.</span><span class="na">setAuthenticationSuccessHandler</span><span class="o">(</span>
+        <span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">authentication</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">{</span>
+          <span class="nc">String</span> <span class="n">redirectUrl</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="no">REDIRECT_URL_PARAM</span><span class="o">);</span>
+          <span class="k">if</span> <span class="o">(</span><span class="n">redirectUrl</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">redirectUrl</span> <span class="o">=</span> <span class="no">DEFAULT_REDIRECT_URL</span><span class="o">;</span>
+          <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(!</span><span class="n">redirectUrlValidator</span><span class="o">.</span><span class="na">validateRedirectUrl</span><span class="o">(</span><span class="n">redirectUrl</span><span class="o">))</span> <span class="o">{</span>
+              <span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="no">MESSAGE_ATTRIBUTE_NAME</span><span class="o">,</span>
+                  <span class="n">messageSource</span><span class="o">.</span><span class="na">getMessage</span><span class="o">(</span><span class="s">"ivalid.redirect.url"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">String</span><span class="o">[]</span> <span class="o">{</span> <span class="n">redirectUrl</span> <span class="o">},</span> <span class="nc">LocaleContextHolder</span><span class="o">.</span><span class="na">getLocale</span><span class="o">()));</span>
+              <span class="n">response</span><span class="o">.</span><span class="na">sendError</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">FORBIDDEN</span><span class="o">.</span><span class="na">value</span><span class="o">());</span>
+            <span class="o">}</span>
+          <span class="o">}</span>
+          <span class="n">defaultRedirectStrategy</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">redirectUrl</span><span class="o">);</span>
+        <span class="o">});</span>
+    <span class="k">return</span> <span class="n">oAuth2ClientAuthenticationFilter</span><span class="o">;</span>
+    <span class="o">}</span>
+  
+</code></pre></div></div>
+
+<p>通过授权头配置要保护的Docket：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">api</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">URISyntaxException</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ResponseMessage</span><span class="o">&gt;</span> <span class="n">globalResponses</span> <span class="o">=</span> <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+        <span class="k">new</span> <span class="nf">ResponseMessageBuilder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"OK"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">(),</span>
+        <span class="k">new</span> <span class="nf">ResponseMessageBuilder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">400</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"Bad Request"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">(),</span>
+        <span class="k">new</span> <span class="nf">ResponseMessageBuilder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"Internal Error"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+    <span class="kd">final</span> <span class="nc">ApiInfo</span> <span class="n">apiInfo</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ApiInfo</span><span class="o">(</span><span class="s">"REST API"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">BufferedReader</span><span class="o">(</span><span class="k">new</span> <span class="nc">InputStreamReader</span><span class="o">(</span><span class="n">getClass</span><span class="o">().</span><span class="na">getResourceAsStream</span><span class="o">(</span><span class="no">CHANGELOG_FILENAME</span><span class="o">)))</span>
+        <span class="o">.</span><span class="na">lines</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">collect</span><span class="o">(</span><span class="nc">Collectors</span><span class="o">.</span><span class="na">joining</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">lineSeparator</span><span class="o">())),</span>
+        <span class="s">"1.0.0-RC1"</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="k">new</span> <span class="nc">Contact</span><span class="o">(</span><span class="s">"team"</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="s">"bla@bla.com"</span><span class="o">),</span> <span class="s">""</span><span class="o">,</span> <span class="s">""</span><span class="o">,</span> <span class="nc">Collections</span><span class="o">.</span><span class="na">emptyList</span><span class="o">());</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">),</span>
+        <span class="o">.</span><span class="na">securitySchemes</span><span class="o">(</span><span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ApiKey</span><span class="o">(</span><span class="s">"Token Access"</span><span class="o">,</span> <span class="nc">HttpHeaders</span><span class="o">.</span><span class="na">AUTHORIZATION</span><span class="o">,</span> <span class="nc">In</span><span class="o">.</span><span class="na">HEADER</span><span class="o">.</span><span class="na">name</span><span class="o">()))))</span>
+        <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">globalResponses</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">,</span> <span class="n">globalResponses</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">DELETE</span><span class="o">,</span> <span class="n">globalResponses</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">PATCH</span><span class="o">,</span> <span class="n">globalResponses</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">select</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="nc">RequestHandlerSelectors</span><span class="o">.</span><span class="na">basePackage</span><span class="o">(</span><span class="s">"com.controller"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">apiInfo</span><span class="o">(</span><span class="n">apiInfo</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">directModelSubstitute</span><span class="o">(</span><span class="nc">Temporal</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="38-springfox示例">3.8. Springfox示例</h3>
+
+<p><a href="https://github.com/springfox/springfox-demos">springfox-demos</a>存储库包含许多示例。</p>
+
+<h2 id="4-架构">4. 架构</h2>
+
+<h3 id="41-背景">4.1. 背景</h3>
+
+<p>当我们开始研究2.0 swagger规范时，我们意识到我们正在重写逻辑来推断服务模型和模式。所以我们决定退一步，把它分成两个步骤。首先，将服务模型推断为内部表示。其次，创建一个映射层，该映射层可以将内部模型映射到不同的规范格式。开箱即用，我们将支持swagger 1.2和swagger 2.0，但这使我们有可能支持其他格式和其他场景，例如RAML、Alps和超媒体格式。</p>
+
+<h3 id="42-组件模型">4.2. 组件模型</h3>
+
+<p>不同的Springfox模块被拆分，如下所示。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  +-----------------------------------------------------------------------------------------+
+  |                                  springfox-core                                         |
+  |                                                                                         |
+  |                         包含内部服务和架构描述模型及其构建器  																|
+  +------------------------------------------+----------------------------------------------+
+                                             ^
+  +------------------------------------------+----------------------------------------------+
+  |                                  springfox-spi                                          |
+  |                                                                                         |
+  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注释处理器 		          |
+  +------------------------------------------+----------------------------------------------+
+                                             |
+                                             |
+                  +--------------------------|------------------------+
+                  |                          |                        |
+  +----------------------------------+       |       +--------------------------------------+
+  |        springfox-schema          |       |       |         springfox-spring-web         |
+  |                                  |       |       |                                      |
+  |     架构推理扩展,帮助构建参数        |       |       |       Spring Web 特定扩展可以          |
+  |      模型和响应的架构。             |       |       | 基于RequestMapping的的信息构建服务模型   |
+  |                                  |       |       |       这是推断服务模型的核心库           |
+  +----------------------------------+       |       +--------------------------------------+
+                                             |
+        +------------------------------------+------------------------------------+
+        |                         springfox-swagger-common                        |
+        |                                                                         |
+        |                 识别不同的swagger注释的常见的swagger特定扩展                 |
+        +----------+--------------------------------------------------------------+
+                   ^                          ^                        ^
+        +----------+---------+     +----------+---------+     +-----...
+        |                    |     |                    |     |
+        | springfox-swagger1 |     | springfox-swagger2 |     |
+        |                    |     |                    |     |
+        +--------------------+     +--------------------+     +-----...
+
+        配置，以及知道如何将服务模型转换为swagger 1.2和swagger 2.0规范文档的映射层。
+				还包含每种特定格式的控制器。
+</code></pre></div></div>
+
+<h2 id="5-swagger">5. Swagger</h2>
+
+<p>Springfox同时支持版本<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md">1.2</a>和版本<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md">2.0</a>的<a href="http://swagger.io/">Swagger</a>规范。如果可以，Swagger 2.0规范更可取。</p>
+
+<p>由swagger-core提供的<a href="https://github.com/swagger-api/swagger-core/wiki/Annotations">swagger-core annotations</a> 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注释，并且会优先使用这些注释而不是推断的默认值。</p>
+
+<h3 id="51-swagger-12-vs-swagger-20">5.1. Swagger 1.2 vs Swagger 2.0</h3>
+
+<p>这两个swagger规范之间的一个主要区别是生成的swagger文档的组成。</p>
+
+<p>在Swagger 1.2中，一个应用程序API被表示为一个资源列表和多个API声明，这意味着要生成<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md#42-file-structure">多个JSON文件</a>。</p>
+
+<p>使用Swagger 2.0，事情就简单多了，可以在单个JSON文件中表示应用程序的API。</p>
+
+<h3 id="52-从-swagger-springmvc-进行迁移">5.2. 从 swagger-springmvc 进行迁移?</h3>
+
+<p>以下是帮助您从1.0.2过渡到2.0的<a href="https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md">指南</a>。</p>
+
+<p>您可以在<a href="https://github.com/springfox/springfox/blob/v1.0.2/README.md">此处</a>找到传统文档。</p>
+
+<h3 id="53-springfox配置和演示应用程序">5.3. Springfox配置和演示应用程序</h3>
+
+<p><a href="https://github.com/springfox/springfox-demos">springfox-demos</a>存储库包含许多示例Spring应用程序，可以作为参考。</p>
+
+<h2 id="6-配置springfox">6. 配置Springfox</h2>
+
+<p>要启用对swagger规范1.2的支持，请使用@EnableSwagger注释。</p>
+
+<p>要启用对swagger规范2.0的支持，请使用@EnableSwagger2注释。</p>
+
+<p>为了记录服务，我们使用了Docket。这样更符合事实，即表达文档的内容与文档呈现的格式无关。</p>
+
+<p>Docket<a href="https://www.wordnik.com/words/docket">代表</a>文件内容的摘要或其他简短陈述，一个摘要。</p>
+
+<p><code class="language-plaintext highlighter-rouge">Docket</code>帮助配置要记录的服务子集，并按名称对它们进行分组。这方面的重大变化是能够为API选择提供一个富有表现力的谓词。</p>
+
+<p><em>示例配置</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="kn">import</span> <span class="nn">static</span> <span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">builders</span><span class="o">.</span><span class="na">PathSelectors</span><span class="o">.*;</span>
+  <span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">base</span><span class="o">.</span><span class="na">Predicates</span><span class="o">.*;</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">swaggerSpringMvcPlugin</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">groupName</span><span class="o">(</span><span class="s">"business-api"</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">select</span><span class="o">()</span>
+               <span class="c1">//忽略使用@CustomIgnore注释的控制器</span>
+              <span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">withClassAnnotation</span><span class="o">(</span><span class="nc">CustomIgnore</span><span class="o">.</span><span class="na">class</span><span class="o">))</span> <span class="c1">//按RequestHandler选择</span>
+              <span class="o">.</span><span class="na">paths</span><span class="o">(</span><span class="n">paths</span><span class="o">())</span> <span class="c1">// 和按路径</span>
+              <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">apiInfo</span><span class="o">(</span><span class="n">apiInfo</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">securitySchemes</span><span class="o">(</span><span class="n">securitySchemes</span><span class="o">())</span>
+            <span class="o">.</span><span class="na">securityContext</span><span class="o">(</span><span class="n">securityContext</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="c1">//以下是我们选择与这些路径之一匹配的任何API的示例</span>
+  <span class="kd">private</span> <span class="nc">Predicate</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">paths</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nf">or</span><span class="o">(</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/business.*"</span><span class="o">),</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/some.*"</span><span class="o">),</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/contacts.*"</span><span class="o">),</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/pet.*"</span><span class="o">),</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/springsRestController.*"</span><span class="o">),</span>
+        <span class="n">regex</span><span class="o">(</span><span class="s">"/test.*"</span><span class="o">));</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>有关方便的谓词列表，请查看<a href="https://github.com/springfox/springfox/blob/master/springfox-core/src/main/java/springfox/documentation/builders/RequestHandlerSelectors.java">RequestHandlerSelectors</a>和<a href="https://github.com/springfox/springfox/blob/master/springfox-core/src/main/java/springfox/documentation/builders/PathSelectors.java">PathSelectors</a>。</p>
+
+<h3 id="61-配置对象映射器">6.1. 配置对象映射器</h3>
+
+<p>配置对象映射器的一种简单方法是监听<code class="language-plaintext highlighter-rouge">ObjectMapperConfiguring</code>事件。无论是否有自定义的ObjectMapper与相应的MappingJackson2HttpMessageConverter配合使用，库中始终有一个已配置的ObjectMapper，该ObjectMapper是为序列化swagger 1.2和swagger 2.0类型而自定义的。</p>
+
+<p>为此，实现ApplicationListener<ObjectMapperConfiguring>接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将特定于应用程序的定制应用于正在运行的每个ObjectMapper。</ObjectMapperConfiguring></p>
+
+<p>如果您在应用程序启动期间遇到NullPointerException(<a href="https://github.com/springfox/springfox/issues/635">像这个问题</a>)。这很可能是因为<code class="language-plaintext highlighter-rouge">WebMvcConfigurerAdapter</code>不工作。只有当@EnableWebMvc<a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html">注释存在</a>时，才会加载这些适配器，尤其是在非Spring-boot场景中。</p>
+
+<p>如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注释，因为框架会自动检测Web MVC的使用情况并根据需要进行自我配置。在此场景中，如果应用程序中存在@EnableWebMvc，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。</p>
+
+<p>使用该库需要注意的是，它依赖Jackson进行序列化，更重要的是依赖ObjectMapper。使用gson序列化时出现的<a href="http://stackoverflow.com/a/30220562/19219">以下问题</a>就很能说明问题。</p>
+
+<h3 id="62-自定义swagger-endpoints">6.2. 自定义swagger endpoints</h3>
+
+<p>默认情况下，swagger服务描述在以下URL处生成</p>
+
+<p><em>表1. API文档默认路径</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Swagger 版本</th>
+      <th>文档 Url</th>
+      <th>Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.2</td>
+      <td>/api-docs</td>
+      <td>隐式默认（<strong>default</strong>）组</td>
+    </tr>
+    <tr>
+      <td>1.2</td>
+      <td>/api-docs?group=external</td>
+      <td>通过docket.groupName() 外部（）分组</td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>/v2/api-docs</td>
+      <td>隐式默认（<strong>default</strong>）组</td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>/v2/api-docs?group=external</td>
+      <td>通过docket.groupName() 外部（<strong>external</strong>）分组</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>要自定义这些端点，加载具有以下属性的<a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/annotation/PropertySource.html">属性源</a>允许重写属性</p>
+
+<p><em>表2. API文档路径属性</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Swagger 版本</th>
+      <th>重写属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1.2</td>
+      <td>springfox.documentation.swagger.v1.path</td>
+    </tr>
+    <tr>
+      <td>2.0</td>
+      <td>springfox.documentation.swagger.v2.path</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="63-配置启动">6.3. 配置启动</h3>
+
+<p>如果您想延迟Sprringfox的启动，您可以选择将自动启动设置为false。要使用的属性是<code class="language-plaintext highlighter-rouge">springfox.document-start</code>，它可以作为-D jvm 参数传入，也可以通过<code class="language-plaintext highlighter-rouge">application ation.yml/properties</code>文件中的属性传入。</p>
+
+<p><em>表3. 启动属性</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">覆盖属性</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">true</td>
+      <td>这是默认值，它在刷新Spring上下文时自动开始扫描端点</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">false</td>
+      <td>仅当显式调用Lifecycle#start()方法时，此设置才开始扫描终结点。这对于像Grails这样拥有自己生命周期的框架非常有用。它表示库用户负责启动DocumentationPluginsBootStrapper生命周期。</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>请谨慎将此默认值更改为False。这意味着在以线程安全的方式请求swagger端点之前管理插件的启动。</p>
+</blockquote>
+
+<h4 id="64-通过属性覆盖描述">6.4. 通过属性覆盖描述</h4>
+
+<p>添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义<code class="language-plaintext highlighter-rouge">applation.properties</code>、<code class="language-plaintext highlighter-rouge">application.yml</code>文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，<code class="language-plaintext highlighter-rouge">@ApiModelProperty(value=“${property1.description}”)</code>将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。</p>
+
+<p>当前支持的批注列表按批注内的优先顺序排列：</p>
+
+<p><em>表4. 描述 解决 目标</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>注解</th>
+      <th>属性</th>
+      <th>目标属性</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ApiModelProperty</td>
+      <td>value</td>
+      <td>ModelProperty#description</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiModelProperty(value="${property1.description}")</code></td>
+    </tr>
+    <tr>
+      <td>ApiModelProperty</td>
+      <td>description</td>
+      <td>ModelProperty#description</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiModelProperty(notes="${property1.description}")</code></td>
+    </tr>
+    <tr>
+      <td>ApiParam</td>
+      <td>value</td>
+      <td>Parameter#description</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiParam(value="${param1.description}")</code></td>
+    </tr>
+    <tr>
+      <td>ApiImplicitParam</td>
+      <td>value</td>
+      <td>Parameter#description</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiImplicitParam(value="${param1.description}")</code></td>
+    </tr>
+    <tr>
+      <td>ApiOperation</td>
+      <td>notes</td>
+      <td>Operation#notes</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiOperation(notes="${operation1.description}")</code></td>
+    </tr>
+    <tr>
+      <td>ApiOperation</td>
+      <td>summary</td>
+      <td>Operation#summary</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@ApiOperation(value="${operation1.summary}")</code></td>
+    </tr>
+    <tr>
+      <td>RequestParam</td>
+      <td>defaultValue</td>
+      <td>Parameter#defaultValue</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@RequestParam(defaultValue="${param1.defaultValue}")</code></td>
+    </tr>
+    <tr>
+      <td>RequestHeader</td>
+      <td>defaultValue</td>
+      <td>Parameter#defaultValue</td>
+      <td>e.g. <code class="language-plaintext highlighter-rouge">@RequestHeader(defaultValue="${param1.defaultValue}")</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>有关详细说明，<a href="https://springfox.github.io/springfox/docs/current/#property-file-lookup">请参阅此处</a>。</p>
+
+<h4 id="65-覆盖属性数据类型">6.5. 覆盖属性数据类型</h4>
+
+<p>使用<code class="language-plaintext highlighter-rouge">ApiModelProperty#dataType</code>，我们可以覆盖推断的数据类型。但是，它被限制为只允许使用完全限定的类名指定数据类型。例如，如果我们有以下定义</p>
+
+<p><em>示例数据类型覆盖</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 如果com.qualfied.ReplaceWith不是可以使用Class.forName(...)创建的类</span>
+<span class="c1">// 原始类将被新类替换</span>
+<span class="nd">@ApiModelProperty</span><span class="o">(</span><span class="n">dataType</span> <span class="o">=</span> <span class="s">"com.qualified.ReplacedWith"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">Original</span> <span class="nf">getOriginal</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+
+<span class="c1">// 如果ReplaceWith不是可以使用Class.forName(.)创建的类。原始类将被保留</span>
+<span class="nd">@ApiModelProperty</span><span class="o">(</span><span class="n">dataType</span> <span class="o">=</span> <span class="s">"ReplaceWith"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">Original</span> <span class="nf">getAnotherOriginal</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>在ApiImplitParam#DataType的情况下，由于类型本身通常是标量类型(字符串、整型)，因此使用在Types类springfox-schema/src/main/java/springfox/documentation/schema/Types.java⇒中指定的基类型之一</p>
+</blockquote>
+
+<p><em>原始类型</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">baseTypes</span> <span class="o">=</span> <span class="n">newHashSet</span><span class="o">(</span>
+      <span class="s">"int"</span><span class="o">,</span>
+      <span class="s">"date"</span><span class="o">,</span>
+      <span class="s">"string"</span><span class="o">,</span>
+      <span class="s">"double"</span><span class="o">,</span>
+      <span class="s">"float"</span><span class="o">,</span>
+      <span class="s">"boolean"</span><span class="o">,</span>
+      <span class="s">"byte"</span><span class="o">,</span>
+      <span class="s">"object"</span><span class="o">,</span>
+      <span class="s">"long"</span><span class="o">,</span>
+      <span class="s">"date-time"</span><span class="o">,</span>
+      <span class="s">"__file"</span><span class="o">,</span>
+      <span class="s">"biginteger"</span><span class="o">,</span>
+      <span class="s">"bigdecimal"</span><span class="o">,</span>
+      <span class="s">"uuid"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="66-docket-xml-配置">6.6. Docket XML 配置</h3>
+
+<p>要使用该插件，您必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。</p>
+
+<p><em>Xml Configuration</em></p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- 必须加上，这样springfox才能访问Spring的RequestMappingHandlerMapping  --&gt;</span>
+<span class="nt">&lt;mvc:annotation-driven/&gt;</span>
+
+<span class="c">&lt;!-- 在@Configuration类上启用Spring POST处理 --&gt;</span>
+<span class="nt">&lt;context:annotation-config/&gt;</span>
+
+<span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">"com.yourapp.configuration.MySwaggerConfig"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p><strong>配置Bean将配置作为Bean并入XML</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="nd">@EnableSwagger</span> <span class="c1">//加载框架所需的Spring bean</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MySwaggerConfig</span> <span class="o">{</span>
+
+   <span class="cm">/**
+    * 每个docket bean都由swagger-MVC框架获取-允许多个
+    * swagger组，即相同的代码库，多个swagger资源清单
+    */</span>
+   <span class="nd">@Bean</span>
+   <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">customDocket</span><span class="o">(){</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">();</span> <span class="c1">//此处提供了一些自定义内容</span>
+   <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="67-docket-spring-java-配置">6.7. Docket Spring Java 配置</h3>
+
+<ul>
+  <li>使用<code class="language-plaintext highlighter-rouge">@EnableSwagger</code>或<code class="language-plaintext highlighter-rouge">@EnableSwagger2</code>注释。</li>
+  <li>使用Springs@Bean注释定义一个或多个docket实例。</li>
+</ul>
+
+<p><em>Java 配置</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="nd">@EnableWebMvc</span> <span class="c1">// 注意：仅在非Sprringboot应用程序中需要</span>
+<span class="nd">@EnableSwagger2</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="s">"com.myapp.controllers"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomJavaPluginConfig</span> <span class="o">{</span>
+
+
+   <span class="nd">@Bean</span> <span class="c1">// 不要忘记@Bean注解</span>
+   <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">customImplementation</span><span class="o">(){</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">apiInfo</span><span class="o">(</span><span class="n">apiInfo</span><span class="o">());</span>
+            <span class="c1">//... 更多可选配置项</span>
+
+   <span class="o">}</span>
+
+   <span class="c1">//...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="68-支持来自属性文件查找的文档">6.8. 支持来自属性文件查找的文档</h3>
+
+<p>从<code class="language-plaintext highlighter-rouge">2.7.0</code>开始，我们支持在给定属性的情况下从以下注释中查找描述，就像属性占位符解析值注释<code class="language-plaintext highlighter-rouge">@value(${key})</code>一样。以下注释属性支持描述解析。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@ApiParam#value()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiImplicitParam#value()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiModelProperty#value()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiOperation#value()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiOperation#notes()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@RequestParam#defaultValue()</code></li>
+  <li><code class="language-plaintext highlighter-rouge">@RequestHeader#defaultValue()</code></li>
+</ul>
+
+<p>下面是它如何工作的示例</p>
+
+<p>Controller 示例</p>
+
+<p><em>SomeController.java</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"Find pet by Status"</span><span class="o">,</span>
+     <span class="n">notes</span> <span class="o">=</span> <span class="s">"${SomeController.findPetsByStatus.notes}"</span><span class="o">...)</span><span class="err">￼</span> <span class="c1">// ①</span>
+ <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/findByStatus"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"status"</span><span class="o">})</span>
+ <span class="kd">public</span> <span class="nc">Pet</span> <span class="nf">findPetsByStatus</span><span class="o">(</span>
+     <span class="nd">@ApiParam</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"${SomeController.findPetsByStatus.status}"</span><span class="o">,</span><span class="err">￼</span> <span class="c1">// ②</span>
+          <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,...)</span>
+     <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"status"</span><span class="o">,</span>
+         <span class="n">defaultValue</span><span class="o">=</span><span class="s">"${SomeController.findPetsByStatus.status.default}"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">status</span><span class="o">)</span> <span class="o">{</span><span class="err">￼</span> <span class="c1">// ③</span>
+     <span class="c1">//...</span>
+ <span class="o">}</span>
+
+ <span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">notes</span> <span class="o">=</span> <span class="s">"Operation 2"</span><span class="o">,</span> <span class="n">value</span> <span class="o">=</span> <span class="s">"${SomeController.operation2.value}"</span><span class="o">...)</span><span class="err">￼</span> <span class="c1">// ④</span>
+ <span class="nd">@ApiImplicitParams</span><span class="o">(</span>
+     <span class="nd">@ApiImplicitParam</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">"header1"</span><span class="o">,</span> <span class="n">value</span><span class="o">=</span><span class="s">"${SomeController.operation2.header1}"</span><span class="o">,</span> <span class="o">...)</span><span class="err">￼</span> <span class="c1">// ⑤</span>
+ <span class="o">)</span>
+ <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"operation2"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+ <span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">operation2</span><span class="o">()</span> <span class="o">{</span>
+	 <span class="k">return</span> <span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">ok</span><span class="o">(</span><span class="s">""</span><span class="o">);</span>
+ <span class="o">}</span>
+   
+</code></pre></div></div>
+
+<p>① : @ApiOperation#notes() 示例
+② : @ApiParam#value() 示例
+③ : @RequestParam#defaultValue() 示例
+④ : @ApiOperation#value() 示例
+⑤ : @ApiImplicitParams#value() 示例</p>
+
+<p>Model示例</p>
+
+<p><em>SomeModel.java</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SomeModel</span> <span class="o">{</span>
+    <span class="nd">@ApiModelProperty</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"${SomeModel.someProperty}"</span><span class="o">,</span> <span class="o">...)</span> <span class="c1">// ①</span>
+    <span class="kd">private</span> <span class="kt">long</span> <span class="n">someProperty</span><span class="o">;</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>① : @ApiModelProperty#value() 示例</p>
+
+<p>要通过外部属性提供这些属性，只需将其添加到您的应用程序属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。</p>
+
+<p><em>application.properties</em></p>
+
+<div class="language-properties highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="py">SomeController.findPetsByStatus.notes</span><span class="p">=</span><span class="s">Finds pets by status</span>
+<span class="py">SomeController.findPetsByStatus.status</span><span class="p">=</span><span class="s">Status could be one of ...</span>
+<span class="py">SomeController.operation2.header1</span><span class="p">=</span><span class="s">Header for bla bla...</span>
+<span class="py">SomeController.operation2.value</span><span class="p">=</span><span class="s">Operation 2 do something...</span>
+<span class="py">SomeModel.someProperty</span><span class="p">=</span><span class="s">Some property description</span>
+</code></pre></div></div>
+
+<h4 id="681-swagger-组">6.8.1. Swagger 组</h4>
+
+<p>swagger组是这个库引入的一个概念，它只是应用程序中swagger资源列表的唯一标识符。引入此概念的原因是为了支持需要多个资源列表的应用程序。为什么需要多个资源列表？-一个Spring Web MVC应用程序服务于多个API，例如面向公众的和面向内部的。-单个Spring Web MVC应用服务于同一API的多个版本。例如v1和v2。</p>
+
+<p>在大多数情况下，应用程序不需要一个以上的资源列表，并且可以忽略swagger组的概念。</p>
+
+<h4 id="682-在swagger-20规范中配置operationid的输出">6.8.2. 在Swagger 2.0规范中配置operationId的输出</h4>
+
+<p>正如Swagger 2.0规范中<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md#fixed-fields-5">引入的operationId</a>定义一样，operationId参数(在Swagger规范2.0之前的版本中称为昵称)为作者提供了一种使用友好名称描述API操作的方法。Swagger 2.0规范的使用者通常使用此字段来命名生成的客户端中的函数。这方面的一个例子可以在<a href="https://github.com/swagger-api/swagger-codegen">swagger-codegen项目</a>中看到。</p>
+
+<p>根据Springfox，OperationId的默认值</p>
+
+<p>默认情况下，当在Swager2.0模式下使用Springfox时，<code class="language-plaintext highlighter-rouge">operationID</code>值将使用以下结构呈现：“[java_method_name_here]Using[HTTP_verb_here]”.。例如，如果有一个方法getPets()连接到HTTP get谓词，Springfox将为operation Id呈现<code class="language-plaintext highlighter-rouge">getPetsUsingGET</code>。</p>
+
+<p>给定此带注释的方法…在方法上的标准注释</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">""</span><span class="o">)</span> 
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/pets"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span> 
+<span class="kd">public</span> <span class="nc">Model</span> <span class="nf">getAllThePets</span><span class="o">()</span> <span class="o">{</span>     
+  <span class="o">...</span> 
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>默认<code class="language-plaintext highlighter-rouge">operationID</code>如下所示：</p>
+
+<p>默认渲染的Operation Id</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"/pets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"get"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+      </span><span class="nl">"operationId"</span><span class="p">:</span><span class="s2">"getAllThePetsUsingGET"</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>自定义Operation Id的值</p>
+
+<p>如果希望覆盖Springfox呈现的默认<code class="language-plaintext highlighter-rouge">operationId</code>，可以通过在<code class="language-plaintext highlighter-rouge">@ApiOperation</code>注释中提供的<code class="language-plaintext highlighter-rouge">nickname</code>来实现。</p>
+
+<p>给定此带注释的方法…nickname覆盖默认operationId</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">""</span><span class="o">,</span> <span class="n">nickname</span> <span class="o">=</span> <span class="s">"getMeAllThePetsPlease"</span><span class="o">)</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/pets"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">Model</span> <span class="nf">getAllThePets</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>……自定义的operationId将呈现如下所示：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"paths"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"/pets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"get"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="err">...</span><span class="w">
+      </span><span class="nl">"operationId"</span><span class="p">:</span><span class="s2">"getMeAllThePetsPlease"</span><span class="w">
+      </span><span class="err">...</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="683-更改泛型类型的命名方式">6.8.3. 更改泛型类型的命名方式</h4>
+
+<p>默认情况下，带有泛型的类型将标记为‘\u00ab’(«)、‘\u00bb’(»)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。您可以通过实现自己的<code class="language-plaintext highlighter-rouge">GenericTypeNamingStrategy</code>来重写此行为。例如，如果您希望<code class="language-plaintext highlighter-rouge">List&lt;String&gt;</code>编码为‘ListOfString’，而<code class="language-plaintext highlighter-rouge">Map&lt;String，Object&gt;</code>编码为‘MapOfStringAndObject’，您可以在插件定制过程中将<code class="language-plaintext highlighter-rouge">forCodeGeneration</code>定制选项设置为true：</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">docket.forCodeGeneration(</span><span class="kc">true</span><span class="err">|</span><span class="kc">false</span><span class="err">);</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="69-缓存">6.9. 缓存</h3>
+
+<p>2.1.0中引入的缓存功能已删除。Springfox不再使用缓存抽象来提高API扫描器和阅读器的性能。从2.1.2开始，它已作为内部实现详细信息加入到库中。这是一个运行时的突破性更改，但是，除了在消费应用程序中引入配置更改之外，它并没有真正破坏API兼容性更改，所以我们不会增加次要版本。</p>
+
+<h3 id="610-配置安全方案security-schemes-和上下文概述">6.10. 配置安全方案（Security Schemes ）和上下文概述</h3>
+
+<p>SpringFox中高级别的安全规定没有深入到代码中，而是具有所有协同工作的不同部分。</p>
+
+<ul>
+  <li>API本身需要受到保护。为了简单起见，这是通过使用Spring安全性来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。</li>
+  <li>描述用于保护API的技术的安全方案。Spring fox支持swagger规范支持的任何方案(apiKey、BasicAuth和OAuth2(某些配置文件))。</li>
+  <li>最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在您的示例中，您遗漏了拼图的最后一块，即安全上下文，请<a href="https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot">参见15</a>。</li>
+</ul>
+
+<h3 id="611-示例应用程序">6.11. 示例应用程序</h3>
+
+<p>有关Spring-boot的示例，请看演示应用程序中的<a href="https://github.com/springfox/springfox-demos">示例</a>。</p>
+
+<h2 id="7-配置-springfox-staticdocs">7. 配置 springfox-staticdocs</h2>
+
+<blockquote>
+  <p>2.7.0中已弃用对此模块的支持。由于swagger2markup不再支持jdk6，Build很难与较新版本的swagger2markup共存。请使用很棒的<a href="https://github.com/Swagger2Markup/swagger2markup">Swagger2Markup库</a>中提供的最新说明。</p>
+</blockquote>
+
+<h2 id="8-安全性">8. 安全性</h2>
+
+<p>多亏了<a href="https://github.com/mojaiq">Javed Mohammed</a>，我们现在有了一个示例<a href="https://github.com/springfox/springfox-oath2-demo">OAuth演示</a>。</p>
+
+<blockquote>
+  <p>这是基于 swagger-ui 3.x之前的版本</p>
+</blockquote>
+
+<h2 id="9-插件">9. 插件</h2>
+
+<h3 id="91-介绍">9.1. 介绍</h3>
+
+<p>任何可用的插件或扩展挂钩都<a href="https://github.com/springfox/springfox/tree/master/springfox-spi/src/main/java/springfox/documentation/spi">可以在<code class="language-plaintext highlighter-rouge">spi</code>模块中使用</a>。在SPI模块中，任何以<code class="language-plaintext highlighter-rouge">*plugin</code>结尾的内容通常都是一个扩展点，供库使用者使用。</p>
+
+<p>Bean验证(JSR-303)是<a href="https://github.com/springfox/springfox/tree/master/springfox-bean-validators">支持Bean验证</a>的一个很好的例子。它相当简单且范围很小，应该可以让您了解如何创建插件。它是一组作用于<code class="language-plaintext highlighter-rouge">ModelProperty</code>插件，因此它们是<code class="language-plaintext highlighter-rouge">ModelPropertyBuilderPlugin</code>的实现。</p>
+
+<h3 id="92-可扩展的插件">9.2. 可扩展的插件</h3>
+
+<p>要显式声明可用的扩展点，请执行以下操作：*在架构级别。架构插件</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ModelBuilderPlugin</td>
+      <td>用于丰富模型</td>
+    </tr>
+    <tr>
+      <td>ModelPropertyBuilderPlugin</td>
+      <td>用于丰富模型属性</td>
+    </tr>
+    <tr>
+      <td>TypeNameProviderPlugin</td>
+      <td>这些是用于覆盖模型的名称</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><em>表5. 服务插件</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>描述</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ApiListingScannerPlugin</td>
+      <td>用于添加自定义api描述（请参见<a href="https://springfox.github.io/springfox/docs/current/#example-apilistingscannerplugin">示例</a>）</td>
+    </tr>
+    <tr>
+      <td>ApiListingBuilderPlugin</td>
+      <td>用于丰富api列表</td>
+    </tr>
+    <tr>
+      <td>DefaultsProviderPlugin</td>
+      <td>提供您自己的默认值</td>
+    </tr>
+    <tr>
+      <td>DocumentationPlugin</td>
+      <td>用于丰富文档上下文</td>
+    </tr>
+    <tr>
+      <td>ExpandedParameterBuilderPlugin</td>
+      <td>用于<code class="language-plaintext highlighter-rouge">@ModelAttribute</code>上下文中使用的参数扩展</td>
+    </tr>
+    <tr>
+      <td>OperationBuilderPlugin</td>
+      <td>用于丰富Operation</td>
+    </tr>
+    <tr>
+      <td>OperationModelsProviderPlugin</td>
+      <td>用于提供其他模型，您可以使用不同的方式加载这些模型</td>
+    </tr>
+    <tr>
+      <td>ParameterBuilderPlugin</td>
+      <td>用于丰富参数（请参见<a href="https://springfox.github.io/springfox/docs/current/#example-prameterbuilderplugin">示例</a>）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="93-创建插件的步骤">9.3. 创建插件的步骤</h3>
+
+<blockquote>
+  <p>相同的模式适用于所有的可扩展性机制</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>实现上述插件接口之一</p>
+  </li>
+  <li>
+    <p>为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注释)顶部的层信息。因此，您要编写的顺序将需要在末尾分层信息。</p>
+  </li>
+  <li>
+    <p>每个插件都有</p>
+
+    <ul>
+      <li>
+        <p>一个 <a href="https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L47">*contentxt</a>，并提供对插件执行其工作可能需要的任何信息的访问。</p>
+      </li>
+      <li>
+        <p>一个[<em>builder](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L49)，来支持的对象类型的</em>构建器(例如，ModelPropertyBuilderPlugin)将访问ModelPropertyBuilder。在所有插件都有权贡献/丰富底层对象之后，此构建器用于构建模型。</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>更新插件关心的任何构建器属性</p>
+  </li>
+  <li>
+    <p>将插件注册为@bean，这样插件注册中心就可以获取它。</p>
+
+    <p>就是这样！</p>
+  </li>
+</ol>
+
+<h4 id="931-operationbuilderplugin示例">9.3.1. OperationBuilderPlugin示例</h4>
+
+<p>此示例由<a href="https://github.com/koderman">@koderman</a>提供，是<a href="https://aws.amazon.com/api-gateway/">AWS Amazon Api Gateway</a>集成的自定义扩展。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">static</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">common</span><span class="o">.</span><span class="na">base</span><span class="o">.</span><span class="na">Strings</span><span class="o">.</span><span class="na">isNullOrEmpty</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.core.MethodParameter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.core.annotation.Order</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.PathVariable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.method.HandlerMethod</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.google.common.base.Optional</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiImplicitParam</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiImplicitParams</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiOperation</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiParam</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.swagger.annotations.ApiResponses</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.ObjectVendorExtension</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.StringVendorExtension</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.service.VendorExtension</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.DocumentationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.service.OperationBuilderPlugin</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.spi.service.contexts.OperationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.annotations.Annotations</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.swagger.common.SwaggerPluginSupport</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="nd">@Order</span><span class="o">(</span><span class="nc">SwaggerPluginSupport</span><span class="o">.</span><span class="na">SWAGGER_PLUGIN_ORDER</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomAwsExtensionsReader</span> <span class="kd">implements</span> <span class="nc">OperationBuilderPlugin</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION</span> <span class="o">=</span> <span class="s">"x-amazon-apigateway-integration"</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_TYPE</span> <span class="o">=</span> <span class="s">"type"</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_HTTPMETHOD</span> <span class="o">=</span> <span class="s">"httpMethod"</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_URI</span> <span class="o">=</span> <span class="s">"uri"</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_REQUEST_PARAMS</span> <span class="o">=</span> <span class="s">"requestParameters"</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_REQUEST_RESPONSES</span> <span class="o">=</span> <span class="s">"responses"</span><span class="o">;</span>
+
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="o">(</span><span class="nc">OperationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+
+		<span class="nc">HandlerMethod</span> <span class="n">handlerMethod</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getHandlerMethod</span><span class="o">();</span>
+		<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ApiOperation</span><span class="o">&gt;</span> <span class="n">apiOperationOperational</span> <span class="o">=</span> <span class="nc">Annotations</span>
+				<span class="o">.</span><span class="na">findApiOperationAnnotation</span><span class="o">(</span><span class="n">handlerMethod</span><span class="o">.</span><span class="na">getMethod</span><span class="o">());</span>
+		<span class="nc">String</span> <span class="n">awsApiGatewayBaseUri</span>  <span class="o">=</span> <span class="s">""</span><span class="o">;</span><span class="c1">//Fetch it from DB/Service</span>
+		
+		<span class="k">if</span> <span class="o">(</span><span class="n">apiOperationOperational</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+			<span class="nc">ApiOperation</span> <span class="n">apiOperation</span> <span class="o">=</span> <span class="n">apiOperationOperational</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+			<span class="nc">ObjectVendorExtension</span> <span class="n">extension</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectVendorExtension</span><span class="o">(</span>
+					<span class="n">ensurePrefixed</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION</span><span class="o">));</span>
+			<span class="n">extension</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="k">new</span> <span class="nc">StringVendorExtension</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_TYPE</span><span class="o">,</span> <span class="s">"http"</span><span class="o">));</span>
+			<span class="n">extension</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="k">new</span> <span class="nc">StringVendorExtension</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_HTTPMETHOD</span><span class="o">,</span> <span class="n">apiOperation</span><span class="o">.</span><span class="na">httpMethod</span><span class="o">()));</span>
+			<span class="n">extension</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="k">new</span> <span class="nc">StringVendorExtension</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_URI</span><span class="o">,</span> <span class="n">awsApiGatewayBaseUri</span> <span class="o">+</span> <span class="n">getRequestUri</span><span class="o">(</span><span class="n">handlerMethod</span><span class="o">)));</span>
+
+			<span class="nc">ObjectVendorExtension</span> <span class="n">requestParameters</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectVendorExtension</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_REQUEST_PARAMS</span><span class="o">);</span>
+
+			<span class="n">processApiParamAnnotation</span><span class="o">(</span><span class="n">requestParameters</span><span class="o">,</span> <span class="n">handlerMethod</span><span class="o">);</span>
+			<span class="n">processApiImplicitParamsAnnotation</span><span class="o">(</span><span class="n">handlerMethod</span><span class="o">,</span> <span class="n">requestParameters</span><span class="o">);</span>
+
+			<span class="nc">ObjectVendorExtension</span> <span class="n">awsResponses</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectVendorExtension</span><span class="o">(</span><span class="no">AWS_X_AMAZON_APIGATEWAY_INTEGRATION_REQUEST_RESPONSES</span><span class="o">);</span>
+			<span class="n">processApiResponsesAnnotation</span><span class="o">(</span> <span class="n">awsResponses</span><span class="o">,</span><span class="n">handlerMethod</span><span class="o">);</span>
+
+			<span class="k">if</span> <span class="o">(</span><span class="n">requestParameters</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">requestParameters</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span>
+					<span class="o">&amp;&amp;</span> <span class="n">requestParameters</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">extension</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="n">requestParameters</span><span class="o">);</span>
+			<span class="o">}</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">awsResponses</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">awsResponses</span><span class="o">.</span><span class="na">getValue</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span>
+					<span class="o">&amp;&amp;</span> <span class="n">awsResponses</span><span class="o">.</span><span class="na">getValue</span><span class="o">().</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">extension</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="n">awsResponses</span><span class="o">);</span>
+			<span class="o">}</span>
+			
+			<span class="nc">List</span><span class="o">&lt;</span><span class="nc">VendorExtension</span><span class="o">&gt;</span> <span class="n">extensions</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">VendorExtension</span><span class="o">&gt;();</span>
+			<span class="n">extensions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">extension</span><span class="o">);</span>
+			<span class="n">context</span><span class="o">.</span><span class="na">operationBuilder</span><span class="o">().</span><span class="na">extensions</span><span class="o">(</span><span class="n">extensions</span><span class="o">);</span>
+
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="nc">String</span> <span class="nf">getRequestUri</span><span class="o">(</span><span class="nc">HandlerMethod</span> <span class="n">handlerMethod</span><span class="o">){</span>
+		<span class="nc">RequestMapping</span> <span class="n">requestMapping</span> <span class="o">=</span> <span class="n">handlerMethod</span><span class="o">.</span><span class="na">getMethodAnnotation</span><span class="o">(</span><span class="nc">RequestMapping</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="nc">RequestMapping</span> <span class="n">controllerRequestMapping</span> <span class="o">=</span> <span class="n">handlerMethod</span><span class="o">.</span><span class="na">getBeanType</span><span class="o">().</span><span class="na">getAnnotation</span><span class="o">(</span><span class="nc">RequestMapping</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">paths</span> <span class="o">=</span> <span class="n">requestMapping</span><span class="o">.</span><span class="na">path</span><span class="o">();</span>
+		<span class="nc">String</span><span class="o">[]</span> <span class="n">requestPaths</span> <span class="o">=</span> <span class="n">controllerRequestMapping</span><span class="o">.</span><span class="na">value</span><span class="o">();</span>
+		<span class="nc">String</span> <span class="n">requestUri</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">requestPaths</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">requestPaths</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">requestUri</span> <span class="o">=</span> <span class="n">requestPaths</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">paths</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">paths</span><span class="o">.</span><span class="na">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">requestUri</span> <span class="o">=</span> <span class="n">requestUri</span> <span class="o">+</span> <span class="n">paths</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">requestUri</span><span class="o">;</span>
+	<span class="o">}</span>
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">processApiResponsesAnnotation</span><span class="o">(</span><span class="nc">ObjectVendorExtension</span> <span class="n">awsResponses</span><span class="o">,</span><span class="nc">HandlerMethod</span> <span class="n">handlerMethod</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">ApiResponses</span><span class="o">&gt;</span> <span class="n">apiResponsesOptional</span> <span class="o">=</span> <span class="nc">Annotations</span>
+				<span class="o">.</span><span class="na">findApiResponsesAnnotations</span><span class="o">(</span><span class="n">handlerMethod</span><span class="o">.</span><span class="na">getMethod</span><span class="o">());</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">apiResponsesOptional</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span>
+			<span class="nc">ApiResponses</span> <span class="n">apiResponses</span> <span class="o">=</span> <span class="n">apiResponsesOptional</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+			<span class="nc">ApiResponse</span><span class="o">[]</span> <span class="n">apiResponseArray</span> <span class="o">=</span> <span class="n">apiResponses</span><span class="o">.</span><span class="na">value</span><span class="o">();</span>
+			<span class="k">for</span> <span class="o">(</span><span class="nc">ApiResponse</span> <span class="n">apiResponse</span> <span class="o">:</span> <span class="n">apiResponseArray</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">ObjectVendorExtension</span> <span class="n">awsResponse</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ObjectVendorExtension</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">apiResponse</span><span class="o">.</span><span class="na">code</span><span class="o">()));</span>
+				<span class="n">awsResponse</span>
+						<span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="k">new</span> <span class="nc">StringVendorExtension</span><span class="o">(</span><span class="s">"statusCode"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">apiResponse</span><span class="o">.</span><span class="na">code</span><span class="o">())));</span>
+				<span class="n">awsResponses</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span><span class="n">awsResponse</span><span class="o">);</span>
+			<span class="o">}</span>
+
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">processApiImplicitParamsAnnotation</span><span class="o">(</span><span class="nc">HandlerMethod</span> <span class="n">handlerMethod</span><span class="o">,</span>
+			<span class="nc">ObjectVendorExtension</span> <span class="n">requestParameters</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">ApiImplicitParams</span> <span class="n">apiImplicitParams</span> <span class="o">=</span> <span class="n">handlerMethod</span><span class="o">.</span><span class="na">getMethodAnnotation</span><span class="o">(</span><span class="nc">ApiImplicitParams</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">apiImplicitParams</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">String</span> <span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+			<span class="nc">String</span> <span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+			<span class="k">for</span> <span class="o">(</span><span class="nc">ApiImplicitParam</span> <span class="n">apiImplicitParam</span> <span class="o">:</span> <span class="n">apiImplicitParams</span><span class="o">.</span><span class="na">value</span><span class="o">())</span> <span class="o">{</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">paramType</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">paramType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"path"</span><span class="o">))</span> <span class="o">{</span>
+					<span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">"integration.request.path."</span> <span class="o">+</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">"method.request.path."</span> <span class="o">+</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameters</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span>
+							<span class="k">new</span> <span class="nf">StringVendorExtension</span><span class="o">(</span><span class="n">requestParameterIntegration</span><span class="o">,</span> <span class="n">requestParameterMethod</span><span class="o">));</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">paramType</span><span class="o">()</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">paramType</span><span class="o">().</span><span class="na">equals</span><span class="o">(</span><span class="s">"query"</span><span class="o">))</span> <span class="o">{</span>
+					<span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">"integration.request.querystring."</span> <span class="o">+</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">"method.request.querystring."</span> <span class="o">+</span> <span class="n">apiImplicitParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameters</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span>
+							<span class="k">new</span> <span class="nf">StringVendorExtension</span><span class="o">(</span><span class="n">requestParameterIntegration</span><span class="o">,</span> <span class="n">requestParameterMethod</span><span class="o">));</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="kt">void</span> <span class="nf">processApiParamAnnotation</span><span class="o">(</span><span class="nc">ObjectVendorExtension</span> <span class="n">requestParameters</span><span class="o">,</span> <span class="nc">HandlerMethod</span> <span class="n">handlerMethod</span><span class="o">)</span> <span class="o">{</span>
+		<span class="nc">MethodParameter</span><span class="o">[]</span> <span class="n">methodParameters</span> <span class="o">=</span> <span class="n">handlerMethod</span><span class="o">.</span><span class="na">getMethodParameters</span><span class="o">();</span>
+		<span class="k">for</span> <span class="o">(</span><span class="nc">MethodParameter</span> <span class="n">methodParameter</span> <span class="o">:</span> <span class="n">methodParameters</span><span class="o">)</span> <span class="o">{</span>
+			<span class="nc">ApiParam</span> <span class="n">apiParam</span> <span class="o">=</span> <span class="n">methodParameter</span><span class="o">.</span><span class="na">getParameterAnnotation</span><span class="o">(</span><span class="nc">ApiParam</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+			<span class="nc">String</span> <span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+			<span class="nc">String</span> <span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">""</span><span class="o">;</span>
+			<span class="k">if</span> <span class="o">(</span><span class="n">apiParam</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+				<span class="nc">PathVariable</span> <span class="n">pathVariable</span> <span class="o">=</span> <span class="n">methodParameter</span><span class="o">.</span><span class="na">getParameterAnnotation</span><span class="o">(</span><span class="nc">PathVariable</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+				<span class="nc">RequestParam</span> <span class="n">requestParam</span> <span class="o">=</span> <span class="n">methodParameter</span><span class="o">.</span><span class="na">getParameterAnnotation</span><span class="o">(</span><span class="nc">RequestParam</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+				<span class="k">if</span> <span class="o">(</span><span class="n">pathVariable</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">"integration.request.path."</span> <span class="o">+</span> <span class="n">apiParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">"method.request.path."</span> <span class="o">+</span> <span class="n">apiParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameters</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span>
+							<span class="k">new</span> <span class="nf">StringVendorExtension</span><span class="o">(</span><span class="n">requestParameterIntegration</span><span class="o">,</span> <span class="n">requestParameterMethod</span><span class="o">));</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">requestParam</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">requestParameterIntegration</span> <span class="o">=</span> <span class="s">"integration.request.querystring."</span> <span class="o">+</span> <span class="n">apiParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameterMethod</span> <span class="o">=</span> <span class="s">"method.request.querystring."</span> <span class="o">+</span> <span class="n">apiParam</span><span class="o">.</span><span class="na">name</span><span class="o">();</span>
+					<span class="n">requestParameters</span><span class="o">.</span><span class="na">addProperty</span><span class="o">(</span>
+							<span class="k">new</span> <span class="nf">StringVendorExtension</span><span class="o">(</span><span class="n">requestParameterIntegration</span><span class="o">,</span> <span class="n">requestParameterMethod</span><span class="o">));</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+
+	<span class="kd">private</span> <span class="nc">String</span> <span class="nf">ensurePrefixed</span><span class="o">(</span><span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">if</span> <span class="o">(!</span><span class="n">isNullOrEmpty</span><span class="o">(</span><span class="n">name</span><span class="o">))</span> <span class="o">{</span>
+			<span class="k">if</span> <span class="o">(!</span><span class="n">name</span><span class="o">.</span><span class="na">startsWith</span><span class="o">(</span><span class="s">"x-"</span><span class="o">))</span> <span class="o">{</span>
+				<span class="n">name</span> <span class="o">=</span> <span class="s">"x-"</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+		<span class="k">return</span> <span class="n">name</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="o">(</span><span class="nc">DocumentationType</span> <span class="n">delimiter</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="nc">SwaggerPluginSupport</span><span class="o">.</span><span class="na">pluginDoesApply</span><span class="o">(</span><span class="n">delimiter</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><a href="https://gist.github.com/koderman/d49a67274e33f03405a8e45672794968#file-customawsextensionsreader-java">CustomAwsExtensionsReader.java</a> hosted with ❤ by <a href="https://github.com/">GitHub</a></p>
+
+<h4 id="932-parameterbuilderplugin示例">9.3.2. ParameterBuilderPlugin示例</h4>
+
+<p>以下是如何手动添加参数的示例。</p>
+
+<p>考虑一下这个Controller，<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionedController.java">VersionedController.java</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/user"</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">ResponseEntity</span><span class="o">&lt;</span><span class="nc">User</span><span class="o">&gt;</span> <span class="nf">getUser</span><span class="o">(</span>
+      <span class="nd">@VersionApi</span> <span class="kt">int</span> <span class="n">version</span><span class="o">,</span> <span class="c1">// ①</span>
+      <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"id"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">UnsupportedOperationException</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>① : 使用<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java"><code class="language-plaintext highlighter-rouge">@VersionApi</code></a>注释的参数</p>
+
+<p>然后，我们创建插件<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApiReader.java">VersionApiReader.java</a>来提供自定义参数信息。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="nd">@Order</span><span class="o">(</span><span class="nc">SwaggerPluginSupport</span><span class="o">.</span><span class="na">SWAGGER_PLUGIN_ORDER</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">)</span> <span class="c1">// ①</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VersionApiReader</span> <span class="kd">implements</span> <span class="nc">ParameterBuilderPlugin</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nc">TypeResolver</span> <span class="n">resolver</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nf">VersionApiReader</span><span class="o">(</span><span class="nc">TypeResolver</span> <span class="n">resolver</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">resolver</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">apply</span><span class="o">(</span><span class="nc">ParameterContext</span> <span class="n">parameterContext</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">ResolvedMethodParameter</span> <span class="n">methodParameter</span> <span class="o">=</span> <span class="n">parameterContext</span><span class="o">.</span><span class="na">resolvedMethodParameter</span><span class="o">();</span>
+    <span class="nc">Optional</span><span class="o">&lt;</span><span class="nc">VersionApi</span><span class="o">&gt;</span> <span class="n">requestParam</span> <span class="o">=</span> <span class="n">methodParameter</span><span class="o">.</span><span class="na">findAnnotation</span><span class="o">(</span><span class="nc">VersionApi</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">requestParam</span><span class="o">.</span><span class="na">isPresent</span><span class="o">())</span> <span class="o">{</span> <span class="c1">// ②</span>
+      <span class="n">parameterContext</span><span class="o">.</span><span class="na">parameterBuilder</span><span class="o">()</span>
+          <span class="o">.</span><span class="na">parameterType</span><span class="o">(</span><span class="s">"header"</span><span class="o">)</span>
+          <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"v"</span><span class="o">)</span>
+          <span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">));</span> <span class="c1">// ③</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="o">(</span><span class="nc">DocumentationType</span> <span class="n">documentationType</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// ④</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>① : 指定插件的执行顺序。数字越高，稍后就会应用插件。
+② : 检查是否对该参数应用了VersionApi。
+③ : 使用构建器方法构建具有必要信息的参数。
+④ : 如果希望此插件应用于所有文档类型，则返回true。</p>
+
+<h4 id="933-apilistingscannerplugin示例">9.3.3. ApiListingScannerPlugin示例</h4>
+
+<p>以下是如何手动添加Api描述的示例。</p>
+
+<p><a href="https://github.com/springfox/springfox/blob/master/swagger-contract-tests/src/main/java/springfox/test/contract/swagger/Bug1767ListingScanner.java">Bug1767ListingScanner.java</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">final</span> <span class="nc">CachingOperationNameGenerator</span> <span class="n">operationNames</span><span class="o">;</span>
+
+  <span class="cm">/**
+   * @param operationNames - CachingOperationNameGenerator是
+   *                       可用于自动注入的组件Bean
+   */</span>
+  <span class="kd">public</span> <span class="nf">Bug1767ListingScanner</span><span class="o">(</span><span class="nc">CachingOperationNameGenerator</span> <span class="n">operationNames</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// ⑨</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">operationNames</span> <span class="o">=</span> <span class="n">operationNames</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ApiDescription</span><span class="o">&gt;</span> <span class="nf">apply</span><span class="o">(</span><span class="nc">DocumentationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">ApiDescription</span><span class="o">&gt;(</span>
+        <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span> <span class="c1">// ①</span>
+            <span class="k">new</span> <span class="nf">ApiDescription</span><span class="o">(</span>
+                <span class="s">"/bugs/1767"</span><span class="o">,</span>
+                <span class="s">"This is a bug"</span><span class="o">,</span>
+                <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span> <span class="c1">// ②</span>
+                    <span class="k">new</span> <span class="nf">OperationBuilder</span><span class="o">(</span>
+                        <span class="n">operationNames</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">authorizations</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">())</span>
+                        <span class="o">.</span><span class="na">codegenMethodNameStem</span><span class="o">(</span><span class="s">"bug1767GET"</span><span class="o">)</span> <span class="c1">// ③</span>
+                        <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">notes</span><span class="o">(</span><span class="s">"This is a test method"</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">parameters</span><span class="o">(</span>
+                            <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span> <span class="c1">// ④</span>
+                                <span class="k">new</span> <span class="nf">ParameterBuilder</span><span class="o">()</span>
+                                    <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">"search by description"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeResolver</span><span class="o">().</span><span class="na">resolve</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+                                    <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"description"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">parameterType</span><span class="o">(</span><span class="s">"query"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">parameterAccess</span><span class="o">(</span><span class="s">"access"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">required</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">modelRef</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span> <span class="c1">// ⑤</span>
+                                    <span class="o">.</span><span class="na">build</span><span class="o">()))</span>
+                        <span class="o">.</span><span class="na">responseMessages</span><span class="o">(</span><span class="n">responseMessages</span><span class="o">())</span> <span class="c1">// ⑥</span>
+                        <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span> <span class="c1">// ⑦</span>
+                        <span class="o">.</span><span class="na">build</span><span class="o">()),</span>
+                <span class="kc">false</span><span class="o">),</span>
+            <span class="k">new</span> <span class="nf">ApiDescription</span><span class="o">(</span>
+                <span class="s">"different-group"</span><span class="o">,</span> <span class="c1">// ⑧</span>
+                <span class="s">"/different/2219"</span><span class="o">,</span>
+                <span class="s">"This is a bug"</span><span class="o">,</span>
+                <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                    <span class="k">new</span> <span class="nf">OperationBuilder</span><span class="o">(</span>
+                        <span class="n">operationNames</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">authorizations</span><span class="o">(</span><span class="k">new</span> <span class="nc">ArrayList</span><span class="o">())</span>
+                        <span class="o">.</span><span class="na">codegenMethodNameStem</span><span class="o">(</span><span class="s">"bug2219GET"</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">notes</span><span class="o">(</span><span class="s">"This is a test method"</span><span class="o">)</span>
+                        <span class="o">.</span><span class="na">parameters</span><span class="o">(</span>
+                            <span class="nc">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
+                                <span class="k">new</span> <span class="nf">ParameterBuilder</span><span class="o">()</span>
+                                    <span class="o">.</span><span class="na">description</span><span class="o">(</span><span class="s">"description of bug 2219"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">type</span><span class="o">(</span><span class="k">new</span> <span class="nc">TypeResolver</span><span class="o">().</span><span class="na">resolve</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">))</span>
+                                    <span class="o">.</span><span class="na">name</span><span class="o">(</span><span class="s">"description"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">parameterType</span><span class="o">(</span><span class="s">"query"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">parameterAccess</span><span class="o">(</span><span class="s">"access"</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">required</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+                                    <span class="o">.</span><span class="na">modelRef</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span>
+                                    <span class="o">.</span><span class="na">build</span><span class="o">()))</span>
+                        <span class="o">.</span><span class="na">responseMessages</span><span class="o">(</span><span class="n">responseMessages</span><span class="o">())</span>
+                        <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span>
+                        <span class="o">.</span><span class="na">build</span><span class="o">()),</span>
+                <span class="kc">false</span><span class="o">)));</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * @return 覆盖默认/全局响应消息的响应消息集合
+   */</span>
+  <span class="kd">private</span> <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">ResponseMessage</span><span class="o">&gt;</span> <span class="nf">responseMessages</span><span class="o">()</span> <span class="o">{</span> <span class="c1">// ⑧</span>
+    <span class="k">return</span> <span class="nf">newHashSet</span><span class="o">(</span><span class="k">new</span> <span class="nc">ResponseMessageBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"Successfully received bug 1767 or 2219 response"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"string"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">supports</span><span class="o">(</span><span class="nc">DocumentationType</span> <span class="n">delimiter</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">delimiter</span><span class="o">);</span>
+  <span class="o">}</span>
+
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>① 添加自定义ApiDescription列表。
+② 为每个描述添加操作列表。
+③ 注意：代码生成的名称不保证是唯一的。对于这些自定义端点，服务作者有责任确保。
+④ 向操作添加了参数。
+⑤ 注意：即使对于基元类型，也要确保传入模型引用，这一点很重要。
+⑥ 覆盖默认/全局响应消息的响应消息集。
+⑦ 操作返回的默认模型的响应模型引用。通常在200或201响应中返回响应模型。
+⑧ 可以选择提供组名，如果提供，此API将仅显示在该组下。如果没有，接口会出现在默认组下。
+⑨ CachingOperationNameGenerator是可用于自动注入的组件Bean</p>
+
+<h2 id="10-其他扩展性选项">10. 其他扩展性选项</h2>
+
+<p><em>表6. 其他扩展点</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>发布自</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">RequestHandlerCombiner</code>1</td>
+      <td>用于组合在给定相同输入条件但生成不同输出的情况下对相同API端点做出反应的API。我们提供了DefaultRequestHandlerCombiner，但这是为自定义它而添加的扩展点。</td>
+      <td>2.7.0</td>
+    </tr>
+    <tr>
+      <td>AlternateTypeRuleConvention</td>
+      <td>以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。<a href="https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java">JacksonSerializerConvention</a>是我们如何将规则应用于使用JsonSerialize/JsonResourialize注释的类型的示例</td>
+      <td>2.7.0</td>
+    </tr>
+    <tr>
+      <td>SwaggerResourcesProvider</td>
+      <td>可扩展性，它允许覆盖如何为swagger的资源提供服务。默认情况下，我们提供托管在同一应用程序上的API。这也可用于聚合API。</td>
+      <td>2.7.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>1.这目前的缺点在于，当前响应仍然隐藏其中一个响应表示。这是OAI规范2.0的一个限制。</p>
+</blockquote>
+
+<h3 id="101-替代类型规则约定示例">10.1. 替代类型规则约定示例</h3>
+
+<h4 id="1011-jacksonserializerconvention">10.1.1. JacksonSerializerConvention</h4>
+
+<p>下面是我们如何配置JacksonSerializerConvention。</p>
+
+<blockquote>
+  <p>此功能需要<a href="https://mvnrepository.com/artifact/org.reflections/reflections/0.9.10">反射库</a>。</p>
+</blockquote>
+
+<p><a href="https://github.com/springfox/springfox/blob/c48a8bb019371cb1e3c79d24c3db3791ac5025cc/swagger-contract-tests/src/test/groovy/springfox/test/contract/swaggertests/FunctionContractSpec.groovy#L201-L204">FunctionContractSpec.java</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Bean</span>
+    <span class="nc">AlternateTypeRuleConvention</span> <span class="nf">jacksonSerializerConvention</span><span class="o">(</span><span class="nc">TypeResolver</span> <span class="n">resolver</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">new</span> <span class="nf">JacksonSerializerConvention</span><span class="o">(</span><span class="n">resolver</span><span class="o">,</span> <span class="s">"springfox.documentation.spring.web.dummy.models"</span><span class="o">)</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="1012-创建一个convention">10.1.2. 创建一个convention</h4>
+
+<p>下面是创建规则的示例，该规则自动提供配置<code class="language-plaintext highlighter-rouge">Pageable</code>可分页类型的约定。</p>
+
+<p><a href="https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-data-rest/src/main/java/springfox/documentation/spring/data/rest/configuration/SpringDataRestConfiguration.java#L46-L64">SpringDataRestConfiguration.java</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="nc">AlternateTypeRuleConvention</span> <span class="nf">pageableConvention</span><span class="o">(</span>
+      <span class="kd">final</span> <span class="nc">TypeResolver</span> <span class="n">resolver</span><span class="o">,</span>
+      <span class="kd">final</span> <span class="nc">RepositoryRestConfiguration</span> <span class="n">restConfiguration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AlternateTypeRuleConvention</span><span class="o">()</span> <span class="o">{</span>
+
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOrder</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nc">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span><span class="o">;</span>
+      <span class="o">}</span>
+
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AlternateTypeRule</span><span class="o">&gt;</span> <span class="nf">rules</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="nf">newArrayList</span><span class="o">(</span>
+            <span class="n">newRule</span><span class="o">(</span><span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">Pageable</span><span class="o">.</span><span class="na">class</span><span class="o">),</span> <span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="n">pageableMixin</span><span class="o">(</span><span class="n">restConfiguration</span><span class="o">)))</span>
+        <span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">};</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">Type</span> <span class="nf">pageableMixin</span><span class="o">(</span><span class="nc">RepositoryRestConfiguration</span> <span class="n">restConfiguration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AlternateTypeBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">fullyQualifiedClassName</span><span class="o">(</span>
+            <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s.generated.%s"</span><span class="o">,</span>
+                <span class="nc">Pageable</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getPackage</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span>
+                <span class="nc">Pageable</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">withProperties</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getPageParamName</span><span class="o">()),</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getLimitParamName</span><span class="o">()),</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getSortParamName</span><span class="o">())</span>
+        <span class="o">))</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">AlternateTypePropertyBuilder</span> <span class="nf">property</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AlternateTypePropertyBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">withName</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">type</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCanRead</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCanWrite</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>它涉及到创建一个生成的内存中类型，该类型允许Sprringfox推理引擎使用新类型而不是<code class="language-plaintext highlighter-rouge">Pageable</code>可分页的类型。</p>
+
+<p><a href="https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-data-rest/src/main/java/springfox/documentation/spring/data/rest/configuration/SpringDataRestConfiguration.java#L68-L88">SpringDataRestConfiguration.java</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="nc">Type</span> <span class="nf">pageableMixin</span><span class="o">(</span><span class="nc">RepositoryRestConfiguration</span> <span class="n">restConfiguration</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AlternateTypeBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">fullyQualifiedClassName</span><span class="o">(</span>
+            <span class="nc">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%s.generated.%s"</span><span class="o">,</span>
+                <span class="nc">Pageable</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getPackage</span><span class="o">().</span><span class="na">getName</span><span class="o">(),</span>
+                <span class="nc">Pageable</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getSimpleName</span><span class="o">()))</span>
+        <span class="o">.</span><span class="na">withProperties</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getPageParamName</span><span class="o">()),</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getLimitParamName</span><span class="o">()),</span>
+            <span class="n">property</span><span class="o">(</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">restConfiguration</span><span class="o">.</span><span class="na">getSortParamName</span><span class="o">())</span>
+        <span class="o">))</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="nc">AlternateTypePropertyBuilder</span> <span class="nf">property</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="nc">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">AlternateTypePropertyBuilder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">withName</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">type</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCanRead</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCanWrite</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="102-在同一swagger-ui中聚合多个swagger规范">10.2. 在同一swagger-ui中聚合多个swagger规范</h3>
+
+<p>您需要创建实现<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26"><code class="language-plaintext highlighter-rouge">SwaggerResourcesProvider</code></a>接口的bean。通常，您必须创建一个使用多个<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38">InMemorySwaggerResourcesProvider</a>的复合bean，并向其中添加您自己的json文件。</p>
+
+<blockquote>
+  <p>您需要使这个新bean成为@Primary bean。否则，您将得到一个关于模棱两可的bean的异常。</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwaggerWsEndpointsConfig</span> <span class="o">{</span>
+
+    <span class="nd">@Primary</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">SwaggerResourcesProvider</span> <span class="nf">swaggerResourcesProvider</span><span class="o">(</span><span class="nc">InMemorySwaggerResourcesProvider</span> <span class="n">defaultResourcesProvider</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+            <span class="nc">SwaggerResource</span> <span class="n">wsResource</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SwaggerResource</span><span class="o">();</span>
+            <span class="n">wsResource</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"ws endpoints"</span><span class="o">);</span>
+            <span class="n">wsResource</span><span class="o">.</span><span class="na">setSwaggerVersion</span><span class="o">(</span><span class="s">"2.0"</span><span class="o">);</span>
+            <span class="n">wsResource</span><span class="o">.</span><span class="na">setLocation</span><span class="o">(</span><span class="s">"/v2/websockets.json"</span><span class="o">);</span>
+
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">SwaggerResource</span><span class="o">&gt;</span> <span class="n">resources</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">defaultResourcesProvider</span><span class="o">.</span><span class="na">get</span><span class="o">());</span>
+            <span class="n">resources</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">wsResource</span><span class="o">);</span>
+            <span class="k">return</span> <span class="n">resources</span><span class="o">;</span>
+        <span class="o">};</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="11-spring-data-rest的可扩展性">11. Spring Data Rest的可扩展性</h2>
+
+<blockquote>
+  <p>这些是孵化功能，并且可能会发生变化。</p>
+</blockquote>
+
+<p><em>表7. Spring数据REST可扩展性</em></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>发布自</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>EntityOperationsExtractor</td>
+      <td>这是提取实体特定操作的扩展点。此提取器允许创建基于Spring-data-rest(SDR)端点的RequestHandler。SDR配置信息可通过<code class="language-plaintext highlighter-rouge">EntityAssociationContext</code>获得，并可用于推断生成操作描述所需的属性。这是提取实体特定操作的扩展点。此提取器允许创建基于Spring-data-rest(SDR)端点的RequestHandler。SDR配置信息可通过<code class="language-plaintext highlighter-rouge">EntityAssociationContext</code>获得，并可用于推断生成操作描述所需的属性。</td>
+      <td>2.7.0</td>
+    </tr>
+    <tr>
+      <td>EntityAssociationOperationsExtractor</td>
+      <td>这是提取与实体关联相关的操作的扩展点。此提取器允许创建基于Spring-Data-REST(SDR)的<code class="language-plaintext highlighter-rouge">RequestHandler</code>。SDR配置信息可通过``EntityContext`获得，并可用于推断生成操作描述所需的属性。</td>
+      <td>2.7.0</td>
+    </tr>
+    <tr>
+      <td>RequestHandlerExtractorConfiguration</td>
+      <td>此外，使这一切成为可能的粘合剂是<code class="language-plaintext highlighter-rouge">RequestHandlerExtractorConfiguration</code>。未自定义时，库使用<code class="language-plaintext highlighter-rouge">DefaultExtractorConfiguration</code>。</td>
+      <td>2.7.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="12-常见问题的解答">12. 常见问题的解答</h2>
+
+<p><strong>问：为什么Sprringfox忽略控制器方法返回值中的http状态代码？</strong></p>
+
+<p>答：<a href="https://github.com/springfox/springfox/issues/822#issuecomment-117372109">Reference #822</a></p>
+
+<p><strong>问：swagger-ui和springfox-swagger-ui之间有什么关系？</strong></p>
+
+<p>答：这可能会让人有点困惑：</p>
+
+<ul>
+  <li>Savagger Spec是一种规格。</li>
+  <li>swagger Api-支持JAX-RS、RESTlet、Jersey等规范实现。</li>
+  <li>一般说来，Springfox库是该规范的另一个实现，专注于基于Spring的生态系统。</li>
+  <li>js和swagger-ui-是javascript中的客户端库，可以使用swagger规范。</li>
+  <li>springfox-swagger-ui-您所指的那个，只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。</li>
+</ul>
+
+<p><strong>问：我用的是gson，不用的是jackson，我该怎么办？</strong></p>
+
+<p>答：感谢<a href="https://github.com/chrishuttonch">@chrishuttonch</a>描述了<a href="https://github.com/springfox/springfox/issues/867">此问题</a>的解决方案</p>
+
+<blockquote>
+  <p>我打开了excludeFieldsWithoutExposeAnnotation()，这意味着没有任何对象会生成任何数据。为了解决这个问题，我为以下类创建了几个序列化程序：</p>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">service</span><span class="o">.</span><span class="na">ApiListing</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerApiListingJsonSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">spring</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">json</span><span class="o">.</span><span class="na">Json</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerJsonSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">swagger</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">SwaggerResource</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerResourceSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">service</span><span class="o">.</span><span class="na">ResourceListing</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerResourceListingJsonSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">swagger</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">SwaggerResource</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerResourceSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">swagger</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">SecurityConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerSecurityConfigurationSerializer</span><span class="o">())</span>
+<span class="o">.</span><span class="na">registerTypeAdapter</span><span class="o">(</span><span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">swagger</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">UiConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SwaggerUiConfigurationSerializer</span><span class="o">());</span>
+</code></pre></div>  </div>
+</blockquote>
+
+<p><strong>问：在springboot应用中ObjectMapper会出错吗？</strong></p>
+
+<p>答：您可能遇到以下问题之一</p>
+
+<ol>
+  <li>
+    <p>启动期间是否存在NPE？</p>
+
+    <blockquote>
+      <p>在调试器中运行显示，我的WAR中有两个WebApplicationInitializers实例。Spring正在刷新每个实例的上下文，并在没有<code class="language-plaintext highlighter-rouge">onApplicationEvent</code>调用的情况下生成<code class="language-plaintext highlighter-rouge">OptimizedModelPropertiesProvider</code>的第二个实例。我可以通过删除代码中的第二个<code class="language-plaintext highlighter-rouge">WebApplicationInitializer</code>来修复它。似乎和这个 <a href="https://github.com/spring-projects/spring-boot/issues/221">spring-boot issue #221</a> 有关。</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>对象映射器自定义设置不起作用吗？</p>
+
+    <blockquote>
+      <p>有时有多个<code class="language-plaintext highlighter-rouge">ObjectMapper</code>在运行，这可能导致自定义无法工作<code class="language-plaintext highlighter-rouge">HttpMessageConverters</code>中的Spring Boot首先添加Spring Boot配置的<code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>，然后添加来自Spring MVC的默认<code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>。这会导致<code class="language-plaintext highlighter-rouge">ObjectMapperConfiguring</code>事件触发两次，第一次是针对已配置的转换器(实际使用的)，然后是针对默认转换器。所以当你F.E.。设置自定义属性命名策略，然后在<code class="language-plaintext highlighter-rouge">ObjectMapperBeanPropertyNamingStrategy</code>中，这将被第二个事件覆盖。以下代码修复了此问题：</p>
+    </blockquote>
+  </li>
+</ol>
+
+  </div>
+
+  <div class='post-footer'>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-previous' href="/tech/2020/01/15/Swagger-more%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8.html"> &nbsp;←  Swagger more如何使用</a>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class='post-next' href="/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">博客示例 →&nbsp;</a>
+    
+    
+    
+    
+    
+    
+  </div>
+
+</article>
+
+<div id='utterances' class="utterances-comments-header">
+  <div>
+    <div>Comments </div>
+    <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
+  </div>
+  <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=/tech/2020/01/15/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">Issue Page</a>
+</div>
+<script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+  </div>
+</article>
+
+    </div>
+  </div>
+  <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Copyright © Uhfun Blog 2019<br>
+        Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
+        &nbsp;|&nbsp;Themed by <strong> <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll">Uhfun-Jekyll</a></strong> 
+        &nbsp; <br> licensed <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
+        &nbsp;
+      </p>
+    </div>
+  </div>
+</footer>
+<div class="back-to-top is-info">
+    <a class="icon-stack">
+        <ion-icon name="arrow-dropup">
+            <svg class="svg-icon">
+                <use xlink:href="/assets/arrow-dropup.svg"></use>
+            </svg>
+        </ion-icon>
+        <span class="back-to-top-text">Top</span>
+    </a>
+</div>
+<script src="/assets/js/back-to-top.js"></script>
+<script src="/assets/js/hash-code.js"></script>
+<script src="/assets/js/drop-down.js"></script>
+<script src="/assets/js/category-post-num.js"></script>
+<script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/toc.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('#toc').toc();
+  }); </script>
+<script>
+    $('.brief-content .content .title-content').each((i, e) => {
+        $bt = $(e);
+        const hashCode = $bt.text().hashCode();
+        const list = [
+        
+        '#f16181',
+        
+        '#fd7676',
+        
+        '#53aee4',
+        ];       
+        const n = hashCode % list.length;
+        const color =  list[(n < 0 ? n + list.length : n)];
+        console.log(color)
+        $bt.css('color', color);
+        $bt.children('.brief-quote').css('color', color);
+    })
+</script>
+</body>
+<script src="/assets/js/date-format.js"></script>
+</html>
