@@ -840,7 +840,7 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
 
 > 请谨慎将此默认值更改为False。这意味着在以线程安全的方式请求swagger端点之前管理插件的启动。
 
-#### 6.4. 通过属性覆盖描述
+### 6.4. 通过属性覆盖描述
 
 添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义`applation.properties`、`application.yml`文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，`@ApiModelProperty(value=“${property1.description}”)`将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。
 
@@ -861,7 +861,7 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
 
 有关详细说明，[请参阅此处](https://springfox.github.io/springfox/docs/current/#property-file-lookup)。
 
-#### 6.5. 覆盖属性数据类型
+### 6.5. 覆盖属性数据类型
 
 使用`ApiModelProperty#dataType`，我们可以覆盖推断的数据类型。但是，它被限制为只允许使用完全限定的类名指定数据类型。例如，如果我们有以下定义
 
