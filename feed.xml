@@ -1,8 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-13T01:18:57+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Springfox参考文档</title><link href="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html" rel="alternate" type="text/html" title="Springfox参考文档" /><published>2020-05-13T01:10:00+08:00</published><updated>2020-05-13T01:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">&lt;p&gt;&lt;a href=&quot;https://springfox.github.io/springfox/docs/current/&quot;&gt;官方文档&lt;/a&gt; Version 2.9.2-SNAPSHOT&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-13T12:37:26+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Springfox参考文档</title><link href="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html" rel="alternate" type="text/html" title="Springfox参考文档" /><published>2020-05-13T01:10:00+08:00</published><updated>2020-05-13T01:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">&lt;p&gt;官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Springfox Reference Documentation 中文版&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;1-介绍&quot;&gt;1. 介绍&lt;/h2&gt;
 
-&lt;p&gt;Springfox Java库套件主要是为使用&lt;a href=&quot;http://projects.spring.io/spring-framework&quot;&gt;Spring系列项目&lt;/a&gt;编写的JSONAPI自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注释推断API语义。&lt;/p&gt;
+&lt;p&gt;Springfox Java库套件主要是为了能够让使用&lt;a href=&quot;http://projects.spring.io/spring-framework&quot;&gt;Spring系列项目&lt;/a&gt;编写的JSON APIs自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注解推断API语义。&lt;/p&gt;
 
 &lt;h3 id=&quot;11-历史&quot;&gt;1.1. 历史&lt;/h3&gt;
 
@@ -11,14 +13,14 @@
 &lt;h3 id=&quot;12-目标&quot;&gt;1.2. 目标&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;扩展对许多针对JSON API规范和文档的不断发展的标准的支持，例如：&lt;a href=&quot;http://swagger.io/&quot;&gt;swagger&lt;/a&gt;、&lt;a href=&quot;http://raml.org/&quot;&gt;Raml&lt;/a&gt;和&lt;a href=&quot;http://jsonapi.org/&quot;&gt;jsonapi&lt;/a&gt;。&lt;/li&gt;
-  &lt;li&gt;扩展对&lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html&quot;&gt;Spring webmvc&lt;/a&gt;以外的Spring技术的支持&lt;/li&gt;
-  &lt;li&gt;从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注释。例如，Jackson注释应该总是胜过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty&lt;/code&gt;，或者具有比&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty&lt;/code&gt;更大的权重，或者例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@NotNull&lt;/code&gt;或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注释仅用于补充文档或覆盖/调整生成的规范。&lt;/li&gt;
+  &lt;li&gt;支持更多针对JSON API规范和文档的不断发展的标准，例如：&lt;a href=&quot;http://swagger.io/&quot;&gt;swagger&lt;/a&gt;、&lt;a href=&quot;http://raml.org/&quot;&gt;Raml&lt;/a&gt;和&lt;a href=&quot;http://jsonapi.org/&quot;&gt;jsonapi&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;提供更多&lt;a href=&quot;http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html&quot;&gt;Spring webmvc&lt;/a&gt;外的Spring技术的支持&lt;/li&gt;
+  &lt;li&gt;从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注解。例如，Jackson注解应该总是胜过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty&lt;/code&gt;，或者具有比&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty&lt;/code&gt;更大的权重，又像是，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@NotNull&lt;/code&gt;或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注解仅用于补充文档或覆盖/调整生成的规范。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;13-它不是什么&quot;&gt;1.3. 它不是什么&lt;/h3&gt;
 
-&lt;p&gt;由Spring框架贡献者认可或批准&lt;/p&gt;
+&lt;p&gt;它不是由Spring框架贡献者认可或批准的&lt;/p&gt;
 
 &lt;h3 id=&quot;14-开发环境&quot;&gt;1.4. 开发环境&lt;/h3&gt;
 
@@ -75,7 +77,7 @@
 
 &lt;h4 id=&quot;143-更新契约测试&quot;&gt;1.4.3. 更新契约测试&lt;/h4&gt;
 
-&lt;p&gt;在开发新契约测试时，为了便于用新契约更新现有测试，请取消对&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle&quot;&gt;swagger-tract-test/build.gradle&lt;/a&gt;中以下行的注释。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java&quot;&gt;BugsController&lt;/a&gt;或&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java&quot;&gt;FeatureDemonstrationService&lt;/a&gt;中创建一个端点来演示新的修复或行为。&lt;/p&gt;
+&lt;p&gt;在开发新契约测试时，为了便于用新契约更新现有测试，请取消对&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle&quot;&gt;swagger-tract-test/build.gradle&lt;/a&gt;中以下行的注解。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java&quot;&gt;BugsController&lt;/a&gt;或&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java&quot;&gt;FeatureDemonstrationService&lt;/a&gt;中创建一个端点来演示新的修复或行为。&lt;/p&gt;
 
 &lt;div class=&quot;language-gradle highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// NOTE: Uncomment to bulk update contracts&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;//test {&lt;/span&gt;
@@ -123,14 +125,14 @@
 
 &lt;h4 id=&quot;151-快照&quot;&gt;1.5.1. 快照&lt;/h4&gt;
 
-&lt;p&gt;这通常由CI服务器完成&lt;/p&gt;
+&lt;p&gt;通常由CI服务器完成&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./gradlew publishSnapshot
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;152-覆盖部署&quot;&gt;1.5.2. 覆盖部署&lt;/h4&gt;
 
-&lt;p&gt;要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本&lt;/p&gt;
+&lt;p&gt;需要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./gradlew clean build bintrayUpload &lt;span class=&quot;nt&quot;&gt;-PreleaseType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;MAJOR|MINOR|PATCH&amp;gt;
  &lt;span class=&quot;nt&quot;&gt;--stacktrace&lt;/span&gt;
@@ -138,24 +140,24 @@
 
 &lt;h4 id=&quot;153-发布文档&quot;&gt;1.5.3. 发布文档&lt;/h4&gt;
 
-&lt;p&gt;要更新现有版本的文档，请传递updateMode开关&lt;/p&gt;
+&lt;p&gt;需要更新现有版本的文档，请传递updateMode开关&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./gradlew releaseDocs
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;154-贡献&quot;&gt;1.5.4. 贡献&lt;/h4&gt;
 
-&lt;p&gt;请参阅&lt;a href=&quot;https://github.com/springfox/springfox/wiki&quot;&gt;维基&lt;/a&gt;获取一些指导原则&lt;/p&gt;
+&lt;p&gt;获取指导原则请参阅&lt;a href=&quot;https://github.com/springfox/springfox/wiki&quot;&gt;维基&lt;/a&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;16-支持&quot;&gt;1.6 支持&lt;/h3&gt;
 
-&lt;p&gt;如果您发现问题或错误，请通过&lt;a href=&quot;https://github.com/springfox/springfox/issues&quot;&gt;Springfox Github项目&lt;/a&gt;提交&lt;/p&gt;
+&lt;p&gt;如果发现问题或错误，请通过&lt;a href=&quot;https://github.com/springfox/springfox/issues&quot;&gt;Springfox Github项目&lt;/a&gt;提交&lt;/p&gt;
 
 &lt;h2 id=&quot;2快速入门&quot;&gt;2.快速入门&lt;/h2&gt;
 
 &lt;h3 id=&quot;21-依赖&quot;&gt;2.1. 依赖&lt;/h3&gt;
 
-&lt;p&gt;Springfox库托管在&lt;a href=&quot;https://bintray.com/springfox/maven-repo/springfox/view&quot;&gt;bintray&lt;/a&gt;和JCenter上。可以在以下位置查看和访问对象：&lt;/p&gt;
+&lt;p&gt;Springfox库托管在&lt;a href=&quot;https://bintray.com/springfox/maven-repo/springfox/view&quot;&gt;bintray&lt;/a&gt;和JCenter上。以下是访问链接：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Release：
@@ -172,7 +174,7 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何包含springfox-swagger2模块，该模块生成Swagger2.0API文档。&lt;/p&gt;
+&lt;p&gt;Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何引入springfox-swagger2模块，该模块用于生成Swagger2.0API文档。&lt;/p&gt;
 
 &lt;h4 id=&quot;211-gradle&quot;&gt;2.1.1. Gradle&lt;/h4&gt;
 
@@ -313,27 +315,27 @@
 
   &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Docket&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;petApi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DocumentationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 3. Docket是Springfox主要的API配置机制针，它对swagger规范2.0进行了初始化。&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DocumentationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 3. Docket是Springfox主要的API配置机制，它对swagger规范2.0进行了初始化。&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 4. select()返回一个ApiSelectorBuilder的实例，提供对通过swagger公开的端点的细粒度控制&lt;/span&gt;
           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;apis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestHandlerSelectors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 5. apis()允许使用谓词来选择RequestHandler。示例使用any(默认)。开箱即用的谓词有any, none, withClassAnnotation, withMethodAnnotation and basePackage。&lt;/span&gt;
           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;PathSelectors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;any&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 6. paths()允许使用谓词选择路径。示例使用any(默认)。开箱即用的有regex、ant、any、one。&lt;/span&gt;
           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 7. 选择器需要在配置Api选择器(apis)和路径选择器(paths)之后构建。&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pathMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 8. 当Servlet具有路径映射时，添加Servlet路径映射。这会使用提供的路径映射为路径添加前缀。&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;pathMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 8. 当Servlet具有路径映射时，添加Servlet路径映射。该路径会作为前缀添加到原有路径上。&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;directModelSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LocalDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 9. 便捷规则构建器: 在渲染模型属性时使用字符串替换LocalDate，使用type参数替换泛型类型。&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;genericModelSubstitutes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alternateTypeRules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DeferredResult&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)),&lt;/span&gt;
                 &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 10. 带T的ResponseEntity&amp;lt;T&amp;gt; alternateTypeRules()允许更复杂的自定义规则。该示例通常将DeferredResult&amp;lt;ResponseEntity&amp;lt;T&amp;gt;&amp;gt;替换为T。&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;useDefaultResponseMessages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 11. 指示是否需要使用默认http响应代码的标志。&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;globalResponseMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 12. 允许全局覆盖不同http方法的响应消息。在本例中，我们覆盖了所有GET请求…的错误代码500...&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;useDefaultResponseMessages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 11. 是否需要使用默认http响应代码的标志。&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;globalResponseMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 12. 允许全局覆盖不同http方法的响应消息。这个示例里覆盖了所有GET请求…的错误代码500...&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ResponseMessageBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;500 message&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;responseModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ModelRef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 13. 并指示它将使用响应模型错误(将在其他地方定义)。&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;responseModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ModelRef&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 13. 表示它会使用响应模型错误(将在其他地方定义)。&lt;/span&gt;
                 &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;securitySchemes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apiKey&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 14. 设置用于保护API的安全方案&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;securityContexts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;securityContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 15. 提供全局设置操作的安全上下文的方法。这里的想法是，我们提供一种方法来选择要由指定的安全方案之一保护的操作。 &lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;securityContexts&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;securityContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 15. 提供全局设置操作的安全上下文的方法。我们提供一种方法来选择要由指定的安全方案之一保护的操作。 &lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;enableUrlTemplating&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 21. 允许全局配置默认路径/请求/标头参数，这些参数对于api的每个其余操作都是通用的，但在spring控制器方法签名中不需要（例如，身份验证信息）。&lt;/span&gt;
         &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;globalOperationParameters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 22. 此处添加的参数将是生成的swagger规范中每个API操作的一部分。根据安全性的设置方式，使用的标头的名称可能需要不同。覆盖此值是覆盖默认行为的一种方式。&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ParameterBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
@@ -409,30 +411,26 @@
 &lt;h3 id=&quot;32-配置说明&quot;&gt;3.2. 配置说明&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;这个库广泛使用&lt;a href=&quot;https://github.com/google/guava&quot;&gt;谷歌的Guava库&lt;/a&gt;。例如，当您看到newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。&lt;/p&gt;
+  &lt;p&gt;这个库广泛使用&lt;a href=&quot;https://github.com/google/guava&quot;&gt;谷歌的Guava库&lt;/a&gt;。例如，newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//This guava code snippet&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//这是guava 代码片段&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Something&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;guavaList&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;newArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Something&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
 
-&lt;span class=&quot;c1&quot;&gt;//... is equivalent to&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//... 等价于&lt;/span&gt;
 &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Something&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Something&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;有很多更多的选项可以配置摘要。这应该会提供一个良好的开端。&lt;/p&gt;
+&lt;p&gt;有很多可以配置Docket选项，这会是不错的开始。&lt;/p&gt;
 
 &lt;h3 id=&quot;33-springfox-spring-data-rest&quot;&gt;3.3. Springfox Spring Data Rest&lt;/h3&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;这还在孵化中。&lt;/p&gt;
+  &lt;p&gt;还在孵化中。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;为了使用它。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;添加springfox-data-rest依赖项。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;如果需要使用，请添加springfox-data-rest依赖&lt;/p&gt;
 
 &lt;h4 id=&quot;331-gradle&quot;&gt;3.3.1. Gradle&lt;/h4&gt;
 
@@ -467,7 +465,9 @@
 
 &lt;h4 id=&quot;34-springfox对jsr-303的支持&quot;&gt;3.4. Springfox对JSR-303的支持&lt;/h4&gt;
 
-&lt;p&gt;在2.3.2以上的版本中，添加了对bean验证注释的支持，特别是对@NotNull、@Min、@Max和@Size。&lt;/p&gt;
+&lt;p&gt;在2.3.2以上的版本中，添加了对bean验证注解的支持，特别是对@NotNull、@Min、@Max和@Size。&lt;/p&gt;
+
+&lt;p&gt;如果需要使用，请添加springfox-data-rest依赖&lt;/p&gt;
 
 &lt;p&gt;为了使用它。&lt;/p&gt;
 
@@ -495,8 +495,7 @@
 
 &lt;h4 id=&quot;343-java-config&quot;&gt;3.4.3. java config&lt;/h4&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//For java config&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;@Import&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springfox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;validators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;BeanValidatorPluginsConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...})&lt;/span&gt;
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Import&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springfox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;validators&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;BeanValidatorPluginsConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;...})&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h4 id=&quot;344-xml-config&quot;&gt;3.4.4. xml config&lt;/h4&gt;
@@ -508,14 +507,14 @@
 
 &lt;h3 id=&quot;35-springfox-swagger-ui&quot;&gt;3.5. Springfox Swagger UI&lt;/h3&gt;
 
-&lt;p&gt;springfox-swagger-ui &lt;a href=&quot;http://www.webjars.org/&quot;&gt;web jar&lt;/a&gt;附带&lt;a href=&quot;https://github.com/swagger-api/swagger-ui&quot;&gt;swagger UI&lt;/a&gt;。要将其包含在标准Spring Boot应用程序中，您可以按如下方式添加依赖项：&lt;/p&gt;
+&lt;p&gt;springfox-swagger-ui &lt;a href=&quot;http://www.webjars.org/&quot;&gt;web jar&lt;/a&gt;附带&lt;a href=&quot;https://github.com/swagger-api/swagger-ui&quot;&gt;swagger UI&lt;/a&gt;。要将其包含在标准Spring Boot应用程序中，可以按如下方式添加依赖项：&lt;/p&gt;
 
 &lt;div class=&quot;language-groovy highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;compile&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'io.springfox:springfox-swagger-ui:2.9.2'&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点/swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面http://localhost:8080/swagger-ui.html&lt;/p&gt;
+&lt;p&gt;引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点 /swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面 http://localhost:8080/swagger-ui.html&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://springfox.github.io/springfox/docs/current/images/springfox-swagger-ui.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
@@ -704,7 +703,7 @@
   +------------------------------------------+----------------------------------------------+
   |                                  springfox-spi                                          |
   |                                                                                         |
-  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注释处理器 		          |
+  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注解处理器 		          |
   +------------------------------------------+----------------------------------------------+
                                              |
                                              |
@@ -721,7 +720,7 @@
         +------------------------------------+------------------------------------+
         |                         springfox-swagger-common                        |
         |                                                                         |
-        |                 识别不同的swagger注释的常见的swagger特定扩展                 |
+        |                 识别不同的swagger注解的常见的swagger特定扩展                 |
         +----------+--------------------------------------------------------------+
                    ^                          ^                        ^
         +----------+---------+     +----------+---------+     +-----...
@@ -738,7 +737,7 @@
 
 &lt;p&gt;Springfox同时支持版本&lt;a href=&quot;https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md&quot;&gt;1.2&lt;/a&gt;和版本&lt;a href=&quot;https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md&quot;&gt;2.0&lt;/a&gt;的&lt;a href=&quot;http://swagger.io/&quot;&gt;Swagger&lt;/a&gt;规范。如果可以，Swagger 2.0规范更可取。&lt;/p&gt;
 
-&lt;p&gt;由swagger-core提供的&lt;a href=&quot;https://github.com/swagger-api/swagger-core/wiki/Annotations&quot;&gt;swagger-core annotations&lt;/a&gt; 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注释，并且会优先使用这些注释而不是推断的默认值。&lt;/p&gt;
+&lt;p&gt;由swagger-core提供的&lt;a href=&quot;https://github.com/swagger-api/swagger-core/wiki/Annotations&quot;&gt;swagger-core annotations&lt;/a&gt; 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注解，并且会优先使用这些注解而不是推断的默认值。&lt;/p&gt;
 
 &lt;h3 id=&quot;51-swagger-12-vs-swagger-20&quot;&gt;5.1. Swagger 1.2 vs Swagger 2.0&lt;/h3&gt;
 
@@ -750,9 +749,9 @@
 
 &lt;h3 id=&quot;52-从-swagger-springmvc-进行迁移&quot;&gt;5.2. 从 swagger-springmvc 进行迁移?&lt;/h3&gt;
 
-&lt;p&gt;以下是帮助您从1.0.2过渡到2.0的&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md&quot;&gt;指南&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;以下是帮助你从1.0.2过渡到2.0的&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md&quot;&gt;指南&lt;/a&gt;。&lt;/p&gt;
 
-&lt;p&gt;您可以在&lt;a href=&quot;https://github.com/springfox/springfox/blob/v1.0.2/README.md&quot;&gt;此处&lt;/a&gt;找到传统文档。&lt;/p&gt;
+&lt;p&gt;你可以在&lt;a href=&quot;https://github.com/springfox/springfox/blob/v1.0.2/README.md&quot;&gt;此处&lt;/a&gt;找到传统文档。&lt;/p&gt;
 
 &lt;h3 id=&quot;53-springfox配置和演示应用程序&quot;&gt;5.3. Springfox配置和演示应用程序&lt;/h3&gt;
 
@@ -760,9 +759,9 @@
 
 &lt;h2 id=&quot;6-配置springfox&quot;&gt;6. 配置Springfox&lt;/h2&gt;
 
-&lt;p&gt;要启用对swagger规范1.2的支持，请使用@EnableSwagger注释。&lt;/p&gt;
+&lt;p&gt;要启用对swagger规范1.2的支持，请使用@EnableSwagger注解。&lt;/p&gt;
 
-&lt;p&gt;要启用对swagger规范2.0的支持，请使用@EnableSwagger2注释。&lt;/p&gt;
+&lt;p&gt;要启用对swagger规范2.0的支持，请使用@EnableSwagger2注解。&lt;/p&gt;
 
 &lt;p&gt;为了记录服务，我们使用了Docket。这样更符合事实，即表达文档的内容与文档呈现的格式无关。&lt;/p&gt;
 
@@ -780,7 +779,7 @@
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DocumentationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;groupName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;business-api&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
             &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-               &lt;span class=&quot;c1&quot;&gt;//忽略使用@CustomIgnore注释的控制器&lt;/span&gt;
+               &lt;span class=&quot;c1&quot;&gt;//忽略使用@CustomIgnore注解的控制器&lt;/span&gt;
               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;apis&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;not&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;withClassAnnotation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CustomIgnore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//按RequestHandler选择&lt;/span&gt;
               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 和按路径&lt;/span&gt;
               &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
@@ -807,11 +806,11 @@
 
 &lt;p&gt;配置对象映射器的一种简单方法是监听&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectMapperConfiguring&lt;/code&gt;事件。无论是否有自定义的ObjectMapper与相应的MappingJackson2HttpMessageConverter配合使用，库中始终有一个已配置的ObjectMapper，该ObjectMapper是为序列化swagger 1.2和swagger 2.0类型而自定义的。&lt;/p&gt;
 
-&lt;p&gt;为此，实现ApplicationListener&lt;ObjectMapperConfiguring&gt;接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将特定于应用程序的定制应用于正在运行的每个ObjectMapper。&lt;/ObjectMapperConfiguring&gt;&lt;/p&gt;
+&lt;p&gt;为此，实现ApplicationListener&lt;ObjectMapperConfiguring&gt;接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将该定制应用于正在运行的每ObjectMapper。&lt;/ObjectMapperConfiguring&gt;&lt;/p&gt;
 
-&lt;p&gt;如果您在应用程序启动期间遇到NullPointerException(&lt;a href=&quot;https://github.com/springfox/springfox/issues/635&quot;&gt;像这个问题&lt;/a&gt;)。这很可能是因为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebMvcConfigurerAdapter&lt;/code&gt;不工作。只有当@EnableWebMvc&lt;a href=&quot;http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html&quot;&gt;注释存在&lt;/a&gt;时，才会加载这些适配器，尤其是在非Spring-boot场景中。&lt;/p&gt;
+&lt;p&gt;如果在应用程序启动期间遇到NullPointerException(&lt;a href=&quot;https://github.com/springfox/springfox/issues/635&quot;&gt;像这个问题&lt;/a&gt;)。这很可能是因为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebMvcConfigurerAdapter&lt;/code&gt;没有工作。只有&lt;a href=&quot;http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html&quot;&gt;存在@EnableWebMvc注解&lt;/a&gt;时，才会加载这些适配器，尤其是在非Spring-boot场景中。&lt;/p&gt;
 
-&lt;p&gt;如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注释，因为框架会自动检测Web MVC的使用情况并根据需要进行自我配置。在此场景中，如果应用程序中存在@EnableWebMvc，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。&lt;/p&gt;
+&lt;p&gt;如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注解，因为框架会自动检测Web MVC的使用情况并根据需要进行自动配置。在此场景中，如果应用中存在@EnableWebMvc注解，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。&lt;/p&gt;
 
 &lt;p&gt;使用该库需要注意的是，它依赖Jackson进行序列化，更重要的是依赖ObjectMapper。使用gson序列化时出现的&lt;a href=&quot;http://stackoverflow.com/a/30220562/19219&quot;&gt;以下问题&lt;/a&gt;就很能说明问题。&lt;/p&gt;
 
@@ -878,7 +877,7 @@
 
 &lt;h3 id=&quot;63-配置启动&quot;&gt;6.3. 配置启动&lt;/h3&gt;
 
-&lt;p&gt;如果您想延迟Sprringfox的启动，您可以选择将自动启动设置为false。要使用的属性是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;springfox.document-start&lt;/code&gt;，它可以作为-D jvm 参数传入，也可以通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application ation.yml/properties&lt;/code&gt;文件中的属性传入。&lt;/p&gt;
+&lt;p&gt;如果想延迟Sprringfox的启动，可以选择将自动启动设置为false。要使用的属性是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;springfox.document-start&lt;/code&gt;，它可以作为-D jvm 参数传入，也可以通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application ation.yml/properties&lt;/code&gt;文件中的属性传入。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;表3. 启动属性&lt;/em&gt;&lt;/p&gt;
 
@@ -907,9 +906,9 @@
 
 &lt;h3 id=&quot;64-通过属性覆盖描述&quot;&gt;6.4. 通过属性覆盖描述&lt;/h3&gt;
 
-&lt;p&gt;添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applation.properties&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty(value=“${property1.description}”)&lt;/code&gt;将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。&lt;/p&gt;
+&lt;p&gt;添加了对解析属性源中的属性以替换某些注解中的表达式的支持。如果要使用它，只需在类路径中定义&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applation.properties&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;application.yml&lt;/code&gt;文件或属性文件中的属性，并使用你希望在已知注解中替换的值即可。例如，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiModelProperty(value=“${property1.description}”)&lt;/code&gt;将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。&lt;/p&gt;
 
-&lt;p&gt;当前支持的批注列表按批注内的优先顺序排列：&lt;/p&gt;
+&lt;p&gt;当前支持的注解列表按注解内的优先顺序排列：&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;表4. 描述 解决 目标&lt;/em&gt;&lt;/p&gt;
 
@@ -1017,7 +1016,7 @@
 
 &lt;h3 id=&quot;66-docket-xml-配置&quot;&gt;6.6. Docket XML 配置&lt;/h3&gt;
 
-&lt;p&gt;要使用该插件，您必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。&lt;/p&gt;
+&lt;p&gt;要使用该插件，你必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Xml Configuration&lt;/em&gt;&lt;/p&gt;
 
@@ -1051,8 +1050,8 @@
 &lt;h3 id=&quot;67-docket-spring-java-配置&quot;&gt;6.7. Docket Spring Java 配置&lt;/h3&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger&lt;/code&gt;或&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger2&lt;/code&gt;注释。&lt;/li&gt;
-  &lt;li&gt;使用Springs@Bean注释定义一个或多个docket实例。&lt;/li&gt;
+  &lt;li&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger&lt;/code&gt;或&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger2&lt;/code&gt;注解。&lt;/li&gt;
+  &lt;li&gt;使用Springs@Bean注解定义一个或多个docket实例。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;em&gt;Java 配置&lt;/em&gt;&lt;/p&gt;
@@ -1078,7 +1077,7 @@
 
 &lt;h3 id=&quot;68-支持来自属性文件查找的文档&quot;&gt;6.8. 支持来自属性文件查找的文档&lt;/h3&gt;
 
-&lt;p&gt;从&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.7.0&lt;/code&gt;开始，我们支持在给定属性的情况下从以下注释中查找描述，就像属性占位符解析值注释&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@value(${key})&lt;/code&gt;一样。以下注释属性支持描述解析。&lt;/p&gt;
+&lt;p&gt;从&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2.7.0&lt;/code&gt;开始，我们支持在给定属性的情况下从以下注解中查找描述，就像属性占位符解析值注解&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@value(${key})&lt;/code&gt;一样。以下注解属性支持描述解析。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiParam#value()&lt;/code&gt;&lt;/li&gt;
@@ -1136,7 +1135,7 @@
 
 &lt;p&gt;① : @ApiModelProperty#value() 示例&lt;/p&gt;
 
-&lt;p&gt;要通过外部属性提供这些属性，只需将其添加到您的应用程序属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。&lt;/p&gt;
+&lt;p&gt;要通过外部属性提供这些属性，只需将其添加到应用属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;application.properties&lt;/em&gt;&lt;/p&gt;
 
@@ -1161,7 +1160,7 @@
 
 &lt;p&gt;默认情况下，当在Swager2.0模式下使用Springfox时，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;operationID&lt;/code&gt;值将使用以下结构呈现：“[java_method_name_here]Using[HTTP_verb_here]”.。例如，如果有一个方法getPets()连接到HTTP get谓词，Springfox将为operation Id呈现&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getPetsUsingGET&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;给定此带注释的方法…在方法上的标准注释&lt;/p&gt;
+&lt;p&gt;给定此带注解的方法…在方法上的标准注解&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@ApiOperation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
 &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/pets&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
@@ -1187,9 +1186,9 @@
 
 &lt;p&gt;自定义Operation Id的值&lt;/p&gt;
 
-&lt;p&gt;如果希望覆盖Springfox呈现的默认&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;operationId&lt;/code&gt;，可以通过在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiOperation&lt;/code&gt;注释中提供的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nickname&lt;/code&gt;来实现。&lt;/p&gt;
+&lt;p&gt;如果希望覆盖Springfox呈现的默认&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;operationId&lt;/code&gt;，可以通过在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiOperation&lt;/code&gt;注解中提供的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nickname&lt;/code&gt;来实现。&lt;/p&gt;
 
-&lt;p&gt;给定此带注释的方法…nickname覆盖默认operationId&lt;/p&gt;
+&lt;p&gt;给定此带注解的方法…nickname覆盖默认operationId&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@ApiOperation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nickname&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;getMeAllThePetsPlease&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/pets&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
@@ -1213,7 +1212,7 @@
 
 &lt;h4 id=&quot;683-更改泛型类型的命名方式&quot;&gt;6.8.3. 更改泛型类型的命名方式&lt;/h4&gt;
 
-&lt;p&gt;默认情况下，带有泛型的类型将标记为‘\u00ab’(«)、‘\u00bb’(»)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。您可以通过实现自己的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTypeNamingStrategy&lt;/code&gt;来重写此行为。例如，如果您希望&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;String&amp;gt;&lt;/code&gt;编码为‘ListOfString’，而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Map&amp;lt;String，Object&amp;gt;&lt;/code&gt;编码为‘MapOfStringAndObject’，您可以在插件定制过程中将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;forCodeGeneration&lt;/code&gt;定制选项设置为true：&lt;/p&gt;
+&lt;p&gt;默认情况下，带有泛型的类型将标记为‘\u00ab’(«)、‘\u00bb’(»)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。可以通过实现自己的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTypeNamingStrategy&lt;/code&gt;来重写此行为。例如，如果希望&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;String&amp;gt;&lt;/code&gt;编码为‘ListOfString’，而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Map&amp;lt;String，Object&amp;gt;&lt;/code&gt;编码为‘MapOfStringAndObject’，你可以在插件定制过程中将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;forCodeGeneration&lt;/code&gt;定制选项设置为true：&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;docket.forCodeGeneration(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -1227,9 +1226,9 @@
 &lt;p&gt;SpringFox中高级别的安全规定没有深入到代码中，而是具有所有协同工作的不同部分。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;API本身需要受到保护。为了简单起见，这是通过使用Spring安全性来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。&lt;/li&gt;
+  &lt;li&gt;API本身需要受到保护。为了简单起见，这是通过使用Spring Security来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。&lt;/li&gt;
   &lt;li&gt;描述用于保护API的技术的安全方案。Spring fox支持swagger规范支持的任何方案(apiKey、BasicAuth和OAuth2(某些配置文件))。&lt;/li&gt;
-  &lt;li&gt;最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在您的示例中，您遗漏了拼图的最后一块，即安全上下文，请&lt;a href=&quot;https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot&quot;&gt;参见15&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在你的示例中，可能遗漏了安全上下文，请&lt;a href=&quot;https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot&quot;&gt;参见15&lt;/a&gt;。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;611-示例应用程序&quot;&gt;6.11. 示例应用程序&lt;/h3&gt;
@@ -1256,7 +1255,7 @@
 
 &lt;p&gt;任何可用的插件或扩展挂钩都&lt;a href=&quot;https://github.com/springfox/springfox/tree/master/springfox-spi/src/main/java/springfox/documentation/spi&quot;&gt;可以在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spi&lt;/code&gt;模块中使用&lt;/a&gt;。在SPI模块中，任何以&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*plugin&lt;/code&gt;结尾的内容通常都是一个扩展点，供库使用者使用。&lt;/p&gt;
 
-&lt;p&gt;Bean验证(JSR-303)是&lt;a href=&quot;https://github.com/springfox/springfox/tree/master/springfox-bean-validators&quot;&gt;支持Bean验证&lt;/a&gt;的一个很好的例子。它相当简单且范围很小，应该可以让您了解如何创建插件。它是一组作用于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModelProperty&lt;/code&gt;插件，因此它们是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModelPropertyBuilderPlugin&lt;/code&gt;的实现。&lt;/p&gt;
+&lt;p&gt;Bean验证(JSR-303)是&lt;a href=&quot;https://github.com/springfox/springfox/tree/master/springfox-bean-validators&quot;&gt;支持Bean验证&lt;/a&gt;的一个很好的例子。它相当简单且范围很小，应该可以让你了解如何创建插件。它是一组作用于&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModelProperty&lt;/code&gt;插件，因此它们是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ModelPropertyBuilderPlugin&lt;/code&gt;的实现。&lt;/p&gt;
 
 &lt;h3 id=&quot;92-可扩展的插件&quot;&gt;9.2. 可扩展的插件&lt;/h3&gt;
 
@@ -1305,7 +1304,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DefaultsProviderPlugin&lt;/td&gt;
-      &lt;td&gt;提供您自己的默认值&lt;/td&gt;
+      &lt;td&gt;提供自定义默认值&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;DocumentationPlugin&lt;/td&gt;
@@ -1321,7 +1320,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;OperationModelsProviderPlugin&lt;/td&gt;
-      &lt;td&gt;用于提供其他模型，您可以使用不同的方式加载这些模型&lt;/td&gt;
+      &lt;td&gt;用于提供其他模型，可以使用不同的方式加载这些模型&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;ParameterBuilderPlugin&lt;/td&gt;
@@ -1341,7 +1340,7 @@
     &lt;p&gt;实现上述插件接口之一&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注释)顶部的层信息。因此，您要编写的顺序将需要在末尾分层信息。&lt;/p&gt;
+    &lt;p&gt;为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注解)顶部的层信息。因此，你要编写的顺序将需要在末尾分层信息。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;每个插件都有&lt;/p&gt;
@@ -1560,7 +1559,7 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;① : 使用&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@VersionApi&lt;/code&gt;&lt;/a&gt;注释的参数&lt;/p&gt;
+&lt;p&gt;① : 使用&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@VersionApi&lt;/code&gt;&lt;/a&gt;注解的参数&lt;/p&gt;
 
 &lt;p&gt;然后，我们创建插件&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApiReader.java&quot;&gt;VersionApiReader.java&lt;/a&gt;来提供自定义参数信息。&lt;/p&gt;
 
@@ -1719,7 +1718,7 @@
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;AlternateTypeRuleConvention&lt;/td&gt;
-      &lt;td&gt;以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。&lt;a href=&quot;https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java&quot;&gt;JacksonSerializerConvention&lt;/a&gt;是我们如何将规则应用于使用JsonSerialize/JsonResourialize注释的类型的示例&lt;/td&gt;
+      &lt;td&gt;以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。&lt;a href=&quot;https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java&quot;&gt;JacksonSerializerConvention&lt;/a&gt;是我们如何将规则应用于使用JsonSerialize/JsonResourialize注解的类型的示例&lt;/td&gt;
       &lt;td&gt;2.7.0&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -1834,10 +1833,10 @@
 
 &lt;h3 id=&quot;102-在同一swagger-ui中聚合多个swagger规范&quot;&gt;10.2. 在同一swagger-ui中聚合多个swagger规范&lt;/h3&gt;
 
-&lt;p&gt;您需要创建实现&lt;a href=&quot;https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SwaggerResourcesProvider&lt;/code&gt;&lt;/a&gt;接口的bean。通常，您必须创建一个使用多个&lt;a href=&quot;https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38&quot;&gt;InMemorySwaggerResourcesProvider&lt;/a&gt;的复合bean，并向其中添加您自己的json文件。&lt;/p&gt;
+&lt;p&gt;你需要创建实现&lt;a href=&quot;https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SwaggerResourcesProvider&lt;/code&gt;&lt;/a&gt;接口的bean。通常，你必须创建一个使用多个&lt;a href=&quot;https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38&quot;&gt;InMemorySwaggerResourcesProvider&lt;/a&gt;的复合bean，并向其中添加自己的json文件。&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;您需要使这个新bean成为@Primary bean。否则，您将得到一个关于模棱两可的bean的异常。&lt;/p&gt;
+  &lt;p&gt;你需要使这个新bean成为@Primary bean。否则会得到一个关于模棱两可的bean的异常。&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
@@ -1897,25 +1896,25 @@
 
 &lt;h2 id=&quot;12-常见问题的解答&quot;&gt;12. 常见问题的解答&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;问：为什么Sprringfox忽略控制器方法返回值中的http状态代码？&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;为什么sprringfox忽略控制器方法返回值中的http状态代码&quot;&gt;&lt;strong&gt;为什么Sprringfox忽略控制器方法返回值中的http状态代码？&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;答：&lt;a href=&quot;https://github.com/springfox/springfox/issues/822#issuecomment-117372109&quot;&gt;Reference #822&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/springfox/springfox/issues/822#issuecomment-117372109&quot;&gt;Reference #822&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;问：swagger-ui和springfox-swagger-ui之间有什么关系？&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;swagger-ui和springfox-swagger-ui之间有什么关系&quot;&gt;&lt;strong&gt;swagger-ui和springfox-swagger-ui之间有什么关系？&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;答：这可能会让人有点困惑：&lt;/p&gt;
+&lt;p&gt;这可能会让人有点困惑：&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Savagger Spec是一种规格。&lt;/li&gt;
   &lt;li&gt;swagger Api-支持JAX-RS、RESTlet、Jersey等规范实现。&lt;/li&gt;
   &lt;li&gt;一般说来，Springfox库是该规范的另一个实现，专注于基于Spring的生态系统。&lt;/li&gt;
   &lt;li&gt;js和swagger-ui-是javascript中的客户端库，可以使用swagger规范。&lt;/li&gt;
-  &lt;li&gt;springfox-swagger-ui-您所指的那个，只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。&lt;/li&gt;
+  &lt;li&gt;springfox-swagger-ui 只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;strong&gt;问：我用的是gson，不用的是jackson，我该怎么办？&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;我用的是gson不用的是jackson我该怎么办&quot;&gt;&lt;strong&gt;我用的是gson，不用的是jackson，我该怎么办？&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;答：感谢&lt;a href=&quot;https://github.com/chrishuttonch&quot;&gt;@chrishuttonch&lt;/a&gt;描述了&lt;a href=&quot;https://github.com/springfox/springfox/issues/867&quot;&gt;此问题&lt;/a&gt;的解决方案&lt;/p&gt;
+&lt;p&gt;感谢&lt;a href=&quot;https://github.com/chrishuttonch&quot;&gt;@chrishuttonch&lt;/a&gt;描述了&lt;a href=&quot;https://github.com/springfox/springfox/issues/867&quot;&gt;此问题&lt;/a&gt;的解决方案&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;我打开了excludeFieldsWithoutExposeAnnotation()，这意味着没有任何对象会生成任何数据。为了解决这个问题，我为以下类创建了几个序列化程序：&lt;/p&gt;
@@ -1930,9 +1929,9 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;strong&gt;问：在springboot应用中ObjectMapper会出错吗？&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&quot;在springboot应用中objectmapper会出错吗&quot;&gt;&lt;strong&gt;在springboot应用中ObjectMapper会出错吗？&lt;/strong&gt;&lt;/h3&gt;
 
-&lt;p&gt;答：您可能遇到以下问题之一&lt;/p&gt;
+&lt;p&gt;你可能遇到以下问题之一&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -1943,13 +1942,537 @@
     &lt;/blockquote&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;对象映射器自定义设置不起作用吗？&lt;/p&gt;
+    &lt;p&gt;对象映射器自定义设5置不起作用吗？&lt;/p&gt;
 
     &lt;blockquote&gt;
       &lt;p&gt;有时有多个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectMapper&lt;/code&gt;在运行，这可能导致自定义无法工作&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HttpMessageConverters&lt;/code&gt;中的Spring Boot首先添加Spring Boot配置的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MappingJackson2HttpMessageConverter&lt;/code&gt;，然后添加来自Spring MVC的默认&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MappingJackson2HttpMessageConverter&lt;/code&gt;。这会导致&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectMapperConfiguring&lt;/code&gt;事件触发两次，第一次是针对已配置的转换器(实际使用的)，然后是针对默认转换器。所以当你F.E.。设置自定义属性命名策略，然后在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ObjectMapperBeanPropertyNamingStrategy&lt;/code&gt;中，这将被第二个事件覆盖。以下代码修复了此问题：&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
-&lt;/ol&gt;</content><author><name>傅杭波</name></author><category term="Swagger" /><category term="Springfox" /><category term="文档" /><summary type="html">官方文档 Version 2.9.2-SNAPSHOT</summary></entry><entry><title type="html">天热的真快</title><link href="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html" rel="alternate" type="text/html" title="天热的真快" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
+&lt;/ol&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyWebAutoConfiguration&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;extendMessageConverters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpMessageConverter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;converters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ObjectMapper&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;objectMapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;HttpMessageConverter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;converter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;converters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;converter&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MappingJackson2HttpMessageConverter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;MappingJackson2HttpMessageConverter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jacksonConverter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+                        &lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MappingJackson2HttpMessageConverter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;converter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objectMapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;objectMapper&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;jacksonConverter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;jacksonConverter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;如何更快速使用java8类型localdatetime&quot;&gt;&lt;strong&gt;如何更快速使用Java8类型。LocalDateTime？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;配置日期的最简单方法是通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Docket#directModelSubstitute(LocalDateTime.class，String.class)&lt;/code&gt;。如果这些是符合字符串格式的ISO 8601日期，即&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;yyyy-MM-dd’T’HH:mm’Z'&lt;/code&gt;。但是，不会有任何格式或验证信息。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;java.sql.Date&lt;/code&gt;提高日期精度，使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;java.util.Date&lt;/code&gt;提高日期时间精度&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;将“Date”和“DateTime”类型正确映射到其相应的夸张类型的方法：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;将“date”类型(java.util.LocalDate，org.joda.time.LocalDate)替换为java.sql.Date。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;替换“DateTime”类型(java.util.ZonedDateTime，org.joda.time.LocalDateTime，…。)由java.util.Date.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;docket&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;directModelSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LocalDate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;directModelSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;LocalDateTime&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;如何使用modelattribute注解它似乎不会将模型属性呈现为标量属性&quot;&gt;&lt;strong&gt;如何使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ModelAttribute&lt;/code&gt;注解。它似乎不会将模型属性呈现为标量属性？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;为了推断&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ModelAttribute&lt;/code&gt;注解类型，属性需要是bean属性。如果意图是不变的并且传入一个对象，首选的方法是将其设为请求体，在这种情况下，不变性将遵循Jackson制定的规则，以确定什么构成请求对象的请求“视图”。&lt;/p&gt;
+
+&lt;p&gt;getters/setter是一种简洁的方式，可以指示操作中可以包含哪些值。虽然这在具有一层嵌套的普通模型中可能不明显，但当我们意识到模型属性可以任意嵌套时，设计选择就会变得清晰起来。请考虑(为简洁起见，使用C#编写伪代码)&lt;/p&gt;
+
+&lt;div class=&quot;language-c# highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;firstName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lastName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Category&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;category&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Category&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;因此可以设置属性：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;firstName&lt;/li&gt;
+  &lt;li&gt;lastName&lt;/li&gt;
+  &lt;li&gt;category.name&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;现在我们不希望类别能够通过操作设置描述，我们如何控制/指定呢？这使得很难推断对象中的哪些字段不打算进行变异。这就是我们选择将其限制为公开getter和setter的对象的原因。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我知道Spring也支持字段，如果找不到setter，它将退回到字段。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;我们应该如何解决可作为bean使用的多个对象映射器特别是在使用spring-hateoas时&quot;&gt;&lt;strong&gt;我们应该如何解决可作为bean使用的多个对象映射器，特别是在使用Spring-hateoas时？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;我们的想法是提供一个@Primary ObjectMapper。根据@Prabhat1790在 &lt;a href=&quot;https://github.com/springfox/springfox/issues/890&quot;&gt;issue #890&lt;/a&gt;中提供的答案&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SPRING_HATEOAS_OBJECT_MAPPER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;_halObjectMapper&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Qualifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SPRING_HATEOAS_OBJECT_MAPPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectMapper&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springHateoasObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;nd&quot;&gt;@Primary&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Ordered&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HIGHEST_PRECEDENCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@DependsOn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SPRING_HATEOAS_OBJECT_MAPPER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectMapper&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;objectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springHateoasObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;将其他bean的顺序设置为最低优先级。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何使用此库聚合来自多个服务的启用swagger的资源&quot;&gt;&lt;strong&gt;如何使用此库聚合来自多个服务的启用swagger的资源？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;关于如何做到这一点的合乎逻辑的解释可以在&lt;a href=&quot;https://groups.google.com/forum/#!searchin/swagger-swaggersocket/multiple/swagger-swaggersocket/g8fgSGUCrYs/A8Ms_lFOoN4J&quot;&gt;swagger google group&lt;/a&gt;中找到。此外，&lt;a href=&quot;https://github.com/springfox/springfox/issues/1001#issuecomment-147609243&quot;&gt;这条评论&lt;/a&gt;还进一步讨论了做这件事的问题。&lt;/p&gt;
+
+&lt;h3 id=&quot;为什么我的api参数标记为requiredfalse&quot;&gt;为什么我的API参数标记为required=false？&lt;/h3&gt;
+
+&lt;p&gt;这是因为插件的工作方式以及它们的优先级层信息的方式。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@PathVariables&lt;/code&gt;始终标记为必需。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiParam&lt;/code&gt;是一个可选的注解，用于描述其他元信息，如描述等。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiParam#Required()&lt;/code&gt;默认为false，除非你将其设置为true。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Springfox使用插件来分层信息。有一组Spring特定的插件将推断的值应用于内部服务模型。与swagger注解相关的元数据位于Spring-MVC描述之上。根据定义，插件不知道也不应该知道彼此或之前推断的值(你的情况下是需要属性)。&lt;/p&gt;
+
+&lt;p&gt;因此，如果你选择使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiParam&lt;/code&gt;来扩充定义，那么需要显式地将值设置为true。&lt;/p&gt;
+
+&lt;h3 id=&quot;例如如何写一个插件让默认所有类型都是必需的而只有一些类型不是必需的&quot;&gt;&lt;strong&gt;例如，如何写一个插件，让默认所有类型都是必需的，而只有一些类型不是必需的？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;要做到这一点，你必须。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;为可选添加替代类型规则 可以参阅Docket中的GenericModelSubstitutes。&lt;/li&gt;
+  &lt;li&gt;实现自定义的ModelPropertyBuilderPlugin。&lt;/li&gt;
+  &lt;li&gt;如果找到可选类型，则重写只读属性。请看&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/schema/ApiModelPropertyPropertyBuilder.java#L35&quot;&gt;这里的示例&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;记住，你需要在此插件之后触发该插件。因此，需要有根据地选择插件&lt;/p&gt;
+
+&lt;h3 id=&quot;为什么我的所有operation都没有显示在ui中&quot;&gt;为什么我的所有operation都没有显示在UI中？&lt;/h3&gt;
+
+&lt;p&gt;这是swagger-spec的一个已知限制。有一个办法可以解决它，但是，swagger-UI无法很好地和它合作。我有一个&lt;a href=&quot;https://github.com/swagger-api/swagger-js/pull/541&quot;&gt;PR&lt;/a&gt;来解决这个问题。如果你对PR和&lt;a href=&quot;https://github.com/swagger-api/swagger-spec/issues/291&quot;&gt;潜在问题&lt;/a&gt;投赞成票，那就太好了&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;该&lt;a href=&quot;https://github.com/swagger-api/swagger-js/pull/541&quot;&gt;PR&lt;/a&gt;已关闭！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;如何根据版本对api进行划分&quot;&gt;如何根据版本对API进行划分？&lt;/h3&gt;
+
+&lt;p&gt;摘录自 &lt;a href=&quot;https://github.com/springfox/springfox/issues/963&quot;&gt;issue 963&lt;/a&gt;的解释…&lt;/p&gt;
+
+&lt;p&gt;(Sprringfox)使用上下文路径作为起点。&lt;/p&gt;
+
+&lt;p&gt;你真正需要做的是定义一个动态Servlet注册并创建2个docket。一个用于&lt;strong&gt;api&lt;/strong&gt;，一个用于&lt;strong&gt;api/v2&lt;/strong&gt;。这篇&lt;a href=&quot;http://stackoverflow.com/questions/23049736/working-with-multiple-dispatcher-servlets-in-a-spring-application&quot;&gt;SO post&lt;/a&gt;可能会有帮助&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;Dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v1Dispatcher&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ctx1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/api&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setLoadOnStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+      &lt;span class=&quot;nc&quot;&gt;Dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;v2Dispatcher&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ctx2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/api/v2&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setLoadOnStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;如何为非sprringboot应用程序配置swagger-ui&quot;&gt;&lt;strong&gt;如何为非Sprringboot应用程序配置swagger-UI？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;节选自&lt;a href=&quot;https://github.com/springfox/springfox/issues/983&quot;&gt;issue 983&lt;/a&gt;…&lt;/p&gt;
+
+&lt;p&gt;我可以通过将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dispatcherServlet&lt;/code&gt;修改为监听/*来使其正常工作，但这会阻止为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swagger-ui.html&lt;/code&gt;提供服务。要修复此问题以使&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swagger-ui.html&lt;/code&gt;绕过dispatcherServlet，我必须创建一个新的servlet映射：&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;RestServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-class&amp;gt;&lt;/span&gt;org.springframework.web.servlet.DispatcherServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-class&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;contextConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;load-on-startup&amp;gt;&lt;/span&gt;1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/load-on-startup&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;default&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/swagger-ui.html&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
+
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;RestServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;还必须让Webjar通过DispatcherServlet：&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;mvc:resources&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;mapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/webjars/**&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;location=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:/META-INF/resources/webjars/&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;开始工作很麻烦，但是有效。也许有一种更好的方法可以重新映射swagger-ui.html，或者让它通过dispatcherServlet。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;swagger-ui.html&lt;/code&gt;是swagger-ui.html页面的名称。虽然不能更改，但可以对应用程序进行配置，以便登录到特定的URL会将浏览器重定向到真正的swagger-UI位置。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;例如，可以使用以下代码将Swagger UI移动到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/documentation&lt;/code&gt;下。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addViewControllers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ViewControllerRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addRedirectViewController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/v2/api-docs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/v2/api-docs?group=restful-api&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addRedirectViewController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/swagger-resources/configuration/ui&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/swagger-resources/configuration/ui&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addRedirectViewController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/swagger-resources/configuration/security&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/swagger-resources/configuration/security&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addRedirectViewController&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/swagger-resources&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/swagger-resources&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addResourceHandlers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ResourceHandlerRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                 &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+                         &lt;span class=&quot;nf&quot;&gt;addResourceHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/swagger-ui.html**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addResourceLocations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:/META-INF/resources/swagger-ui.html&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+                        &lt;span class=&quot;nf&quot;&gt;addResourceHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/documentation/webjars/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addResourceLocations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:/META-INF/resources/webjars/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但是，它仍然需要重定向到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/documentation/swagger-ui.html&lt;/code&gt;，因为路径名是&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-swagger-ui/src/web/js/springfox.js#L4&quot;&gt;硬编码&lt;/a&gt;的。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何创建替换列表和数组项的规则&quot;&gt;&lt;strong&gt;如何创建替换列表和数组项的规则？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;如果以下类型为…&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nc&quot;&gt;ToSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ToSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这就是需要配置规则的方式&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;arrayType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ToSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;arrayType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Substituted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ToSubstitute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;resolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Substituted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;如何配置具有多个protocols/schemes的docket？&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;答：使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;protocols()&lt;/code&gt;配置docket来表示支持的方案。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;protocols&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newHashSet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;如何在使用xml-spring配置的项目中使用sprringfox&quot;&gt;&lt;strong&gt;如何在使用XML Spring配置的项目中使用Sprringfox？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;有一个演示应用程序描述了&lt;a href=&quot;https://github.com/springfox/springfox-demos/tree/master/spring-xml-swagger&quot;&gt;如何设置java-XML&lt;/a&gt;配置。&lt;/p&gt;
+
+&lt;h3 id=&quot;如何覆盖host&quot;&gt;&lt;strong&gt;如何覆盖host？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;多亏了&lt;a href=&quot;https://github.com/springfox/springfox/pull/1011&quot;&gt;@cbornet&lt;/a&gt;的这份PR，这应该在V2.3中可用。它仍处于孵化阶段，但可以根据摘要配置主机名&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     &lt;span class=&quot;n&quot;&gt;docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://maybe-an-api-gateway.host&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;当sprringfox尝试确定具有嵌套复杂约束的对象的模式时是否会出现无限循环&quot;&gt;&lt;strong&gt;当Sprringfox尝试确定具有嵌套/复杂约束的对象的模式时，是否会出现无限循环？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;如果有递归定义的对象，我会尝试提供一种替代类型，或者甚至可以忽略有问题的类，例如使用Docket的Order。IgnarredParameterTypes(Order.class)。这通常可以在对其他对象有双向依赖关系的Hibernate域对象中找到。&lt;/p&gt;
+
+&lt;h3 id=&quot;tag在springfox中是如何实现的&quot;&gt;&lt;strong&gt;tag在springfox中是如何实现的？&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;p&gt;与Operation、Model等一样属于一级结构的标记，你在Operation上看到的就是对这些tag的引用。典型的工作流是在Docket中注册tag，并使用Operation(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@ApiOperation&lt;/code&gt;)/controllers(&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Api&lt;/code&gt;)上的tag定义按名称指向这些注册的tag(在Docket中)。&lt;/p&gt;
+
+&lt;p&gt;为了减少开发人员的模板数量，我们提供的便利就是提供一个恰好与tag名称相同的默认描述。因此，实际上我们是通过在Operation上引用一个伪tag来合成一个伪tag。&lt;/p&gt;
+
+&lt;p&gt;通过在Docket上定义tag，我们引用的是你自定义的真实tag。&lt;/p&gt;
+
+&lt;h3 id=&quot;如果配置非引导应用程序不能按预期工作我可以尝试什么&quot;&gt;如果配置非引导应用程序不能按预期工作，我可以尝试什么？&lt;/h3&gt;
+
+&lt;p&gt;由于&lt;a href=&quot;https://github.com/Pyohwan&quot;&gt;@Pyohwan&lt;/a&gt;的建议，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Configuration&lt;/code&gt;注解可能无法与&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger2&lt;/code&gt;一起使用。所以不应该附加@Configation。因此，如果你的Configuration类使用如下所示的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@EnableSwagger2&lt;/code&gt;引入了springfox配置，请尝试删除该类上的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Configuration&lt;/code&gt;，如下所示。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@EnableSwagger2&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwaggerConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;并在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebMvcConfigurerAdapter&lt;/code&gt;或类似的配置类上使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Import&lt;/code&gt;注解。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@EnableWebMvc&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ComponentScan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(...)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Import&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SwaggerConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MvcConfig&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;如何添加cors支持谢谢angakrishh&quot;&gt;如何添加CORS支持？(谢谢&lt;a href=&quot;https://github.com/gangakrishh&quot;&gt;@angakrishh&lt;/a&gt;)&lt;/h3&gt;
+
+&lt;p&gt;基于&lt;a href=&quot;https://spring.io/guides/gs/rest-service-cors/&quot;&gt;Spring Guide&lt;/a&gt;创建&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebMvcConfigurer&lt;/code&gt;，我们可以配置请求映射以允许特定的来源。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebMvcConfigurer&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;corsConfigurer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addCorsMappings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CorsRegistry&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;registry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/some-request-mapping&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;allowedOrigins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://localhost:9000&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果这不起作用，很可能CORS注册发生在SpringFox bean注册之前。
+要解决这个问题，我们可以注册一个CORS过滤器注册bean，它注册我们的端点。
+在下面的示例中，我们已经为所有端点注册了它。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebConfig&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;//https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterRegistrationBean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;corsFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;UrlBasedCorsConfigurationSource&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UrlBasedCorsConfigurationSource&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;CorsConfiguration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CorsConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;applyPermitDefaultValues&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAllowCredentials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;registerCorsConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;nc&quot;&gt;FilterRegistrationBean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterRegistrationBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CorsFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;使用不可变变量时如何配置docket&quot;&gt;使用&lt;a href=&quot;https://immutables.github.io/&quot;&gt;不可变变量&lt;/a&gt;时如何配置docket？&lt;/h3&gt;
+
+&lt;p&gt;(感谢https://github.com/kevinm416[@kevinm416])&lt;/p&gt;
+
+&lt;p&gt;这与&lt;a href=&quot;https://github.com/springfox/springfox/issues/1490&quot;&gt;#1490&lt;/a&gt;相关。配置它的方法是在docket配置中创建一个自定义的ternateTypeRules。
+例如，如果你有一个不可变的MyClass来生成ImmutableMyClass，那么我们将为它添加一个规则，如下所示。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Docket&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DocumentationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;alternateTypeRules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AlternateTypeRules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MyClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;nc&quot;&gt;ImmutableMyClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;如果使用的是模型的库，则可能需要使不可变式在包外部可见。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;为什么设置apiimplitparamparamtypeform输出未定义的datatype&quot;&gt;为什么设置@ApiImplitParam#paramType=“form”输出未定义的dataType？&lt;/h3&gt;
+
+&lt;p&gt;如果在2.7.0发布后将数据类型更改为“__FILE”，则会解决你的问题。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我们使用“__file”的原因是，如果消费库定义了自定义类型File，则该类型最终会被视为文件数据类型，即使这不是目的。
+为了将自定义类型的使用与本机理解的file原语区分开来，我们引入了此约定。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;如何配置sprringfox以支持vavrjavaslang-jackson模块&quot;&gt;如何配置Sprringfox以支持Vavr/Javaslang Jackson模块？&lt;/h3&gt;
+
+&lt;p&gt;我们需要首先创建一个备用类型规则约定，告诉springfox将vavr持久化集合像对待原生java集合一样对待。
+以下示例仅配置器设置、列表和映射类型。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springfox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;swagger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.fasterxml.classmate.TypeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vavr.collection.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;io.vavr.collection.Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.beans.factory.annotation.Autowired&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.springframework.stereotype.Component&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;springfox.documentation.schema.AlternateTypeRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;springfox.documentation.schema.AlternateTypeRuleConvention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;springfox.documentation.schema.WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;springfox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;documentation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;AlternateTypeRules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VavrDefaultsConvention&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AlternateTypeRuleConvention&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TypeResolver&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AlternateTypeRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AlternateTypeRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AlternateTypeRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;vavr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;newRule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;typeResolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;util&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WildcardType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)));&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;HIGHEST_PRECEDENCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80/raw/03b1dddc1f318635c92283a2851ec85a64ad77f8/VavrDefaultsConvention.java&quot;&gt;view raw&lt;/a&gt;&lt;a href=&quot;https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80#file-vavrdefaultsconvention-java&quot;&gt;VavrDefaultsConvention.java&lt;/a&gt; hosted with ❤ by &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;或者，为了有效地使用Jackson，对于非集合类型，我们可以注册一个应用程序侦听器，该侦听器向正在使用的objectmapper注册vavr模块。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Component&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SwaggerJacksonModuleWithVavr&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectMapperConfigured&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onApplicationEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ObjectMapperConfigured&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getObjectMapper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;registerModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;VavrModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;为什么某些模型类型缺少属性&quot;&gt;为什么某些模型/类型缺少属性？&lt;/h3&gt;
+
+&lt;p&gt;这种情况可能发生的一个很好的例子是在使用不是特别明显的Immutables不可变变量(库)时。
+Immutables(不可变)是很棒的，只是，如你所见，除非你正确地构建模型，否则可能会导致混乱的结果。
+另外，Sprringfox推断模型的方式与服务使用它的方式是相反的。
+我的意思是，假设模型具有属性a(读/写)、b(只写)、c(只读)，我们读取请求的可写属性和响应的可读属性。
+因此，如果你的模型仅用于请求，则它将具有a和b，如果你的模型仅用于响应，则它将具有a和c，如果它同时存在于请求和响应中，则它将具有a、b和c。
+多亏了&lt;a href=&quot;https://github.com/MaksimOrlov&quot;&gt;Maksim&lt;/a&gt;的&lt;a href=&quot;https://github.com/springfox/springfox/pull/2056&quot;&gt;模型增强工作&lt;/a&gt;，我们正在努力使这一点变得更好&lt;/p&gt;
+
+&lt;h3 id=&quot;为什么httphostportswagger-uihtml是空的或者为什么当我导航到httphostportswagger-uihtml时会得到404&quot;&gt;为什么http://host:port/swagger-ui.html是空的？或者为什么当我导航到http://host:port/swagger-ui.html？时会得到404&lt;/h3&gt;
+
+&lt;p&gt;在非Spring引导应用程序中，确保为springfox-swagger-UI &lt;a href=&quot;https://springfox.github.io/springfox/docs/current/#q13&quot;&gt;webjar&lt;/a&gt;添加资源处理程序。
+如果是Spring Boot应用程序：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;检查&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spring.resource ces.add-mappings&lt;/code&gt;属性是否设置为true。&lt;/li&gt;
+  &lt;li&gt;检查是否应用了Spring Security，是否允许适当的资源。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfiguration&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;csrf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;disable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;exceptionHandling&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authenticationEntryPoint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unauthorizedHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accessDeniedHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;accessDeniedHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sessionManagement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sessionCreationPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SessionCreationPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;STATELESS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authorizeRequests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;//.antMatchers(&quot;/actuator/**&quot;).permitAll()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/actuator/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hasAuthority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ADMIN&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+          &lt;span class=&quot;nc&quot;&gt;HttpMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;GET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;/v2/api-docs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;/swagger-resources/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;/swagger-ui.html**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;/webjars/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;s&quot;&gt;&quot;favicon.ico&quot;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/auth/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;permitAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;anyRequest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;authenticated&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;http&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addFilterBefore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticationTokenFilterBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;UsernamePasswordAuthenticationFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;cacheControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;或者我们可以完全忽略这些资源&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfiguration&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebSecurityConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebSecurity&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ignoring&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;antMatchers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;/v2/api-docs&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;/swagger-resources/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;/swagger-ui.html**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;/webjars/**&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;controller接收字符串形式的参数但我们需要json类型我们怎么才能对此进行建模呢&quot;&gt;controller接收字符串形式的参数，但我们需要json类型，我们怎么才能对此进行建模呢？&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java#L243-267&quot;&gt;FeatureDemonstrationService.class&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/2031&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RequestMethod&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ResponseBody&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ApiOperation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/2031&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ApiImplicitParams&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@ApiImplicitParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;contents&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;dataType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;CustomTypeFor2031&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;examples&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@io&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;swagger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;annotations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nd&quot;&gt;@ExampleProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;{'property': 'test'}&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mediaType&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;application/json&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}))&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// ①&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@PathVariable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;keyId&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keyId&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;nd&quot;&gt;@PathVariable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+                 &lt;span class=&quot;nd&quot;&gt;@RequestBody&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contents&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ②&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CustomTypeFor2031&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// ③&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;setProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;property&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;property&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;① 假设我们有一个控制器操作，它有一个字符串参数(Contents)。这就是我们覆盖在线类型(CustomTypeFor2031)的方法。
+② 以&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;形式传入的方法参数，该字符串实际上被解释为CustomTypeFor2031。
+③ 我们从json字符串读取的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CustomTypeFor2031&lt;/code&gt;复杂类型。&lt;/p&gt;
+
+&lt;p&gt;完成此操作后，我们需要配置此更改，以便可以将模型添加到定义部分&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/springfox/springfox/blob/eedbfb1b2dcf0344e21aefd0731515aa63fc9070/swagger-contract-tests/src/test/groovy/springfox/test/contract/swaggertests/Swagger2TestConfig.groovy#L118&quot;&gt;Swagger2TestConfig&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Docket&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DocumentationType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SWAGGER_2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;groupName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;featureService&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;useDefaultResponseMessages&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;additionalModels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resolver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;FeatureDemonstrationService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CustomTypeFor2031&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; 
+&lt;span class=&quot;c1&quot;&gt;//  ①&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;① 添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CustomTypeFor2031&lt;/code&gt;作为附加模型。&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="Swagger" /><category term="Springfox" /><category term="文档" /><summary type="html">官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT</summary></entry><entry><title type="html">天热的真快</title><link href="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html" rel="alternate" type="text/html" title="天热的真快" /><published>2020-05-07T16:50:38+08:00</published><updated>2020-05-07T16:50:38+08:00</updated><id>http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB</id><content type="html" xml:base="http://uhfun.cn/life/2020/05/07/%E5%A4%A9%E7%83%AD%E7%9A%84%E7%9C%9F%E5%BF%AB.html"></content><author><name>傅杭波</name></author><category term="吐槽" /><summary type="html"></summary></entry><entry><title type="html">博客示例</title><link href="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html" rel="alternate" type="text/html" title="博客示例" /><published>2020-05-07T15:11:00+08:00</published><updated>2020-05-07T15:11:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/07/%E5%8D%9A%E5%AE%A2%E7%A4%BA%E4%BE%8B.html">&lt;p&gt;我把博客整体设计为两种类型，分别为post(文字类型)和media(媒体类型)。因为我个人比较喜欢听歌，所以设计了一种media，因为文章为midea时不需要详细的内容，可以链接到其他的音乐网站，只需要指定一些特殊的变量。文章通用变量为 date(创建时间)、categories(目录)、tags(标签)&lt;/p&gt;
 
 &lt;h3 id=&quot;通用变量&quot;&gt;通用变量&lt;/h3&gt;
 

@@ -11,12 +11,12 @@
   <meta property="og:type" content="post" />
   
   
-  <meta property="og:title" content="Springfox参考文档（Springfox Reference Documentation 中文版） | UhfunBlog" />
+  <meta property="og:title" content="Springfox参考文档 | UhfunBlog" />
 
   <meta property="og:image" content='http://uhfun.cn/assets/img/avatar.png' />
 
   <meta property="og:type" content="article">
-  <meta property="og:description" content="官方文档 Version 2.9.2-SNAPSHOT
+  <meta property="og:description" content="官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT
 
 ">
   
@@ -40,7 +40,7 @@
 
   <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
   <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
-  <title>Springfox参考文档（Springfox Reference Documentation 中文版） | UhfunBlog</title>
+  <title>Springfox参考文档 | UhfunBlog</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
@@ -372,7 +372,7 @@
   <div class="content">
     <article class="post">
   
-  <h1 class="title is-spaced">Springfox参考文档（Springfox Reference Documentation 中文版）</h1>
+  <h1 class="title is-spaced">Springfox参考文档</h1>
   
   
   
@@ -408,11 +408,13 @@
   <div id="toc"></div>
   <div class='post-content'>
     
-    <p><a href="https://springfox.github.io/springfox/docs/current/">官方文档</a> Version 2.9.2-SNAPSHOT</p>
+    <p>官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT</p>
+
+<p><strong>Springfox Reference Documentation 中文版</strong></p>
 
 <h2 id="1-介绍">1. 介绍</h2>
 
-<p>Springfox Java库套件主要是为使用<a href="http://projects.spring.io/spring-framework">Spring系列项目</a>编写的JSONAPI自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注释推断API语义。</p>
+<p>Springfox Java库套件主要是为了能够让使用<a href="http://projects.spring.io/spring-framework">Spring系列项目</a>编写的JSON APIs自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注解推断API语义。</p>
 
 <h3 id="11-历史">1.1. 历史</h3>
 
@@ -421,14 +423,14 @@
 <h3 id="12-目标">1.2. 目标</h3>
 
 <ul>
-  <li>扩展对许多针对JSON API规范和文档的不断发展的标准的支持，例如：<a href="http://swagger.io/">swagger</a>、<a href="http://raml.org/">Raml</a>和<a href="http://jsonapi.org/">jsonapi</a>。</li>
-  <li>扩展对<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring webmvc</a>以外的Spring技术的支持</li>
-  <li>从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注释。例如，Jackson注释应该总是胜过<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>，或者具有比<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>更大的权重，或者例如，<code class="language-plaintext highlighter-rouge">@NotNull</code>或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注释仅用于补充文档或覆盖/调整生成的规范。</li>
+  <li>支持更多针对JSON API规范和文档的不断发展的标准，例如：<a href="http://swagger.io/">swagger</a>、<a href="http://raml.org/">Raml</a>和<a href="http://jsonapi.org/">jsonapi</a>。</li>
+  <li>提供更多<a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html">Spring webmvc</a>外的Spring技术的支持</li>
+  <li>从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注解。例如，Jackson注解应该总是胜过<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>，或者具有比<code class="language-plaintext highlighter-rouge">@ApiModelProperty</code>更大的权重，又像是，<code class="language-plaintext highlighter-rouge">@NotNull</code>或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注解仅用于补充文档或覆盖/调整生成的规范。</li>
 </ul>
 
 <h3 id="13-它不是什么">1.3. 它不是什么</h3>
 
-<p>由Spring框架贡献者认可或批准</p>
+<p>它不是由Spring框架贡献者认可或批准的</p>
 
 <h3 id="14-开发环境">1.4. 开发环境</h3>
 
@@ -485,7 +487,7 @@
 
 <h4 id="143-更新契约测试">1.4.3. 更新契约测试</h4>
 
-<p>在开发新契约测试时，为了便于用新契约更新现有测试，请取消对<a href="https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle">swagger-tract-test/build.gradle</a>中以下行的注释。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java">BugsController</a>或<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java">FeatureDemonstrationService</a>中创建一个端点来演示新的修复或行为。</p>
+<p>在开发新契约测试时，为了便于用新契约更新现有测试，请取消对<a href="https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle">swagger-tract-test/build.gradle</a>中以下行的注解。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java">BugsController</a>或<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java">FeatureDemonstrationService</a>中创建一个端点来演示新的修复或行为。</p>
 
 <div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// NOTE: Uncomment to bulk update contracts</span>
 <span class="c1">//test {</span>
@@ -533,14 +535,14 @@
 
 <h4 id="151-快照">1.5.1. 快照</h4>
 
-<p>这通常由CI服务器完成</p>
+<p>通常由CI服务器完成</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew publishSnapshot
 </code></pre></div></div>
 
 <h4 id="152-覆盖部署">1.5.2. 覆盖部署</h4>
 
-<p>要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本</p>
+<p>需要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew clean build bintrayUpload <span class="nt">-PreleaseType</span><span class="o">=</span>&lt;MAJOR|MINOR|PATCH&gt;
  <span class="nt">--stacktrace</span>
@@ -548,24 +550,24 @@
 
 <h4 id="153-发布文档">1.5.3. 发布文档</h4>
 
-<p>要更新现有版本的文档，请传递updateMode开关</p>
+<p>需要更新现有版本的文档，请传递updateMode开关</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./gradlew releaseDocs
 </code></pre></div></div>
 
 <h4 id="154-贡献">1.5.4. 贡献</h4>
 
-<p>请参阅<a href="https://github.com/springfox/springfox/wiki">维基</a>获取一些指导原则</p>
+<p>获取指导原则请参阅<a href="https://github.com/springfox/springfox/wiki">维基</a></p>
 
 <h3 id="16-支持">1.6 支持</h3>
 
-<p>如果您发现问题或错误，请通过<a href="https://github.com/springfox/springfox/issues">Springfox Github项目</a>提交</p>
+<p>如果发现问题或错误，请通过<a href="https://github.com/springfox/springfox/issues">Springfox Github项目</a>提交</p>
 
 <h2 id="2快速入门">2.快速入门</h2>
 
 <h3 id="21-依赖">2.1. 依赖</h3>
 
-<p>Springfox库托管在<a href="https://bintray.com/springfox/maven-repo/springfox/view">bintray</a>和JCenter上。可以在以下位置查看和访问对象：</p>
+<p>Springfox库托管在<a href="https://bintray.com/springfox/maven-repo/springfox/view">bintray</a>和JCenter上。以下是访问链接：</p>
 
 <ul>
   <li>Release：
@@ -582,7 +584,7 @@
   </li>
 </ul>
 
-<p>Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何包含springfox-swagger2模块，该模块生成Swagger2.0API文档。</p>
+<p>Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何引入springfox-swagger2模块，该模块用于生成Swagger2.0API文档。</p>
 
 <h4 id="211-gradle">2.1.1. Gradle</h4>
 
@@ -723,27 +725,27 @@
 
   <span class="nd">@Bean</span>
   <span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">petApi</span><span class="o">()</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span> <span class="c1">// 3. Docket是Springfox主要的API配置机制针，它对swagger规范2.0进行了初始化。</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span> <span class="c1">// 3. Docket是Springfox主要的API配置机制，它对swagger规范2.0进行了初始化。</span>
         <span class="o">.</span><span class="na">select</span><span class="o">()</span> <span class="c1">// 4. select()返回一个ApiSelectorBuilder的实例，提供对通过swagger公开的端点的细粒度控制</span>
           <span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="nc">RequestHandlerSelectors</span><span class="o">.</span><span class="na">any</span><span class="o">())</span> <span class="c1">// 5. apis()允许使用谓词来选择RequestHandler。示例使用any(默认)。开箱即用的谓词有any, none, withClassAnnotation, withMethodAnnotation and basePackage。</span>
           <span class="o">.</span><span class="na">paths</span><span class="o">(</span><span class="nc">PathSelectors</span><span class="o">.</span><span class="na">any</span><span class="o">())</span> <span class="c1">// 6. paths()允许使用谓词选择路径。示例使用any(默认)。开箱即用的有regex、ant、any、one。</span>
           <span class="o">.</span><span class="na">build</span><span class="o">()</span> <span class="c1">// 7. 选择器需要在配置Api选择器(apis)和路径选择器(paths)之后构建。</span>
-        <span class="o">.</span><span class="na">pathMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="c1">// 8. 当Servlet具有路径映射时，添加Servlet路径映射。这会使用提供的路径映射为路径添加前缀。</span>
+        <span class="o">.</span><span class="na">pathMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span> <span class="c1">// 8. 当Servlet具有路径映射时，添加Servlet路径映射。该路径会作为前缀添加到原有路径上。</span>
         <span class="o">.</span><span class="na">directModelSubstitute</span><span class="o">(</span><span class="nc">LocalDate</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="c1">// 9. 便捷规则构建器: 在渲染模型属性时使用字符串替换LocalDate，使用type参数替换泛型类型。</span>
         <span class="o">.</span><span class="na">genericModelSubstitutes</span><span class="o">(</span><span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
         <span class="o">.</span><span class="na">alternateTypeRules</span><span class="o">(</span>
             <span class="n">newRule</span><span class="o">(</span><span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">DeferredResult</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
                 <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">ResponseEntity</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)),</span>
                 <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)))</span> <span class="c1">// 10. 带T的ResponseEntity&lt;T&gt; alternateTypeRules()允许更复杂的自定义规则。该示例通常将DeferredResult&lt;ResponseEntity&lt;T&gt;&gt;替换为T。</span>
-        <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="c1">// 11. 指示是否需要使用默认http响应代码的标志。</span>
-        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="c1">// 12. 允许全局覆盖不同http方法的响应消息。在本例中，我们覆盖了所有GET请求…的错误代码500...</span>
+        <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span> <span class="c1">// 11. 是否需要使用默认http响应代码的标志。</span>
+        <span class="o">.</span><span class="na">globalResponseMessage</span><span class="o">(</span><span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span> <span class="c1">// 12. 允许全局覆盖不同http方法的响应消息。这个示例里覆盖了所有GET请求…的错误代码500...</span>
             <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ResponseMessageBuilder</span><span class="o">()</span>
                 <span class="o">.</span><span class="na">code</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
                 <span class="o">.</span><span class="na">message</span><span class="o">(</span><span class="s">"500 message"</span><span class="o">)</span>
-                <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"Error"</span><span class="o">))</span> <span class="c1">// 13. 并指示它将使用响应模型错误(将在其他地方定义)。</span>
+                <span class="o">.</span><span class="na">responseModel</span><span class="o">(</span><span class="k">new</span> <span class="nc">ModelRef</span><span class="o">(</span><span class="s">"Error"</span><span class="o">))</span> <span class="c1">// 13. 表示它会使用响应模型错误(将在其他地方定义)。</span>
                 <span class="o">.</span><span class="na">build</span><span class="o">()))</span>
         <span class="o">.</span><span class="na">securitySchemes</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span><span class="n">apiKey</span><span class="o">()))</span> <span class="c1">// 14. 设置用于保护API的安全方案</span>
-        <span class="o">.</span><span class="na">securityContexts</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span><span class="n">securityContext</span><span class="o">()))</span> <span class="c1">// 15. 提供全局设置操作的安全上下文的方法。这里的想法是，我们提供一种方法来选择要由指定的安全方案之一保护的操作。 </span>
+        <span class="o">.</span><span class="na">securityContexts</span><span class="o">(</span><span class="n">newArrayList</span><span class="o">(</span><span class="n">securityContext</span><span class="o">()))</span> <span class="c1">// 15. 提供全局设置操作的安全上下文的方法。我们提供一种方法来选择要由指定的安全方案之一保护的操作。 </span>
         <span class="o">.</span><span class="na">enableUrlTemplating</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="c1">// 21. 允许全局配置默认路径/请求/标头参数，这些参数对于api的每个其余操作都是通用的，但在spring控制器方法签名中不需要（例如，身份验证信息）。</span>
         <span class="o">.</span><span class="na">globalOperationParameters</span><span class="o">(</span> <span class="c1">// 22. 此处添加的参数将是生成的swagger规范中每个API操作的一部分。根据安全性的设置方式，使用的标头的名称可能需要不同。覆盖此值是覆盖默认行为的一种方式。</span>
             <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">ParameterBuilder</span><span class="o">()</span>
@@ -819,30 +821,26 @@
 <h3 id="32-配置说明">3.2. 配置说明</h3>
 
 <blockquote>
-  <p>这个库广泛使用<a href="https://github.com/google/guava">谷歌的Guava库</a>。例如，当您看到newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。</p>
+  <p>这个库广泛使用<a href="https://github.com/google/guava">谷歌的Guava库</a>。例如，newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。</p>
 </blockquote>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//This guava code snippet</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//这是guava 代码片段</span>
 <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Something</span><span class="o">&gt;</span> <span class="n">guavaList</span> <span class="o">=</span> <span class="n">newArrayList</span><span class="o">(</span><span class="k">new</span> <span class="nc">Something</span><span class="o">());</span>
 
-<span class="c1">//... is equivalent to</span>
+<span class="c1">//... 等价于</span>
 <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Something</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Something</span><span class="o">());</span>
 </code></pre></div></div>
 
-<p>有很多更多的选项可以配置摘要。这应该会提供一个良好的开端。</p>
+<p>有很多可以配置Docket选项，这会是不错的开始。</p>
 
 <h3 id="33-springfox-spring-data-rest">3.3. Springfox Spring Data Rest</h3>
 
 <blockquote>
-  <p>这还在孵化中。</p>
+  <p>还在孵化中。</p>
 </blockquote>
 
-<p>为了使用它。</p>
-
-<ol>
-  <li>添加springfox-data-rest依赖项。</li>
-</ol>
+<p>如果需要使用，请添加springfox-data-rest依赖</p>
 
 <h4 id="331-gradle">3.3.1. Gradle</h4>
 
@@ -877,7 +875,9 @@
 
 <h4 id="34-springfox对jsr-303的支持">3.4. Springfox对JSR-303的支持</h4>
 
-<p>在2.3.2以上的版本中，添加了对bean验证注释的支持，特别是对@NotNull、@Min、@Max和@Size。</p>
+<p>在2.3.2以上的版本中，添加了对bean验证注解的支持，特别是对@NotNull、@Min、@Max和@Size。</p>
+
+<p>如果需要使用，请添加springfox-data-rest依赖</p>
 
 <p>为了使用它。</p>
 
@@ -905,8 +905,7 @@
 
 <h4 id="343-java-config">3.4.3. java config</h4>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//For java config</span>
-<span class="nd">@Import</span><span class="o">({</span> <span class="o">...</span> <span class="n">springfox</span><span class="o">.</span><span class="na">bean</span><span class="o">.</span><span class="na">validators</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">BeanValidatorPluginsConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">...})</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Import</span><span class="o">({</span> <span class="o">...</span> <span class="n">springfox</span><span class="o">.</span><span class="na">bean</span><span class="o">.</span><span class="na">validators</span><span class="o">.</span><span class="na">configuration</span><span class="o">.</span><span class="na">BeanValidatorPluginsConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="o">...})</span>
 </code></pre></div></div>
 
 <h4 id="344-xml-config">3.4.4. xml config</h4>
@@ -918,14 +917,14 @@
 
 <h3 id="35-springfox-swagger-ui">3.5. Springfox Swagger UI</h3>
 
-<p>springfox-swagger-ui <a href="http://www.webjars.org/">web jar</a>附带<a href="https://github.com/swagger-api/swagger-ui">swagger UI</a>。要将其包含在标准Spring Boot应用程序中，您可以按如下方式添加依赖项：</p>
+<p>springfox-swagger-ui <a href="http://www.webjars.org/">web jar</a>附带<a href="https://github.com/swagger-api/swagger-ui">swagger UI</a>。要将其包含在标准Spring Boot应用程序中，可以按如下方式添加依赖项：</p>
 
 <div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dependencies</span> <span class="o">{</span>
     <span class="n">compile</span> <span class="s1">'io.springfox:springfox-swagger-ui:2.9.2'</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点/swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面http://localhost:8080/swagger-ui.html</p>
+<p>引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点 /swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面 http://localhost:8080/swagger-ui.html</p>
 
 <p><img src="https://springfox.github.io/springfox/docs/current/images/springfox-swagger-ui.png" alt="" /></p>
 
@@ -1114,7 +1113,7 @@
   +------------------------------------------+----------------------------------------------+
   |                                  springfox-spi                                          |
   |                                                                                         |
-  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注释处理器 		          |
+  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注解处理器 		          |
   +------------------------------------------+----------------------------------------------+
                                              |
                                              |
@@ -1131,7 +1130,7 @@
         +------------------------------------+------------------------------------+
         |                         springfox-swagger-common                        |
         |                                                                         |
-        |                 识别不同的swagger注释的常见的swagger特定扩展                 |
+        |                 识别不同的swagger注解的常见的swagger特定扩展                 |
         +----------+--------------------------------------------------------------+
                    ^                          ^                        ^
         +----------+---------+     +----------+---------+     +-----...
@@ -1148,7 +1147,7 @@
 
 <p>Springfox同时支持版本<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md">1.2</a>和版本<a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md">2.0</a>的<a href="http://swagger.io/">Swagger</a>规范。如果可以，Swagger 2.0规范更可取。</p>
 
-<p>由swagger-core提供的<a href="https://github.com/swagger-api/swagger-core/wiki/Annotations">swagger-core annotations</a> 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注释，并且会优先使用这些注释而不是推断的默认值。</p>
+<p>由swagger-core提供的<a href="https://github.com/swagger-api/swagger-core/wiki/Annotations">swagger-core annotations</a> 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注解，并且会优先使用这些注解而不是推断的默认值。</p>
 
 <h3 id="51-swagger-12-vs-swagger-20">5.1. Swagger 1.2 vs Swagger 2.0</h3>
 
@@ -1160,9 +1159,9 @@
 
 <h3 id="52-从-swagger-springmvc-进行迁移">5.2. 从 swagger-springmvc 进行迁移?</h3>
 
-<p>以下是帮助您从1.0.2过渡到2.0的<a href="https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md">指南</a>。</p>
+<p>以下是帮助你从1.0.2过渡到2.0的<a href="https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md">指南</a>。</p>
 
-<p>您可以在<a href="https://github.com/springfox/springfox/blob/v1.0.2/README.md">此处</a>找到传统文档。</p>
+<p>你可以在<a href="https://github.com/springfox/springfox/blob/v1.0.2/README.md">此处</a>找到传统文档。</p>
 
 <h3 id="53-springfox配置和演示应用程序">5.3. Springfox配置和演示应用程序</h3>
 
@@ -1170,9 +1169,9 @@
 
 <h2 id="6-配置springfox">6. 配置Springfox</h2>
 
-<p>要启用对swagger规范1.2的支持，请使用@EnableSwagger注释。</p>
+<p>要启用对swagger规范1.2的支持，请使用@EnableSwagger注解。</p>
 
-<p>要启用对swagger规范2.0的支持，请使用@EnableSwagger2注释。</p>
+<p>要启用对swagger规范2.0的支持，请使用@EnableSwagger2注解。</p>
 
 <p>为了记录服务，我们使用了Docket。这样更符合事实，即表达文档的内容与文档呈现的格式无关。</p>
 
@@ -1190,7 +1189,7 @@
     <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span>
             <span class="o">.</span><span class="na">groupName</span><span class="o">(</span><span class="s">"business-api"</span><span class="o">)</span>
             <span class="o">.</span><span class="na">select</span><span class="o">()</span>
-               <span class="c1">//忽略使用@CustomIgnore注释的控制器</span>
+               <span class="c1">//忽略使用@CustomIgnore注解的控制器</span>
               <span class="o">.</span><span class="na">apis</span><span class="o">(</span><span class="n">not</span><span class="o">(</span><span class="n">withClassAnnotation</span><span class="o">(</span><span class="nc">CustomIgnore</span><span class="o">.</span><span class="na">class</span><span class="o">))</span> <span class="c1">//按RequestHandler选择</span>
               <span class="o">.</span><span class="na">paths</span><span class="o">(</span><span class="n">paths</span><span class="o">())</span> <span class="c1">// 和按路径</span>
               <span class="o">.</span><span class="na">build</span><span class="o">()</span>
@@ -1217,11 +1216,11 @@
 
 <p>配置对象映射器的一种简单方法是监听<code class="language-plaintext highlighter-rouge">ObjectMapperConfiguring</code>事件。无论是否有自定义的ObjectMapper与相应的MappingJackson2HttpMessageConverter配合使用，库中始终有一个已配置的ObjectMapper，该ObjectMapper是为序列化swagger 1.2和swagger 2.0类型而自定义的。</p>
 
-<p>为此，实现ApplicationListener<ObjectMapperConfiguring>接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将特定于应用程序的定制应用于正在运行的每个ObjectMapper。</ObjectMapperConfiguring></p>
+<p>为此，实现ApplicationListener<ObjectMapperConfiguring>接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将该定制应用于正在运行的每ObjectMapper。</ObjectMapperConfiguring></p>
 
-<p>如果您在应用程序启动期间遇到NullPointerException(<a href="https://github.com/springfox/springfox/issues/635">像这个问题</a>)。这很可能是因为<code class="language-plaintext highlighter-rouge">WebMvcConfigurerAdapter</code>不工作。只有当@EnableWebMvc<a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html">注释存在</a>时，才会加载这些适配器，尤其是在非Spring-boot场景中。</p>
+<p>如果在应用程序启动期间遇到NullPointerException(<a href="https://github.com/springfox/springfox/issues/635">像这个问题</a>)。这很可能是因为<code class="language-plaintext highlighter-rouge">WebMvcConfigurerAdapter</code>没有工作。只有<a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html">存在@EnableWebMvc注解</a>时，才会加载这些适配器，尤其是在非Spring-boot场景中。</p>
 
-<p>如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注释，因为框架会自动检测Web MVC的使用情况并根据需要进行自我配置。在此场景中，如果应用程序中存在@EnableWebMvc，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。</p>
+<p>如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注解，因为框架会自动检测Web MVC的使用情况并根据需要进行自动配置。在此场景中，如果应用中存在@EnableWebMvc注解，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。</p>
 
 <p>使用该库需要注意的是，它依赖Jackson进行序列化，更重要的是依赖ObjectMapper。使用gson序列化时出现的<a href="http://stackoverflow.com/a/30220562/19219">以下问题</a>就很能说明问题。</p>
 
@@ -1288,7 +1287,7 @@
 
 <h3 id="63-配置启动">6.3. 配置启动</h3>
 
-<p>如果您想延迟Sprringfox的启动，您可以选择将自动启动设置为false。要使用的属性是<code class="language-plaintext highlighter-rouge">springfox.document-start</code>，它可以作为-D jvm 参数传入，也可以通过<code class="language-plaintext highlighter-rouge">application ation.yml/properties</code>文件中的属性传入。</p>
+<p>如果想延迟Sprringfox的启动，可以选择将自动启动设置为false。要使用的属性是<code class="language-plaintext highlighter-rouge">springfox.document-start</code>，它可以作为-D jvm 参数传入，也可以通过<code class="language-plaintext highlighter-rouge">application ation.yml/properties</code>文件中的属性传入。</p>
 
 <p><em>表3. 启动属性</em></p>
 
@@ -1317,9 +1316,9 @@
 
 <h3 id="64-通过属性覆盖描述">6.4. 通过属性覆盖描述</h3>
 
-<p>添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义<code class="language-plaintext highlighter-rouge">applation.properties</code>、<code class="language-plaintext highlighter-rouge">application.yml</code>文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，<code class="language-plaintext highlighter-rouge">@ApiModelProperty(value=“${property1.description}”)</code>将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。</p>
+<p>添加了对解析属性源中的属性以替换某些注解中的表达式的支持。如果要使用它，只需在类路径中定义<code class="language-plaintext highlighter-rouge">applation.properties</code>、<code class="language-plaintext highlighter-rouge">application.yml</code>文件或属性文件中的属性，并使用你希望在已知注解中替换的值即可。例如，<code class="language-plaintext highlighter-rouge">@ApiModelProperty(value=“${property1.description}”)</code>将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。</p>
 
-<p>当前支持的批注列表按批注内的优先顺序排列：</p>
+<p>当前支持的注解列表按注解内的优先顺序排列：</p>
 
 <p><em>表4. 描述 解决 目标</em></p>
 
@@ -1427,7 +1426,7 @@
 
 <h3 id="66-docket-xml-配置">6.6. Docket XML 配置</h3>
 
-<p>要使用该插件，您必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。</p>
+<p>要使用该插件，你必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。</p>
 
 <p><em>Xml Configuration</em></p>
 
@@ -1461,8 +1460,8 @@
 <h3 id="67-docket-spring-java-配置">6.7. Docket Spring Java 配置</h3>
 
 <ul>
-  <li>使用<code class="language-plaintext highlighter-rouge">@EnableSwagger</code>或<code class="language-plaintext highlighter-rouge">@EnableSwagger2</code>注释。</li>
-  <li>使用Springs@Bean注释定义一个或多个docket实例。</li>
+  <li>使用<code class="language-plaintext highlighter-rouge">@EnableSwagger</code>或<code class="language-plaintext highlighter-rouge">@EnableSwagger2</code>注解。</li>
+  <li>使用Springs@Bean注解定义一个或多个docket实例。</li>
 </ul>
 
 <p><em>Java 配置</em></p>
@@ -1488,7 +1487,7 @@
 
 <h3 id="68-支持来自属性文件查找的文档">6.8. 支持来自属性文件查找的文档</h3>
 
-<p>从<code class="language-plaintext highlighter-rouge">2.7.0</code>开始，我们支持在给定属性的情况下从以下注释中查找描述，就像属性占位符解析值注释<code class="language-plaintext highlighter-rouge">@value(${key})</code>一样。以下注释属性支持描述解析。</p>
+<p>从<code class="language-plaintext highlighter-rouge">2.7.0</code>开始，我们支持在给定属性的情况下从以下注解中查找描述，就像属性占位符解析值注解<code class="language-plaintext highlighter-rouge">@value(${key})</code>一样。以下注解属性支持描述解析。</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">@ApiParam#value()</code></li>
@@ -1546,7 +1545,7 @@
 
 <p>① : @ApiModelProperty#value() 示例</p>
 
-<p>要通过外部属性提供这些属性，只需将其添加到您的应用程序属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。</p>
+<p>要通过外部属性提供这些属性，只需将其添加到应用属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。</p>
 
 <p><em>application.properties</em></p>
 
@@ -1571,7 +1570,7 @@
 
 <p>默认情况下，当在Swager2.0模式下使用Springfox时，<code class="language-plaintext highlighter-rouge">operationID</code>值将使用以下结构呈现：“[java_method_name_here]Using[HTTP_verb_here]”.。例如，如果有一个方法getPets()连接到HTTP get谓词，Springfox将为operation Id呈现<code class="language-plaintext highlighter-rouge">getPetsUsingGET</code>。</p>
 
-<p>给定此带注释的方法…在方法上的标准注释</p>
+<p>给定此带注解的方法…在方法上的标准注解</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">""</span><span class="o">)</span> 
 <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/pets"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span> 
@@ -1597,9 +1596,9 @@
 
 <p>自定义Operation Id的值</p>
 
-<p>如果希望覆盖Springfox呈现的默认<code class="language-plaintext highlighter-rouge">operationId</code>，可以通过在<code class="language-plaintext highlighter-rouge">@ApiOperation</code>注释中提供的<code class="language-plaintext highlighter-rouge">nickname</code>来实现。</p>
+<p>如果希望覆盖Springfox呈现的默认<code class="language-plaintext highlighter-rouge">operationId</code>，可以通过在<code class="language-plaintext highlighter-rouge">@ApiOperation</code>注解中提供的<code class="language-plaintext highlighter-rouge">nickname</code>来实现。</p>
 
-<p>给定此带注释的方法…nickname覆盖默认operationId</p>
+<p>给定此带注解的方法…nickname覆盖默认operationId</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">""</span><span class="o">,</span> <span class="n">nickname</span> <span class="o">=</span> <span class="s">"getMeAllThePetsPlease"</span><span class="o">)</span>
 <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/pets"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
@@ -1623,7 +1622,7 @@
 
 <h4 id="683-更改泛型类型的命名方式">6.8.3. 更改泛型类型的命名方式</h4>
 
-<p>默认情况下，带有泛型的类型将标记为‘\u00ab’(«)、‘\u00bb’(»)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。您可以通过实现自己的<code class="language-plaintext highlighter-rouge">GenericTypeNamingStrategy</code>来重写此行为。例如，如果您希望<code class="language-plaintext highlighter-rouge">List&lt;String&gt;</code>编码为‘ListOfString’，而<code class="language-plaintext highlighter-rouge">Map&lt;String，Object&gt;</code>编码为‘MapOfStringAndObject’，您可以在插件定制过程中将<code class="language-plaintext highlighter-rouge">forCodeGeneration</code>定制选项设置为true：</p>
+<p>默认情况下，带有泛型的类型将标记为‘\u00ab’(«)、‘\u00bb’(»)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。可以通过实现自己的<code class="language-plaintext highlighter-rouge">GenericTypeNamingStrategy</code>来重写此行为。例如，如果希望<code class="language-plaintext highlighter-rouge">List&lt;String&gt;</code>编码为‘ListOfString’，而<code class="language-plaintext highlighter-rouge">Map&lt;String，Object&gt;</code>编码为‘MapOfStringAndObject’，你可以在插件定制过程中将<code class="language-plaintext highlighter-rouge">forCodeGeneration</code>定制选项设置为true：</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">docket.forCodeGeneration(</span><span class="kc">true</span><span class="err">|</span><span class="kc">false</span><span class="err">);</span><span class="w">
 </span></code></pre></div></div>
@@ -1637,9 +1636,9 @@
 <p>SpringFox中高级别的安全规定没有深入到代码中，而是具有所有协同工作的不同部分。</p>
 
 <ul>
-  <li>API本身需要受到保护。为了简单起见，这是通过使用Spring安全性来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。</li>
+  <li>API本身需要受到保护。为了简单起见，这是通过使用Spring Security来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。</li>
   <li>描述用于保护API的技术的安全方案。Spring fox支持swagger规范支持的任何方案(apiKey、BasicAuth和OAuth2(某些配置文件))。</li>
-  <li>最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在您的示例中，您遗漏了拼图的最后一块，即安全上下文，请<a href="https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot">参见15</a>。</li>
+  <li>最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在你的示例中，可能遗漏了安全上下文，请<a href="https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot">参见15</a>。</li>
 </ul>
 
 <h3 id="611-示例应用程序">6.11. 示例应用程序</h3>
@@ -1666,7 +1665,7 @@
 
 <p>任何可用的插件或扩展挂钩都<a href="https://github.com/springfox/springfox/tree/master/springfox-spi/src/main/java/springfox/documentation/spi">可以在<code class="language-plaintext highlighter-rouge">spi</code>模块中使用</a>。在SPI模块中，任何以<code class="language-plaintext highlighter-rouge">*plugin</code>结尾的内容通常都是一个扩展点，供库使用者使用。</p>
 
-<p>Bean验证(JSR-303)是<a href="https://github.com/springfox/springfox/tree/master/springfox-bean-validators">支持Bean验证</a>的一个很好的例子。它相当简单且范围很小，应该可以让您了解如何创建插件。它是一组作用于<code class="language-plaintext highlighter-rouge">ModelProperty</code>插件，因此它们是<code class="language-plaintext highlighter-rouge">ModelPropertyBuilderPlugin</code>的实现。</p>
+<p>Bean验证(JSR-303)是<a href="https://github.com/springfox/springfox/tree/master/springfox-bean-validators">支持Bean验证</a>的一个很好的例子。它相当简单且范围很小，应该可以让你了解如何创建插件。它是一组作用于<code class="language-plaintext highlighter-rouge">ModelProperty</code>插件，因此它们是<code class="language-plaintext highlighter-rouge">ModelPropertyBuilderPlugin</code>的实现。</p>
 
 <h3 id="92-可扩展的插件">9.2. 可扩展的插件</h3>
 
@@ -1715,7 +1714,7 @@
     </tr>
     <tr>
       <td>DefaultsProviderPlugin</td>
-      <td>提供您自己的默认值</td>
+      <td>提供自定义默认值</td>
     </tr>
     <tr>
       <td>DocumentationPlugin</td>
@@ -1731,7 +1730,7 @@
     </tr>
     <tr>
       <td>OperationModelsProviderPlugin</td>
-      <td>用于提供其他模型，您可以使用不同的方式加载这些模型</td>
+      <td>用于提供其他模型，可以使用不同的方式加载这些模型</td>
     </tr>
     <tr>
       <td>ParameterBuilderPlugin</td>
@@ -1751,7 +1750,7 @@
     <p>实现上述插件接口之一</p>
   </li>
   <li>
-    <p>为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注释)顶部的层信息。因此，您要编写的顺序将需要在末尾分层信息。</p>
+    <p>为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注解)顶部的层信息。因此，你要编写的顺序将需要在末尾分层信息。</p>
   </li>
   <li>
     <p>每个插件都有</p>
@@ -1970,7 +1969,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>① : 使用<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java"><code class="language-plaintext highlighter-rouge">@VersionApi</code></a>注释的参数</p>
+<p>① : 使用<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java"><code class="language-plaintext highlighter-rouge">@VersionApi</code></a>注解的参数</p>
 
 <p>然后，我们创建插件<a href="https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApiReader.java">VersionApiReader.java</a>来提供自定义参数信息。</p>
 
@@ -2129,7 +2128,7 @@
     </tr>
     <tr>
       <td>AlternateTypeRuleConvention</td>
-      <td>以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。<a href="https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java">JacksonSerializerConvention</a>是我们如何将规则应用于使用JsonSerialize/JsonResourialize注释的类型的示例</td>
+      <td>以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。<a href="https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java">JacksonSerializerConvention</a>是我们如何将规则应用于使用JsonSerialize/JsonResourialize注解的类型的示例</td>
       <td>2.7.0</td>
     </tr>
     <tr>
@@ -2244,10 +2243,10 @@
 
 <h3 id="102-在同一swagger-ui中聚合多个swagger规范">10.2. 在同一swagger-ui中聚合多个swagger规范</h3>
 
-<p>您需要创建实现<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26"><code class="language-plaintext highlighter-rouge">SwaggerResourcesProvider</code></a>接口的bean。通常，您必须创建一个使用多个<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38">InMemorySwaggerResourcesProvider</a>的复合bean，并向其中添加您自己的json文件。</p>
+<p>你需要创建实现<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26"><code class="language-plaintext highlighter-rouge">SwaggerResourcesProvider</code></a>接口的bean。通常，你必须创建一个使用多个<a href="https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38">InMemorySwaggerResourcesProvider</a>的复合bean，并向其中添加自己的json文件。</p>
 
 <blockquote>
-  <p>您需要使这个新bean成为@Primary bean。否则，您将得到一个关于模棱两可的bean的异常。</p>
+  <p>你需要使这个新bean成为@Primary bean。否则会得到一个关于模棱两可的bean的异常。</p>
 </blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
@@ -2307,25 +2306,25 @@
 
 <h2 id="12-常见问题的解答">12. 常见问题的解答</h2>
 
-<p><strong>问：为什么Sprringfox忽略控制器方法返回值中的http状态代码？</strong></p>
+<h3 id="为什么sprringfox忽略控制器方法返回值中的http状态代码"><strong>为什么Sprringfox忽略控制器方法返回值中的http状态代码？</strong></h3>
 
-<p>答：<a href="https://github.com/springfox/springfox/issues/822#issuecomment-117372109">Reference #822</a></p>
+<p><a href="https://github.com/springfox/springfox/issues/822#issuecomment-117372109">Reference #822</a></p>
 
-<p><strong>问：swagger-ui和springfox-swagger-ui之间有什么关系？</strong></p>
+<h3 id="swagger-ui和springfox-swagger-ui之间有什么关系"><strong>swagger-ui和springfox-swagger-ui之间有什么关系？</strong></h3>
 
-<p>答：这可能会让人有点困惑：</p>
+<p>这可能会让人有点困惑：</p>
 
 <ul>
   <li>Savagger Spec是一种规格。</li>
   <li>swagger Api-支持JAX-RS、RESTlet、Jersey等规范实现。</li>
   <li>一般说来，Springfox库是该规范的另一个实现，专注于基于Spring的生态系统。</li>
   <li>js和swagger-ui-是javascript中的客户端库，可以使用swagger规范。</li>
-  <li>springfox-swagger-ui-您所指的那个，只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。</li>
+  <li>springfox-swagger-ui 只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。</li>
 </ul>
 
-<p><strong>问：我用的是gson，不用的是jackson，我该怎么办？</strong></p>
+<h3 id="我用的是gson不用的是jackson我该怎么办"><strong>我用的是gson，不用的是jackson，我该怎么办？</strong></h3>
 
-<p>答：感谢<a href="https://github.com/chrishuttonch">@chrishuttonch</a>描述了<a href="https://github.com/springfox/springfox/issues/867">此问题</a>的解决方案</p>
+<p>感谢<a href="https://github.com/chrishuttonch">@chrishuttonch</a>描述了<a href="https://github.com/springfox/springfox/issues/867">此问题</a>的解决方案</p>
 
 <blockquote>
   <p>我打开了excludeFieldsWithoutExposeAnnotation()，这意味着没有任何对象会生成任何数据。为了解决这个问题，我为以下类创建了几个序列化程序：</p>
@@ -2340,9 +2339,9 @@
 </code></pre></div>  </div>
 </blockquote>
 
-<p><strong>问：在springboot应用中ObjectMapper会出错吗？</strong></p>
+<h3 id="在springboot应用中objectmapper会出错吗"><strong>在springboot应用中ObjectMapper会出错吗？</strong></h3>
 
-<p>答：您可能遇到以下问题之一</p>
+<p>你可能遇到以下问题之一</p>
 
 <ol>
   <li>
@@ -2353,13 +2352,537 @@
     </blockquote>
   </li>
   <li>
-    <p>对象映射器自定义设置不起作用吗？</p>
+    <p>对象映射器自定义设5置不起作用吗？</p>
 
     <blockquote>
       <p>有时有多个<code class="language-plaintext highlighter-rouge">ObjectMapper</code>在运行，这可能导致自定义无法工作<code class="language-plaintext highlighter-rouge">HttpMessageConverters</code>中的Spring Boot首先添加Spring Boot配置的<code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>，然后添加来自Spring MVC的默认<code class="language-plaintext highlighter-rouge">MappingJackson2HttpMessageConverter</code>。这会导致<code class="language-plaintext highlighter-rouge">ObjectMapperConfiguring</code>事件触发两次，第一次是针对已配置的转换器(实际使用的)，然后是针对默认转换器。所以当你F.E.。设置自定义属性命名策略，然后在<code class="language-plaintext highlighter-rouge">ObjectMapperBeanPropertyNamingStrategy</code>中，这将被第二个事件覆盖。以下代码修复了此问题：</p>
     </blockquote>
   </li>
 </ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyWebAutoConfiguration</span> <span class="kd">extends</span> <span class="nc">WebMvcConfigurerAdapter</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">extendMessageConverters</span><span class="o">(</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">HttpMessageConverter</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">converters</span><span class="o">)</span> <span class="o">{</span>
+        <span class="nc">ObjectMapper</span> <span class="n">objectMapper</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(</span><span class="nc">HttpMessageConverter</span> <span class="n">converter</span> <span class="o">:</span> <span class="n">converters</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">converter</span> <span class="k">instanceof</span> <span class="nc">MappingJackson2HttpMessageConverter</span><span class="o">)</span> <span class="o">{</span>
+                <span class="nc">MappingJackson2HttpMessageConverter</span> <span class="n">jacksonConverter</span> <span class="o">=</span>
+                        <span class="o">((</span><span class="nc">MappingJackson2HttpMessageConverter</span><span class="o">)</span> <span class="n">converter</span><span class="o">);</span>
+
+                <span class="k">if</span> <span class="o">(</span><span class="n">objectMapper</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">objectMapper</span> <span class="o">=</span> <span class="n">jacksonConverter</span><span class="o">.</span><span class="na">getObjectMapper</span><span class="o">();</span>
+                <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                    <span class="n">jacksonConverter</span><span class="o">.</span><span class="na">setObjectMapper</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="如何更快速使用java8类型localdatetime"><strong>如何更快速使用Java8类型。LocalDateTime？</strong></h3>
+
+<p>配置日期的最简单方法是通过<code class="language-plaintext highlighter-rouge">Docket#directModelSubstitute(LocalDateTime.class，String.class)</code>。如果这些是符合字符串格式的ISO 8601日期，即<code class="language-plaintext highlighter-rouge">yyyy-MM-dd’T’HH:mm’Z'</code>。但是，不会有任何格式或验证信息。</p>
+
+<blockquote>
+  <p>使用<code class="language-plaintext highlighter-rouge">java.sql.Date</code>提高日期精度，使用<code class="language-plaintext highlighter-rouge">java.util.Date</code>提高日期时间精度</p>
+</blockquote>
+
+<p>将“Date”和“DateTime”类型正确映射到其相应的夸张类型的方法：</p>
+
+<ul>
+  <li>
+    <p>将“date”类型(java.util.LocalDate，org.joda.time.LocalDate)替换为java.sql.Date。</p>
+  </li>
+  <li>
+    <p>替换“DateTime”类型(java.util.ZonedDateTime，org.joda.time.LocalDateTime，…。)由java.util.Date.</p>
+  </li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docket</span>
+<span class="o">.</span><span class="na">directModelSubstitute</span><span class="o">(</span><span class="nc">LocalDate</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">sql</span><span class="o">.</span><span class="na">Date</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="o">.</span><span class="na">directModelSubstitute</span><span class="o">(</span><span class="nc">LocalDateTime</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Date</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</code></pre></div></div>
+
+<h3 id="如何使用modelattribute注解它似乎不会将模型属性呈现为标量属性"><strong>如何使用<code class="language-plaintext highlighter-rouge">@ModelAttribute</code>注解。它似乎不会将模型属性呈现为标量属性？</strong></h3>
+
+<p>为了推断<code class="language-plaintext highlighter-rouge">@ModelAttribute</code>注解类型，属性需要是bean属性。如果意图是不变的并且传入一个对象，首选的方法是将其设为请求体，在这种情况下，不变性将遵循Jackson制定的规则，以确定什么构成请求对象的请求“视图”。</p>
+
+<p>getters/setter是一种简洁的方式，可以指示操作中可以包含哪些值。虽然这在具有一层嵌套的普通模型中可能不明显，但当我们意识到模型属性可以任意嵌套时，设计选择就会变得清晰起来。请考虑(为简洁起见，使用C#编写伪代码)</p>
+
+<div class="language-c# highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Person</span> <span class="p">{</span><span class="n">String</span> <span class="n">firstName</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span><span class="k">set</span><span class="p">;}</span>
+<span class="n">String</span> <span class="n">lastName</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span><span class="k">set</span><span class="p">;}</span>
+<span class="n">Category</span> <span class="n">category</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span><span class="k">set</span><span class="p">;}</span>
+<span class="n">Category</span> <span class="p">{</span><span class="n">String</span> <span class="n">name</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span><span class="k">set</span><span class="p">;}</span>
+<span class="n">String</span> <span class="n">description</span> <span class="p">{</span><span class="k">get</span><span class="p">;}</span>
+</code></pre></div></div>
+
+<p>因此可以设置属性：</p>
+
+<ul>
+  <li>firstName</li>
+  <li>lastName</li>
+  <li>category.name</li>
+</ul>
+
+<p>现在我们不希望类别能够通过操作设置描述，我们如何控制/指定呢？这使得很难推断对象中的哪些字段不打算进行变异。这就是我们选择将其限制为公开getter和setter的对象的原因。</p>
+
+<blockquote>
+  <p>我知道Spring也支持字段，如果找不到setter，它将退回到字段。</p>
+</blockquote>
+
+<h3 id="我们应该如何解决可作为bean使用的多个对象映射器特别是在使用spring-hateoas时"><strong>我们应该如何解决可作为bean使用的多个对象映射器，特别是在使用Spring-hateoas时？</strong></h3>
+
+<p>我们的想法是提供一个@Primary ObjectMapper。根据@Prabhat1790在 <a href="https://github.com/springfox/springfox/issues/890">issue #890</a>中提供的答案</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">SPRING_HATEOAS_OBJECT_MAPPER</span> <span class="o">=</span> <span class="s">"_halObjectMapper"</span><span class="o">;</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="nd">@Qualifier</span><span class="o">(</span><span class="no">SPRING_HATEOAS_OBJECT_MAPPER</span><span class="o">)</span>
+  <span class="kd">private</span> <span class="nc">ObjectMapper</span> <span class="n">springHateoasObjectMapper</span><span class="o">;</span>
+
+  <span class="nd">@Primary</span>
+  <span class="nd">@Bean</span>
+  <span class="nd">@Order</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="nc">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span><span class="o">)</span>
+  <span class="nd">@DependsOn</span><span class="o">(</span><span class="no">SPRING_HATEOAS_OBJECT_MAPPER</span><span class="o">)</span>
+  <span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">springHateoasObjectMapper</span><span class="o">;</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>将其他bean的顺序设置为最低优先级。</p>
+
+<h3 id="如何使用此库聚合来自多个服务的启用swagger的资源"><strong>如何使用此库聚合来自多个服务的启用swagger的资源？</strong></h3>
+
+<p>关于如何做到这一点的合乎逻辑的解释可以在<a href="https://groups.google.com/forum/#!searchin/swagger-swaggersocket/multiple/swagger-swaggersocket/g8fgSGUCrYs/A8Ms_lFOoN4J">swagger google group</a>中找到。此外，<a href="https://github.com/springfox/springfox/issues/1001#issuecomment-147609243">这条评论</a>还进一步讨论了做这件事的问题。</p>
+
+<h3 id="为什么我的api参数标记为requiredfalse">为什么我的API参数标记为required=false？</h3>
+
+<p>这是因为插件的工作方式以及它们的优先级层信息的方式。</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">@PathVariables</code>始终标记为必需。</li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiParam</code>是一个可选的注解，用于描述其他元信息，如描述等。</li>
+  <li><code class="language-plaintext highlighter-rouge">@ApiParam#Required()</code>默认为false，除非你将其设置为true。</li>
+</ul>
+
+<p>Springfox使用插件来分层信息。有一组Spring特定的插件将推断的值应用于内部服务模型。与swagger注解相关的元数据位于Spring-MVC描述之上。根据定义，插件不知道也不应该知道彼此或之前推断的值(你的情况下是需要属性)。</p>
+
+<p>因此，如果你选择使用<code class="language-plaintext highlighter-rouge">@ApiParam</code>来扩充定义，那么需要显式地将值设置为true。</p>
+
+<h3 id="例如如何写一个插件让默认所有类型都是必需的而只有一些类型不是必需的"><strong>例如，如何写一个插件，让默认所有类型都是必需的，而只有一些类型不是必需的？</strong></h3>
+
+<p>要做到这一点，你必须。</p>
+
+<ul>
+  <li>为可选添加替代类型规则 可以参阅Docket中的GenericModelSubstitutes。</li>
+  <li>实现自定义的ModelPropertyBuilderPlugin。</li>
+  <li>如果找到可选类型，则重写只读属性。请看<a href="https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/schema/ApiModelPropertyPropertyBuilder.java#L35">这里的示例</a>。</li>
+</ul>
+
+<p>记住，你需要在此插件之后触发该插件。因此，需要有根据地选择插件</p>
+
+<h3 id="为什么我的所有operation都没有显示在ui中">为什么我的所有operation都没有显示在UI中？</h3>
+
+<p>这是swagger-spec的一个已知限制。有一个办法可以解决它，但是，swagger-UI无法很好地和它合作。我有一个<a href="https://github.com/swagger-api/swagger-js/pull/541">PR</a>来解决这个问题。如果你对PR和<a href="https://github.com/swagger-api/swagger-spec/issues/291">潜在问题</a>投赞成票，那就太好了</p>
+
+<blockquote>
+  <p>该<a href="https://github.com/swagger-api/swagger-js/pull/541">PR</a>已关闭！</p>
+</blockquote>
+
+<h3 id="如何根据版本对api进行划分">如何根据版本对API进行划分？</h3>
+
+<p>摘录自 <a href="https://github.com/springfox/springfox/issues/963">issue 963</a>的解释…</p>
+
+<p>(Sprringfox)使用上下文路径作为起点。</p>
+
+<p>你真正需要做的是定义一个动态Servlet注册并创建2个docket。一个用于<strong>api</strong>，一个用于<strong>api/v2</strong>。这篇<a href="http://stackoverflow.com/questions/23049736/working-with-multiple-dispatcher-servlets-in-a-spring-application">SO post</a>可能会有帮助</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="o">...</span>
+      <span class="nc">Dynamic</span> <span class="n">servlet</span> <span class="o">=</span> <span class="n">servletContext</span><span class="o">.</span><span class="na">addServlet</span><span class="o">(</span><span class="s">"v1Dispatcher"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">DispatcherServlet</span><span class="o">(</span><span class="n">ctx1</span><span class="o">));</span>
+            <span class="n">servlet</span><span class="o">.</span><span class="na">addMapping</span><span class="o">(</span><span class="s">"/api"</span><span class="o">);</span>
+            <span class="n">servlet</span><span class="o">.</span><span class="na">setLoadOnStartup</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+      <span class="nc">Dynamic</span> <span class="n">servlet</span> <span class="o">=</span> <span class="n">servletContext</span><span class="o">.</span><span class="na">addServlet</span><span class="o">(</span><span class="s">"v2Dispatcher"</span><span class="o">,</span> <span class="k">new</span> <span class="nc">DispatcherServlet</span><span class="o">(</span><span class="n">ctx2</span><span class="o">));</span>
+            <span class="n">servlet</span><span class="o">.</span><span class="na">addMapping</span><span class="o">(</span><span class="s">"/api/v2"</span><span class="o">);</span>
+            <span class="n">servlet</span><span class="o">.</span><span class="na">setLoadOnStartup</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="如何为非sprringboot应用程序配置swagger-ui"><strong>如何为非Sprringboot应用程序配置swagger-UI？</strong></h3>
+
+<p>节选自<a href="https://github.com/springfox/springfox/issues/983">issue 983</a>…</p>
+
+<p>我可以通过将<code class="language-plaintext highlighter-rouge">dispatcherServlet</code>修改为监听/*来使其正常工作，但这会阻止为<code class="language-plaintext highlighter-rouge">swagger-ui.html</code>提供服务。要修复此问题以使<code class="language-plaintext highlighter-rouge">swagger-ui.html</code>绕过dispatcherServlet，我必须创建一个新的servlet映射：</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nt">&lt;servlet&gt;</span>
+          <span class="nt">&lt;servlet-name&gt;</span>RestServlet<span class="nt">&lt;/servlet-name&gt;</span>
+          <span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+          <span class="nt">&lt;init-param&gt;</span>
+            <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+            <span class="nt">&lt;param-value&gt;&lt;/param-value&gt;</span>
+          <span class="nt">&lt;/init-param&gt;</span>
+          <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+        <span class="nt">&lt;/servlet&gt;</span>
+
+        <span class="nt">&lt;servlet-mapping&gt;</span>
+          <span class="nt">&lt;servlet-name&gt;</span>default<span class="nt">&lt;/servlet-name&gt;</span>
+            <span class="nt">&lt;url-pattern&gt;</span>/swagger-ui.html<span class="nt">&lt;/url-pattern&gt;</span>
+        <span class="nt">&lt;/servlet-mapping&gt;</span>
+
+        <span class="nt">&lt;servlet-mapping&gt;</span>
+          <span class="nt">&lt;servlet-name&gt;</span>RestServlet<span class="nt">&lt;/servlet-name&gt;</span>
+            <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+        <span class="nt">&lt;/servlet-mapping&gt;</span>
+</code></pre></div></div>
+
+<p>还必须让Webjar通过DispatcherServlet：</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;mvc:resources</span> <span class="na">mapping=</span><span class="s">"/webjars/**"</span> <span class="na">location=</span><span class="s">"classpath:/META-INF/resources/webjars/"</span><span class="nt">/&gt;</span>
+</code></pre></div></div>
+
+<p>开始工作很麻烦，但是有效。也许有一种更好的方法可以重新映射swagger-ui.html，或者让它通过dispatcherServlet。</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">swagger-ui.html</code>是swagger-ui.html页面的名称。虽然不能更改，但可以对应用程序进行配置，以便登录到特定的URL会将浏览器重定向到真正的swagger-UI位置。</p>
+</blockquote>
+
+<p>例如，可以使用以下代码将Swagger UI移动到<code class="language-plaintext highlighter-rouge">/documentation</code>下。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addViewControllers</span><span class="o">(</span><span class="nc">ViewControllerRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+
+                <span class="n">registry</span><span class="o">.</span><span class="na">addRedirectViewController</span><span class="o">(</span><span class="s">"/documentation/v2/api-docs"</span><span class="o">,</span> <span class="s">"/v2/api-docs?group=restful-api"</span><span class="o">);</span>
+                <span class="n">registry</span><span class="o">.</span><span class="na">addRedirectViewController</span><span class="o">(</span><span class="s">"/documentation/swagger-resources/configuration/ui"</span><span class="o">,</span><span class="s">"/swagger-resources/configuration/ui"</span><span class="o">);</span>
+                <span class="n">registry</span><span class="o">.</span><span class="na">addRedirectViewController</span><span class="o">(</span><span class="s">"/documentation/swagger-resources/configuration/security"</span><span class="o">,</span><span class="s">"/swagger-resources/configuration/security"</span><span class="o">);</span>
+                <span class="n">registry</span><span class="o">.</span><span class="na">addRedirectViewController</span><span class="o">(</span><span class="s">"/documentation/swagger-resources"</span><span class="o">,</span> <span class="s">"/swagger-resources"</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addResourceHandlers</span><span class="o">(</span><span class="nc">ResourceHandlerRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+                 <span class="n">registry</span><span class="o">.</span>
+                         <span class="nf">addResourceHandler</span><span class="o">(</span><span class="s">"/documentation/swagger-ui.html**"</span><span class="o">).</span><span class="na">addResourceLocations</span><span class="o">(</span><span class="s">"classpath:/META-INF/resources/swagger-ui.html"</span><span class="o">);</span>
+                <span class="n">registry</span><span class="o">.</span>
+                        <span class="nf">addResourceHandler</span><span class="o">(</span><span class="s">"/documentation/webjars/**"</span><span class="o">).</span><span class="na">addResourceLocations</span><span class="o">(</span><span class="s">"classpath:/META-INF/resources/webjars/"</span><span class="o">);</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+
+<p>但是，它仍然需要重定向到<code class="language-plaintext highlighter-rouge">/documentation/swagger-ui.html</code>，因为路径名是<a href="https://github.com/springfox/springfox/blob/master/springfox-swagger-ui/src/web/js/springfox.js#L4">硬编码</a>的。</p>
+
+<h3 id="如何创建替换列表和数组项的规则"><strong>如何创建替换列表和数组项的规则？</strong></h3>
+
+<p>如果以下类型为…</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nc">ToSubstitute</span><span class="o">[]</span> <span class="n">array</span><span class="o">;</span>
+    <span class="nc">List</span><span class="o">&lt;</span><span class="nc">ToSubstitute</span><span class="o">&gt;</span> <span class="n">list</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>这就是需要配置规则的方式</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newRule</span><span class="o">(</span><span class="n">resolver</span><span class="o">.</span><span class="na">arrayType</span><span class="o">(</span><span class="nc">ToSubstitute</span><span class="o">),</span> <span class="n">resolver</span><span class="o">.</span><span class="na">arrayType</span><span class="o">(</span><span class="nc">Substituted</span><span class="o">)))</span>
+    <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">newRule</span><span class="o">(</span><span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">List</span><span class="o">,</span> <span class="nc">ToSubstitute</span><span class="o">),</span> <span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">List</span><span class="o">,</span> <span class="nc">Substituted</span><span class="o">)))</span>
+</code></pre></div></div>
+
+<p><strong>如何配置具有多个protocols/schemes的docket？</strong></p>
+
+<p>答：使用<code class="language-plaintext highlighter-rouge">protocols()</code>配置docket来表示支持的方案。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docket</span><span class="o">.</span><span class="na">protocols</span><span class="o">(</span><span class="n">newHashSet</span><span class="o">(</span><span class="s">"http"</span><span class="o">,</span> <span class="s">"https"</span><span class="o">))</span>
+</code></pre></div></div>
+
+<h3 id="如何在使用xml-spring配置的项目中使用sprringfox"><strong>如何在使用XML Spring配置的项目中使用Sprringfox？</strong></h3>
+
+<p>有一个演示应用程序描述了<a href="https://github.com/springfox/springfox-demos/tree/master/spring-xml-swagger">如何设置java-XML</a>配置。</p>
+
+<h3 id="如何覆盖host"><strong>如何覆盖host？</strong></h3>
+
+<p>多亏了<a href="https://github.com/springfox/springfox/pull/1011">@cbornet</a>的这份PR，这应该在V2.3中可用。它仍处于孵化阶段，但可以根据摘要配置主机名</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     <span class="n">docket</span><span class="o">.</span><span class="na">host</span><span class="o">(</span><span class="s">"http://maybe-an-api-gateway.host"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h3 id="当sprringfox尝试确定具有嵌套复杂约束的对象的模式时是否会出现无限循环"><strong>当Sprringfox尝试确定具有嵌套/复杂约束的对象的模式时，是否会出现无限循环？</strong></h3>
+
+<p>如果有递归定义的对象，我会尝试提供一种替代类型，或者甚至可以忽略有问题的类，例如使用Docket的Order。IgnarredParameterTypes(Order.class)。这通常可以在对其他对象有双向依赖关系的Hibernate域对象中找到。</p>
+
+<h3 id="tag在springfox中是如何实现的"><strong>tag在springfox中是如何实现的？</strong></h3>
+
+<p>与Operation、Model等一样属于一级结构的标记，你在Operation上看到的就是对这些tag的引用。典型的工作流是在Docket中注册tag，并使用Operation(<code class="language-plaintext highlighter-rouge">@ApiOperation</code>)/controllers(<code class="language-plaintext highlighter-rouge">@Api</code>)上的tag定义按名称指向这些注册的tag(在Docket中)。</p>
+
+<p>为了减少开发人员的模板数量，我们提供的便利就是提供一个恰好与tag名称相同的默认描述。因此，实际上我们是通过在Operation上引用一个伪tag来合成一个伪tag。</p>
+
+<p>通过在Docket上定义tag，我们引用的是你自定义的真实tag。</p>
+
+<h3 id="如果配置非引导应用程序不能按预期工作我可以尝试什么">如果配置非引导应用程序不能按预期工作，我可以尝试什么？</h3>
+
+<p>由于<a href="https://github.com/Pyohwan">@Pyohwan</a>的建议，<code class="language-plaintext highlighter-rouge">@Configuration</code>注解可能无法与<code class="language-plaintext highlighter-rouge">@EnableSwagger2</code>一起使用。所以不应该附加@Configation。因此，如果你的Configuration类使用如下所示的<code class="language-plaintext highlighter-rouge">@EnableSwagger2</code>引入了springfox配置，请尝试删除该类上的<code class="language-plaintext highlighter-rouge">@Configuration</code>，如下所示。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@EnableSwagger2</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwaggerConfig</span> <span class="o">{</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<p>并在<code class="language-plaintext highlighter-rouge">WebMvcConfigurerAdapter</code>或类似的配置类上使用<code class="language-plaintext highlighter-rouge">@Import</code>注解。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="nd">@EnableWebMvc</span>
+<span class="nd">@ComponentScan</span><span class="o">(...)</span>
+<span class="nd">@Import</span><span class="o">(</span><span class="nc">SwaggerConfig</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MvcConfig</span> <span class="kd">extends</span> <span class="nc">WebMvcConfigurerAdapter</span> <span class="o">{</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<h3 id="如何添加cors支持谢谢angakrishh">如何添加CORS支持？(谢谢<a href="https://github.com/gangakrishh">@angakrishh</a>)</h3>
+
+<p>基于<a href="https://spring.io/guides/gs/rest-service-cors/">Spring Guide</a>创建<code class="language-plaintext highlighter-rouge">WebMvcConfigurer</code>，我们可以配置请求映射以允许特定的来源。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">WebMvcConfigurer</span> <span class="nf">corsConfigurer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">WebMvcConfigurerAdapter</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nd">@Override</span>
+            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addCorsMappings</span><span class="o">(</span><span class="nc">CorsRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">registry</span><span class="o">.</span><span class="na">addMapping</span><span class="o">(</span><span class="s">"/some-request-mapping"</span><span class="o">).</span><span class="na">allowedOrigins</span><span class="o">(</span><span class="s">"http://localhost:9000"</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">};</span>
+</code></pre></div></div>
+
+<p>如果这不起作用，很可能CORS注册发生在SpringFox bean注册之前。
+要解决这个问题，我们可以注册一个CORS过滤器注册bean，它注册我们的端点。
+在下面的示例中，我们已经为所有端点注册了它。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebConfig</span> <span class="kd">extends</span> <span class="nc">WebMvcConfigurerAdapter</span> <span class="o">{</span>
+
+    <span class="c1">//https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">FilterRegistrationBean</span> <span class="nf">corsFilter</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">UrlBasedCorsConfigurationSource</span> <span class="n">source</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">UrlBasedCorsConfigurationSource</span><span class="o">();</span>
+
+        <span class="nc">CorsConfiguration</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">CorsConfiguration</span><span class="o">().</span><span class="na">applyPermitDefaultValues</span><span class="o">();</span>
+        <span class="n">config</span><span class="o">.</span><span class="na">setAllowCredentials</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="n">source</span><span class="o">.</span><span class="na">registerCorsConfiguration</span><span class="o">(</span><span class="s">"/**"</span><span class="o">,</span> <span class="n">config</span><span class="o">);</span>
+
+        <span class="nc">FilterRegistrationBean</span> <span class="n">bean</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FilterRegistrationBean</span><span class="o">(</span><span class="k">new</span> <span class="nc">CorsFilter</span><span class="o">(</span><span class="n">source</span><span class="o">));</span>
+        <span class="n">bean</span><span class="o">.</span><span class="na">setOrder</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">bean</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="使用不可变变量时如何配置docket">使用<a href="https://immutables.github.io/">不可变变量</a>时如何配置docket？</h3>
+
+<p>(感谢https://github.com/kevinm416[@kevinm416])</p>
+
+<p>这与<a href="https://github.com/springfox/springfox/issues/1490">#1490</a>相关。配置它的方法是在docket配置中创建一个自定义的ternateTypeRules。
+例如，如果你有一个不可变的MyClass来生成ImmutableMyClass，那么我们将为它添加一个规则，如下所示。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="nc">Docket</span> <span class="nf">docket</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nf">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">alternateTypeRules</span><span class="o">(</span><span class="nc">AlternateTypeRules</span><span class="o">.</span><span class="na">newRule</span><span class="o">(</span><span class="nc">MyClass</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+                <span class="nc">ImmutableMyClass</span><span class="o">.</span><span class="na">class</span><span class="o">));</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>如果使用的是模型的库，则可能需要使不可变式在包外部可见。</p>
+</blockquote>
+
+<h3 id="为什么设置apiimplitparamparamtypeform输出未定义的datatype">为什么设置@ApiImplitParam#paramType=“form”输出未定义的dataType？</h3>
+
+<p>如果在2.7.0发布后将数据类型更改为“__FILE”，则会解决你的问题。</p>
+
+<blockquote>
+  <p>我们使用“__file”的原因是，如果消费库定义了自定义类型File，则该类型最终会被视为文件数据类型，即使这不是目的。
+为了将自定义类型的使用与本机理解的file原语区分开来，我们引入了此约定。</p>
+</blockquote>
+
+<h3 id="如何配置sprringfox以支持vavrjavaslang-jackson模块">如何配置Sprringfox以支持Vavr/Javaslang Jackson模块？</h3>
+
+<p>我们需要首先创建一个备用类型规则约定，告诉springfox将vavr持久化集合像对待原生java集合一样对待。
+以下示例仅配置器设置、列表和映射类型。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">springfox</span><span class="o">.</span><span class="na">test</span><span class="o">.</span><span class="na">contract</span><span class="o">.</span><span class="na">swagger</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.classmate.TypeResolver</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vavr.collection.Map</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.vavr.collection.Set</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.schema.AlternateTypeRule</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.schema.AlternateTypeRuleConvention</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">springfox.documentation.schema.WildcardType</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">springfox</span><span class="o">.</span><span class="na">documentation</span><span class="o">.</span><span class="na">schema</span><span class="o">.</span><span class="na">AlternateTypeRules</span><span class="o">.</span><span class="na">newRule</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VavrDefaultsConvention</span> <span class="kd">implements</span> <span class="nc">AlternateTypeRuleConvention</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="nc">TypeResolver</span> <span class="n">typeResolver</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">AlternateTypeRule</span><span class="o">&gt;</span> <span class="nf">rules</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">AlternateTypeRule</span><span class="o">&gt;</span> <span class="n">rules</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">AlternateTypeRule</span><span class="o">&gt;();</span>
+        <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(</span>
+                <span class="n">newRule</span><span class="o">(</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="n">io</span><span class="o">.</span><span class="na">vavr</span><span class="o">.</span><span class="na">collection</span><span class="o">.</span><span class="na">List</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)));</span>
+        <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(</span>
+                <span class="n">newRule</span><span class="o">(</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">Set</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Set</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)));</span>
+        <span class="n">rules</span><span class="o">.</span><span class="na">add</span><span class="o">(</span>
+                <span class="n">newRule</span><span class="o">(</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">Map</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">),</span>
+                        <span class="n">typeResolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Map</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="nc">WildcardType</span><span class="o">.</span><span class="na">class</span><span class="o">)));</span>
+        <span class="k">return</span> <span class="n">rules</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getOrder</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="no">HIGHEST_PRECEDENCE</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><a href="https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80/raw/03b1dddc1f318635c92283a2851ec85a64ad77f8/VavrDefaultsConvention.java">view raw</a><a href="https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80#file-vavrdefaultsconvention-java">VavrDefaultsConvention.java</a> hosted with ❤ by <a href="https://github.com/">GitHub</a></p>
+
+<p>或者，为了有效地使用Jackson，对于非集合类型，我们可以注册一个应用程序侦听器，该侦听器向正在使用的objectmapper注册vavr模块。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SwaggerJacksonModuleWithVavr</span> <span class="kd">implements</span> <span class="nc">ApplicationListener</span><span class="o">&lt;</span><span class="nc">ObjectMapperConfigured</span><span class="o">&gt;</span> <span class="o">{</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onApplicationEvent</span><span class="o">(</span><span class="nc">ObjectMapperConfigured</span> <span class="n">event</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">event</span><span class="o">.</span><span class="na">getObjectMapper</span><span class="o">().</span><span class="na">registerModule</span><span class="o">(</span><span class="k">new</span> <span class="nc">VavrModule</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="为什么某些模型类型缺少属性">为什么某些模型/类型缺少属性？</h3>
+
+<p>这种情况可能发生的一个很好的例子是在使用不是特别明显的Immutables不可变变量(库)时。
+Immutables(不可变)是很棒的，只是，如你所见，除非你正确地构建模型，否则可能会导致混乱的结果。
+另外，Sprringfox推断模型的方式与服务使用它的方式是相反的。
+我的意思是，假设模型具有属性a(读/写)、b(只写)、c(只读)，我们读取请求的可写属性和响应的可读属性。
+因此，如果你的模型仅用于请求，则它将具有a和b，如果你的模型仅用于响应，则它将具有a和c，如果它同时存在于请求和响应中，则它将具有a、b和c。
+多亏了<a href="https://github.com/MaksimOrlov">Maksim</a>的<a href="https://github.com/springfox/springfox/pull/2056">模型增强工作</a>，我们正在努力使这一点变得更好</p>
+
+<h3 id="为什么httphostportswagger-uihtml是空的或者为什么当我导航到httphostportswagger-uihtml时会得到404">为什么http://host:port/swagger-ui.html是空的？或者为什么当我导航到http://host:port/swagger-ui.html？时会得到404</h3>
+
+<p>在非Spring引导应用程序中，确保为springfox-swagger-UI <a href="https://springfox.github.io/springfox/docs/current/#q13">webjar</a>添加资源处理程序。
+如果是Spring Boot应用程序：</p>
+
+<ul>
+  <li>检查<code class="language-plaintext highlighter-rouge">spring.resource ces.add-mappings</code>属性是否设置为true。</li>
+  <li>检查是否应用了Spring Security，是否允许适当的资源。</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSecurityConfiguration</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">WebSecurity</span> <span class="n">web</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+      <span class="n">http</span>
+        <span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">exceptionHandling</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">authenticationEntryPoint</span><span class="o">(</span><span class="n">unauthorizedHandler</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">accessDeniedHandler</span><span class="o">(</span><span class="n">accessDeniedHandler</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">sessionManagement</span><span class="o">().</span><span class="na">sessionCreationPolicy</span><span class="o">(</span><span class="nc">SessionCreationPolicy</span><span class="o">.</span><span class="na">STATELESS</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">authorizeRequests</span><span class="o">()</span>
+        <span class="c1">//.antMatchers("/actuator/**").permitAll()</span>
+        <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/actuator/**"</span><span class="o">).</span><span class="na">hasAuthority</span><span class="o">(</span><span class="s">"ADMIN"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span>
+          <span class="nc">HttpMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">,</span>
+          <span class="s">"/v2/api-docs"</span><span class="o">,</span>
+          <span class="s">"/swagger-resources/**"</span><span class="o">,</span>
+          <span class="s">"/swagger-ui.html**"</span><span class="o">,</span>
+          <span class="s">"/webjars/**"</span><span class="o">,</span>
+          <span class="s">"favicon.ico"</span>
+        <span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span><span class="s">"/auth/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">anyRequest</span><span class="o">().</span><span class="na">authenticated</span><span class="o">();</span>
+
+      <span class="n">http</span>
+        <span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span><span class="n">authenticationTokenFilterBean</span><span class="o">(),</span> <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">headers</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">cacheControl</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+
+<p>或者我们可以完全忽略这些资源</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSecurityConfiguration</span> <span class="kd">extends</span> <span class="nc">WebSecurityConfigurerAdapter</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configure</span><span class="o">(</span><span class="nc">WebSecurity</span> <span class="n">web</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+    <span class="n">web</span><span class="o">.</span><span class="na">ignoring</span><span class="o">()</span>
+      <span class="o">.</span><span class="na">antMatchers</span><span class="o">(</span>
+        <span class="s">"/v2/api-docs"</span><span class="o">,</span>
+        <span class="s">"/swagger-resources/**"</span><span class="o">,</span>
+        <span class="s">"/swagger-ui.html**"</span><span class="o">,</span>
+        <span class="s">"/webjars/**"</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h3 id="controller接收字符串形式的参数但我们需要json类型我们怎么才能对此进行建模呢">controller接收字符串形式的参数，但我们需要json类型，我们怎么才能对此进行建模呢？</h3>
+
+<p><a href="https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java#L243-267">FeatureDemonstrationService.class</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/2031"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+<span class="nd">@ResponseBody</span>
+<span class="nd">@ApiOperation</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/2031"</span><span class="o">)</span>
+<span class="nd">@ApiImplicitParams</span><span class="o">({</span>
+    <span class="nd">@ApiImplicitParam</span><span class="o">(</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">"contents"</span><span class="o">,</span>
+        <span class="n">dataType</span> <span class="o">=</span> <span class="s">"CustomTypeFor2031"</span><span class="o">,</span>
+        <span class="n">examples</span> <span class="o">=</span> <span class="nd">@io</span><span class="o">.</span><span class="na">swagger</span><span class="o">.</span><span class="na">annotations</span><span class="o">.</span><span class="na">Example</span><span class="o">(</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="o">{</span>
+                <span class="nd">@ExampleProperty</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"{'property': 'test'}"</span><span class="o">,</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="s">"application/json"</span><span class="o">)</span>
+            <span class="o">}))</span>  <span class="c1">// ①</span>
+<span class="o">})</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">"keyId"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">keyId</span><span class="o">,</span>
+                 <span class="nd">@PathVariable</span><span class="o">(</span><span class="s">"id"</span><span class="o">)</span> <span class="nc">String</span> <span class="n">id</span><span class="o">,</span>
+                 <span class="nd">@RequestBody</span> <span class="nc">String</span> <span class="n">contents</span> <span class="c1">// ②</span>
+<span class="o">)</span> <span class="o">{</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">CustomTypeFor2031</span> <span class="o">{</span> <span class="c1">// ③</span>
+  <span class="kd">private</span> <span class="nc">String</span> <span class="n">property</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getProperty</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">property</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setProperty</span><span class="o">(</span><span class="nc">String</span> <span class="n">property</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">property</span> <span class="o">=</span> <span class="n">property</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>① 假设我们有一个控制器操作，它有一个字符串参数(Contents)。这就是我们覆盖在线类型(CustomTypeFor2031)的方法。
+② 以<code class="language-plaintext highlighter-rouge">String</code>形式传入的方法参数，该字符串实际上被解释为CustomTypeFor2031。
+③ 我们从json字符串读取的<code class="language-plaintext highlighter-rouge">CustomTypeFor2031</code>复杂类型。</p>
+
+<p>完成此操作后，我们需要配置此更改，以便可以将模型添加到定义部分</p>
+
+<p><a href="https://github.com/springfox/springfox/blob/eedbfb1b2dcf0344e21aefd0731515aa63fc9070/swagger-contract-tests/src/test/groovy/springfox/test/contract/swaggertests/Swagger2TestConfig.groovy#L118">Swagger2TestConfig</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">return</span> <span class="k">new</span> <span class="nc">Docket</span><span class="o">(</span><span class="nc">DocumentationType</span><span class="o">.</span><span class="na">SWAGGER_2</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">groupName</span><span class="o">(</span><span class="s">"featureService"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">useDefaultResponseMessages</span><span class="o">(</span><span class="kc">false</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">additionalModels</span><span class="o">(</span><span class="n">resolver</span><span class="o">.</span><span class="na">resolve</span><span class="o">(</span><span class="nc">FeatureDemonstrationService</span><span class="o">.</span><span class="na">CustomTypeFor2031</span><span class="o">.</span><span class="na">class</span><span class="o">))</span> 
+<span class="c1">//  ①</span>
+</code></pre></div></div>
+
+<p>① 添加<code class="language-plaintext highlighter-rouge">CustomTypeFor2031</code>作为附加模型。</p>
 
   </div>
 
