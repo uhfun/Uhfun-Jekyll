@@ -112,6 +112,8 @@ table td { border: 1px solid #e8e8e8; }
 .post-footer a:hover { color: #161616 !important; }
 .post-footer .post-previous { margin-right: 20px; }
 
+.post-next, .formated-date, .spot, .footer, .back-to-top, .tags { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+
 .sketch-article-img img { margin-bottom: 1em; border-radius: 0.2rem !important; box-shadow: 1px 6px 29px -2px rgba(0, 0, 0, 0.1) !important; height: 8rem !important; object-fit: cover; cursor: pointer; }
 @media screen and (max-width: 450px) { .sketch-article-img img { height: 6rem !important; } }
 
@@ -347,7 +349,7 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .toc-sub-ol { display: none; }
 
-span.show-sub { margin-left: 12px; cursor: pointer; font-weight: bold; color: #0bd2b4d1; }
+span.show-sub { margin-left: 12px; cursor: pointer; font-weight: bold; color: #0bd2b4d1; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 
 .utterances-comments-header { margin-top: 20px; display: flex; justify-content: space-between; }
 .utterances-comments-header a { color: #161616; font-weight: bold; }
