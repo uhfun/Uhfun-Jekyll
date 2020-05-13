@@ -2,12 +2,11 @@
 (function($){
   $.fn.toc = function(options) {
     var defaults = {
-      noBackToTopLinks: false,
-      title: '',
+      title: '<strong>目录</strong>',
       minimumHeaders: 3,
       headers: 'h1, h2, h3, h4, h5, h6',
-      listType: 'ol', // values: [ol|ul]
-      showEffect: 'show', // values: [show|slideDown|fadeIn|none]
+      listType: 'ul', // values: [ol|ul]
+      showEffect: 'fadeIn', // values: [show|slideDown|fadeIn|none]
       showSpeed: 'slow', // set to 0 to deactivate effect
       classes: { list: '',
                  item: ''
@@ -58,15 +57,13 @@
       this_level,
       html = settings.title + " <" +settings.listType + " class=\"" + settings.classes.list +"\">";
     headers.on('click', function() {
-      if (!settings.noBackToTopLinks) {
         window.location.hash = this.id;
-      }
     })
     .addClass('clickable-header')
     .each(function(_, header) {
       this_level = get_level(header);
-      if (!settings.noBackToTopLinks && this_level === highest_level) {
-        $(header).addClass('top-level-header').after(return_to_top);
+      if (this_level === highest_level) {
+        $(header).addClass('top-level-header');
       }
       if (this_level === level) // same level as before; same indenting
         html += "<li class=\"" + settings.classes.item + "\">" + createLink(header);
@@ -87,22 +84,44 @@
       level = this_level; // update for the next one
     });
     html += "</"+settings.listType+">";
-    if (!settings.noBackToTopLinks) {
-      $(document).on('click', '.back-to-top', function() {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-        window.location.hash = '';
-      });
-    }
-
     render[settings.showEffect]();
   };
   // 隐藏/关闭
   $(document).on('click', '.show-sub', function() {
     var that = $(this)  
+    if (that.text() == '+') {
+      that.parent().siblings().each((i, e) => {
+        var each = $(e)
+        if (each.children('.show-sub').text() == '-') {
+          each.children('.toc-sub-ol').slideToggle(240);
+          each.children('.show-sub').text('+');
+        }      
+      })
+    }
     that.text(that.text() == '+' ? '-' : '+');
     that.next().slideToggle(240);
   });
+
+  var windowTop=0, $toc = $('#toc');
+  $(window).scroll(() => {
+    var scrollS = $(this).scrollTop();  
+    let h = $toc.outerHeight();
+    if (scrollS >= h) {
+      if (!$toc.hasClass('toc-suspend')) {
+        $toc.addClass('toc-suspend')
+      }
+      if (scrollS >= windowTop && $toc.css('display') == 'block') {
+        $toc.css('display', 'none')
+      } 
+      if (scrollS < windowTop && $toc.css('display') == 'none') {
+        $toc.css('display', 'block')
+      }       
+    } else {
+      if ($toc.hasClass('toc-suspend')) {
+        $toc.removeClass('toc-suspend')
+      }
+    }
+    windowTop=scrollS;
+  });
+
 })(jQuery);

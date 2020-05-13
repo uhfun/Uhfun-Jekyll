@@ -329,9 +329,11 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .gitment-header-like-btn { margin-right: 20px !important; }
 
-#toc { margin-bottom: 30px; padding: 20px; border: 1px solid #e8e8e8; padding-bottom: 20px; border-radius: 0.2em; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
+#toc { margin-bottom: 30px; padding: 16px; border: 1px solid #e8e8e8; border-radius: 0.2em; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
 #toc .toc-link { color: #1f314d !important; }
 #toc .toc-link:hover { color: #0bd2b4d1 !important; }
+
+@media screen and (min-width: 900px) { .toc-suspend { position: fixed; background-color: white; z-index: 100; width: 320px; top: 20px; left: 65%; overflow-x: scroll; overflow-y: hidden; } }
 
 .toc-sub-ol { display: none; }
 
