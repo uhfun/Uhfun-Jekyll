@@ -26,10 +26,6 @@
 }
 
 .navbar-menu {
-  @include media-max(899) {
-    // box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1) !important;
-  }
-
   padding: 0 !important;
 }
 
