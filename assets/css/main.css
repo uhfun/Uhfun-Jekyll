@@ -105,6 +105,8 @@ table td { border: 1px solid #e8e8e8; }
 .tags a:hover { text-decoration: none; color: #0bd2b4d1 !important; }
 .tags .spot { margin: 0 10px; color: #0bd2b4d1; }
 
+.article_license strong { color: #464646; }
+
 .post-footer { display: flex; justify-content: flex-end; padding-top: 6rem; padding-bottom: 2em; }
 .post-footer a { color: #0bd2b4d1 !important; }
 .post-footer a:hover { color: #161616 !important; }
