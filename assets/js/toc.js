@@ -107,9 +107,10 @@
     var scrollS = $(this).scrollTop();  
     let h = $toc.outerHeight();
     if ($toc.html() != '') {
-      if (scrollS >= h) {
-        if (!$toc.hasClass('toc-suspend')) {
+      if (scrollS >= h + 240) {
+        if (!$toc.hasClass('toc-suspend') && $toc.css('display') == 'block') {
           $toc.addClass('toc-suspend')
+          $('html,body').scrollTop(scrollS - h)
         }
         if (scrollS >= windowTop && $toc.css('display') == 'block') {
           $toc.css('display', 'none')
@@ -120,6 +121,9 @@
       } else {
         if ($toc.hasClass('toc-suspend')) {
           $toc.removeClass('toc-suspend')
+        }
+        if (scrollS < 240 && $toc.css('display') == 'none') {
+          $toc.css('display', 'block')
         }
       }
     }    
