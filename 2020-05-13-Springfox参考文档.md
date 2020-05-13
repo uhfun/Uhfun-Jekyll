@@ -1,7 +1,7 @@
 ---
 layout: post
 post: 
-  title: Springfox参考文档（Springfox Reference Documentation 中文版）
+  title: Springfox参考文档
   type: article
 date: 2020-05-13 01:10:00 +0800
 categories: 
@@ -12,11 +12,13 @@ tags:
   - 文档
 ---
 
-[官方文档](https://springfox.github.io/springfox/docs/current/) Version 2.9.2-SNAPSHOT
+官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT
+
+**Springfox Reference Documentation 中文版**
 
 ## 1. 介绍
 
-Springfox Java库套件主要是为使用[Spring系列项目](http://projects.spring.io/spring-framework)编写的JSONAPI自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注释推断API语义。
+Springfox Java库套件主要是为了能够让使用[Spring系列项目](http://projects.spring.io/spring-framework)编写的JSON APIs自动生成机器和人类可读的规范。Springfox的工作原理是在运行时检查一次应用程序，根据Spring配置、类结构和各种编译时java注解推断API语义。
 
 ### 1.1. 历史
 
@@ -24,13 +26,13 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 ### 1.2. 目标
 
-* 扩展对许多针对JSON API规范和文档的不断发展的标准的支持，例如：[swagger](http://swagger.io/)、[Raml](http://raml.org/)和[jsonapi](http://jsonapi.org/)。
-* 扩展对[Spring webmvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)以外的Spring技术的支持
-* 从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注释。例如，Jackson注释应该总是胜过`@ApiModelProperty`，或者具有比`@ApiModelProperty`更大的权重，或者例如，`@NotNull`或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注释仅用于补充文档或覆盖/调整生成的规范。
+* 支持更多针对JSON API规范和文档的不断发展的标准，例如：[swagger](http://swagger.io/)、[Raml](http://raml.org/)和[jsonapi](http://jsonapi.org/)。
+* 提供更多[Spring webmvc](http://docs.spring.io/spring/docs/current/spring-framework-reference/html/mvc.html)外的Spring技术的支持
+* 从哲学上讲，我们不鼓励在运行时使用对服务描述不重要的(swagger-core)注解。例如，Jackson注解应该总是胜过`@ApiModelProperty`，或者具有比`@ApiModelProperty`更大的权重，又像是，`@NotNull`或指定@RequestParam#Required应该始终取胜。在无法推断服务/模式特征的情况下，注解仅用于补充文档或覆盖/调整生成的规范。
 
 ### 1.3. 它不是什么
 
-由Spring框架贡献者认可或批准
+它不是由Spring框架贡献者认可或批准的
 
 ### 1.4. 开发环境
 
@@ -76,7 +78,7 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 #### 1.4.3. 更新契约测试
 
-在开发新契约测试时，为了便于用新契约更新现有测试，请取消对[swagger-tract-test/build.gradle](https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle)中以下行的注释。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在[BugsController](https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java)或[FeatureDemonstrationService](https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java)中创建一个端点来演示新的修复或行为。
+在开发新契约测试时，为了便于用新契约更新现有测试，请取消对[swagger-tract-test/build.gradle](https://github.com/springfox/springfox/blob/master/swagger-contract-tests/build.gradle)中以下行的注解。通常，当我们为已经修复的bug或添加的功能添加新的约定测试时，会发生这种情况，我们在[BugsController](https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/BugsController.java)或[FeatureDemonstrationService](https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java)中创建一个端点来演示新的修复或行为。
 
 ```gradle
 // NOTE: Uncomment to bulk update contracts
@@ -122,7 +124,7 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 #### 1.5.1. 快照
 
-这通常由CI服务器完成
+通常由CI服务器完成
 
 ```bash
 ./gradlew publishSnapshot
@@ -130,7 +132,7 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 #### 1.5.2. 覆盖部署
 
-要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本
+需要绕过标准发布流并直接上传到binray，请使用以下任务 - 在version.properties中手动设置版本
 
 ```bash
 ./gradlew clean build bintrayUpload -PreleaseType=<MAJOR|MINOR|PATCH>
@@ -139,7 +141,7 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 #### 1.5.3. 发布文档
 
-要更新现有版本的文档，请传递updateMode开关
+需要更新现有版本的文档，请传递updateMode开关
 
 ```bash
 ./gradlew releaseDocs
@@ -147,17 +149,17 @@ Springfox是从[马蒂·皮特](https://github.com/martypitt)最初创建的一�
 
 #### 1.5.4. 贡献
 
-请参阅[维基](https://github.com/springfox/springfox/wiki)获取一些指导原则
+获取指导原则请参阅[维基](https://github.com/springfox/springfox/wiki)
 
 ### 1.6 支持
 
-如果您发现问题或错误，请通过[Springfox Github项目](https://github.com/springfox/springfox/issues)提交
+如果发现问题或错误，请通过[Springfox Github项目](https://github.com/springfox/springfox/issues)提交
 
 ## 2.快速入门
 
 ### 2.1. 依赖
 
-Springfox库托管在[bintray](https://bintray.com/springfox/maven-repo/springfox/view)和JCenter上。可以在以下位置查看和访问对象：
+Springfox库托管在[bintray](https://bintray.com/springfox/maven-repo/springfox/view)和JCenter上。以下是访问链接：
 
 - Release：
   - https://jcenter.bintray.com/io/springfox/
@@ -166,7 +168,7 @@ Springfox库托管在[bintray](https://bintray.com/springfox/maven-repo/springfo
   * http://oss.jfrog.org/simple/oss-snapshot-local/io/springfox/
   * http://oss.jfrog.org/oss-snapshot-local/io/springfox/
 
-Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何包含springfox-swagger2模块，该模块生成Swagger2.0API文档。
+Springfox有多个模块，依赖关系将根据所需的API规范标准而有所不同。下面概述了如何引入springfox-swagger2模块，该模块用于生成Swagger2.0API文档。
 
 #### 2.1.1. Gradle
 
@@ -314,27 +316,27 @@ public class Swagger2SpringBoot {
 
   @Bean
   public Docket petApi() {
-    return new Docket(DocumentationType.SWAGGER_2) // 3. Docket是Springfox主要的API配置机制针，它对swagger规范2.0进行了初始化。
+    return new Docket(DocumentationType.SWAGGER_2) // 3. Docket是Springfox主要的API配置机制，它对swagger规范2.0进行了初始化。
         .select() // 4. select()返回一个ApiSelectorBuilder的实例，提供对通过swagger公开的端点的细粒度控制
           .apis(RequestHandlerSelectors.any()) // 5. apis()允许使用谓词来选择RequestHandler。示例使用any(默认)。开箱即用的谓词有any, none, withClassAnnotation, withMethodAnnotation and basePackage。
           .paths(PathSelectors.any()) // 6. paths()允许使用谓词选择路径。示例使用any(默认)。开箱即用的有regex、ant、any、one。
           .build() // 7. 选择器需要在配置Api选择器(apis)和路径选择器(paths)之后构建。
-        .pathMapping("/") // 8. 当Servlet具有路径映射时，添加Servlet路径映射。这会使用提供的路径映射为路径添加前缀。
+        .pathMapping("/") // 8. 当Servlet具有路径映射时，添加Servlet路径映射。该路径会作为前缀添加到原有路径上。
         .directModelSubstitute(LocalDate.class, String.class) // 9. 便捷规则构建器: 在渲染模型属性时使用字符串替换LocalDate，使用type参数替换泛型类型。
         .genericModelSubstitutes(ResponseEntity.class)
         .alternateTypeRules(
             newRule(typeResolver.resolve(DeferredResult.class,
                 typeResolver.resolve(ResponseEntity.class, WildcardType.class)),
                 typeResolver.resolve(WildcardType.class))) // 10. 带T的ResponseEntity<T> alternateTypeRules()允许更复杂的自定义规则。该示例通常将DeferredResult<ResponseEntity<T>>替换为T。
-        .useDefaultResponseMessages(false) // 11. 指示是否需要使用默认http响应代码的标志。
-        .globalResponseMessage(RequestMethod.GET, // 12. 允许全局覆盖不同http方法的响应消息。在本例中，我们覆盖了所有GET请求…的错误代码500...
+        .useDefaultResponseMessages(false) // 11. 是否需要使用默认http响应代码的标志。
+        .globalResponseMessage(RequestMethod.GET, // 12. 允许全局覆盖不同http方法的响应消息。这个示例里覆盖了所有GET请求…的错误代码500...
             newArrayList(new ResponseMessageBuilder()
                 .code(500)
                 .message("500 message")
-                .responseModel(new ModelRef("Error")) // 13. 并指示它将使用响应模型错误(将在其他地方定义)。
+                .responseModel(new ModelRef("Error")) // 13. 表示它会使用响应模型错误(将在其他地方定义)。
                 .build()))
         .securitySchemes(newArrayList(apiKey())) // 14. 设置用于保护API的安全方案
-        .securityContexts(newArrayList(securityContext())) // 15. 提供全局设置操作的安全上下文的方法。这里的想法是，我们提供一种方法来选择要由指定的安全方案之一保护的操作。 
+        .securityContexts(newArrayList(securityContext())) // 15. 提供全局设置操作的安全上下文的方法。我们提供一种方法来选择要由指定的安全方案之一保护的操作。 
         .enableUrlTemplating(true) // 21. 允许全局配置默认路径/请求/标头参数，这些参数对于api的每个其余操作都是通用的，但在spring控制器方法签名中不需要（例如，身份验证信息）。
         .globalOperationParameters( // 22. 此处添加的参数将是生成的swagger规范中每个API操作的一部分。根据安全性的设置方式，使用的标头的名称可能需要不同。覆盖此值是覆盖默认行为的一种方式。
             newArrayList(new ParameterBuilder()
@@ -409,26 +411,24 @@ public class Swagger2SpringBoot {
 
 ### 3.2. 配置说明
 
-> 这个库广泛使用[谷歌的Guava库](https://github.com/google/guava)。例如，当您看到newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。
+> 这个库广泛使用[谷歌的Guava库](https://github.com/google/guava)。例如，newArrayList(…)实际上相当于创建一个普通数组列表并向其中添加项。
 
 ```java
-//This guava code snippet
+//这是guava 代码片段
 List<Something> guavaList = newArrayList(new Something());
 
-//... is equivalent to
+//... 等价于
 List<Something> list = new ArrayList<>();
 list.add(new Something());
 ```
 
-有很多更多的选项可以配置摘要。这应该会提供一个良好的开端。
+有很多可以配置Docket选项，这会是不错的开始。
 
 ### 3.3. Springfox Spring Data Rest
 
-> 这还在孵化中。
+> 还在孵化中。
 
-为了使用它。
-
-1. 添加springfox-data-rest依赖项。
+如果需要使用，请添加springfox-data-rest依赖
 
 #### 3.3.1. Gradle
 
@@ -467,7 +467,9 @@ dependencies {
 
 #### 3.4. Springfox对JSR-303的支持
 
-在2.3.2以上的版本中，添加了对bean验证注释的支持，特别是对@NotNull、@Min、@Max和@Size。
+在2.3.2以上的版本中，添加了对bean验证注解的支持，特别是对@NotNull、@Min、@Max和@Size。
+
+如果需要使用，请添加springfox-data-rest依赖 
 
 为了使用它。
 
@@ -496,7 +498,6 @@ dependencies {
 #### 3.4.3. java config
 
 ```java
-//For java config
 @Import({ ... springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration.class, ...})
 ```
 
@@ -510,7 +511,7 @@ dependencies {
 
 ### 3.5. Springfox Swagger UI
 
-springfox-swagger-ui [web jar](http://www.webjars.org/)附带[swagger UI](https://github.com/swagger-api/swagger-ui)。要将其包含在标准Spring Boot应用程序中，您可以按如下方式添加依赖项：
+springfox-swagger-ui [web jar](http://www.webjars.org/)附带[swagger UI](https://github.com/swagger-api/swagger-ui)。要将其包含在标准Spring Boot应用程序中，可以按如下方式添加依赖项：
 
 ```groovy
 dependencies {
@@ -518,7 +519,7 @@ dependencies {
 }
 ```
 
-引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点/swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面http://localhost:8080/swagger-ui.html
+引入依赖将创建一个包含swagger-UI静态内容的webjar。它添加了一个JSON端点 /swagger-resources，其中列出了为给定应用程序配置的所有swagger资源和版本。然后，可以浏览这个Swagger UI页面 http://localhost:8080/swagger-ui.html
 
 ![](https://springfox.github.io/springfox/docs/current/images/springfox-swagger-ui.png)
 
@@ -630,8 +631,6 @@ protected void configure(HttpSecurity http) throws Exception {
 
 通过授权头配置要保护的Docket：
 
-
-
 ```java
  @Bean
   public Docket api() throws IOException, URISyntaxException {
@@ -693,7 +692,7 @@ protected void configure(HttpSecurity http) throws Exception {
   +------------------------------------------+----------------------------------------------+
   |                                  springfox-spi                                          |
   |                                                                                         |
-  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注释处理器 		          |
+  | 					包含可用于扩展和丰富服务模型的服务提供者接口, 例如特定于swagger的注解处理器 		          |
   +------------------------------------------+----------------------------------------------+
                                              |
                                              |
@@ -710,7 +709,7 @@ protected void configure(HttpSecurity http) throws Exception {
         +------------------------------------+------------------------------------+
         |                         springfox-swagger-common                        |
         |                                                                         |
-        |                 识别不同的swagger注释的常见的swagger特定扩展                 |
+        |                 识别不同的swagger注解的常见的swagger特定扩展                 |
         +----------+--------------------------------------------------------------+
                    ^                          ^                        ^
         +----------+---------+     +----------+---------+     +-----...
@@ -727,7 +726,7 @@ protected void configure(HttpSecurity http) throws Exception {
 
 Springfox同时支持版本[1.2](https://github.com/swagger-api/swagger-spec/blob/master/versions/1.2.md)和版本[2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md)的[Swagger](http://swagger.io/)规范。如果可以，Swagger 2.0规范更可取。
 
-由swagger-core提供的[swagger-core annotations](https://github.com/swagger-api/swagger-core/wiki/Annotations) 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注释，并且会优先使用这些注释而不是推断的默认值。
+由swagger-core提供的[swagger-core annotations](https://github.com/swagger-api/swagger-core/wiki/Annotations) 通常用于修饰Bing“swagered”的API的Java源代码。Springfox知道Swagger-Core注解，并且会优先使用这些注解而不是推断的默认值。
 
 ### 5.1. Swagger 1.2 vs Swagger 2.0
 
@@ -739,9 +738,9 @@ Springfox同时支持版本[1.2](https://github.com/swagger-api/swagger-spec/blo
 
 ### 5.2. 从 swagger-springmvc 进行迁移?
 
-以下是帮助您从1.0.2过渡到2.0的[指南](https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md)。
+以下是帮助你从1.0.2过渡到2.0的[指南](https://github.com/springfox/springfox/blob/master/docs/transitioning-to-v2.md)。
 
-您可以在[此处](https://github.com/springfox/springfox/blob/v1.0.2/README.md)找到传统文档。
+你可以在[此处](https://github.com/springfox/springfox/blob/v1.0.2/README.md)找到传统文档。
 
 ### 5.3. Springfox配置和演示应用程序
 
@@ -749,9 +748,9 @@ Springfox同时支持版本[1.2](https://github.com/swagger-api/swagger-spec/blo
 
 ## 6. 配置Springfox
 
-要启用对swagger规范1.2的支持，请使用@EnableSwagger注释。
+要启用对swagger规范1.2的支持，请使用@EnableSwagger注解。
 
-要启用对swagger规范2.0的支持，请使用@EnableSwagger2注释。
+要启用对swagger规范2.0的支持，请使用@EnableSwagger2注解。
 
 为了记录服务，我们使用了Docket。这样更符合事实，即表达文档的内容与文档呈现的格式无关。
 
@@ -770,7 +769,7 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
     return new Docket(DocumentationType.SWAGGER_2)
             .groupName("business-api")
             .select()
-               //忽略使用@CustomIgnore注释的控制器
+               //忽略使用@CustomIgnore注解的控制器
               .apis(not(withClassAnnotation(CustomIgnore.class)) //按RequestHandler选择
               .paths(paths()) // 和按路径
               .build()
@@ -797,11 +796,11 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
 
 配置对象映射器的一种简单方法是监听`ObjectMapperConfiguring`事件。无论是否有自定义的ObjectMapper与相应的MappingJackson2HttpMessageConverter配合使用，库中始终有一个已配置的ObjectMapper，该ObjectMapper是为序列化swagger 1.2和swagger 2.0类型而自定义的。
 
-为此，实现ApplicationListener<ObjectMapperConfiguring>接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将特定于应用程序的定制应用于正在运行的每个ObjectMapper。
+为此，实现ApplicationListener<ObjectMapperConfiguring>接口。该事件具有已配置的ObjectMapper的句柄。在此应用程序事件处理程序中配置特定于应用程序的ObjectMapper定制可确保将该定制应用于正在运行的每ObjectMapper。
 
-如果您在应用程序启动期间遇到NullPointerException([像这个问题](https://github.com/springfox/springfox/issues/635))。这很可能是因为`WebMvcConfigurerAdapter`不工作。只有当@EnableWebMvc[注释存在](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html)时，才会加载这些适配器，尤其是在非Spring-boot场景中。
+如果在应用程序启动期间遇到NullPointerException([像这个问题](https://github.com/springfox/springfox/issues/635))。这很可能是因为`WebMvcConfigurerAdapter`没有工作。只有[存在@EnableWebMvc注解](http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/servlet/config/annotation/WebMvcConfigurer.html)时，才会加载这些适配器，尤其是在非Spring-boot场景中。
 
-如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注释，因为框架会自动检测Web MVC的使用情况并根据需要进行自我配置。在此场景中，如果应用程序中存在@EnableWebMvc，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。
+如果使用Spring Boot Web MVC，则不需要使用@EnableWebMvc注解，因为框架会自动检测Web MVC的使用情况并根据需要进行自动配置。在此场景中，如果应用中存在@EnableWebMvc注解，Springfox将无法正确生成和公开Swagger UI端点(/swagger-ui.html)。
 
 使用该库需要注意的是，它依赖Jackson进行序列化，更重要的是依赖ObjectMapper。使用gson序列化时出现的[以下问题](http://stackoverflow.com/a/30220562/19219)就很能说明问题。
 
@@ -829,7 +828,7 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
 
 ### 6.3. 配置启动
 
-如果您想延迟Sprringfox的启动，您可以选择将自动启动设置为false。要使用的属性是`springfox.document-start`，它可以作为-D jvm 参数传入，也可以通过`application ation.yml/properties`文件中的属性传入。 
+如果想延迟Sprringfox的启动，可以选择将自动启动设置为false。要使用的属性是`springfox.document-start`，它可以作为-D jvm 参数传入，也可以通过`application ation.yml/properties`文件中的属性传入。 
 
 *表3. 启动属性*
 
@@ -842,9 +841,9 @@ Docket[代表](https://www.wordnik.com/words/docket)文件内容的摘要或其�
 
 ### 6.4. 通过属性覆盖描述
 
-添加了对解析属性源中的属性以替换某些批注中的表达式的支持。要使用它，只需在您的类路径中定义`applation.properties`、`application.yml`文件或属性文件中的属性，并使用您希望在已知批注中替换的值即可。例如，`@ApiModelProperty(value=“${property1.description}”)`将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。
+添加了对解析属性源中的属性以替换某些注解中的表达式的支持。如果要使用它，只需在类路径中定义`applation.properties`、`application.yml`文件或属性文件中的属性，并使用你希望在已知注解中替换的值即可。例如，`@ApiModelProperty(value=“${property1.description}”)`将评估可用属性中的Property1.description。如果没有找到，它将按原样呈现未解析的表达式。
 
-当前支持的批注列表按批注内的优先顺序排列：
+当前支持的注解列表按注解内的优先顺序排列：
 
 *表4. 描述 解决 目标*
 
@@ -904,7 +903,7 @@ private static final Set<String> baseTypes = newHashSet(
 
 ### 6.6. Docket XML 配置
 
-要使用该插件，您必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。
+要使用该插件，你必须创建一个Spring java配置类，它使用Spring的@Configuration。然后必须在XML应用程序上下文中定义此配置类。
 
 *Xml Configuration*
 
@@ -939,8 +938,8 @@ public class MySwaggerConfig {
 
 ### 6.7. Docket Spring Java 配置
 
-* 使用`@EnableSwagger`或`@EnableSwagger2`注释。
-* 使用Springs@Bean注释定义一个或多个docket实例。
+* 使用`@EnableSwagger`或`@EnableSwagger2`注解。
+* 使用Springs@Bean注解定义一个或多个docket实例。
 
 *Java 配置*
 
@@ -966,7 +965,7 @@ public class CustomJavaPluginConfig {
 
 ### 6.8. 支持来自属性文件查找的文档
 
-从`2.7.0`开始，我们支持在给定属性的情况下从以下注释中查找描述，就像属性占位符解析值注释`@value(${key})`一样。以下注释属性支持描述解析。
+从`2.7.0`开始，我们支持在给定属性的情况下从以下注解中查找描述，就像属性占位符解析值注解`@value(${key})`一样。以下注解属性支持描述解析。
 
 - `@ApiParam#value()`
 - `@ApiImplicitParam#value()`
@@ -1024,7 +1023,7 @@ Model示例
 
 ① : @ApiModelProperty#value() 示例
 
-要通过外部属性提供这些属性，只需将其添加到您的应用程序属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。
+要通过外部属性提供这些属性，只需将其添加到应用属性文件或应用程序配置的任何属性源中，如下所示。当找不到属性占位符时，默认行为是按原样回显表达式。
 
 *application.properties*
 
@@ -1050,7 +1049,7 @@ swagger组是这个库引入的一个概念，它只是应用程序中swagger资
 
 默认情况下，当在Swager2.0模式下使用Springfox时，`operationID`值将使用以下结构呈现：“[java_method_name_here]Using[HTTP_verb_here]”.。例如，如果有一个方法getPets()连接到HTTP get谓词，Springfox将为operation Id呈现`getPetsUsingGET`。
 
-给定此带注释的方法…在方法上的标准注释
+给定此带注解的方法…在方法上的标准注解
 
 ```java
 @ApiOperation(value = "") 
@@ -1078,9 +1077,9 @@ public Model getAllThePets() {
 
 自定义Operation Id的值
 
-如果希望覆盖Springfox呈现的默认`operationId`，可以通过在`@ApiOperation`注释中提供的`nickname`来实现。
+如果希望覆盖Springfox呈现的默认`operationId`，可以通过在`@ApiOperation`注解中提供的`nickname`来实现。
 
-给定此带注释的方法…nickname覆盖默认operationId
+给定此带注解的方法…nickname覆盖默认operationId
 
 ```java
 @ApiOperation(value = "", nickname = "getMeAllThePetsPlease")
@@ -1106,7 +1105,7 @@ public Model getAllThePets() {
 
 #### 6.8.3. 更改泛型类型的命名方式
 
-默认情况下，带有泛型的类型将标记为‘\u00ab’(<<)、‘\u00bb’(>>)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。您可以通过实现自己的`GenericTypeNamingStrategy`来重写此行为。例如，如果您希望`List<String>`编码为‘ListOfString’，而`Map<String，Object>`编码为‘MapOfStringAndObject’，您可以在插件定制过程中将`forCodeGeneration`定制选项设置为true：
+默认情况下，带有泛型的类型将标记为‘\u00ab’(<<)、‘\u00bb’(>>)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。可以通过实现自己的`GenericTypeNamingStrategy`来重写此行为。例如，如果希望`List<String>`编码为‘ListOfString’，而`Map<String，Object>`编码为‘MapOfStringAndObject’，你可以在插件定制过程中将`forCodeGeneration`定制选项设置为true：
 
 ```json
 docket.forCodeGeneration(true|false);
@@ -1120,9 +1119,9 @@ docket.forCodeGeneration(true|false);
 
 SpringFox中高级别的安全规定没有深入到代码中，而是具有所有协同工作的不同部分。
 
-* API本身需要受到保护。为了简单起见，这是通过使用Spring安全性来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。
+* API本身需要受到保护。为了简单起见，这是通过使用Spring Security来实现的，也可以使用Servlet容器和Tomcat/Jersey等的组合。
 * 描述用于保护API的技术的安全方案。Spring fox支持swagger规范支持的任何方案(apiKey、BasicAuth和OAuth2(某些配置文件))。
-* 最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在您的示例中，您遗漏了拼图的最后一块，即安全上下文，请[参见15](https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot)。
+* 最后是安全上下文，它实际提供了哪些API受哪些方案保护的信息。我认为在你的示例中，可能遗漏了安全上下文，请[参见15](https://springfox.github.io/springfox/docs/current/#getting-started-spring-boot)。
 
 ### 6.11. 示例应用程序
 
@@ -1144,7 +1143,7 @@ SpringFox中高级别的安全规定没有深入到代码中，而是具有所�
 
 任何可用的插件或扩展挂钩都[可以在`spi`模块中使用](https://github.com/springfox/springfox/tree/master/springfox-spi/src/main/java/springfox/documentation/spi)。在SPI模块中，任何以`*plugin`结尾的内容通常都是一个扩展点，供库使用者使用。
 
-Bean验证(JSR-303)是[支持Bean验证](https://github.com/springfox/springfox/tree/master/springfox-bean-validators)的一个很好的例子。它相当简单且范围很小，应该可以让您了解如何创建插件。它是一组作用于`ModelProperty`插件，因此它们是`ModelPropertyBuilderPlugin`的实现。
+Bean验证(JSR-303)是[支持Bean验证](https://github.com/springfox/springfox/tree/master/springfox-bean-validators)的一个很好的例子。它相当简单且范围很小，应该可以让你了解如何创建插件。它是一组作用于`ModelProperty`插件，因此它们是`ModelPropertyBuilderPlugin`的实现。
 
 ### 9.2. 可扩展的插件
 
@@ -1162,11 +1161,11 @@ Bean验证(JSR-303)是[支持Bean验证](https://github.com/springfox/springfox/
 | ------------------------------ | ------------------------------------------------------------ |
 | ApiListingScannerPlugin        | 用于添加自定义api描述（请参见[示例](https://springfox.github.io/springfox/docs/current/#example-apilistingscannerplugin)） |
 | ApiListingBuilderPlugin        | 用于丰富api列表                                              |
-| DefaultsProviderPlugin         | 提供您自己的默认值                                           |
+| DefaultsProviderPlugin         | 提供自定义默认值                                           |
 | DocumentationPlugin            | 用于丰富文档上下文                                           |
 | ExpandedParameterBuilderPlugin | 用于`@ModelAttribute`上下文中使用的参数扩展                  |
 | OperationBuilderPlugin         | 用于丰富Operation                                            |
-| OperationModelsProviderPlugin  | 用于提供其他模型，您可以使用不同的方式加载这些模型           |
+| OperationModelsProviderPlugin  | 用于提供其他模型，可以使用不同的方式加载这些模型           |
 | ParameterBuilderPlugin         | 用于丰富参数（请参见[示例](https://springfox.github.io/springfox/docs/current/#example-prameterbuilderplugin)） |
 
 ### 9.3. 创建插件的步骤
@@ -1175,7 +1174,7 @@ Bean验证(JSR-303)是[支持Bean验证](https://github.com/springfox/springfox/
 
 1. 实现上述插件接口之一
 
-2. 为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注释)顶部的层信息。因此，您要编写的顺序将需要在末尾分层信息。
+2. 为插件指定顺序，例如，ApiParameterBuilder在Bean中指定了顺序。通常，Spring插件具有最高优先级，即swagger插件(处理所有@api…的插件。注解)顶部的层信息。因此，你要编写的顺序将需要在末尾分层信息。
 
 3. 每个插件都有
 
@@ -1386,7 +1385,7 @@ public class CustomAwsExtensionsReader implements OperationBuilderPlugin {
 }
 ```
 
-① : 使用[`@VersionApi`](https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java)注释的参数
+① : 使用[`@VersionApi`](https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApi.java)注解的参数
 
 然后，我们创建插件[VersionApiReader.java](https://github.com/springfox/springfox/blob/master/springfox-spring-config/src/main/java/springfox/springconfig/VersionApiReader.java)来提供自定义参数信息。
 
@@ -1534,7 +1533,7 @@ private final CachingOperationNameGenerator operationNames;
 | 名称                        | 描述                                                         | 发布自 |
 | --------------------------- | ------------------------------------------------------------ | ------ |
 | `RequestHandlerCombiner`1   | 用于组合在给定相同输入条件但生成不同输出的情况下对相同API端点做出反应的API。我们提供了DefaultRequestHandlerCombiner，但这是为自定义它而添加的扩展点。 | 2.7.0  |
-| AlternateTypeRuleConvention | 以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。[JacksonSerializerConvention](https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java)是我们如何将规则应用于使用JsonSerialize/JsonResourialize注释的类型的示例 | 2.7.0  |
+| AlternateTypeRuleConvention | 以提供基于约定的类型规则。理想情况下，我们在定义单个类型很麻烦的时候使用它们，因为它们太多了，甚至在某些情况下，仅仅为了OpenAPI文档而需要创建混合类型。[JacksonSerializerConvention](https://github.com/springfox/springfox/blob/ef1721afc4c910675d9032bee59aea8e75e06d27/springfox-spring-web/src/main/java/springfox/documentation/spring/web/plugins/JacksonSerializerConvention.java)是我们如何将规则应用于使用JsonSerialize/JsonResourialize注解的类型的示例 | 2.7.0  |
 | SwaggerResourcesProvider    | 可扩展性，它允许覆盖如何为swagger的资源提供服务。默认情况下，我们提供托管在同一应用程序上的API。这也可用于聚合API。 | 2.7.0  |
 
 > 1.这目前的缺点在于，当前响应仍然隐藏其中一个响应表示。这是OAI规范2.0的一个限制。
@@ -1640,9 +1639,9 @@ private Type pageableMixin(RepositoryRestConfiguration restConfiguration) {
 
 ### 10.2. 在同一swagger-ui中聚合多个swagger规范
 
-您需要创建实现[`SwaggerResourcesProvider`](https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26)接口的bean。通常，您必须创建一个使用多个[InMemorySwaggerResourcesProvider](https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38)的复合bean，并向其中添加您自己的json文件。
+你需要创建实现[`SwaggerResourcesProvider`](https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/SwaggerResourcesProvider.java#L25-L26)接口的bean。通常，你必须创建一个使用多个[InMemorySwaggerResourcesProvider](https://github.com/springfox/springfox/blob/cef36c0b0a3e20ef2cb0c23a76ee34866abaf490/springfox-swagger-common/src/main/java/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.java#L38)的复合bean，并向其中添加自己的json文件。
 
-> 您需要使这个新bean成为@Primary bean。否则，您将得到一个关于模棱两可的bean的异常。
+> 你需要使这个新bean成为@Primary bean。否则会得到一个关于模棱两可的bean的异常。
 
 ```java
 @Configuration
@@ -1679,23 +1678,23 @@ public class SwaggerWsEndpointsConfig {
 
 ## 12. 常见问题的解答
 
-**问：为什么Sprringfox忽略控制器方法返回值中的http状态代码？**
+### **为什么Sprringfox忽略控制器方法返回值中的http状态代码？**
 
-答：[Reference #822](https://github.com/springfox/springfox/issues/822#issuecomment-117372109)
+[Reference #822](https://github.com/springfox/springfox/issues/822#issuecomment-117372109)
 
-**问：swagger-ui和springfox-swagger-ui之间有什么关系？**
+### **swagger-ui和springfox-swagger-ui之间有什么关系？**
 
-答：这可能会让人有点困惑：
+这可能会让人有点困惑：
 
 * Savagger Spec是一种规格。
 * swagger Api-支持JAX-RS、RESTlet、Jersey等规范实现。
 * 一般说来，Springfox库是该规范的另一个实现，专注于基于Spring的生态系统。
 * js和swagger-ui-是javascript中的客户端库，可以使用swagger规范。
-* springfox-swagger-ui-您所指的那个，只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。
+* springfox-swagger-ui 只是以一种方便的方式打包swagger-ui，以便Spring服务可以提供它。
 
-**问：我用的是gson，不用的是jackson，我该怎么办？**
+### **我用的是gson，不用的是jackson，我该怎么办？**
 
-答：感谢[@chrishuttonch](https://github.com/chrishuttonch)描述了[此问题](https://github.com/springfox/springfox/issues/867)的解决方案
+感谢[@chrishuttonch](https://github.com/chrishuttonch)描述了[此问题](https://github.com/springfox/springfox/issues/867)的解决方案
 
 > 我打开了excludeFieldsWithoutExposeAnnotation()，这意味着没有任何对象会生成任何数据。为了解决这个问题，我为以下类创建了几个序列化程序：
 >
@@ -1709,14 +1708,538 @@ public class SwaggerWsEndpointsConfig {
 > .registerTypeAdapter(springfox.documentation.swagger.web.UiConfiguration.class, new SwaggerUiConfigurationSerializer());
 > ```
 
-**问：在springboot应用中ObjectMapper会出错吗？**
+### **在springboot应用中ObjectMapper会出错吗？**
 
-答：您可能遇到以下问题之一
+你可能遇到以下问题之一
 
 1. 启动期间是否存在NPE？
 
    > 在调试器中运行显示，我的WAR中有两个WebApplicationInitializers实例。Spring正在刷新每个实例的上下文，并在没有`onApplicationEvent`调用的情况下生成`OptimizedModelPropertiesProvider`的第二个实例。我可以通过删除代码中的第二个`WebApplicationInitializer`来修复它。似乎和这个 [spring-boot issue #221](https://github.com/spring-projects/spring-boot/issues/221) 有关。
 
-2. 对象映射器自定义设置不起作用吗？
+2. 对象映射器自定义设5置不起作用吗？
 
    > 有时有多个`ObjectMapper`在运行，这可能导致自定义无法工作`HttpMessageConverters`中的Spring Boot首先添加Spring Boot配置的`MappingJackson2HttpMessageConverter`，然后添加来自Spring MVC的默认`MappingJackson2HttpMessageConverter`。这会导致`ObjectMapperConfiguring`事件触发两次，第一次是针对已配置的转换器(实际使用的)，然后是针对默认转换器。所以当你F.E.。设置自定义属性命名策略，然后在`ObjectMapperBeanPropertyNamingStrategy`中，这将被第二个事件覆盖。以下代码修复了此问题：
+
+```java
+@Configuration
+public class MyWebAutoConfiguration extends WebMvcConfigurerAdapter {
+
+    @Override
+    public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
+        ObjectMapper objectMapper = null;
+        for (HttpMessageConverter converter : converters) {
+            if (converter instanceof MappingJackson2HttpMessageConverter) {
+                MappingJackson2HttpMessageConverter jacksonConverter =
+                        ((MappingJackson2HttpMessageConverter) converter);
+
+                if (objectMapper == null) {
+                    objectMapper = jacksonConverter.getObjectMapper();
+                } else {
+                    jacksonConverter.setObjectMapper(objectMapper);
+                }
+            }
+        }
+    }
+}
+```
+
+### **如何更快速使用Java8类型。LocalDateTime？**
+
+配置日期的最简单方法是通过`Docket#directModelSubstitute(LocalDateTime.class，String.class)`。如果这些是符合字符串格式的ISO 8601日期，即`yyyy-MM-dd’T’HH:mm’Z'`。但是，不会有任何格式或验证信息。
+
+> 使用`java.sql.Date`提高日期精度，使用`java.util.Date`提高日期时间精度
+
+将“Date”和“DateTime”类型正确映射到其相应的夸张类型的方法：
+
+* 将“date”类型(java.util.LocalDate，org.joda.time.LocalDate)替换为java.sql.Date。
+
+* 替换“DateTime”类型(java.util.ZonedDateTime，org.joda.time.LocalDateTime，…。)由java.util.Date.
+
+```java
+docket
+.directModelSubstitute(LocalDate.class, java.sql.Date.class)
+.directModelSubstitute(LocalDateTime.class, java.util.Date.class)
+```
+
+### **如何使用`@ModelAttribute`注解。它似乎不会将模型属性呈现为标量属性？**
+
+为了推断`@ModelAttribute`注解类型，属性需要是bean属性。如果意图是不变的并且传入一个对象，首选的方法是将其设为请求体，在这种情况下，不变性将遵循Jackson制定的规则，以确定什么构成请求对象的请求“视图”。
+
+getters/setter是一种简洁的方式，可以指示操作中可以包含哪些值。虽然这在具有一层嵌套的普通模型中可能不明显，但当我们意识到模型属性可以任意嵌套时，设计选择就会变得清晰起来。请考虑(为简洁起见，使用C#编写伪代码)
+
+```c#
+Person {String firstName {get;set;}
+String lastName {get;set;}
+Category category {get;set;}
+Category {String name {get;set;}
+String description {get;}
+```
+
+因此可以设置属性：
+
+- firstName
+- lastName
+- category.name
+
+现在我们不希望类别能够通过操作设置描述，我们如何控制/指定呢？这使得很难推断对象中的哪些字段不打算进行变异。这就是我们选择将其限制为公开getter和setter的对象的原因。
+
+> 我知道Spring也支持字段，如果找不到setter，它将退回到字段。
+
+### **我们应该如何解决可作为bean使用的多个对象映射器，特别是在使用Spring-hateoas时？**
+
+我们的想法是提供一个@Primary ObjectMapper。根据@Prabhat1790在 [issue #890](https://github.com/springfox/springfox/issues/890)中提供的答案
+
+```java
+ private static final String SPRING_HATEOAS_OBJECT_MAPPER = "_halObjectMapper";
+
+  @Autowired
+  @Qualifier(SPRING_HATEOAS_OBJECT_MAPPER)
+  private ObjectMapper springHateoasObjectMapper;
+
+  @Primary
+  @Bean
+  @Order(value=Ordered.HIGHEST_PRECEDENCE)
+  @DependsOn(SPRING_HATEOAS_OBJECT_MAPPER)
+  public ObjectMapper objectMapper() {
+    return springHateoasObjectMapper;
+  }
+```
+
+将其他bean的顺序设置为最低优先级。
+
+### **如何使用此库聚合来自多个服务的启用swagger的资源？**
+
+关于如何做到这一点的合乎逻辑的解释可以在[swagger google group](https://groups.google.com/forum/#!searchin/swagger-swaggersocket/multiple/swagger-swaggersocket/g8fgSGUCrYs/A8Ms_lFOoN4J)中找到。此外，[这条评论](https://github.com/springfox/springfox/issues/1001#issuecomment-147609243)还进一步讨论了做这件事的问题。
+
+### 为什么我的API参数标记为required=false？
+
+这是因为插件的工作方式以及它们的优先级层信息的方式。
+
+* `@PathVariables`始终标记为必需。
+* `@ApiParam`是一个可选的注解，用于描述其他元信息，如描述等。
+* `@ApiParam#Required()`默认为false，除非你将其设置为true。
+
+Springfox使用插件来分层信息。有一组Spring特定的插件将推断的值应用于内部服务模型。与swagger注解相关的元数据位于Spring-MVC描述之上。根据定义，插件不知道也不应该知道彼此或之前推断的值(你的情况下是需要属性)。
+
+因此，如果你选择使用`@ApiParam`来扩充定义，那么需要显式地将值设置为true。
+
+### **例如，如何写一个插件，让默认所有类型都是必需的，而只有一些类型不是必需的？**
+
+要做到这一点，你必须。
+
+* 为可选添加替代类型规则 可以参阅Docket中的GenericModelSubstitutes。
+* 实现自定义的ModelPropertyBuilderPlugin。
+* 如果找到可选类型，则重写只读属性。请看[这里的示例](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/schema/ApiModelPropertyPropertyBuilder.java#L35)。
+
+记住，你需要在此插件之后触发该插件。因此，需要有根据地选择插件
+
+### 为什么我的所有operation都没有显示在UI中？
+
+这是swagger-spec的一个已知限制。有一个办法可以解决它，但是，swagger-UI无法很好地和它合作。我有一个[PR](https://github.com/swagger-api/swagger-js/pull/541)来解决这个问题。如果你对PR和[潜在问题](https://github.com/swagger-api/swagger-spec/issues/291)投赞成票，那就太好了
+
+> 该[PR](https://github.com/swagger-api/swagger-js/pull/541)已关闭！
+
+### 如何根据版本对API进行划分？
+
+摘录自 [issue 963](https://github.com/springfox/springfox/issues/963)的解释...
+
+(Sprringfox)使用上下文路径作为起点。
+
+你真正需要做的是定义一个动态Servlet注册并创建2个docket。一个用于**api**，一个用于**api/v2**。这篇[SO post](http://stackoverflow.com/questions/23049736/working-with-multiple-dispatcher-servlets-in-a-spring-application)可能会有帮助
+
+```java
+    ...
+      Dynamic servlet = servletContext.addServlet("v1Dispatcher", new DispatcherServlet(ctx1));
+            servlet.addMapping("/api");
+            servlet.setLoadOnStartup(1);
+
+      Dynamic servlet = servletContext.addServlet("v2Dispatcher", new DispatcherServlet(ctx2));
+            servlet.addMapping("/api/v2");
+            servlet.setLoadOnStartup(1);
+```
+
+### **如何为非Sprringboot应用程序配置swagger-UI？**
+
+节选自[issue 983](https://github.com/springfox/springfox/issues/983)…
+
+我可以通过将`dispatcherServlet`修改为监听/*来使其正常工作，但这会阻止为`swagger-ui.html`提供服务。要修复此问题以使`swagger-ui.html`绕过dispatcherServlet，我必须创建一个新的servlet映射：
+
+```xml
+ <servlet>
+          <servlet-name>RestServlet</servlet-name>
+          <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+          <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value></param-value>
+          </init-param>
+          <load-on-startup>1</load-on-startup>
+        </servlet>
+
+        <servlet-mapping>
+          <servlet-name>default</servlet-name>
+            <url-pattern>/swagger-ui.html</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+          <servlet-name>RestServlet</servlet-name>
+            <url-pattern>/*</url-pattern>
+        </servlet-mapping>
+```
+
+还必须让Webjar通过DispatcherServlet：
+
+```xml
+<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+```
+
+开始工作很麻烦，但是有效。也许有一种更好的方法可以重新映射swagger-ui.html，或者让它通过dispatcherServlet。
+
+> `swagger-ui.html`是swagger-ui.html页面的名称。虽然不能更改，但可以对应用程序进行配置，以便登录到特定的URL会将浏览器重定向到真正的swagger-UI位置。
+
+例如，可以使用以下代码将Swagger UI移动到`/documentation`下。
+
+```java
+ @Override
+        public void addViewControllers(ViewControllerRegistry registry) {
+
+                registry.addRedirectViewController("/documentation/v2/api-docs", "/v2/api-docs?group=restful-api");
+                registry.addRedirectViewController("/documentation/swagger-resources/configuration/ui","/swagger-resources/configuration/ui");
+                registry.addRedirectViewController("/documentation/swagger-resources/configuration/security","/swagger-resources/configuration/security");
+                registry.addRedirectViewController("/documentation/swagger-resources", "/swagger-resources");
+        }
+
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+                 registry.
+                         addResourceHandler("/documentation/swagger-ui.html**").addResourceLocations("classpath:/META-INF/resources/swagger-ui.html");
+                registry.
+                        addResourceHandler("/documentation/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        }
+```
+
+但是，它仍然需要重定向到`/documentation/swagger-ui.html`，因为路径名是[硬编码](https://github.com/springfox/springfox/blob/master/springfox-swagger-ui/src/web/js/springfox.js#L4)的。
+
+### **如何创建替换列表和数组项的规则？**
+
+如果以下类型为…
+
+```java
+    ToSubstitute[] array;
+    List<ToSubstitute> list;
+```
+
+这就是需要配置规则的方式
+
+```java
+ rules.add(newRule(resolver.arrayType(ToSubstitute), resolver.arrayType(Substituted)))
+    rules.add(newRule(resolver.resolve(List, ToSubstitute), resolver.resolve(List, Substituted)))
+```
+
+**如何配置具有多个protocols/schemes的docket？**
+
+答：使用`protocols()`配置docket来表示支持的方案。
+
+```java
+docket.protocols(newHashSet("http", "https"))
+```
+
+### **如何在使用XML Spring配置的项目中使用Sprringfox？**
+
+有一个演示应用程序描述了[如何设置java-XML](https://github.com/springfox/springfox-demos/tree/master/spring-xml-swagger)配置。
+
+### **如何覆盖host？**
+
+多亏了[@cbornet](https://github.com/springfox/springfox/pull/1011)的这份PR，这应该在V2.3中可用。它仍处于孵化阶段，但可以根据摘要配置主机名
+
+```java
+     docket.host("http://maybe-an-api-gateway.host");
+```
+
+### **当Sprringfox尝试确定具有嵌套/复杂约束的对象的模式时，是否会出现无限循环？**
+
+如果有递归定义的对象，我会尝试提供一种替代类型，或者甚至可以忽略有问题的类，例如使用Docket的Order。IgnarredParameterTypes(Order.class)。这通常可以在对其他对象有双向依赖关系的Hibernate域对象中找到。
+
+### **tag在springfox中是如何实现的？**
+
+与Operation、Model等一样属于一级结构的标记，你在Operation上看到的就是对这些tag的引用。典型的工作流是在Docket中注册tag，并使用Operation(`@ApiOperation`)/controllers(`@Api`)上的tag定义按名称指向这些注册的tag(在Docket中)。
+
+为了减少开发人员的模板数量，我们提供的便利就是提供一个恰好与tag名称相同的默认描述。因此，实际上我们是通过在Operation上引用一个伪tag来合成一个伪tag。
+
+通过在Docket上定义tag，我们引用的是你自定义的真实tag。
+
+### 如果配置非引导应用程序不能按预期工作，我可以尝试什么？
+
+由于[@Pyohwan](https://github.com/Pyohwan)的建议，`@Configuration`注解可能无法与`@EnableSwagger2`一起使用。所以不应该附加@Configation。因此，如果你的Configuration类使用如下所示的`@EnableSwagger2`引入了springfox配置，请尝试删除该类上的`@Configuration`，如下所示。
+
+```java
+@EnableSwagger2
+public class SwaggerConfig {
+...
+```
+
+并在`WebMvcConfigurerAdapter`或类似的配置类上使用`@Import`注解。
+
+```java
+@Configuration
+@EnableWebMvc
+@ComponentScan(...)
+@Import(SwaggerConfig.class)
+public class MvcConfig extends WebMvcConfigurerAdapter {
+...
+```
+
+### 如何添加CORS支持？(谢谢[@angakrishh](https://github.com/gangakrishh))
+
+基于[Spring Guide](https://spring.io/guides/gs/rest-service-cors/)创建`WebMvcConfigurer`，我们可以配置请求映射以允许特定的来源。
+
+```java
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurerAdapter() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/some-request-mapping").allowedOrigins("http://localhost:9000");
+            }
+        };
+```
+
+如果这不起作用，很可能CORS注册发生在SpringFox bean注册之前。
+要解决这个问题，我们可以注册一个CORS过滤器注册bean，它注册我们的端点。
+在下面的示例中，我们已经为所有端点注册了它。
+
+```java
+@Configuration
+public class WebConfig extends WebMvcConfigurerAdapter {
+
+    //https://stackoverflow.com/questions/31724994/spring-data-rest-and-cors
+    @Bean
+    public FilterRegistrationBean corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+
+        CorsConfiguration config = new CorsConfiguration().applyPermitDefaultValues();
+        config.setAllowCredentials(false);
+        source.registerCorsConfiguration("/**", config);
+
+        FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+        bean.setOrder(0);
+
+        return bean;
+    }
+}
+```
+
+### 使用[不可变变量](https://immutables.github.io/)时如何配置docket？
+
+(感谢https://github.com/kevinm416[@kevinm416])
+
+这与[#1490](https://github.com/springfox/springfox/issues/1490)相关。配置它的方法是在docket配置中创建一个自定义的ternateTypeRules。
+例如，如果你有一个不可变的MyClass来生成ImmutableMyClass，那么我们将为它添加一个规则，如下所示。
+
+```java
+@Bean
+public Docket docket() {
+  return new Docket(DocumentationType.SWAGGER_2)
+    .alternateTypeRules(AlternateTypeRules.newRule(MyClass.class,
+                ImmutableMyClass.class));
+```
+
+> 如果使用的是模型的库，则可能需要使不可变式在包外部可见。
+
+### 为什么设置@ApiImplitParam#paramType=“form”输出未定义的dataType？
+
+如果在2.7.0发布后将数据类型更改为“__FILE”，则会解决你的问题。
+
+> 我们使用“__file”的原因是，如果消费库定义了自定义类型File，则该类型最终会被视为文件数据类型，即使这不是目的。
+> 为了将自定义类型的使用与本机理解的file原语区分开来，我们引入了此约定。
+
+### 如何配置Sprringfox以支持Vavr/Javaslang Jackson模块？
+
+我们需要首先创建一个备用类型规则约定，告诉springfox将vavr持久化集合像对待原生java集合一样对待。
+以下示例仅配置器设置、列表和映射类型。
+
+```java
+package springfox.test.contract.swagger;
+
+import com.fasterxml.classmate.TypeResolver;
+import io.vavr.collection.Map;
+import io.vavr.collection.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import springfox.documentation.schema.AlternateTypeRule;
+import springfox.documentation.schema.AlternateTypeRuleConvention;
+import springfox.documentation.schema.WildcardType;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static springfox.documentation.schema.AlternateTypeRules.newRule;
+
+@Component
+public class VavrDefaultsConvention implements AlternateTypeRuleConvention {
+    @Autowired
+    private TypeResolver typeResolver;
+
+    @Override
+    public List<AlternateTypeRule> rules() {
+        ArrayList<AlternateTypeRule> rules = new ArrayList<AlternateTypeRule>();
+        rules.add(
+                newRule(
+                        typeResolver.resolve(io.vavr.collection.List.class, WildcardType.class),
+                        typeResolver.resolve(List.class, WildcardType.class)));
+        rules.add(
+                newRule(
+                        typeResolver.resolve(Set.class, WildcardType.class),
+                        typeResolver.resolve(java.util.Set.class, WildcardType.class)));
+        rules.add(
+                newRule(
+                        typeResolver.resolve(Map.class, WildcardType.class, WildcardType.class),
+                        typeResolver.resolve(java.util.Map.class, WildcardType.class, WildcardType.class)));
+        return rules;
+    }
+
+    @Override
+    public int getOrder() {
+        return HIGHEST_PRECEDENCE;
+    }
+}
+```
+
+[view raw](https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80/raw/03b1dddc1f318635c92283a2851ec85a64ad77f8/VavrDefaultsConvention.java)[VavrDefaultsConvention.java](https://gist.github.com/dilipkrish/2bf80a0285a04b4037c8994fd8cb8b80#file-vavrdefaultsconvention-java) hosted with ❤ by [GitHub](https://github.com/)
+
+或者，为了有效地使用Jackson，对于非集合类型，我们可以注册一个应用程序侦听器，该侦听器向正在使用的objectmapper注册vavr模块。
+
+```java
+@Component
+public class SwaggerJacksonModuleWithVavr implements ApplicationListener<ObjectMapperConfigured> {
+
+  @Override
+  public void onApplicationEvent(ObjectMapperConfigured event) {
+    event.getObjectMapper().registerModule(new VavrModule());
+  }
+}
+```
+
+### 为什么某些模型/类型缺少属性？
+
+这种情况可能发生的一个很好的例子是在使用不是特别明显的Immutables不可变变量(库)时。
+Immutables(不可变)是很棒的，只是，如你所见，除非你正确地构建模型，否则可能会导致混乱的结果。
+另外，Sprringfox推断模型的方式与服务使用它的方式是相反的。
+我的意思是，假设模型具有属性a(读/写)、b(只写)、c(只读)，我们读取请求的可写属性和响应的可读属性。
+因此，如果你的模型仅用于请求，则它将具有a和b，如果你的模型仅用于响应，则它将具有a和c，如果它同时存在于请求和响应中，则它将具有a、b和c。
+多亏了[Maksim](https://github.com/MaksimOrlov)的[模型增强工作](https://github.com/springfox/springfox/pull/2056)，我们正在努力使这一点变得更好
+
+
+
+### 为什么http://host:port/swagger-ui.html是空的？或者为什么当我导航到http://host:port/swagger-ui.html？时会得到404
+
+在非Spring引导应用程序中，确保为springfox-swagger-UI [webjar](https://springfox.github.io/springfox/docs/current/#q13)添加资源处理程序。
+如果是Spring Boot应用程序：
+
+* 检查`spring.resource ces.add-mappings`属性是否设置为true。
+* 检查是否应用了Spring Security，是否允许适当的资源。
+
+```java
+@Configuration
+  public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+      http
+        .csrf().disable()
+        .exceptionHandling()
+        .authenticationEntryPoint(unauthorizedHandler)
+        .accessDeniedHandler(accessDeniedHandler)
+        .and()
+        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+        .authorizeRequests()
+        //.antMatchers("/actuator/**").permitAll()
+        .antMatchers("/actuator/**").hasAuthority("ADMIN")
+        .antMatchers(
+          HttpMethod.GET,
+          "/v2/api-docs",
+          "/swagger-resources/**",
+          "/swagger-ui.html**",
+          "/webjars/**",
+          "favicon.ico"
+        ).permitAll()
+        .antMatchers("/auth/**").permitAll()
+        .anyRequest().authenticated();
+
+      http
+        .addFilterBefore(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class)
+        .headers()
+        .cacheControl();
+    }
+  }
+```
+
+或者我们可以完全忽略这些资源
+
+```java
+@Configuration
+public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+  @Override
+  public void configure(WebSecurity web) throws Exception {
+    web.ignoring()
+      .antMatchers(
+        "/v2/api-docs",
+        "/swagger-resources/**",
+        "/swagger-ui.html**",
+        "/webjars/**");
+  }
+}
+```
+
+### controller接收字符串形式的参数，但我们需要json类型，我们怎么才能对此进行建模呢？
+
+[FeatureDemonstrationService.class](https://github.com/springfox/springfox/blob/master/springfox-spring-web/src/test/java/springfox/documentation/spring/web/dummy/controllers/FeatureDemonstrationService.java#L243-267)
+
+```java
+@RequestMapping(value = "/2031", method = RequestMethod.POST)
+@ResponseBody
+@ApiOperation(value = "/2031")
+@ApiImplicitParams({
+    @ApiImplicitParam(
+        name = "contents",
+        dataType = "CustomTypeFor2031",
+        examples = @io.swagger.annotations.Example(
+            value = {
+                @ExampleProperty(value = "{'property': 'test'}", mediaType = "application/json")
+            }))  // ①
+})
+public void save(@PathVariable("keyId") String keyId,
+                 @PathVariable("id") String id,
+                 @RequestBody String contents // ②
+) {
+}
+
+public static class CustomTypeFor2031 { // ③
+  private String property;
+
+  public String getProperty() {
+    return property;
+  }
+
+  public void setProperty(String property) {
+    this.property = property;
+  }
+}
+```
+
+① 假设我们有一个控制器操作，它有一个字符串参数(Contents)。这就是我们覆盖在线类型(CustomTypeFor2031)的方法。
+② 以`String`形式传入的方法参数，该字符串实际上被解释为CustomTypeFor2031。
+③ 我们从json字符串读取的`CustomTypeFor2031`复杂类型。
+
+完成此操作后，我们需要配置此更改，以便可以将模型添加到定义部分
+
+[Swagger2TestConfig](https://github.com/springfox/springfox/blob/eedbfb1b2dcf0344e21aefd0731515aa63fc9070/swagger-contract-tests/src/test/groovy/springfox/test/contract/swaggertests/Swagger2TestConfig.groovy#L118)
+
+```java
+return new Docket(DocumentationType.SWAGGER_2)
+    .groupName("featureService")
+    .useDefaultResponseMessages(false)
+    .additionalModels(resolver.resolve(FeatureDemonstrationService.CustomTypeFor2031.class)) 
+//  ①
+```
+
+① 添加`CustomTypeFor2031`作为附加模型。
