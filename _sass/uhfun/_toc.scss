@@ -1,6 +1,6 @@
 #toc {
   margin-bottom: 30px;
-  padding: 16px;
+  padding: 20px;
   border: 1px solid #e8e8e8;
   border-radius: 0.2em;
   box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important;
@@ -17,6 +17,7 @@
     position: fixed;
     background-color: white;
     z-index: 100;
+    min-width: 280px;
     max-width: 320px;
     max-height: 1000px;
     top: 20px;
