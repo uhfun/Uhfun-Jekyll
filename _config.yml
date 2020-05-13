@@ -12,6 +12,10 @@ url: http://uhfun.cn
 timezone: Asia/Shanghai
 baidu_site_verification: 9DYfdd4yEo
 google_site_verification: uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo
+article_license:
+  name: CC 4.0 BY-SA 
+  url: http://creativecommons.org/licenses/by-sa/4.0/
+
 
 markdown: redcarpet
 redcarpet:

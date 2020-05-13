@@ -15,6 +15,18 @@ layout: page
     <img src='{{ head-img }}'>
     {% endif %}
   </div>
+  {% if page.categories contains 'tech' and page.post.original %} 
+    <div class="article_license">
+      <p>
+        <strong>版权声明：本文为博主原创文章，遵循</strong> 
+        <a target="_blank" href="{{ site.article_license.url }}">{{ site.article_license.name }}</a>       
+        <strong>版权协议，转载请附上原文出处链接和本声明。</strong>    
+        <br>    
+        <strong>本文链接：</strong> 
+        <a target="_blank" href="{{ site.url }}{{ page.url | url_decode }}">{{ site.url }}{{ page.url | url_decode }}</a>        
+      </p>
+    </div>
+  {% endif %}
   <div class='post-content'>
     <div id="toc"></div>
     {% if page.post.type == "brief" %}
