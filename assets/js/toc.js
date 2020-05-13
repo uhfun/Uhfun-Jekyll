@@ -112,10 +112,10 @@
           $toc.addClass('toc-suspend')
           $('html,body').scrollTop(scrollS - h)
         }
-        if (scrollS >= windowTop && $toc.is(":visible")) {
+        if ($toc.css('position') == 'fixed' && scrollS >= windowTop && $toc.is(":visible")) {
           $toc.hide()
         } 
-        if (scrollS < windowTop && !$toc.is(":visible") ) {
+        if ($toc.css('position') == 'fixed' && scrollS < windowTop && !$toc.is(":visible") ) {
           $toc.show()
         }       
       } else {
