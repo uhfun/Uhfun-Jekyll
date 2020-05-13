@@ -106,21 +106,23 @@
   $(window).scroll(() => {
     var scrollS = $(this).scrollTop();  
     let h = $toc.outerHeight();
-    if (scrollS >= h) {
-      if (!$toc.hasClass('toc-suspend')) {
-        $toc.addClass('toc-suspend')
+    if ($toc.html() != '') {
+      if (scrollS >= h) {
+        if (!$toc.hasClass('toc-suspend')) {
+          $toc.addClass('toc-suspend')
+        }
+        if (scrollS >= windowTop && $toc.css('display') == 'block') {
+          $toc.css('display', 'none')
+        } 
+        if (scrollS < windowTop && $toc.css('display') == 'none') {
+          $toc.css('display', 'block')
+        }       
+      } else {
+        if ($toc.hasClass('toc-suspend')) {
+          $toc.removeClass('toc-suspend')
+        }
       }
-      if (scrollS >= windowTop && $toc.css('display') == 'block') {
-        $toc.css('display', 'none')
-      } 
-      if (scrollS < windowTop && $toc.css('display') == 'none') {
-        $toc.css('display', 'block')
-      }       
-    } else {
-      if ($toc.hasClass('toc-suspend')) {
-        $toc.removeClass('toc-suspend')
-      }
-    }
+    }    
     windowTop=scrollS;
   });
 
