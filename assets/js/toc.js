@@ -84,7 +84,6 @@
       level = this_level; // update for the next one
     });
     html += "</"+settings.listType+">";
-    html += "<div>back</div>"
     render[settings.showEffect]();
   };
   // 隐藏/关闭
