@@ -106,25 +106,24 @@
   $(window).scroll(() => {
     var scrollS = $(this).scrollTop();  
     let h = $toc.outerHeight();
-    if ($toc.html() != '') {
+    if ($toc.html() != '') {    
       if (scrollS >= h + 240) {
         if (!$toc.hasClass('toc-suspend') && $toc.is(":visible")) {
           $toc.addClass('toc-suspend')
-          $('html,body').scrollTop(scrollS - h)
+          if ($toc.css('position') == 'fixed') {
+            $('html,body').scrollTop(scrollS - h)
+          }          
         }
         if ($toc.css('position') == 'fixed' && scrollS >= windowTop && $toc.is(":visible")) {
-          $toc.hide()
+          $toc.fadeOut();
         } 
         if ($toc.css('position') == 'fixed' && scrollS < windowTop && !$toc.is(":visible") ) {
-          $toc.show()
+          $toc.fadeIn()
         }       
-      } else {
-        if ($toc.hasClass('toc-suspend')) {
-          $toc.removeClass('toc-suspend')
-        }
-        if (scrollS < 240 && !$toc.is(":visible") ) {
-          $toc.show()
-        }
+      } 
+      if (scrollS < 240) {
+        $toc.removeClass('toc-suspend')
+        $toc.fadeIn()
       }
     }    
     windowTop=scrollS;
