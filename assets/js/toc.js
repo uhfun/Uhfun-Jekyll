@@ -55,7 +55,7 @@
 
     var level = get_level(headers[0]),
       this_level,
-      html = settings.title + " <" +settings.listType + " class=\"" + settings.classes.list +"\">";
+      html = settings.title + " <" +settings.listType + " class=\"toc-ol" + settings.classes.list +"\">";
     headers.on('click', function() {
         window.location.hash = this.id;
     })
@@ -76,7 +76,7 @@
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
         for(i = this_level; i > level; i--) {
           html += "<span class='show-sub'><i class='fa fa-caret-up' aria-hidden='true'></i></span>" + 
-                  "<" + settings.listType + " class=\"toc-sub-ol" + settings.classes.list +"\">" +
+                  "<" + settings.listType + " class=\"toc-sub-ol toc-ol" + settings.classes.list +"\">" +
                   "<li class=\"" + settings.classes.item + "\">"
         }
         html += createLink(header);
@@ -86,29 +86,64 @@
     html += "</"+settings.listType+">";
     render[settings.showEffect]();
   };
+
+  var headerOffsets = (tocHeight) => {
+    var titles = []
+    $('.clickable-header').each((i, h) => {
+      var $h = $(h);
+      titles.push({
+        "href": '#' + encodeURI($h.attr('id')),
+        "offsetTop": $h.offset().top - tocHeight        
+      });
+    })  
+    return titles;
+  } 
   // 隐藏/关闭
   $(document).on('click', '.show-sub', function() {
     var that = $(this), svg = that.children('svg');
-    if (svg.hasClass('fa-caret-up')) {
-      that.parent().siblings().each((i, e) => {
-        var each = $(e)
-        if (each.children('.show-sub').children('svg').hasClass('fa-caret-down')) {
-          each.children('.toc-sub-ol').slideToggle(240);
-          each.children('.show-sub').children('svg').addClass('fa-caret-up').removeClass('fa-caret-down');
-        }      
-      })
-      svg.addClass('fa-caret-down').removeClass('fa-caret-up');
+    var li = that.parent();      
+    if (li.hasClass('toc-open')) {
+      closeLi(li);      
     } else {
-      svg.addClass('fa-caret-up').removeClass('fa-caret-down');
-    }
-    that.next().slideToggle(240);
+      openLi(li);      
+    }      
   });
 
-  var windowTop=0, $toc = $('#toc');
+  var nearestHeader = function(scrollS, min, array) {
+    var nearest = array[0];
+    array.forEach((item,index,arr) => {
+      if (Math.abs(item.offsetTop - scrollS) < Math.abs(min)) {
+        nearest = item;
+        min = item.offsetTop - scrollS;
+      }          
+    })
+    return nearest;    
+  }
+
+  var openLi = function($li) {
+    if (!$li.hasClass('toc-open')) {
+      closeLi($li.siblings('.toc-open'));
+      $li.addClass('toc-open')  
+      $li.children('.toc-sub-ol').slideToggle(240);
+      $li.children('.show-sub').children('svg').addClass('fa-caret-down').removeClass('fa-caret-up');           
+    }    
+  }
+
+  var closeLi = function($li) {
+    $li.removeClass('toc-open')    
+    $li.children('.toc-sub-ol').slideToggle(240);
+    $li.children('.show-sub').children('svg').addClass('fa-caret-up').removeClass('fa-caret-down');           
+  }
+
+  var windowTop=0, $toc = $('#toc'), titles = [];
   $(window).scroll(() => {
     var scrollS = $(this).scrollTop();  
-    let h = $toc.outerHeight();
-    if ($toc.html() != '') {    
+    let h = $toc.outerHeight();    
+    if ($toc.html() != '') {   
+      if (titles.length == 0) {
+        titles = headerOffsets( h + 30);
+        console.log(titles)    
+      }     
       if (scrollS >= h + 240) {
         if (!$toc.hasClass('toc-suspend') && $toc.is(":visible")) {
           $toc.addClass('toc-suspend')
@@ -122,13 +157,31 @@
         if ($toc.css('position') == 'fixed' && scrollS < windowTop && !$toc.is(":visible") ) {
           $toc.fadeIn()
         }       
+        if (scrollS < windowTop) {   
+          var $checkedA = $("[href='"+nearestHeader(scrollS, 99999, titles).href+"']");
+          $('.checked-a').removeClass('checked-a');
+          $checkedA.addClass('checked-a')
+          var $li = $checkedA.parent();      
+          if ($li.children('.toc-sub-ol').length == 0) {
+            closeLi($li.siblings('.toc-open'));
+            $li = $li.parent().parent();
+          }
+          while($li.parent().hasClass('toc-ol')) {
+            openLi($li);
+            $li = $li.parent().parent();
+          }
+        }
       } 
       if (scrollS < 240) {
         $toc.removeClass('toc-suspend')
-        $toc.fadeIn()
+        $toc.fadeIn()        
+        closeLi($toc.children('.toc-ol').children('.toc-open'));
       }
     }    
     windowTop=scrollS;
   });
 
 })(jQuery);
+
+
+
