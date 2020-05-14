@@ -312,13 +312,7 @@
 
 // back-to-top
 .back-to-top {
-
-  // @include media-max(800px) {
-  //   overflow: hidden;
-  //   opacity: 0 !important;
-  // }
-
-  cursor: pointer;
+  cursor: pointer !important;
   position: fixed;
   width: 48px;
   height: 48px;
