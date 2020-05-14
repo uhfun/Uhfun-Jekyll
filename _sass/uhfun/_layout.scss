@@ -321,10 +321,13 @@
   z-index: 10000;
   opacity: 0;
 
-  a:hover {
-    background-color: $base-color;
-    color: white !important;
-    box-shadow: 5px 4px 14px 6px $base-shadow-color !important;
+  a {
+    color: #fff !important;
+    &:active {      
+      background-color: $base-color;
+      color: white !important;
+      box-shadow: 5px 4px 14px 6px $base-shadow-color !important;
+    }    
   }
 
   .icon-stack {
