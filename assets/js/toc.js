@@ -75,7 +75,7 @@
       }
       else if (this_level > level) { // lower level than before; expand the previous to contain a ol
         for(i = this_level; i > level; i--) {
-          html += "<span class='show-sub'>+</span>" + 
+          html += "<span class='show-sub'><i class='fa fa-caret-up' aria-hidden='true'></i></span>" + 
                   "<" + settings.listType + " class=\"toc-sub-ol" + settings.classes.list +"\">" +
                   "<li class=\"" + settings.classes.item + "\">"
         }
@@ -84,21 +84,24 @@
       level = this_level; // update for the next one
     });
     html += "</"+settings.listType+">";
+    html += "<div>back</div>"
     render[settings.showEffect]();
   };
   // 隐藏/关闭
   $(document).on('click', '.show-sub', function() {
-    var that = $(this)  
-    if (that.text() == '+') {
+    var that = $(this), svg = that.children('svg');
+    if (svg.hasClass('fa-caret-up')) {
       that.parent().siblings().each((i, e) => {
         var each = $(e)
-        if (each.children('.show-sub').text() == '-') {
+        if (each.children('.show-sub').children('svg').hasClass('fa-caret-down')) {
           each.children('.toc-sub-ol').slideToggle(240);
-          each.children('.show-sub').text('+');
+          each.children('.show-sub').children('svg').addClass('fa-caret-up').removeClass('fa-caret-down');
         }      
       })
+      svg.addClass('fa-caret-down').removeClass('fa-caret-up');
+    } else {
+      svg.addClass('fa-caret-up').removeClass('fa-caret-down');
     }
-    that.text(that.text() == '+' ? '-' : '+');
     that.next().slideToggle(240);
   });
 
