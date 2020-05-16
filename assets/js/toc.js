@@ -140,15 +140,13 @@
     } else {
       min = tocCheckedTitle.offsetTop - scrollS;
       for (i = tocCheckedTitle.index-1; i >= 0; i--) { 
-        var newValue = Math.abs(titles[i].offsetTop - scrollS), oldValue = Math.abs(tocCheckedTitle.offsetTop - scrollS);
-        if (newValue < oldValue && newValue < min) {
-          min = newValue;
-          tocCheckedTitle = titles[i];
-        }
-        if (newValue > min) {
+        var newValue = Math.abs(titles[i].offsetTop - scrollS);
+        if (newValue <= min) {
+          min = newValue;          
+        } else {
           tocCheckedTitle = titles[i+1];
           return
-        }      
+        }        
       }
     }    
   }
