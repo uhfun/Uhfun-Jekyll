@@ -234,6 +234,8 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
 
 /** Syntax highlighting styles */
+code { word-wrap: break-word; word-break: break-all; }
+
 pre { background-color: #fdfdfd !important; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
 
 .highlight { margin-bottom: 10px; }
