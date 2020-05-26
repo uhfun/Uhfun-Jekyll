@@ -3,7 +3,8 @@
  */
 
 code {
-  // margin: 0 0.25em;
+  word-wrap:break-word; 
+  word-break:break-all;
 }
 pre {
   background-color: #fdfdfd !important;
