@@ -271,8 +271,9 @@ public abstract class AnnotationConfigUtils {
 }
 ```
 
-#### 刷新应用上下文，执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法
+#### 刷新应用上下文，invokeBeanFactoryPostProcessors
 
+执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法
 创建完应用上下文，这时我们再回到`SpringApplication`的非静态`run`方法中的`refreshContext(context);` 
 
 它进入`AbstractApplicationContext`的`refresh`方法，接下里会调用`invokeBeanFactoryPostProcessors`方法，执行`BeanFactoryPostProcessor`中的处理方法，因为`ConfigurationClassParser`的beanDefinition已经在容器中了，所以会被调用
@@ -307,8 +308,9 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 }
 ```
 
-#### 解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)
+#### Import AutoConfigurationImportSelector
 
+解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)
 ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportSelector.class)
 
 ```java
