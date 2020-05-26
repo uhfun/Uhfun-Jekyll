@@ -126,6 +126,13 @@ h4,
 h5,
 h6 {
   font-weight: $base-font-weight;
+  word-wrap:break-word; 
+  word-break:break-all;
+}
+
+p {
+  word-wrap:break-word; 
+  word-break:break-all;
 }
 
 /**

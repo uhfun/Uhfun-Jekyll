@@ -5,6 +5,8 @@
   border-radius: 0.2em;
   box-shadow: 9px 11px 20px 0px rgba(0, 0, 0, 0.15) !important;
   .toc-link {
+    word-wrap:break-word; 
+    word-break:break-all;
     color: $content-p-color !important;
     &:hover {
       color: $base-color !important;
