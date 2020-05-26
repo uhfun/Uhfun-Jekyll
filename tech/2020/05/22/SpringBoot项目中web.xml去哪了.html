@@ -414,6 +414,14 @@
     
     <p>记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在<code class="language-plaintext highlighter-rouge">WEB-INF</code>目录下添加<code class="language-plaintext highlighter-rouge">web.xml</code>。为什么在SpringBoot项目中，<code class="language-plaintext highlighter-rouge">web.xml</code>消失的无影无踪呢？</p>
 
+<p>我的观点是：如果使用外部的tomcat，SpringBoot会通过<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>在<code class="language-plaintext highlighter-rouge">ApplicationContext</code>应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>来完成的。而如果使用的内嵌tomcat，就跟<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>没有任何关系了。</p>
+
+<p>网络上很多的观点是ServletContainerInitializer让SpringBoot成功初始化，我觉得他们可能粗略地跟着其他人的解析粗略看了一下源码，就草草地得了一个结论。</p>
+
+<p>源码 SpringBoot的版本是 2.2.2.RELEASE 、Spring版本是5.2.2.RELEASE 。</p>
+
+<p>如果观点有误，请指正！！！</p>
+
 <h2 id="了解webxml">了解web.xml</h2>
 
 <h3 id="webxml是什么">web.xml是什么</h3>
@@ -460,12 +468,14 @@
 
 <p><code class="language-plaintext highlighter-rouge">DispatcherServlet</code>是一个继承自<code class="language-plaintext highlighter-rouge">FrameworkServlet</code>的servlet，在源码中它是这么描述的</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/**</span>
- <span class="o">*</span> <span class="nc">Central</span> <span class="n">dispatcher</span> <span class="k">for</span> <span class="no">HTTP</span> <span class="n">request</span> <span class="n">handlers</span><span class="o">/</span><span class="n">controllers</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">g</span><span class="o">.</span> <span class="k">for</span> <span class="n">web</span> <span class="no">UI</span> <span class="n">controllers</span>
- <span class="o">*</span> <span class="n">or</span> <span class="no">HTTP</span><span class="o">-</span><span class="n">based</span> <span class="n">remote</span> <span class="n">service</span> <span class="n">exporters</span><span class="o">.</span> <span class="nc">Dispatches</span> <span class="n">to</span> <span class="n">registered</span> <span class="n">handlers</span> <span class="k">for</span> <span class="n">processing</span>
- <span class="o">*</span> <span class="n">a</span> <span class="n">web</span> <span class="n">request</span><span class="o">,</span> <span class="n">providing</span> <span class="n">convenient</span> <span class="n">mapping</span> <span class="n">and</span> <span class="n">exception</span> <span class="n">handling</span> <span class="n">facilities</span><span class="o">.</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+* Central dispatcher for HTTP request handlers/controllers, e.g. for web UI controllers
+* or HTTP-based remote service exporters. Dispatches to registered handlers for processing
+* a web request, providing convenient mapping and exception handling facilities.
  
- <span class="err">用于</span><span class="n">HTTP</span><span class="err">请求处理程序</span><span class="o">/</span><span class="err">控制器的中央调度器，例如用于</span><span class="nc">Web</span> <span class="n">UI</span><span class="err">控制器或基于</span><span class="n">HTTP</span><span class="err">的远程服务导出器。调度到注册的处理程序以处理</span><span class="n">Web</span><span class="err">请求，从而提供方便的映射和异常处理工具。</span>
+* 用于HTTP请求处理程序/控制器的中央调度器，例如用于Web UI控制器或基于HTTP的远程服务导出器。
+* 调度到注册的处理程序以处理Web请求，从而提供方便的映射和异常处理工具。
+*/</span>
 </code></pre></div></div>
 
 <p>简单理解就是，它可以让我们以更加灵活便捷的方式来编写请求处理器，例如我们常见的通过注解的方式来编写处理器@controller、@RequestMapping等</p>
@@ -569,7 +579,7 @@
   <span class="o">}</span> 
   <span class="o">...</span>
   <span class="kd">public</span> <span class="nc">ConfigurableApplicationContext</span> <span class="nf">run</span><span class="o">(</span><span class="nc">String</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
-		<span class="o">...</span>
+    <span class="o">...</span>
 		<span class="k">try</span> <span class="o">{</span>
 			<span class="o">...</span>
 			<span class="n">context</span> <span class="o">=</span> <span class="n">createApplicationContext</span><span class="o">();</span>
@@ -597,7 +607,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>调用内部的protected方法 createApplicationContext()，因为<code class="language-plaintext highlighter-rouge">webApplicationType</code>为<code class="language-plaintext highlighter-rouge">SERVLET</code>，通过反射创建了<code class="language-plaintext highlighter-rouge">org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext</code>的实例</p>
+<p>调用内部的<code class="language-plaintext highlighter-rouge">protected</code>方法 <code class="language-plaintext highlighter-rouge">createApplicationContext()</code>，因为<code class="language-plaintext highlighter-rouge">webApplicationType</code>为<code class="language-plaintext highlighter-rouge">SERVLET</code>，通过反射创建了<code class="language-plaintext highlighter-rouge">org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext</code>的实例</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protected</span> <span class="nc">ConfigurableApplicationContext</span> <span class="nf">createApplicationContext</span><span class="o">()</span> <span class="o">{</span>
    <span class="nc">Class</span><span class="o">&lt;?&gt;</span> <span class="n">contextClass</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">applicationContextClass</span><span class="o">;</span>
@@ -620,7 +630,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>注意！！！在初始化的过程中，对其中的reader和scanner进行了实例初始化</p>
+<p>注意！！！在构建实例时，对其中的reader和scanner进行了初始化</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nf">AnnotationConfigServletWebServerApplicationContext</span><span class="o">()</span> <span class="o">{</span>
    <span class="k">this</span><span class="o">.</span><span class="na">reader</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">AnnotatedBeanDefinitionReader</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
@@ -757,7 +767,7 @@
 	<span class="o">}</span>
 </code></pre></div></div>
 
-<h3 id="自动配置类加载后发现dispatcherservletautoconfiguration配置类生效">自动配置类加载后，发现DispatcherServletAutoConfiguration配置类，生效</h3>
+<h2 id="自动配置使dispatcherservletautoconfiguration配置类生效">自动配置使DispatcherServletAutoConfiguration配置类生效</h2>
 
 <p>DispatcherServletAutoConfiguration中有两个配置类</p>
 
@@ -778,28 +788,34 @@
 
 <p>它实现了<code class="language-plaintext highlighter-rouge">ServletContextInitializer</code>，下面是ServletContextInitializer源码的描述</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">ServletContextInitializer</span> <span class="o">*</span> <span class="nc">Interface</span> <span class="n">used</span> <span class="n">to</span> <span class="n">configure</span> <span class="n">a</span> <span class="nc">Servlet</span> <span class="mf">3.0</span><span class="o">+</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContext</span> <span class="n">context</span><span class="o">}</span>
- <span class="o">*</span> <span class="n">programmatically</span><span class="o">.</span> <span class="nc">Unlike</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">},</span> <span class="n">classes</span> <span class="n">that</span> <span class="n">implement</span> <span class="k">this</span>
- <span class="o">*</span> <span class="kd">interface</span> <span class="err">(</span><span class="nc">and</span> <span class="k">do</span> <span class="n">not</span> <span class="n">implement</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">})</span> <span class="n">will</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">not</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span> <span class="n">be</span>
- <span class="o">*</span> <span class="n">detected</span> <span class="n">by</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">SpringServletContainerInitializer</span><span class="o">}</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">will</span> <span class="n">not</span> <span class="n">be</span>
- <span class="o">*</span> <span class="n">automatically</span> <span class="n">bootstrapped</span> <span class="n">by</span> <span class="n">the</span> <span class="nc">Servlet</span> <span class="n">container</span><span class="o">.</span>
- <span class="o">*</span> <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
- <span class="o">*</span> <span class="nc">This</span> <span class="kd">interface</span> <span class="nc">is</span> <span class="n">designed</span> <span class="n">to</span> <span class="n">act</span> <span class="n">in</span> <span class="n">a</span> <span class="n">similar</span> <span class="n">way</span> <span class="n">to</span>
- <span class="o">*</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContainerInitializer</span><span class="o">},</span> <span class="n">but</span> <span class="n">have</span> <span class="n">a</span> <span class="n">lifecycle</span> <span class="n">that</span><span class="err">'</span><span class="n">s</span> <span class="n">managed</span> <span class="n">by</span> <span class="nc">Spring</span> <span class="n">and</span>
- <span class="o">*</span> <span class="n">not</span> <span class="n">the</span> <span class="nc">Servlet</span> <span class="n">container</span><span class="o">.</span>
-   
-<span class="o">/*</span>
-<span class="err">用于以编程方式配置</span><span class="nc">Servlet</span> <span class="mf">3.0</span><span class="o">+{</span><span class="nd">@link</span> <span class="nc">ServletContext</span> <span class="nc">Context</span><span class="o">}</span><span class="err">的接口。与</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">}</span><span class="err">不同，实现此接口</span><span class="o">(</span><span class="err">且不实现</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">})</span><span class="err">的类不会被</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">SpringServletContainerInitializer</span><span class="o">}</span><span class="err">检测到，因此不会由</span><span class="n">Servlet</span><span class="err">容器自动引导。</span>
-<span class="err">此接口的设计方式与</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContainerInitializer</span><span class="o">}</span><span class="err">类似，但其生命周期由</span><span class="n">Spring</span><span class="err">管理，而不是</span><span class="n">Servlet</span><span class="err">容器</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">/*</span> 
+<span class="o">*</span> <span class="nc">Interface</span> <span class="n">used</span> <span class="n">to</span> <span class="n">configure</span> <span class="n">a</span> <span class="nc">Servlet</span> <span class="mf">3.0</span><span class="o">+</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContext</span> <span class="n">context</span><span class="o">}</span>
+<span class="o">*</span> <span class="n">programmatically</span><span class="o">.</span> <span class="nc">Unlike</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">},</span> <span class="n">classes</span> <span class="n">that</span> <span class="n">implement</span> <span class="k">this</span>
+<span class="o">*</span> <span class="kd">interface</span> <span class="err">(</span><span class="nc">and</span> <span class="k">do</span> <span class="n">not</span> <span class="n">implement</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">})</span> <span class="n">will</span> <span class="o">&lt;</span><span class="n">b</span><span class="o">&gt;</span><span class="n">not</span><span class="o">&lt;/</span><span class="n">b</span><span class="o">&gt;</span> <span class="n">be</span>
+<span class="o">*</span> <span class="n">detected</span> <span class="n">by</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">SpringServletContainerInitializer</span><span class="o">}</span> <span class="n">and</span> <span class="n">hence</span> <span class="n">will</span> <span class="n">not</span> <span class="n">be</span>
+<span class="o">*</span> <span class="n">automatically</span> <span class="n">bootstrapped</span> <span class="n">by</span> <span class="n">the</span> <span class="nc">Servlet</span> <span class="n">container</span><span class="o">.</span>
+<span class="o">*</span> <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+<span class="o">*</span> <span class="nc">This</span> <span class="kd">interface</span> <span class="nc">is</span> <span class="n">designed</span> <span class="n">to</span> <span class="n">act</span> <span class="n">in</span> <span class="n">a</span> <span class="n">similar</span> <span class="n">way</span> <span class="n">to</span>
+<span class="o">*</span> <span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContainerInitializer</span><span class="o">},</span> <span class="n">but</span> <span class="n">have</span> <span class="n">a</span> <span class="n">lifecycle</span> <span class="n">that</span><span class="err">'</span><span class="n">s</span> <span class="n">managed</span> <span class="n">by</span> <span class="nc">Spring</span> <span class="n">and</span>
+<span class="o">*</span> <span class="n">not</span> <span class="n">the</span> <span class="nc">Servlet</span> <span class="n">container</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="err">用于以编程方式配置</span><span class="nc">Servlet</span> <span class="mf">3.0</span><span class="o">+{</span><span class="nd">@link</span> <span class="nc">ServletContext</span> <span class="nc">Context</span><span class="o">}</span><span class="err">的接口。</span>
+<span class="o">*</span> <span class="err">与</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">}</span><span class="err">不同，</span>
+<span class="o">*</span> <span class="err">实现此接口</span><span class="o">(</span><span class="err">且不实现</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">WebApplicationInitializer</span><span class="o">})</span><span class="err">的类不会被</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">SpringServletContainerInitializer</span><span class="o">}</span><span class="err">检测到，</span>
+<span class="o">*</span> <span class="err">因此不会由</span><span class="n">Servlet</span><span class="err">容器自动引导。此接口的设计方式与</span><span class="o">{</span><span class="nd">@link</span> <span class="nc">ServletContainerInitializer</span><span class="o">}</span><span class="err">类似，但其生命周期由</span><span class="n">Spring</span><span class="err">管理，而不是</span><span class="n">Servlet</span><span class="err">容器</span>
 </code></pre></div></div>
 
 <h4 id="注册servlet的配置">注册servlet的配置</h4>
 
 <p>在<code class="language-plaintext highlighter-rouge">applicationContext</code>的<code class="language-plaintext highlighter-rouge">onRefresh</code>阶段会启动servlet的注册</p>
 
-<p>SpringBoot根据内嵌还是外部的tomcat有不同的操作</p>
+<p>SpringBoot根据内嵌还是外部的web容器有不同的操作</p>
 
 <p>如果<code class="language-plaintext highlighter-rouge">webServer == null &amp;&amp; servletContext == null</code>为<code class="language-plaintext highlighter-rouge">true</code>则使用内嵌的tomcat</p>
+
+<p>使用外部web容器时直接启动 ServletContextInitializer的实现类，这个实现类就是注册到容器中的<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code></p>
+
+<p>而使用内嵌容器，<code class="language-plaintext highlighter-rouge">ServletContextInitializer</code>会在容器启动后被启动</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServletWebServerApplicationContext</span> <span class="kd">extends</span> <span class="nc">GenericWebApplicationContext</span>
 		<span class="kd">implements</span> <span class="nc">ConfigurableWebServerApplicationContext</span> <span class="o">{</span>
@@ -836,11 +852,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="为什么外部tomcat启动时存在servletcontext呢"><strong>为什么外部tomcat启动时存在servletContext呢</strong></h4>
-
-<p>网络上很多人认为ServletContainerInitializer让SpringBoot成功初始化，我觉得他们可能粗略地跟着其他人的解析粗略看了一下源码，就草草地得了一个结论。</p>
-
-<p>我的观点是：如果使用外部的tomcat，SpringBoot会通过<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>在<code class="language-plaintext highlighter-rouge">ApplicationContext</code>应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>来完成的。而如果使用的内嵌tomcat，就跟<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>没有任何关系了。</p>
+<h4 id="为什么外部web容器启动时存在servletcontext呢"><strong>为什么外部web容器启动时存在servletContext呢</strong></h4>
 
 <p>首先这里需要先提到一个接口<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code></p>
 
@@ -921,7 +933,7 @@
 
 <p>所以可以通过在<code class="language-plaintext highlighter-rouge">applicationContext onRefresh</code>阶段 是否存在servletContext来判断是何种方式启动的</p>
 
-<h3 id="总结">总结</h3>
+<h2 id="总结">总结</h2>
 
 <p>SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和servlet配置以bean的形式自动配置到了spring的应用上下文中</p>
 
