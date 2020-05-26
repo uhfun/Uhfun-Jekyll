@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-26T19:52:49+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Springboot项目中web.xml去哪了</title><link href="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html" rel="alternate" type="text/html" title="Springboot项目中web.xml去哪了" /><published>2020-05-22T15:10:00+08:00</published><updated>2020-05-22T15:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html">&lt;p&gt;记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB-INF&lt;/code&gt;目录下添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;。为什么在SpringBoot项目中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;消失的无影无踪呢？&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-26T20:08:49+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Springboot项目中web.xml去哪了</title><link href="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html" rel="alternate" type="text/html" title="Springboot项目中web.xml去哪了" /><published>2020-05-22T15:10:00+08:00</published><updated>2020-05-22T15:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html">&lt;p&gt;记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB-INF&lt;/code&gt;目录下添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;。为什么在SpringBoot项目中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;消失的无影无踪呢？&lt;/p&gt;
 
 &lt;p&gt;我的观点是：如果使用外部的tomcat，SpringBoot会通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationContext&lt;/code&gt;应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;来完成的。而如果使用的内嵌tomcat，就跟&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;没有任何关系了。&lt;/p&gt;
 
@@ -353,7 +353,9 @@
 	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h2 id=&quot;自动配置使dispatcherservletautoconfiguration配置类生效&quot;&gt;自动配置使DispatcherServletAutoConfiguration配置类生效&lt;/h2&gt;
+&lt;h2 id=&quot;dispatcherservletautoconfiguration生效&quot;&gt;DispatcherServletAutoConfiguration生效&lt;/h2&gt;
+
+&lt;p&gt;前面提到的@EnableAutoConfiguration注解使DispatcherServletAutoConfiguration配置类生效&lt;/p&gt;
 
 &lt;p&gt;DispatcherServletAutoConfiguration中有两个配置类&lt;/p&gt;
 
@@ -361,7 +363,7 @@
   &lt;li&gt;
     &lt;p&gt;DispatcherServletConfiguration&lt;/p&gt;
 
-    &lt;p&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Bean&lt;/code&gt;注册&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServle&lt;/code&gt;的bean对象t到spring容器中&lt;/p&gt;
+    &lt;p&gt;通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Bean&lt;/code&gt;注册&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServlet&lt;/code&gt;的bean对象t到spring容器中&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;DispatcherServletRegistrationConfiguration&lt;/p&gt;
@@ -393,15 +395,15 @@
 
 &lt;h4 id=&quot;注册servlet的配置&quot;&gt;注册servlet的配置&lt;/h4&gt;
 
-&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onRefresh&lt;/code&gt;阶段会启动servlet的注册&lt;/p&gt;
+&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onRefresh&lt;/code&gt;阶段会启动servlet配置的注册&lt;/p&gt;
 
 &lt;p&gt;SpringBoot根据内嵌还是外部的web容器有不同的操作&lt;/p&gt;
 
 &lt;p&gt;如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webServer == null &amp;amp;&amp;amp; servletContext == null&lt;/code&gt;为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt;则使用内嵌的tomcat&lt;/p&gt;
 
-&lt;p&gt;使用外部web容器时直接启动 ServletContextInitializer的实现类，这个实现类就是注册到容器中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用外部web容器时直接调用 ServletContextInitializer的onStartup方法，最终调用的其实就是前面注册到容器中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;而使用内嵌容器，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;会在容器启动后被启动&lt;/p&gt;
+&lt;p&gt;而使用内嵌容器，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;会在获取内嵌web容器，然后容器启动后被启动（调用onStarup方法）&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletWebServerApplicationContext&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericWebApplicationContext&lt;/span&gt;
 		&lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ConfigurableWebServerApplicationContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -438,7 +440,7 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;为什么外部web容器启动时存在servletcontext呢&quot;&gt;&lt;strong&gt;为什么外部web容器启动时存在servletContext呢&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;为什么外部web容器启动时servletcontext不为null呢&quot;&gt;&lt;strong&gt;为什么外部web容器启动时servletContext不为null呢&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;首先这里需要先提到一个接口&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;&lt;/p&gt;
 
@@ -455,14 +457,12 @@
   &lt;p&gt;SCI类中的{@link javax.servlet.nortation.HandlesTypes}注解可以作为参数&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;可以查看依赖 Maven:org.springframework:spring-web:5.2.2.RELEASE 的META-INF/services&lt;/p&gt;
-
-&lt;p&gt;有一个javax.servlet.ServletContainerInitializer文件，它指定了一个ServletContainerInitializer实现类&lt;/p&gt;
+&lt;p&gt;可以查看依赖 Maven:org.springframework:spring-web:5.2.2.RELEASE 的META-INF/services 中有一个javax.servlet.ServletContainerInitializer文件，它指定了一个ServletContainerInitializer实现类&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;org.springframework.web.SpringServletContainerInitializer
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;查看源码可以发现，web容器启动后，所有继承自WebApplicationInitializer的类都会启动&lt;/p&gt;
+&lt;p&gt;查看&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;源码可以发现，web容器启动后，所有继承自WebApplicationInitializer的类都会启动&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -491,9 +491,9 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;因为我们项目中自定义启动类 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DemoSpringmvcApplication&lt;/code&gt; 继承自&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBootServletInitializer（SpringBootServletInitializer继承自WebApplicationInitializer）&lt;/code&gt;所以会启动&lt;/p&gt;
+&lt;p&gt;因为我们自定义启动类 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DemoSpringmvcApplication&lt;/code&gt; 继承自&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBootServletInitializer（SpringBootServletInitializer继承自WebApplicationInitializer）&lt;/code&gt;所以会启动&lt;/p&gt;
 
-&lt;p&gt;SpringBootServletInitializer启动后会SpringApplicationBuilder创建一个ServletContextApplicationContextInitializer，里面包含了外部web容器的servletContext。&lt;/p&gt;
+&lt;p&gt;SpringBootServletInitializer启动后，SpringApplicationBuilder设置了initializers，new了一个ServletContextApplicationContextInitializer，里面包含了外部web容器的servletContext。&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationContext&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createRootApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
    &lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createSpringApplicationBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
@@ -504,9 +504,9 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;springApplication.run&lt;/code&gt;方法中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prepareContext(context, environment, listeners, applicationArguments, printedBanner);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;在前面提到的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;springApplication.run&lt;/code&gt;方法中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prepareContext(context, environment, listeners, applicationArguments, printedBanner);&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;会执行初始化器的应用，应用后servletContext就被集成到了applicationContext&lt;/p&gt;
+&lt;p&gt;当运行到这里时，会执行初始化器的应用，应用后servletContext就被集成到了applicationContext&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepareContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ConfigurableApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ConfigurableEnvironment&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
       &lt;span class=&quot;nc&quot;&gt;SpringApplicationRunListeners&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;listeners&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ApplicationArguments&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applicationArguments&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Banner&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;printedBanner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -517,11 +517,11 @@
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;所以可以通过在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext onRefresh&lt;/code&gt;阶段 是否存在servletContext来判断是何种方式启动的&lt;/p&gt;
+&lt;p&gt;所以可以通过在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext onRefresh&lt;/code&gt;阶段&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;servletContext&lt;/code&gt;是否为空来判断是何种方式启动的&lt;/p&gt;
 
 &lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
 
-&lt;p&gt;SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和servlet配置以bean的形式自动配置到了spring的应用上下文中&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="SpringBoot" /><category term="SpringMVC" /><summary type="html">记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在WEB-INF目录下添加web.xml。为什么在SpringBoot项目中，web.xml消失的无影无踪呢？</summary></entry><entry><title type="html">Springfox参考文档</title><link href="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html" rel="alternate" type="text/html" title="Springfox参考文档" /><published>2020-05-13T01:10:00+08:00</published><updated>2020-05-13T01:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">&lt;p&gt;官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT&lt;/p&gt;
+&lt;p&gt;SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和DispatcherServletRegistrationBean作为bean注册到了容器中，而servlet配置注册的关键是DispatcherServletRegistrationBean（实现了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;接口）调用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onStarup&lt;/code&gt;方法。&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="SpringBoot" /><category term="SpringMVC" /><summary type="html">记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在WEB-INF目录下添加web.xml。为什么在SpringBoot项目中，web.xml消失的无影无踪呢？</summary></entry><entry><title type="html">Springfox参考文档</title><link href="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html" rel="alternate" type="text/html" title="Springfox参考文档" /><published>2020-05-13T01:10:00+08:00</published><updated>2020-05-13T01:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/13/Springfox%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3.html">&lt;p&gt;官方文档 : https://springfox.github.io/springfox/docs/current Version 2.9.2-SNAPSHOT&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Springfox Reference Documentation 中文版&lt;/strong&gt;&lt;/p&gt;
 
