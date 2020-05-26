@@ -379,13 +379,15 @@ private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoad
 	}
 ```
 
-## 自动配置使DispatcherServletAutoConfiguration配置类生效
+## DispatcherServletAutoConfiguration生效
+
+前面提到的@EnableAutoConfiguration注解使DispatcherServletAutoConfiguration配置类生效
 
 DispatcherServletAutoConfiguration中有两个配置类
 
 * DispatcherServletConfiguration
 
-  通过`@Bean`注册`DispatcherServle`的bean对象t到spring容器中
+  通过`@Bean`注册`DispatcherServlet`的bean对象t到spring容器中
 
 * DispatcherServletRegistrationConfiguration
 
@@ -415,15 +417,15 @@ DispatcherServletAutoConfiguration中有两个配置类
 
 #### 注册servlet的配置
 
-在`applicationContext`的`onRefresh`阶段会启动servlet的注册
+在`applicationContext`的`onRefresh`阶段会启动servlet配置的注册
 
 SpringBoot根据内嵌还是外部的web容器有不同的操作
 
 如果`webServer == null && servletContext == null`为`true`则使用内嵌的tomcat
 
-使用外部web容器时直接启动 ServletContextInitializer的实现类，这个实现类就是注册到容器中的`DispatcherServletRegistrationBean`
+使用外部web容器时直接调用 ServletContextInitializer的onStartup方法，最终调用的其实就是前面注册到容器中的`DispatcherServletRegistrationBean`
 
-而使用内嵌容器，`ServletContextInitializer`会在容器启动后被启动
+而使用内嵌容器，`ServletContextInitializer`会在获取内嵌web容器，然后容器启动后被启动（调用onStarup方法）
 
 ```java
 public class ServletWebServerApplicationContext extends GenericWebApplicationContext
@@ -461,7 +463,7 @@ public class ServletWebServerApplicationContext extends GenericWebApplicationCon
 }
 ```
 
-#### **为什么外部web容器启动时存在servletContext呢**
+#### **为什么外部web容器启动时servletContext不为null呢**
 
 首先这里需要先提到一个接口`ServletContainerInitializer`
 
@@ -477,15 +479,13 @@ public interface ServletContainerInitializer {
 >
 > SCI类中的{@link javax.servlet.nortation.HandlesTypes}注解可以作为参数
 
-可以查看依赖 Maven:org.springframework:spring-web:5.2.2.RELEASE 的META-INF/services
-
-有一个javax.servlet.ServletContainerInitializer文件，它指定了一个ServletContainerInitializer实现类
+可以查看依赖 Maven:org.springframework:spring-web:5.2.2.RELEASE 的META-INF/services 中有一个javax.servlet.ServletContainerInitializer文件，它指定了一个ServletContainerInitializer实现类
 
 ```
 org.springframework.web.SpringServletContainerInitializer
 ```
 
-查看源码可以发现，web容器启动后，所有继承自WebApplicationInitializer的类都会启动
+查看`SpringServletContainerInitializer`源码可以发现，web容器启动后，所有继承自WebApplicationInitializer的类都会启动
 
 ```java
 @HandlesTypes(WebApplicationInitializer.class)
@@ -515,9 +515,9 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 }
 ```
 
-因为我们项目中自定义启动类 `DemoSpringmvcApplication` 继承自`SpringBootServletInitializer（SpringBootServletInitializer继承自WebApplicationInitializer）`所以会启动
+因为我们自定义启动类 `DemoSpringmvcApplication` 继承自`SpringBootServletInitializer（SpringBootServletInitializer继承自WebApplicationInitializer）`所以会启动
 
-SpringBootServletInitializer启动后会SpringApplicationBuilder创建一个ServletContextApplicationContextInitializer，里面包含了外部web容器的servletContext。
+SpringBootServletInitializer启动后，SpringApplicationBuilder设置了initializers，new了一个ServletContextApplicationContextInitializer，里面包含了外部web容器的servletContext。
 
 ```java
 protected WebApplicationContext createRootApplicationContext(ServletContext servletContext) {
@@ -529,9 +529,9 @@ protected WebApplicationContext createRootApplicationContext(ServletContext serv
 }
 ```
 
-在`springApplication.run`方法中的`prepareContext(context, environment, listeners, applicationArguments, printedBanner);`
+在前面提到的`springApplication.run`方法中的`prepareContext(context, environment, listeners, applicationArguments, printedBanner);`
 
-会执行初始化器的应用，应用后servletContext就被集成到了applicationContext
+当运行到这里时，会执行初始化器的应用，应用后servletContext就被集成到了applicationContext
 
 ```java
 private void prepareContext(ConfigurableApplicationContext context, ConfigurableEnvironment environment,
@@ -543,9 +543,9 @@ private void prepareContext(ConfigurableApplicationContext context, Configurable
 }
 ```
 
-所以可以通过在`applicationContext onRefresh`阶段 是否存在servletContext来判断是何种方式启动的
+所以可以通过在`applicationContext onRefresh`阶段`servletContext`是否为空来判断是何种方式启动的
 
 ## 总结
 
-SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和servlet配置以bean的形式自动配置到了spring的应用上下文中
+SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和DispatcherServletRegistrationBean作为bean注册到了容器中，而servlet配置注册的关键是DispatcherServletRegistrationBean（实现了`ServletContextInitializer`接口）调用`onStarup`方法。
 
