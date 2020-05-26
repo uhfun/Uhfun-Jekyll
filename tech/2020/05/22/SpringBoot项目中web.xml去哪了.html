@@ -674,9 +674,10 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="刷新应用上下文执行configurationclasspostprocessor的postprocessbeandefinitionregistry方法">刷新应用上下文，执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法</h4>
+<h4 id="刷新应用上下文invokebeanfactorypostprocessors">刷新应用上下文，invokeBeanFactoryPostProcessors</h4>
 
-<p>创建完应用上下文，这时我们再回到<code class="language-plaintext highlighter-rouge">SpringApplication</code>的非静态<code class="language-plaintext highlighter-rouge">run</code>方法中的<code class="language-plaintext highlighter-rouge">refreshContext(context);</code></p>
+<p>执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法
+创建完应用上下文，这时我们再回到<code class="language-plaintext highlighter-rouge">SpringApplication</code>的非静态<code class="language-plaintext highlighter-rouge">run</code>方法中的<code class="language-plaintext highlighter-rouge">refreshContext(context);</code></p>
 
 <p>它进入<code class="language-plaintext highlighter-rouge">AbstractApplicationContext</code>的<code class="language-plaintext highlighter-rouge">refresh</code>方法，接下里会调用<code class="language-plaintext highlighter-rouge">invokeBeanFactoryPostProcessors</code>方法，执行<code class="language-plaintext highlighter-rouge">BeanFactoryPostProcessor</code>中的处理方法，因为<code class="language-plaintext highlighter-rouge">ConfigurationClassParser</code>的beanDefinition已经在容器中了，所以会被调用</p>
 
@@ -709,9 +710,10 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="解析启动类上的springbootapplicationenableautoconfiguration间接引入的importautoconfigurationimportselectorclass">解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)</h4>
+<h4 id="import-autoconfigurationimportselector">Import AutoConfigurationImportSelector</h4>
 
-<p>ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportSelector.class)</p>
+<p>解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)
+ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportSelector.class)</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="nc">Iterable</span><span class="o">&lt;</span><span class="nc">Group</span><span class="o">.</span><span class="na">Entry</span><span class="o">&gt;</span> <span class="nf">getImports</span><span class="o">()</span> <span class="o">{</span>
   <span class="k">for</span> <span class="o">(</span><span class="nc">DeferredImportSelectorHolder</span> <span class="n">deferredImport</span> <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">deferredImports</span><span class="o">)</span> <span class="o">{</span>
