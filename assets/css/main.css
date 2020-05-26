@@ -31,7 +31,9 @@ ul li, ol li { color: #1f314d !important; }
 li > ul, li > ol { margin-bottom: 0; }
 
 /** Headings */
-h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+h1, h2, h3, h4, h5, h6 { font-weight: 400; word-wrap: break-word; word-break: break-all; }
+
+p { word-wrap: break-word; word-break: break-all; }
 
 /** Links */
 a { color: #0bd2b4d1; text-decoration: none; }
@@ -345,7 +347,7 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 .gitment-header-like-btn { margin-right: 20px !important; }
 
 #toc { margin-bottom: 30px; padding: 20px; border: 1px solid #e8e8e8; border-radius: 0.2em; box-shadow: 9px 11px 20px 0px rgba(0, 0, 0, 0.15) !important; }
-#toc .toc-link { color: #1f314d !important; }
+#toc .toc-link { word-wrap: break-word; word-break: break-all; color: #1f314d !important; }
 #toc .toc-link:hover { color: #0bd2b4d1 !important; }
 #toc .checked-a { color: #0bd2b4d1 !important; }
 
