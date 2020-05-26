@@ -14,6 +14,14 @@ tags:
 
 记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在`WEB-INF`目录下添加`web.xml`。为什么在SpringBoot项目中，`web.xml`消失的无影无踪呢？
 
+我的观点是：如果使用外部的tomcat，SpringBoot会通过`ServletContainerInitializer`在`ApplicationContext`应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由`DispatcherServletRegistrationBean`来完成的。而如果使用的内嵌tomcat，就跟`ServletContainerInitializer`没有任何关系了。
+
+网络上很多的观点是ServletContainerInitializer让SpringBoot成功初始化，我觉得他们可能粗略地跟着其他人的解析粗略看了一下源码，就草草地得了一个结论。
+
+源码 SpringBoot的版本是 2.2.2.RELEASE 、Spring版本是5.2.2.RELEASE 。
+
+如果观点有误，请指正！！！
+
 ## 了解web.xml
 
 ### web.xml是什么
@@ -62,12 +70,14 @@ Tomcat容器在部署web应用时，会在初始化阶段加载`web.xml`文件�
 `DispatcherServlet`是一个继承自`FrameworkServlet`的servlet，在源码中它是这么描述的
 
 ```java
-/**
- * Central dispatcher for HTTP request handlers/controllers, e.g. for web UI controllers
- * or HTTP-based remote service exporters. Dispatches to registered handlers for processing
- * a web request, providing convenient mapping and exception handling facilities.
+/*
+* Central dispatcher for HTTP request handlers/controllers, e.g. for web UI controllers
+* or HTTP-based remote service exporters. Dispatches to registered handlers for processing
+* a web request, providing convenient mapping and exception handling facilities.
  
- 用于HTTP请求处理程序/控制器的中央调度器，例如用于Web UI控制器或基于HTTP的远程服务导出器。调度到注册的处理程序以处理Web请求，从而提供方便的映射和异常处理工具。
+* 用于HTTP请求处理程序/控制器的中央调度器，例如用于Web UI控制器或基于HTTP的远程服务导出器。
+* 调度到注册的处理程序以处理Web请求，从而提供方便的映射和异常处理工具。
+*/
 ```
 
 简单理解就是，它可以让我们以更加灵活便捷的方式来编写请求处理器，例如我们常见的通过注解的方式来编写处理器@controller、@RequestMapping等
@@ -171,7 +181,7 @@ public class SpringApplication {
   } 
   ...
   public ConfigurableApplicationContext run(String... args) {
-		...
+    ...
 		try {
 			...
 			context = createApplicationContext();
@@ -199,7 +209,7 @@ public class SpringApplication {
 }
 ```
 
-调用内部的protected方法 createApplicationContext()，因为`webApplicationType`为`SERVLET`，通过反射创建了`org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext`的实例
+调用内部的`protected`方法 `createApplicationContext()`，因为`webApplicationType`为`SERVLET`，通过反射创建了`org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext`的实例
 
 
 ```java
@@ -224,7 +234,7 @@ protected ConfigurableApplicationContext createApplicationContext() {
 }
 ```
 
-注意！！！在初始化的过程中，对其中的reader和scanner进行了实例初始化
+注意！！！在构建实例时，对其中的reader和scanner进行了初始化
 
 ```java
 public AnnotationConfigServletWebServerApplicationContext() {
@@ -369,7 +379,7 @@ private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoad
 	}
 ```
 
-### 自动配置类加载后，发现DispatcherServletAutoConfiguration配置类，生效
+## 自动配置使DispatcherServletAutoConfiguration配置类生效
 
 DispatcherServletAutoConfiguration中有两个配置类
 
@@ -386,28 +396,34 @@ DispatcherServletAutoConfiguration中有两个配置类
 它实现了`ServletContextInitializer`，下面是ServletContextInitializer源码的描述
 
 ```java
-ServletContextInitializer * Interface used to configure a Servlet 3.0+ {@link ServletContext context}
- * programmatically. Unlike {@link WebApplicationInitializer}, classes that implement this
- * interface (and do not implement {@link WebApplicationInitializer}) will <b>not</b> be
- * detected by {@link SpringServletContainerInitializer} and hence will not be
- * automatically bootstrapped by the Servlet container.
- * <p>
- * This interface is designed to act in a similar way to
- * {@link ServletContainerInitializer}, but have a lifecycle that's managed by Spring and
- * not the Servlet container.
-   
-/*
-用于以编程方式配置Servlet 3.0+{@link ServletContext Context}的接口。与{@link WebApplicationInitializer}不同，实现此接口(且不实现{@link WebApplicationInitializer})的类不会被{@link SpringServletContainerInitializer}检测到，因此不会由Servlet容器自动引导。
-此接口的设计方式与{@link ServletContainerInitializer}类似，但其生命周期由Spring管理，而不是Servlet容器
+/* 
+* Interface used to configure a Servlet 3.0+ {@link ServletContext context}
+* programmatically. Unlike {@link WebApplicationInitializer}, classes that implement this
+* interface (and do not implement {@link WebApplicationInitializer}) will <b>not</b> be
+* detected by {@link SpringServletContainerInitializer} and hence will not be
+* automatically bootstrapped by the Servlet container.
+* <p>
+* This interface is designed to act in a similar way to
+* {@link ServletContainerInitializer}, but have a lifecycle that's managed by Spring and
+* not the Servlet container.
+
+* 用于以编程方式配置Servlet 3.0+{@link ServletContext Context}的接口。
+* 与{@link WebApplicationInitializer}不同，
+* 实现此接口(且不实现{@link WebApplicationInitializer})的类不会被{@link SpringServletContainerInitializer}检测到，
+* 因此不会由Servlet容器自动引导。此接口的设计方式与{@link ServletContainerInitializer}类似，但其生命周期由Spring管理，而不是Servlet容器
 ```
 
 #### 注册servlet的配置
 
 在`applicationContext`的`onRefresh`阶段会启动servlet的注册
 
-SpringBoot根据内嵌还是外部的tomcat有不同的操作
+SpringBoot根据内嵌还是外部的web容器有不同的操作
 
 如果`webServer == null && servletContext == null`为`true`则使用内嵌的tomcat
+
+使用外部web容器时直接启动 ServletContextInitializer的实现类，这个实现类就是注册到容器中的`DispatcherServletRegistrationBean`
+
+而使用内嵌容器，`ServletContextInitializer`会在容器启动后被启动
 
 ```java
 public class ServletWebServerApplicationContext extends GenericWebApplicationContext
@@ -445,11 +461,7 @@ public class ServletWebServerApplicationContext extends GenericWebApplicationCon
 }
 ```
 
-#### **为什么外部tomcat启动时存在servletContext呢**
-
-网络上很多人认为ServletContainerInitializer让SpringBoot成功初始化，我觉得他们可能粗略地跟着其他人的解析粗略看了一下源码，就草草地得了一个结论。
-
-我的观点是：如果使用外部的tomcat，SpringBoot会通过`ServletContainerInitializer`在`ApplicationContext`应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由`DispatcherServletRegistrationBean`来完成的。而如果使用的内嵌tomcat，就跟`ServletContainerInitializer`没有任何关系了。
+#### **为什么外部web容器启动时存在servletContext呢**
 
 首先这里需要先提到一个接口`ServletContainerInitializer`
 
@@ -533,7 +545,7 @@ private void prepareContext(ConfigurableApplicationContext context, Configurable
 
 所以可以通过在`applicationContext onRefresh`阶段 是否存在servletContext来判断是何种方式启动的
 
-### 总结
+## 总结
 
 SpringBoot有一个关于DispatcherServlet的配置类，DispatcherServlet和servlet配置以bean的形式自动配置到了spring的应用上下文中
 
