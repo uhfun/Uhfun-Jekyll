@@ -16,10 +16,24 @@ layout: page
         {% assign tags_set = tags_set | split:'###' %}
         {% assign tags_size = tags_set.size %}
 
+        <!-- 计算tag下的文章数量 -->
+        {% assign current_tag_post_size = 0 %}
+        {% for post in site.posts %}  
+        {% assign whether_contain = false %}
+        {% for item in post.tags %}
+            {% assign _tag = item | downcase %}    
+            {% if _tag == current_tag %}
+            {% assign whether_contain = true %}
+            {% endif %}
+        {% endfor %}
+        {% if whether_contain or current_tag == '' %}     
+        {% assign current_tag_post_size = current_tag_post_size | plus: 1 %}
+        {% endif %}
+        {% endfor %}
         <div>
             <a class='tags has-addons all-tags' href="/tag">
                 <span class="tag is-primary">All Tags</span>
-                <span class="tag">{{ tags_size }}</span>
+                <span class="tag">{{ current_tag_post_size }}</span>
             </a>
         </div>    
 
@@ -42,8 +56,15 @@ layout: page
         </div>
     </div> 
     {% for post in site.posts %}  
-    {% assign _tags = post.tags | downcase %}  
-    {% if _tags contains current_tag or current_tag == '' %} 
+
+    {% assign whether_contain = false %}
+    {% for item in post.tags %}
+        {% assign _tag = item | downcase %}    
+        {% if _tag == current_tag %}
+        {% assign whether_contain = true %}
+        {% endif %}
+    {% endfor %}
+    {% if whether_contain or current_tag == '' %} 
     <div class="container sketch-container">
         <div class="post_article">
             {% if post.layout == 'post' %}
