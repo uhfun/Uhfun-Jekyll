@@ -777,7 +777,7 @@
 
 <h2 id="servletcontextinitializer">ServletContextInitializer</h2>
 
-<h4 id="什么是servletcontextinitializer">什么是ServletContextInitializer</h4>
+<h3 id="什么是servletcontextinitializer">什么是ServletContextInitializer</h3>
 
 <p>它的方法和<code class="language-plaintext highlighter-rouge">WebApplicationInitializer</code>一模一样，但是它是<code class="language-plaintext highlighter-rouge">SpringBoot</code>提供的</p>
 
@@ -823,7 +823,7 @@
 <span class="o">}</span>
 </code></pre></div></div>
 
-<h4 id="为什么另外设计了这个接口">为什么另外设计了这个接口？</h4>
+<h3 id="为什么另外设计了这个接口">为什么另外设计了这个接口？</h3>
 
 <p>不是可以直接实现一个<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>吗？为什么要另外用这个接口去实现相同的功能。</p>
 
@@ -863,7 +863,7 @@
 
 <p>如果内嵌容器支持<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>，那这份代码运行就会有意向不到的问题，当然会有什么问题，我也不清楚😂</p>
 
-<h4 id="servletcontextinitializer怎么被调用的">ServletContextInitializer怎么被调用的</h4>
+<h3 id="servletcontextinitializer怎么被调用的">ServletContextInitializer怎么被调用的</h3>
 
 <p>链路很长，我就找<code class="language-plaintext highlighter-rouge">ServletContextInitializer</code>被调用的关键代码</p>
 
@@ -983,7 +983,7 @@
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">ServletContextInitializer</span> <span class="o">{</span>
 </code></pre></div></div>
 
-<h4 id="servletcontextinitializer应用">ServletContextInitializer应用</h4>
+<h3 id="servletcontextinitializer应用">ServletContextInitializer应用</h3>
 
 <p>那ServletContextInitializer有现成的应用吗？</p>
 
