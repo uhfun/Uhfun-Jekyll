@@ -1,4 +1,621 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-26T23:54:15+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">Springboot项目中web.xml去哪了</title><link href="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html" rel="alternate" type="text/html" title="Springboot项目中web.xml去哪了" /><published>2020-05-22T15:10:00+08:00</published><updated>2020-05-22T15:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html">&lt;p&gt;记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB-INF&lt;/code&gt;目录下添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;。为什么在SpringBoot项目中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;消失的无影无踪呢？&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://uhfun.cn/feed.xml" rel="self" type="application/atom+xml" /><link href="http://uhfun.cn/" rel="alternate" type="text/html" /><updated>2020-05-27T14:38:25+08:00</updated><id>http://uhfun.cn/feed.xml</id><title type="html">UhfunBlog</title><subtitle>代码与生活、热爱唱歌的boy | 傅杭波的个人博客</subtitle><author><name>傅杭波</name></author><entry><title type="html">傻傻分不清，servletcontainerinitializer、springservletcontainerinitializer、webapplicationinitializer、springbootservletinitializer、servletcontextinitializer都是些啥</title><link href="http://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html" rel="alternate" type="text/html" title="傻傻分不清，servletcontainerinitializer、springservletcontainerinitializer、webapplicationinitializer、springbootservletinitializer、servletcontextinitializer都是些啥" /><published>2020-05-22T16:10:00+08:00</published><updated>2020-05-22T16:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85,ServletContainerInitializer%E3%80%81SpringServletContainerInitializer%E3%80%81WebApplicationInitializer%E3%80%81SpringBootServletInitializer%E3%80%81ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html">&lt;p&gt;这几个类乍一看有点像，仔细一看还是有点像，特别是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;，眼神不好的可能还真看不出来。那它们之间到底有什么区别呢？它们之间有什么联系吗？&lt;/p&gt;
+
+&lt;h2 id=&quot;全限定名&quot;&gt;全限定名&lt;/h2&gt;
+
+&lt;p&gt;首先我们先来看一下它们的全限定名&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ServletContainerInitializer&lt;/strong&gt;（&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet.ServletContainerInitializer&lt;/code&gt;）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SpringServletContainerInitializer&lt;/strong&gt;（org.springframework.web.SpringServletContainerInitializer）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;WebApplicationInitializer&lt;/strong&gt;（org.springframework.web.WebApplicationInitializer）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SpringBootServletInitializer&lt;/strong&gt;（org.springframework.boot.web.servlet.support.SpringBootServletInitializer）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;ServletContextInitializer&lt;/strong&gt;（org.springframework.boot.web.servlet.ServletContextInitializer）&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;servletcontainerinitializer&quot;&gt;ServletContainerInitializer&lt;/h2&gt;
+
+&lt;h3 id=&quot;servletcontainerinitializer是什么&quot;&gt;ServletContainerInitializer是什么&lt;/h3&gt;
+
+&lt;p&gt;因为这个不是spring家族的，我们就先来讲一下这个类&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;是servlet3.0规范中引入的接口，能够让web应用程序在servlet容器启动后做一些自定义的操作。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://javaee.github.io/javaee-spec/javadocs/javax/servlet/ServletContainerInitializer.html&quot;&gt;ServletContainerInitializer&lt;/a&gt; 基于服务提供者接口（SPI）概念，因此你需要在你的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jar&lt;/code&gt;包目录下添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;META-INF/services/javax.servlet.ServletContainerInitializer&lt;/code&gt;文件，内容就是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;实现类的全限定名。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;例如在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.springframework:spring-web&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;META-INF/services&lt;/code&gt;中存在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet.ServletContainerInitializer&lt;/code&gt;文件，它的内容就是springMVC提供的实现类 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.springframework.web.SpringServletContainerInitializer&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;servletcontainerinitializer怎么用&quot;&gt;ServletContainerInitializer怎么用&lt;/h3&gt;
+
+&lt;p&gt;ServletContainerInitializer`只有一个方法&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;javax&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;servlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer#onStartup&lt;/code&gt;方法由Servlet容器调用(必须至少支持Servlet 3.0版本)。我们在这个方法中通过编程的方式去注册&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Servlet&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Filter&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Listenner&lt;/code&gt;等组件，代替&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;可以配合 &lt;a href=&quot;https://javaee.github.io/javaee-spec/javadocs/javax/servlet/annotation/HandlesTypes.html&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@HandleTypes&lt;/code&gt;&lt;/a&gt; 注解，通过指定Class，容器会把所有的指定类的子类作为方法&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onStartup&lt;/code&gt; 的参数&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Set&amp;lt;Class&amp;lt;?&amp;gt;&amp;gt; c&lt;/code&gt;传递进来&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;例如&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;传递了spring自定义的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;&lt;/p&gt;
+
+  &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;org&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;springframework&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;web&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;springservletcontainerinitializer和webapplicationinitializer&quot;&gt;SpringServletContainerInitializer和WebApplicationInitializer&lt;/h2&gt;
+
+&lt;p&gt;我们就接着前面的例子，来讲&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;，那为什么和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;一起讲呢？&lt;/p&gt;
+
+&lt;h3 id=&quot;springservletcontainerinitializer是什么&quot;&gt;SpringServletContainerInitializer是什么&lt;/h3&gt;
+
+&lt;p&gt;根据名字不难看出，它比&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;多了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Spring&lt;/code&gt; 的前缀，顾名思义 它是Spring提供的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;的实现类&lt;/p&gt;
+
+&lt;h3 id=&quot;webapplicationinitializer是什么&quot;&gt;WebApplicationInitializer是什么&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;是Spring提供的接口，和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;没有直接关系，但是和它有间接关系。&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;中实例化后被调用。&lt;/p&gt;
+
+&lt;h3 id=&quot;springservletcontainerinitializer和webapplicationinitializer的关系&quot;&gt;SpringServletContainerInitializer和WebApplicationInitializer的关系&lt;/h3&gt;
+
+&lt;p&gt;它们之间的关系可以理解为，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;实现了servlet容器提供的接口带了个头，接下来的事可以交由 spring自己定义的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;`&lt;/p&gt;
+
+&lt;p&gt;``SpringServletContainerInitializer&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;源码如下，可以看到，&lt;/code&gt;SpringServletContainerInitializer&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;将传入的 &lt;/code&gt;webAppInitializerClasses&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt; 通过反射实例化，然后根据&lt;/code&gt;@Order`注解排序后，依次调用&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@HandlesTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@Nullable&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+         &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LinkedList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webAppInitializerClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isInterface&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Modifier&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAbstract&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getModifiers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+                  &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isAssignableFrom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+                        &lt;span class=&quot;nc&quot;&gt;ReflectionUtils&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;accessibleConstructor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;waiClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;newInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+               &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Failed to instantiate WebApplicationInitializer class&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;No Spring WebApplicationInitializer types detected on classpath&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; Spring WebApplicationInitializers detected on classpath&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;AnnotationAwareOrderComparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;springservletcontainerinitializer和webapplicationinitializer怎么用&quot;&gt;SpringServletContainerInitializer和WebApplicationInitializer怎么用&lt;/h3&gt;
+
+&lt;p&gt;我们可以使用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;接口来代替&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;配置&lt;/p&gt;
+
+&lt;h4 id=&quot;继承abstractannotationconfigdispatcherservletinitializer&quot;&gt;继承AbstractAnnotationConfigDispatcherServletInitializer&lt;/h4&gt;
+
+&lt;p&gt;例如我们自顶一个类，继承Spring为我们提供的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractAnnotationConfigDispatcherServletInitializer&lt;/code&gt;,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MyCustomWebApplicationInitializer&lt;/code&gt; class传入&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer#onStartup&lt;/code&gt;，而&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;会为我们实例化这个类并调用它。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyCustomWebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AbstractAnnotationConfigDispatcherServletInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     * 为{@linkPlan#createRootApplicationContext()根应用程序上下文}
+     * 指定{@code@Configuration}和/或{@code@Component}类
+     * @ 返回根应用上下文的配置，如果不需要创建和注册根上下文，则返回{@code null
+     */&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Nullable&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRootConfigClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+     *  为{@linkPlan#createServletApplicationContext()Servlet应用程序上下文}指定
+     * {@code@Configuration}和/或{@code@Component}类
+     * @返回Servlet应用程序上下文的配置，或者如果所有配置都通过根配置类指定，则为{@code null}
+     */&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Nullable&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getServletConfigClasses&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;[]{&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+    * 指定{@code DispatcherServlet}的Servlet映射
+    * 例如{@code“/”}、{@code“/app”}等
+    */&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getServletMappings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;cm&quot;&gt;/**
+    * 返回注册{@link DispatcherServlet}的名称
+    * 默认为{@link#Default_Servlet_Name} (public static final String DEFAULT_SERVLET_NAME = &quot;dispatcher&quot;;)
+    */&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getServletName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;myCustomServletName&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;自己实现webapplicationinitializer&quot;&gt;自己实现WebApplicationInitializer&lt;/h4&gt;
+
+&lt;p&gt;同样，我们可以实现一个简单版的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;，效果也是一样的。&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SimpleWebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;AnnotationConfigWebApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnnotationConfigWebApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ContextLoaderListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;webContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ServletRegistration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Dynamic&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;myCustomServletName&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setLoadOnStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;springbootservletinitializer&quot;&gt;SpringBootServletInitializer&lt;/h2&gt;
+
+&lt;h3 id=&quot;springbootservletinitializer是什么&quot;&gt;SpringBootServletInitializer是什么&lt;/h3&gt;
+
+&lt;p&gt;同样从名字中我们可以大致猜到，它是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBoot&lt;/code&gt;提供的，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBoot&lt;/code&gt; 替我们实现了一些功能&lt;/p&gt;
+
+&lt;p&gt;它是一个抽象类，实现了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;接口，注意不是Servlet3.0规范提供的那个接口，是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Spring&lt;/code&gt;提供的自家初始化接口，你问我它是做什么的？那我们不如来看看源码是怎么说的&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这是一个固执己见的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt; 让我们可以使用传统的WAR包的方式部署运行 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringApplication&lt;/code&gt;，可以将 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;servlet&lt;/code&gt;、&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;filter&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt; 从应用程序上下文绑定到服务器。&lt;/p&gt;
+
+  &lt;p&gt;如果要配置应用程序，要么覆盖 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configure(SpringApplicationBuilder)&lt;/code&gt; 方法(调用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringApplicationBuilder#Sources(Class.)&lt;/code&gt;)，要么使初始化式本身成为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@configuration&lt;/code&gt;。如果将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBootServletInitializer&lt;/code&gt;与其他 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt; 结合使用，则可能还需要添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Ordered&lt;/code&gt;注解来配置特定的启动顺序。&lt;/p&gt;
+
+  &lt;p&gt;请注意，只有在构建和部署WAR文件时才需要WebApplicationInitializer。如果您更喜欢运行嵌入式Web服务器，那么您根本不需要这个。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * An opinionated {@link WebApplicationInitializer} to run a {@link SpringApplication}
+ * from a traditional WAR deployment. Binds {@link Servlet}, {@link Filter} and
+ * {@link ServletContextInitializer} beans from the application context to the server.
+ * &amp;lt;p&amp;gt;
+ * To configure the application either override the
+ * {@link #configure(SpringApplicationBuilder)} method (calling
+ * {@link SpringApplicationBuilder#sources(Class...)}) or make the initializer itself a
+ * {@code @Configuration}. If you are using {@link SpringBootServletInitializer} in
+ * combination with other {@link WebApplicationInitializer WebApplicationInitializers} you
+ * might also want to add an {@code @Ordered} annotation to configure a specific startup
+ * order.
+ * &amp;lt;p&amp;gt;
+ * Note that a WebApplicationInitializer is only needed if you are building a war file and
+ * deploying it. If you prefer to run an embedded web server then you won't need this at
+ * all.
+ *
+ * @author Dave Syer
+ * @author Phillip Webb
+ * @author Andy Wilkinson
+ * @since 2.0.0
+ * @see #configure(SpringApplicationBuilder)
+ */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringBootServletInitializer&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这些话简单来讲什么意思呢？&lt;/p&gt;
+
+&lt;p&gt;它是说，如果你需要使用外部容器，打war包然后部署，那么你需要继承这个类然后重写&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configure&lt;/code&gt;方法，像这个样子&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DemoSpringmvcApplication&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringBootServletInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DemoSpringmvcApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果你觉得内嵌的tomcat挺好用的，那么你就当什么事情都没有发生&lt;/p&gt;
+
+&lt;h3 id=&quot;springbootservletinitializer怎么运作的&quot;&gt;SpringBootServletInitializer怎么运作的&lt;/h3&gt;
+
+&lt;p&gt;首先你要知道，它是一个 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;，它的启动靠的是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;，&lt;/p&gt;
+
+&lt;p&gt;而 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;靠的是Servlet容器。所以它的启动靠的就是外部容器。&lt;/p&gt;
+
+&lt;p&gt;因此当外部容器启动时，会调用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBootServletInitializer#onStartup&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;那我们来看看它的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onStartup&lt;/code&gt; 方法里做了什么，它首先调用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createRootApplicationContext&lt;/code&gt;来创建web应用上下文&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;WebApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rootAppContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createRootApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rootAppContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ContextLoaderListener&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rootAppContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+         &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;contextInitialized&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContextEvent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// no-op because the application context is already initialized&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;debug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;No ContextLoaderListener registered, as createRootApplicationContext() did not &quot;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;return an application context&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再来看 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createRootApplicationContext&lt;/code&gt; 方法&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationContext&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createRootApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;createSpringApplicationBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;ApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getExistingRootWebApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Root context already created (using as parent).&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setAttribute&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ParentContextApplicationContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;parent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextApplicationContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;contextClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AnnotationConfigServletWebServerApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;listeners&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebEnvironmentPropertySourceInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAllSources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MergedAnnotations&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SearchStrategy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE_HIERARCHY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isPresent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addPrimarySources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()));&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getAllSources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt;
+         &lt;span class=&quot;s&quot;&gt;&quot;No SpringApplication sources have been defined. Either override the &quot;&lt;/span&gt;
+               &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;configure method or add an @Configuration annotation&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// Ensure error pages are registered&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;registerErrorPageFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addPrimarySources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Collections&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;singleton&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ErrorPageFilterConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;如果有父级应用上下文，设置一个初始化器&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ParentContextApplicationContextInitializer&lt;/code&gt;，这个初始化器会在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConfigurableApplicationContext#refresh()&lt;/code&gt; 刷新之前设置父级应用上下文并添加事件监听&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置一个servletContext初始化的初始化器，同样会在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConfigurableApplicationContext#refresh()&lt;/code&gt;刷新之前将&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;servletContext&lt;/code&gt;添加到应用上下文中&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;设置上下文类型，AnnotationConfigServletWebServerApplicationContext&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;向此应用程序添加更多源(配置类&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Configuration&lt;/code&gt;和组件&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Component&lt;/code&gt;)。&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;例如上面启动类重写的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configure&lt;/code&gt;，就是将我们的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DemoSpringmvcApplication&lt;/code&gt;作为配置类添加到了源中，好让启动后能够读到这些配置，因为这个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DemoSpringmvcApplication&lt;/code&gt;拥有&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@SpringBootApplication&lt;/code&gt;注解。&lt;/p&gt;
+
+      &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DemoSpringmvcApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+
+      &lt;p&gt;查看源码可知，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@SpringBootApplication&lt;/code&gt;注解就是一个功能更加强大的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@Configuration&lt;/code&gt;&lt;/p&gt;
+
+      &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ElementType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;TYPE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Retention&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;RetentionPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;RUNTIME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Documented&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Inherited&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@SpringBootConfiguration&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@EnableAutoConfiguration&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ComponentScan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;excludeFilters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@Filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CUSTOM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TypeExcludeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;nd&quot;&gt;@Filter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FilterType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;CUSTOM&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AutoConfigurationExcludeFilter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringBootApplication&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;      &lt;/div&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebEnvironmentPropertySourceInitializer&lt;/code&gt;监听，监听的事件是 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationEnvironmentPreparedEvent&lt;/code&gt;（当SpringApplication正在启动并且环境首次可供检查和修改时发布的事件）&lt;/li&gt;
+  &lt;li&gt;构建SpringApplication，如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configure&lt;/code&gt;没有配置源，会检查自己是否是配置类，如果是就加到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;primarySources&lt;/code&gt;中，意味着其实如果&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBootServletInitializer&lt;/code&gt;的子类就是配置类，默认会添加到source中&lt;/li&gt;
+  &lt;li&gt;确保注册了错误页面&lt;/li&gt;
+  &lt;li&gt;运行&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;servletcontextinitializer&quot;&gt;ServletContextInitializer&lt;/h2&gt;
+
+&lt;h4 id=&quot;什么是servletcontextinitializer&quot;&gt;什么是ServletContextInitializer&lt;/h4&gt;
+
+&lt;p&gt;它的方法和&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;一模一样，但是它是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringBoot&lt;/code&gt;提供的&lt;/p&gt;
+
+&lt;p&gt;我们看看源码怎么描述的&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;用于以编程方式配置Servlet 3.0+{@link ServletContext Context}的接口。与 WebApplicationInitializer 不同的是实现此接口(且不实现 WebApplicationInitializer)的类&lt;b&gt;不会&lt;/b&gt;被 SpringServletContainerInitializer 检测到，因此Servlet容器不会自动引导&lt;/p&gt;
+
+  &lt;p&gt;此接口的设计方式类似于ServletContainerInitializer，但其生命周期由Spring管理，而不是Servlet容器。&lt;/p&gt;
+
+  &lt;p&gt;有关配置示例，请参阅 WebApplicationInitializer&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * Interface used to configure a Servlet 3.0+ {@link ServletContext context}
+ * programmatically. Unlike {@link WebApplicationInitializer}, classes that implement this
+ * interface (and do not implement {@link WebApplicationInitializer}) will &amp;lt;b&amp;gt;not&amp;lt;/b&amp;gt; be
+ * detected by {@link SpringServletContainerInitializer} and hence will not be
+ * automatically bootstrapped by the Servlet container.
+ * &amp;lt;p&amp;gt;
+ * This interface is designed to act in a similar way to
+ * {@link ServletContainerInitializer}, but have a lifecycle that's managed by Spring and
+ * not the Servlet container.
+ * &amp;lt;p&amp;gt;
+ * For configuration examples see {@link WebApplicationInitializer}.
+ *
+ * @author Phillip Webb
+ * @since 1.4.0
+ * @see WebApplicationInitializer
+ */&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@FunctionalInterface&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+   &lt;span class=&quot;cm&quot;&gt;/**
+    * Configure the given {@link ServletContext} with any servlets, filters, listeners
+    * context-params and attributes necessary for initialization.
+    * @param servletContext the {@code ServletContext} to initialize
+    * @throws ServletException if any call against the given {@code ServletContext}
+    * throws a {@code ServletException}
+    */&lt;/span&gt;
+   &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;为什么另外设计了这个接口&quot;&gt;为什么另外设计了这个接口？&lt;/h4&gt;
+
+&lt;p&gt;不是可以直接实现一个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;吗？为什么要另外用这个接口去实现相同的功能。&lt;/p&gt;
+
+&lt;p&gt;因为设计者，就是不让内嵌容器支持&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;，可以在这个&lt;a href=&quot;https://github.com/spring-projects/spring-boot/issues/321&quot;&gt;issue&lt;/a&gt;中找到些答案&lt;/p&gt;
+
+&lt;p&gt;This was actually an intentional design decision. The search algorithm used by the containers was problematic. It also causes problems when you want to develop an executable WAR as you often want a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;javax.servlet.ServletContainerInitializer&lt;/code&gt; for the WAR that is not executed when you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;java -jar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;See the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.springframework.boot.context.embedded.ServletContextInitializer&lt;/code&gt; for an option that works with Spring Beans.&lt;/p&gt;
+
+&lt;p&gt;Do you have a specific case where this is causing problems or was it more of an observation?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;这实际上是一个有意的设计决定。容器使用的搜索算法存在问题。当您想要开发一个可执行的WAR时，这也会导致问题，因为您通常需要一个javax.servlet.ServletContainerInitializer用于在运行java-jar时不执行的WAR。&lt;/p&gt;
+
+  &lt;p&gt;有关使用SpringBean的选项，请参阅org.springframework.boot.context.embedded.ServletContextInitializer。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我的理解是，当你的项目在开发时，为了开发方便，你可能使用的是内嵌的容器。而当部署到生成环境可能用的是war包的方式，部署到外部的容器中。这样你的代码必须同时兼容这两种方式。例如这样&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@SpringBootApplication&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DemoSpringmvcApplication&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringBootServletInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 使用内嵌容器时，main方法入口在这里，启动初始化的某个时间段我也启动了我的内嵌容器&lt;/span&gt;
+	  &lt;span class=&quot;c1&quot;&gt;// 使用外部容器时，忽略我的存在&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;SpringApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DemoSpringmvcApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// 使用内嵌容器时，我不会被调用。&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 外部容器时，外部容器检测到 SpringServletContainerInitializer，然后又检测到继承自WebApplicationInitializer的我，然后我被调用了，初始化也开始了&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SpringApplicationBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果内嵌容器支持&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;，那这份代码运行就会有意向不到的问题，当然会有什么问题，我也不清楚😂&lt;/p&gt;
+
+&lt;h4 id=&quot;servletcontextinitializer怎么被调用的&quot;&gt;ServletContextInitializer怎么被调用的&lt;/h4&gt;
+
+&lt;p&gt;链路很长，我就找&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;被调用的关键代码&lt;/p&gt;
+
+&lt;p&gt;首先，在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletWebServerApplicationContext#onRefresh&lt;/code&gt;里会调用createWebServer，顾名思义，创建web容器&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onRefresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onRefresh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;createWebServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Throwable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ApplicationContextException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Unable to start web server&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;可以看到，在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createWebServer&lt;/code&gt;根据 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;webServer == null &amp;amp;&amp;amp; servletContext == null&lt;/code&gt;说明我在创建应用上下文之前并没有外部容器启动，那么就创建一个内嵌容器，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;factory.getWebServer(getSelfInitializer())&lt;/code&gt;，传入了servletContextInitializers，&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;createWebServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;WebServer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webServer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;webServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getServletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webServer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;ServletWebServerFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getWebServerFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;webServer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getWebServer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getSelfInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;n&quot;&gt;getSelfInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ApplicationContextException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Cannot initialize servlet context&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;initPropertySources&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;方法调用 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;createWebServer&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getWebServer&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;prepareContext&lt;/code&gt; -&amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configureContext&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;然后就来到了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configureContext&lt;/code&gt;，有一步很关键，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;context.addServletContainerInitializer(starter, NO_CLASSES)&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;configureContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;TomcatStarter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;starter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TomcatStarter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TomcatEmbeddedContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;TomcatEmbeddedContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;embeddedContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TomcatEmbeddedContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;embeddedContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setStarter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;starter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;embeddedContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFailCtxIfServletStartFails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;starter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;NO_CLASSES&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;我们看一下这个方法，它往里面放的不是别人，正是大名鼎鼎的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+ * Add a ServletContainerInitializer instance to this web application.
+ *
+ * @param sci       The instance to add
+ * @param classes   The classes in which the initializer expressed an
+ *                  interest
+ */&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;addServletContainerInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sci&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;那我们看看这个&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TomcatStarter&lt;/code&gt;是何方神圣，仔细一看，里面就是依次调用传入的 ServletContextInitializers&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TomcatStarter&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContainerInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Log&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LogFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLog&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;TomcatStarter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;volatile&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startUpException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+   &lt;span class=&quot;nc&quot;&gt;TomcatStarter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initializers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initializers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;initializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;servletContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startUpException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// Prevent Tomcat from logging and re-throwing when we know we can&lt;/span&gt;
+         &lt;span class=&quot;c1&quot;&gt;// deal with it in the main thread, but log for information here.&lt;/span&gt;
+         &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isErrorEnabled&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Error starting Tomcat context. Exception: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;. Message: &quot;&lt;/span&gt;
+                  &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getMessage&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;nc&quot;&gt;Exception&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getStartUpException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;startUpException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看到这里，我们发现了内嵌的tomcat不会以spi方式加载&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;，而是用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TomcatStarter&lt;/code&gt;的onStartup，间接启动&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializers&lt;/code&gt;，来达到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;的效果。&lt;/p&gt;
+
+&lt;p&gt;是不是有点像 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringServletContainerInitializer&lt;/code&gt;老大哥带&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WebApplicationInitializer&lt;/code&gt;的套路&lt;/p&gt;
+
+&lt;p&gt;所以&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;源码里让你参考&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@see WebApplicationInitializer&lt;/code&gt;也不是没道理&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@author&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Phillip&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Webb&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@since&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@see&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;WebApplicationInitializer&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@FunctionalInterface&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;servletcontextinitializer应用&quot;&gt;ServletContextInitializer应用&lt;/h4&gt;
+
+&lt;p&gt;那ServletContextInitializer有现成的应用吗？&lt;/p&gt;
+
+&lt;p&gt;有！&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;，它是什么？&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;就交由spring的IOC容器管理了，因此&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;能够被拿到&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@AutoConfigureOrder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Ordered&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;HIGHEST_PRECEDENCE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;proxyBeanMethods&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ConditionalOnWebApplication&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;SERVLET&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ConditionalOnClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@AutoConfigureAfter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletWebServerFactoryAutoConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServletAutoConfiguration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;proxyBeanMethods&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Conditional&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DispatcherServletRegistrationCondition&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@ConditionalOnClass&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletRegistration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@EnableConfigurationProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;WebMvcProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Import&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DispatcherServletConfiguration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServletRegistrationConfiguration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DEFAULT_DISPATCHER_SERVLET_REGISTRATION_BEAN_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;nd&quot;&gt;@ConditionalOnBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DEFAULT_DISPATCHER_SERVLET_BEAN_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServletRegistrationBean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dispatcherServletRegistration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DispatcherServlet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+				&lt;span class=&quot;nc&quot;&gt;WebMvcProperties&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webMvcProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MultipartConfigElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multipartConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nc&quot;&gt;DispatcherServletRegistrationBean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DispatcherServletRegistrationBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dispatcherServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+					&lt;span class=&quot;n&quot;&gt;webMvcProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;DEFAULT_DISPATCHER_SERVLET_BEAN_NAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setLoadOnStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;webMvcProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getServlet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getLoadOnStartup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;multipartConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ifAvailable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;registration:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setMultipartConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;registration&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;它是这么拿的&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在前面讲的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext#createWebServer&lt;/code&gt; 中调用 factory.getWebServer(getSelfInitializer())&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;然后调用org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext#getServletContextInitializerBeans&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getServletContextInitializerBeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ServletContextInitializerBeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getBeanFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializerBeans&lt;/code&gt;这个类是一个封装了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContextInitializer&lt;/code&gt;的集合类，通过它的构造方法我们也能发现，它传入了&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;beanFactory&lt;/code&gt;，不用看源码也能大概猜到它是从Spring容器中去找这些类的bean实例&lt;/p&gt;
+
+    &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ServletContextInitializerBeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;ListableBeanFactory&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;beanFactory&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nc&quot;&gt;Class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;?&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ServletContextInitializer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;...&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;initializerTypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;总结&quot;&gt;总结&lt;/h2&gt;
+
+&lt;p&gt;说了那么多，这些类的出发点都是往&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContext&lt;/code&gt;容器中注册&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Servlet&lt;/code&gt;,&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Filter&lt;/code&gt;或者&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EventListener&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;只是生命周期由不同的容器托管，在不同的地方调用，但是最终的结果都是一样的&lt;/p&gt;</content><author><name>傅杭波</name></author><category term="SpringBoot" /><category term="SpringMVC" /><category term="Spring" /><summary type="html">这几个类乍一看有点像，仔细一看还是有点像，特别是ServletContainerInitializer和ServletContextInitializer，眼神不好的可能还真看不出来。那它们之间到底有什么区别呢？它们之间有什么联系吗？</summary></entry><entry><title type="html">Springboot项目中web.xml去哪了</title><link href="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html" rel="alternate" type="text/html" title="Springboot项目中web.xml去哪了" /><published>2020-05-22T15:10:00+08:00</published><updated>2020-05-22T15:10:00+08:00</updated><id>http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86</id><content type="html" xml:base="http://uhfun.cn/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html">&lt;p&gt;记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WEB-INF&lt;/code&gt;目录下添加&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;。为什么在SpringBoot项目中，&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;web.xml&lt;/code&gt;消失的无影无踪呢？&lt;/p&gt;
 
 &lt;p&gt;我的观点是：如果使用外部的tomcat，SpringBoot会通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ApplicationContext&lt;/code&gt;应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DispatcherServletRegistrationBean&lt;/code&gt;来完成的。而如果使用的内嵌tomcat，就跟&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;没有任何关系了。&lt;/p&gt;
 
@@ -251,8 +868,7 @@
 
 &lt;h4 id=&quot;刷新应用上下文invokebeanfactorypostprocessors&quot;&gt;刷新应用上下文，invokeBeanFactoryPostProcessors&lt;/h4&gt;
 
-&lt;p&gt;执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法
-创建完应用上下文，这时我们再回到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringApplication&lt;/code&gt;的非静态&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;方法中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;refreshContext(context);&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;创建完应用上下文，这时我们再回到&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SpringApplication&lt;/code&gt;的非静态&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;run&lt;/code&gt;方法中的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;refreshContext(context);&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;它进入&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;AbstractApplicationContext&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;refresh&lt;/code&gt;方法，接下里会调用&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;invokeBeanFactoryPostProcessors&lt;/code&gt;方法，执行&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BeanFactoryPostProcessor&lt;/code&gt;中的处理方法，因为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConfigurationClassParser&lt;/code&gt;的beanDefinition已经在容器中了，所以会被调用&lt;/p&gt;
 
@@ -287,8 +903,7 @@
 
 &lt;h4 id=&quot;import-autoconfigurationimportselector&quot;&gt;Import AutoConfigurationImportSelector&lt;/h4&gt;
 
-&lt;p&gt;解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)
-ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportSelector.class)&lt;/p&gt;
+&lt;p&gt;解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Iterable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Group&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getImports&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DeferredImportSelectorHolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deferredImport&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;deferredImports&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -357,7 +972,14 @@ ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportS
 
 &lt;h2 id=&quot;dispatcherservletautoconfiguration生效&quot;&gt;DispatcherServletAutoConfiguration生效&lt;/h2&gt;
 
-&lt;p&gt;前面提到的@EnableAutoConfiguration注解使DispatcherServletAutoConfiguration配置类生效&lt;/p&gt;
+&lt;p&gt;在spring-boot-autoconfigure-2.2.2.RELEASE.jar的META-INF/spring.factories中存在关于DispatcherServlet的自动配置&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+...
+org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,\
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;DispatcherServletAutoConfiguration配置类生效&lt;/p&gt;
 
 &lt;p&gt;DispatcherServletAutoConfiguration中有两个配置类&lt;/p&gt;
 
@@ -397,7 +1019,7 @@ ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportS
 
 &lt;h4 id=&quot;注册servlet的配置&quot;&gt;注册servlet的配置&lt;/h4&gt;
 
-&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onRefresh&lt;/code&gt;阶段会启动servlet配置的注册&lt;/p&gt;
+&lt;p&gt;在&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;applicationContext&lt;/code&gt;的&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;onRefresh&lt;/code&gt;阶段会执行ServletContextInitializer.onStartup&lt;/p&gt;
 
 &lt;p&gt;SpringBoot根据内嵌还是外部的web容器有不同的操作&lt;/p&gt;
 
@@ -442,7 +1064,7 @@ ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportS
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;为什么外部web容器启动时servletcontext不为null呢&quot;&gt;&lt;strong&gt;为什么外部web容器启动时servletContext不为null呢&lt;/strong&gt;&lt;/h4&gt;
+&lt;h4 id=&quot;为什么外部web容器启动时servletcontext不为null&quot;&gt;&lt;strong&gt;为什么外部web容器启动时servletContext不为null&lt;/strong&gt;&lt;/h4&gt;
 
 &lt;p&gt;首先这里需要先提到一个接口&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ServletContainerInitializer&lt;/code&gt;&lt;/p&gt;
 
@@ -4342,571 +4964,4 @@ nameserver 8.8.8.8
 &lt;blockquote&gt;
   &lt;p&gt;我在使用时，出现连接不上的问题，item2 不知道对应虚拟机主机名的ip 所以你必须自己在host里面加上对应主机名的ip地址
 例如 192.168.56.101 UU (主机名是 &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root@UU:~#&lt;/code&gt;&lt;/strong&gt; 的 UU 是在创建时自己设置的)&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>傅杭波</name></author><category term="Ubuntu" /><summary type="html">安装完 Ubuntu-server 后，额外的一些设置</summary></entry><entry><title type="html">Ssm项目整合</title><link href="http://uhfun.cn/tech/2018/05/24/SSM%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88.html" rel="alternate" type="text/html" title="Ssm项目整合" /><published>2018-05-24T13:06:00+08:00</published><updated>2018-05-24T13:06:00+08:00</updated><id>http://uhfun.cn/tech/2018/05/24/SSM%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88</id><content type="html" xml:base="http://uhfun.cn/tech/2018/05/24/SSM%E9%A1%B9%E7%9B%AE%E6%95%B4%E5%90%88.html">&lt;p&gt;介绍如何使用IntelliJ IDEA创建Spring + SpringMVC + MyBatis项目&lt;/p&gt;
-
-&lt;h2 id=&quot;了解maven&quot;&gt;了解Maven&lt;/h2&gt;
-&lt;p&gt;　　Apache Maven（ [ˈmeivən] ），是一个软件（特别是Java软件）项目管理及自动构建工具，可以通过一小段描述信息（配置）来管理项目的构建。
-　　配置pom.xml，通过groupId、artifactId、version三个属性来自动获取指定的jar包，。&lt;/p&gt;
-&lt;h2 id=&quot;创建maven项目&quot;&gt;创建Maven项目&lt;/h2&gt;
-&lt;h3 id=&quot;file---new-project创建新项目&quot;&gt;File -&amp;gt; New Project，创建新项目。&lt;/h3&gt;
-&lt;p&gt;　　1. 选择侧栏的Maven&lt;br /&gt;
-　　2. 勾选create from archtype&lt;br /&gt;
-　　3. 选择Maven org.apache.maven.archetype-webapp&lt;/p&gt;
-&lt;h3 id=&quot;点击next填写groupidartifactid和version&quot;&gt;点击Next，填写GroupId、ArtifactId和Version&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;GroupId:  cn.hbson.web&lt;/li&gt;
-  &lt;li&gt;ArtifactId:  web-ssm&lt;/li&gt;
-  &lt;li&gt;Version:  1.0-SNAPSHOT&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;点击next需要在properties中添加-archetypecataloginternal&quot;&gt;点击Next，需要在Properties中添加 archetypeCatalog=internal&lt;/h3&gt;
-&lt;p&gt;　　不加这个参数，在maven生成骨架的时候将会非常慢，有时候直接卡住。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;archetypeCatalog表示插件使用的archetype元数据，不加这个参数时默认为remote，local，即中央仓库archetype元数据，由于中央
-仓库的archetype太多了所以导致很慢，指定internal来表示仅使用内部元数据。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;填写module-name&quot;&gt;填写Module name&lt;/h3&gt;
-&lt;p&gt;　　随意&lt;/p&gt;
-&lt;h2 id=&quot;了解项目目录结构&quot;&gt;了解项目目录结构&lt;/h2&gt;
-&lt;h3 id=&quot;web项目结构初识&quot;&gt;Web项目结构初识&lt;/h3&gt;
-&lt;p&gt;　　基于Java的Web项目，标准的打包方式是WAR。&lt;br /&gt;
-　　与JAR比较，包含更多的内容，比如JSP文件、Servlet、Java类、web.xml配置文件、依赖JAR包、静态web资源(HTML、CSS、JavaScript)等。  &lt;br /&gt;
-　　WEB-INF是WAR包的核心。
-　　classes和lib目录都会在运行的时候被加入到Classpath中。除此之外，WAR包中会包含很多Web资源，比如html、jsp、图片等。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;/webapp(WebRoot) —— 根目录，至少包含两个子目录&lt;strong&gt;&lt;em&gt;META-INF&lt;/em&gt;&lt;/strong&gt;、&lt;strong&gt;&lt;em&gt;WEB-INF&lt;/em&gt;&lt;/strong&gt;。&lt;/li&gt;
-  &lt;li&gt;/webapp/META-INF —— 包含一些打包元数据信息。&lt;/li&gt;
-  &lt;li&gt;/webapp/WEB-INF —— 最安全的目录、保存配置文件、第三方jar包、各种类。&lt;/li&gt;
-  &lt;li&gt;/webapp/web.xml —— web项目的配置文件（Web资源描述文件web.xml）。&lt;/li&gt;
-  &lt;li&gt;/webapp/WEB-INF/classes —— 保存编译后的&lt;em&gt;.class文件以及&lt;/em&gt;.xml或*.properties配置文件。&lt;/li&gt;
-  &lt;li&gt;/webapp/WEB-INF/lib —— 保存所有Web项目的依赖的第三方jar包。&lt;/li&gt;
-  &lt;li&gt;/webapp/WEB-INF/jsp —— 保存所有*.jsp文件，外部无法直接访问。&lt;/li&gt;
-  &lt;li&gt;/webapp/css —— 保存所有*.css文件。&lt;/li&gt;
-  &lt;li&gt;/webapp/img —— 保存所有图片。&lt;/li&gt;
-  &lt;li&gt;/webapp/js —— 保存所有*.js文件。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;一个典型的WAR文件如下目录结构：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;└── webapp
-    ├── META-INF
-    ├── WEB-INF
-    │   ├── classes
-    │   │   ├── &lt;span class=&quot;ge&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;*&lt;/span&gt;
-    │   │   ├── Servlet.class
-    │   │   └── config.properties
-    │   ├── index.jsp
-    │   ├── jsp
-    │   ├── lib
-    │   └── web.xml
-    ├── css
-    ├── img
-    └── js
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;maven目录结构初识&quot;&gt;Maven目录结构初识&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;pom.xml所在的目录应为项目的根目录，假设该目录为${proj-name}&lt;/li&gt;
-  &lt;li&gt;${proj-name}/src/main/java —— 存放项目的.java文件。&lt;/li&gt;
-  &lt;li&gt;${proj-name}/src/main/resources —— 存放项目资源文件，如spring, hibernate配置文件。&lt;/li&gt;
-  &lt;li&gt;${proj-name}/src/test/jave —— 存放所有测试.java文件，如JUnit测试类。&lt;/li&gt;
-  &lt;li&gt;${proj-name}/src/test/resources —— 测试资源文件。&lt;/li&gt;
-  &lt;li&gt;${proj-name}/target —— 项目输出位置。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;idea自动生成maven初始目录结构&quot;&gt;Idea自动生成Maven初始目录结构&lt;/h3&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── pom.xml
-└── src
-    └── main
-        └── webapp
-            ├── WEB-INF
-            │   └── web.xml
-            └── index.jsp
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;基于maven的java-web使用ssm框架项目最终目录结构&quot;&gt;基于Maven的Java Web（使用SSM框架）项目最终目录结构&lt;/h3&gt;
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;├── pom.xml
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── cn
-│   │   │       └── hbson
-│   │   │           └── webssm
-│   │   │               ├── controller
-│   │   │               │   ├── converter
-│   │   │               │   └── propertyeditor
-│   │   │               ├── mapper
-│   │   │               │   ├── XXXMapper.java
-│   │   │               │   └── XXXMapper.xml
-│   │   │               ├── po
-│   │   │               ├── service
-│   │   │               │   ├── XXXService.java
-│   │   │               │   └── impl
-│   │   │               │       └── XXXServiceImpl.java
-│   │   │               └── utils
-│   │   ├── resources
-│   │   │   ├── jdbc.properties
-│   │   │   ├── log4j.properties
-│   │   │   ├── mybatis
-│   │   │   │   └── sqlMapConfig.xml
-│   │   │   └── spring
-│   │   │       ├── applicationContext-dao.xml
-│   │   │       ├── applicationContext-service.xml
-│   │   │       ├── applicationContext-transation.xml
-│   │   │       └── springmvc.xml
-│   │   └── webapp
-│   │       ├── META-INF
-│   │       ├── WEB-INF
-│   │       │   ├── jsp
-│   │       │   └── web.xml
-│   │       ├── img
-│   │       ├── index.jsp
-│   │       └── js
-│   └── test
-│       ├── java
-│       └── resources
-└── webssm.iml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;完善目录结构基于maven的java-web&quot;&gt;完善目录结构（基于Maven的Java Web）&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;右键 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new Directory&lt;/code&gt;   
-　　在各个目录下分别创建Directory（test、java、resources、spring、mybatis、jsp）&lt;/li&gt;
-  &lt;li&gt;选中&lt;strong&gt;java&lt;/strong&gt;右键 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Make Directory as &amp;gt; Sources Root&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;选中&lt;strong&gt;resources&lt;/strong&gt;右键 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Make Directory as &amp;gt; Resources Root&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;选中&lt;strong&gt;test&lt;/strong&gt;右键 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Make Directory as &amp;gt; Test Sources Root&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;配置tomcat&quot;&gt;配置Tomcat&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;idea右上角的白色方框 &amp;gt; Edit Configuraion...&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;添加 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Tomcat Server &amp;gt; Local&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;点击 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Deployment &amp;gt; + &amp;gt; Artifact... &amp;gt; proj-name:war exploded&lt;/code&gt; &lt;strong&gt;(右边的Application Context是使用浏览器访问你的web应用（项目）的根路径)&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;测试项目部署&quot;&gt;测试项目部署&lt;/h2&gt;
-&lt;p&gt;　　访问 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://localhost:8080&lt;/code&gt;，出现&lt;strong&gt;Hello World!&lt;/strong&gt;的页面。到此你完成了JavaWeb的项目结构并且部署成功，接下来完成&lt;strong&gt;Spring、SpringMVC、Mybatis&lt;/strong&gt;的配置&lt;/p&gt;
-
-&lt;h2 id=&quot;项目配置文件&quot;&gt;项目配置文件&lt;/h2&gt;
-&lt;h3 id=&quot;maven配置文件添加项目依赖的jar包----pomxml&quot;&gt;Maven配置文件，添加项目依赖的jar包  –  pom.xml&lt;/h3&gt;
-&lt;p&gt;　　使用maven来引入项目所需要的jar包，通过maven自动下载管理jar包。&lt;/p&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;project.build.sourceEncoding&amp;gt;&lt;/span&gt;UTF-8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/project.build.sourceEncoding&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;maven.compiler.source&amp;gt;&lt;/span&gt;1.7&lt;span class=&quot;nt&quot;&gt;&amp;lt;/maven.compiler.source&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;maven.compiler.target&amp;gt;&lt;/span&gt;1.7&lt;span class=&quot;nt&quot;&gt;&amp;lt;/maven.compiler.target&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- spring版本号 --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;spring.version&amp;gt;&lt;/span&gt;4.2.5.RELEASE&lt;span class=&quot;nt&quot;&gt;&amp;lt;/spring.version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--mybatis版本号--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mybatis.version&amp;gt;&lt;/span&gt;3.2.8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mybatis.version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--mysql驱动版本号--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;mysql-driver.version&amp;gt;&lt;/span&gt;5.1.29&lt;span class=&quot;nt&quot;&gt;&amp;lt;/mysql-driver.version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--log4j日志包版本号--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;slf4j.version&amp;gt;&lt;/span&gt;1.7.18&lt;span class=&quot;nt&quot;&gt;&amp;lt;/slf4j.version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;log4j.version&amp;gt;&lt;/span&gt;1.2.17&lt;span class=&quot;nt&quot;&gt;&amp;lt;/log4j.version&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加jstl依赖--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;jstl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;jstl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;javax&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;javaee-api&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;7.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加junit４依赖--&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;junit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;junit&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;4.11&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 指定范围，在测试时才会加载 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-     &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加spring核心依赖 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-context&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加spring和javaweb工程集成的jar包--&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-web&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-webmvc&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加spring事务--&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-tx&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加spring JDBC--&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-jdbc&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-test&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加spring AOP--&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.springframework&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;spring-aop&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${spring.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加mybatis依赖 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.mybatis&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mybatis&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${mybatis.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加mybatis/spring整合包依赖 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.mybatis&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mybatis-spring&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.2.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加mysql驱动依赖 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;mysql&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;mysql-connector-java&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${mysql-driver.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加数据库连接池 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;commons-dbcp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;commons-dbcp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.2.2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 添加日志相关jar包 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;log4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${log4j.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.slf4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;slf4j-api&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${slf4j.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.slf4j&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;slf4j-log4j12&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${slf4j.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;c&quot;&gt;&amp;lt;!--添加aspectjweaver包 --&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;org.aspectj&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;aspectjweaver&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.8.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;工程配置信息---webxml&quot;&gt;工程配置信息  – web.xml&lt;/h3&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;web-app&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://java.sun.com/xml/ns/javaee&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;&lt;/span&gt;
-         &lt;span class=&quot;na&quot;&gt;version=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;3.0&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;display-name&amp;gt;&lt;/span&gt;Archetype Created Web Application&lt;span class=&quot;nt&quot;&gt;&amp;lt;/display-name&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 配置spring容器监听器，加载spring配置 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;contextConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;classpath:spring/applicationContext-*.xml&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;listener&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;listener-class&amp;gt;&lt;/span&gt;org.springframework.web.context.ContextLoaderListener&lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener-class&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/listener&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;context-param&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;log4jConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;classpath:log4j.properties&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/context-param&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 编码过滤器 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;encodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-class&amp;gt;&lt;/span&gt;org.springframework.web.filter.CharacterEncodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-class&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;encoding&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;UTF-8&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-mapping&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;filter-name&amp;gt;&lt;/span&gt;encodingFilter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/*&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/filter-mapping&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- spring mvc  前端控制器 --&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;springMVC&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-class&amp;gt;&lt;/span&gt;org.springframework.web.servlet.DispatcherServlet&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-class&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;init-param&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-name&amp;gt;&lt;/span&gt;contextConfigLocation&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-name&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;param-value&amp;gt;&lt;/span&gt;classpath:spring/springmvc.xml&lt;span class=&quot;nt&quot;&gt;&amp;lt;/param-value&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/init-param&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-mapping&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;servlet-name&amp;gt;&lt;/span&gt;springMVC&lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-name&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 可以配置/ ，此工程所有请求全部由springmvc解析，此种方式可以实现 RESTful方式，需要特殊处理对静态文件的解析不能由springmvc解析
-			可以配置*.do或*.action，所有请求的url扩展名为.do或.action由springmvc解析，此种方法常用 不可以/*，如果配置/*，返回jsp也由springmvc解析，这是不对的。 --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;url-pattern&amp;gt;&lt;/span&gt;/&lt;span class=&quot;nt&quot;&gt;&amp;lt;/url-pattern&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/servlet-mapping&amp;gt;&lt;/span&gt;
-
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file-list&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;welcome-file&amp;gt;&lt;/span&gt;index.jsp&lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/welcome-file-list&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/web-app&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;jdbc配置文件---jdbcproperties-&quot;&gt;Jdbc配置文件  – jdbc.properties  &lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jdbc.driver=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://localhost:3306/db_ssm?useUnicode=true&amp;amp;characterEncoding=utf-8&amp;amp;zeroDateTimeBehavior=convertToNull
-jdbc.username=root
-jdbc.password=root
-
-#定义初始连接数
-jdbc.initialSize=0
-#定义最大连接数
-jdbc.maxActive=20
-#定义最大空闲
-jdbc.maxIdle=20
-#定义最小空闲
-jdbc.minIdle=1
-#定义最长等待时间
-jdbc.maxWait=60000  
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;log4j配置文件---log4jproperties&quot;&gt;Log4j配置文件  – log4j.properties&lt;/h3&gt;
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;log4j.rootLogger=INFO,Console,File  
-  
-#控制台日志  
-log4j.appender.Console=org.apache.log4j.ConsoleAppender  
-log4j.appender.Console.Target=System.out  
-log4j.appender.Console.layout=org.apache.log4j.PatternLayout  
-log4j.appender.Console.layout.ConversionPattern=[%p][%t][%d{yyyy-MM-dd HH\:mm\:ss}][%C] - %m%n  
-  
-#普通文件日志  
-log4j.appender.File=org.apache.log4j.RollingFileAppender  
-log4j.appender.File.File=logs/ssm.log  
-log4j.appender.File.MaxFileSize=10MB  
-#输出日志，如果换成DEBUG表示输出DEBUG以上级别日志  
-log4j.appender.File.Threshold=ALL  
-log4j.appender.File.layout=org.apache.log4j.PatternLayout  
-log4j.appender.File.layout.ConversionPattern=[%p][%t][%d{yyyy-MM-dd HH\:mm\:ss}][%C] - %m%n 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;mybatis的配置文件---sqlmapconfigxml-&quot;&gt;Mybatis的配置文件  – sqlMapConfig.xml  &lt;/h3&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE configuration
-        PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
-        &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 定义 别名 --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;typeAliases&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 批量别名定义 指定包路径，自动扫描包下边的pojo，定义别名，别名默认为类名（首字母小写或大写） --&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;package&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cn.hbson.webssm.po&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/typeAliases&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--
-    由于使用spring和mybatis整合的mapper扫描器，这里可以不用配置了
-    &amp;lt;mappers&amp;gt;
-        &amp;lt;package name=&quot;cn.itcast.ssm.mapper&quot; /&amp;gt;
-    &amp;lt;/mappers&amp;gt; --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;springmvc的配置文件---springmvcxml--&quot;&gt;SpringMVC的配置文件  – springmvc.xml    &lt;/h3&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:mvc=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/mvc&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/context&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:aop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/aop&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:tx=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/tx&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
-		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 使用spring组件 自动扫描  @Controller --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;context:component-scan&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;base-package=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cn.hbson.webssm.controller&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 通过annotation-driven可以替代下边的处理器映射器和适配器 --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 	&amp;lt;mvc:annotation-driven conversion-service=&quot;conversionService&quot;&amp;gt;
-&amp;lt;/mvc:annotation-driven&amp;gt;
-	--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 注解处理器映射器 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 注解适配器 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 在webBindingInitializer中注入自定义属性编辑器、自定义转换器 --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;property name=&quot;webBindingInitializer&quot; ref=&quot;customBinder&quot;&amp;gt;&amp;lt;/property&amp;gt;--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 配置视图解析器 需要jstl的jar包 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ViewResolver  定义跳转的文件的前后缀 ，视图模式配置 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.web.servlet.view.InternalResourceViewResolver&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;prefix&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/WEB-INF/jsp/&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;suffix&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;.jsp&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 自定义webBinder --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;bean id=&quot;customBinder&quot;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--class=&quot;org.springframework.web.bind.support.ConfigurableWebBindingInitializer&quot;&amp;gt;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;amp;lt;!&amp;amp;ndash; 使用converter进行参数转 &amp;amp;ndash;&amp;amp;gt;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;property name=&quot;conversionService&quot; ref=&quot;conversionService&quot; /&amp;gt;--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/bean&amp;gt;--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 注册属性编辑器 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;bean id=&quot;customPropertyEditor&quot; class=&quot;cn.hbson.webssm.controller.propertyeditor.CustomPropertyEditor&quot;&amp;gt;&amp;lt;/bean&amp;gt;--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 转换器 --&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;bean id=&quot;conversionService&quot;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--class=&quot;org.springframework.format.support.FormattingConversionServiceFactoryBean&quot;&amp;gt;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;property name=&quot;converters&quot;&amp;gt;--&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;list&amp;gt;--&amp;gt;&lt;/span&gt;
-				&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;bean class=&quot;cn.hbson.webssm.controller.converter.CustomDateConverter&quot;/&amp;gt;--&amp;gt;&lt;/span&gt;
-				&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;bean class=&quot;cn.hbson.webssm.controller.converter.StringTrimConverter&quot;/&amp;gt;--&amp;gt;&lt;/span&gt;
-			&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/list&amp;gt;--&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/property&amp;gt;--&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!--&amp;lt;/bean&amp;gt;--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;spring和mybatis整合所需的配置文件dao层的配置文件---applicationcontext-daoxml&quot;&gt;Spring和Mybatis整合所需的配置文件（Dao层的配置文件）  – applicationContext-dao.xml&lt;/h3&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:mvc=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/mvc&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/context&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:aop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/aop&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:tx=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/tx&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
-		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 加载jbdc.properties配置文件 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;context:property-placeholder&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;location=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:jdbc.properties&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 配置数据库连接池 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.apache.commons.dbcp.BasicDataSource&quot;&lt;/span&gt;
-		&lt;span class=&quot;na&quot;&gt;destroy-method=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;close&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;driverClassName&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.driver}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;url&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.url}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;username&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.username}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;password&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.password}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;initialSize&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.initialSize}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxActive&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.maxActive}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxIdle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.maxIdle}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;minIdle&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.minIdle}&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;maxWait&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;${jdbc.maxWait}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-
-
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- SqlsessionFactory --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlSessionFactory&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 数据源 --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- mybatis配置文件 --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;configLocation&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;classpath:mybatis/sqlMapConfig.xml&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-
-	&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 
-	MapperScannerConfigurer：mapper的扫描器，将包下边的mapper接口自动创建代理对象，
-	自动创建到spring容器中，bean的id是mapper的类名（首字母小写）
-	 --&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.mybatis.spring.mapper.MapperScannerConfigurer&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 配置扫描包的路径
-		如果要扫描多个包，中间使用半角逗号分隔
-		要求mapper.xml和mapper.java同名且在同一个目录
-		 --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;basePackage&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;cn.hbson.webssm.mapper&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 使用sqlSessionFactoryBeanName --&amp;gt;&lt;/span&gt;
-		&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlSessionFactoryBeanName&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sqlSessionFactory&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;service层spring配置文件---applicationcontext-servicexml&quot;&gt;Service层Spring配置文件  – applicationContext-service.xml&lt;/h3&gt;
-&lt;p&gt;配置service层的bean&lt;/p&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:mvc=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/mvc&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/context&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:aop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/aop&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:tx=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/tx&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
-		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 这里添加service层需要配置的bean--&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h3 id=&quot;spring事务配置文件---applicationcontext-transationxml&quot;&gt;Spring事务配置文件  – applicationContext-transation.xml&lt;/h3&gt;
-&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;beans&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:xsi=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:mvc=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/mvc&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:context=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/context&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xmlns:aop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/aop&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xmlns:tx=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/tx&quot;&lt;/span&gt;
-	&lt;span class=&quot;na&quot;&gt;xsi:schemaLocation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://www.springframework.org/schema/beans 
-		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
-		http://www.springframework.org/schema/mvc 
-		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
-		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context-3.2.xsd 
-		http://www.springframework.org/schema/aop 
-		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
-		http://www.springframework.org/schema/tx 
-		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd &quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 使用声明式事务配置，可以有效规范代码 --&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 事务管理器 --&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;bean&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transactionManager&quot;&lt;/span&gt; 
-	 		&lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;property&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;dataSource&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/bean&amp;gt;&lt;/span&gt;
-	 
-	 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- 通知 --&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:advice&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;txAdvice&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;transaction-manager=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;transactionManager&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-	 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:attributes&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;save*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REQUIRED&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;insert*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REQUIRED&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;update*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REQUIRED&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;delete*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;REQUIRED&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;find*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SUPPORTS&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;read-only=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;select*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SUPPORTS&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;read-only=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 		&lt;span class=&quot;nt&quot;&gt;&amp;lt;tx:method&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;get*&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;propagation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;SUPPORTS&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;read-only=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;true&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tx:attributes&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/tx:advice&amp;gt;&lt;/span&gt;
-	 
-	 &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- aop --&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;aop:config&amp;gt;&lt;/span&gt;
-	 	&lt;span class=&quot;nt&quot;&gt;&amp;lt;aop:advisor&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;advice-ref=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;txAdvice&quot;&lt;/span&gt;
-	 				 &lt;span class=&quot;na&quot;&gt;pointcut=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;execution(* cn.hbson.webssm.service.impl.*.*(..))&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-	 &lt;span class=&quot;nt&quot;&gt;&amp;lt;/aop:config&amp;gt;&lt;/span&gt;
-	
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/beans&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>傅杭波</name></author><category term="Spring" /><category term="SpringMVC" /><category term="Mybatis" /><category term="Maven" /><summary type="html">介绍如何使用IntelliJ IDEA创建Spring + SpringMVC + MyBatis项目</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>傅杭波</name></author><category term="Ubuntu" /><summary type="html">安装完 Ubuntu-server 后，额外的一些设置</summary></entry></feed>
