@@ -273,7 +273,6 @@ public abstract class AnnotationConfigUtils {
 
 #### 刷新应用上下文，invokeBeanFactoryPostProcessors
 
-执行ConfigurationClassPostProcessor的postProcessBeanDefinitionRegistry方法
 创建完应用上下文，这时我们再回到`SpringApplication`的非静态`run`方法中的`refreshContext(context);` 
 
 它进入`AbstractApplicationContext`的`refresh`方法，接下里会调用`invokeBeanFactoryPostProcessors`方法，执行`BeanFactoryPostProcessor`中的处理方法，因为`ConfigurationClassParser`的beanDefinition已经在容器中了，所以会被调用
@@ -311,7 +310,6 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 #### Import AutoConfigurationImportSelector
 
 解析启动类上的@SpringBootApplication、@EnableAutoConfiguration间接引入的@Import(AutoConfigurationImportSelector.class)
-ConfigurationClassParser解析找到注解上的@Import(AutoConfigurationImportSelector.class)
 
 ```java
 public Iterable<Group.Entry> getImports() {
@@ -384,7 +382,15 @@ private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoad
 
 ## DispatcherServletAutoConfiguration生效
 
-前面提到的@EnableAutoConfiguration注解使DispatcherServletAutoConfiguration配置类生效
+在spring-boot-autoconfigure-2.2.2.RELEASE.jar的META-INF/spring.factories中存在关于DispatcherServlet的自动配置
+````
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+...
+org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration,\
+...
+````
+DispatcherServletAutoConfiguration配置类生效
 
 DispatcherServletAutoConfiguration中有两个配置类
 
@@ -420,7 +426,7 @@ DispatcherServletAutoConfiguration中有两个配置类
 
 #### 注册servlet的配置
 
-在`applicationContext`的`onRefresh`阶段会启动servlet配置的注册
+在`applicationContext`的`onRefresh`阶段会执行ServletContextInitializer.onStartup
 
 SpringBoot根据内嵌还是外部的web容器有不同的操作
 
@@ -466,7 +472,7 @@ public class ServletWebServerApplicationContext extends GenericWebApplicationCon
 }
 ```
 
-#### **为什么外部web容器启动时servletContext不为null呢**
+#### **为什么外部web容器启动时servletContext不为null**
 
 首先这里需要先提到一个接口`ServletContainerInitializer`
 
