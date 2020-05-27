@@ -1,1 +1,1 @@
-Sitemap: http://uhfun.cn/sitemap.xml
+Sitemap: https://uhfun.cn/sitemap.xml
