@@ -157,49 +157,60 @@
 
   $(window).scroll(() => {
     var scrollS = $(this).scrollTop(), $checkedA;  
-    let h = $toc.outerHeight();    
-    if ($toc.html() != '') {   
-      if (titles.length == 0) {
-        titles = headerOffsets( h + 30);
-        console.log(titles)    
-      }     
-      if (scrollS >= h + 240) {
-        if (!$toc.hasClass('toc-suspend') && $toc.is(":visible")) {
-          $toc.addClass('toc-suspend')
-          if ($toc.css('position') == 'fixed') {
-            $('html,body').scrollTop(scrollS - h)
-          }          
-        }
-        if ($toc.css('position') == 'fixed' && scrollS >= windowTop && $toc.is(":visible")) {
+    let h = $toc.outerHeight(), hasToc = $toc.html() != '';   
+    var $btt = $('.back-to-top');
+    if (hasToc && titles.length == 0) {
+      titles = headerOffsets( h + 30);
+      console.log(titles)    
+    }       
+    if (scrollS >= h + 240) {
+      if (hasToc && !$toc.hasClass('toc-suspend') && $toc.is(":visible")) {
+        $toc.addClass('toc-suspend')
+        if ($toc.css('position') == 'fixed') {
+          $('html,body').scrollTop(scrollS - h)
+        }          
+      }
+      if (scrollS >= windowTop) {
+        // 下划
+        if (hasToc && $toc.css('position') == 'fixed' && $toc.is(":visible")) {
           $('.back-to-top').removeClass('to-top')
           tocCheckedTitle = {}
-          $toc.fadeOut();
+          $toc.fadeOut();        
         } 
-        if ($toc.css('position') == 'fixed' && scrollS < windowTop && !$toc.is(":visible") ) {
-          $toc.fadeIn()
-        }       
-        if (scrollS < windowTop && !$(".back-to-top").hasClass('to-top')) {             
-          nearestTitle(scrollS);          
-          $('.checked-a').removeClass('checked-a')      
-          $checkedA = $("[href='"+ tocCheckedTitle.href +"']");
-          $checkedA.addClass('checked-a')
-          var $li = $checkedA.parent();      
-          if ($li.children('.toc-sub-ol').length == 0) {
-            closeLi($li.siblings('.toc-open'));
-            $li = $li.parent().parent();
-          }
-          while($li.parent().hasClass('toc-ol')) {
-            openLi($li);
-            $li = $li.parent().parent();
-          }
+        if ($btt.is(":visible")) {
+          $btt.fadeOut()
         }
-      } 
-      if (scrollS < 240) {
-        $toc.removeClass('toc-suspend')
-        $toc.fadeIn()        
-        closeLi($toc.children('.toc-ol').children('.toc-open'));
+      } else {
+        // 上划
+        if (hasToc && $toc.css('position') == 'fixed' && !$toc.is(":visible") ) {
+          $toc.fadeIn()        
+        } 
+        if (scrollS > 400 && !$btt.is(":visible")) {
+          $btt.fadeIn()
+        }
+      }      
+      if (scrollS < windowTop && !$(".back-to-top").hasClass('to-top')) {             
+        nearestTitle(scrollS);          
+        $('.checked-a').removeClass('checked-a')      
+        $checkedA = $("[href='"+ tocCheckedTitle.href +"']");
+        $checkedA.addClass('checked-a')
+        var $li = $checkedA.parent();      
+        if ($li.children('.toc-sub-ol').length == 0) {
+          closeLi($li.siblings('.toc-open'));
+          $li = $li.parent().parent();
+        }
+        while($li.parent().hasClass('toc-ol')) {
+          openLi($li);
+          $li = $li.parent().parent();
+        }
       }
-    }    
+    } 
+    if (scrollS < 240) {
+      $toc.removeClass('toc-suspend')
+      $toc.fadeIn()        
+      closeLi($toc.children('.toc-ol').children('.toc-open'));
+      $btt.fadeOut();
+    }
     windowTop=scrollS;
   });
 
