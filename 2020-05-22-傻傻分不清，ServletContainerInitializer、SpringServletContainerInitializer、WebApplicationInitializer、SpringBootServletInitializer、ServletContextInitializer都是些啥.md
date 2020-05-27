@@ -22,13 +22,13 @@ tags:
 
 * **ServletContainerInitializer**（`javax.servlet.ServletContainerInitializer`）
 
-* **SpringServletContainerInitializer**（org.springframework.web.SpringServletContainerInitializer）
+* **SpringServletContainerInitializer**（`org.springframework.web.SpringServletContainerInitializer`）
 
-* **WebApplicationInitializer**（org.springframework.web.WebApplicationInitializer）
+* **WebApplicationInitializer**（`org.springframework.web.WebApplicationInitializer`）
 
-* **SpringBootServletInitializer**（org.springframework.boot.web.servlet.support.SpringBootServletInitializer）
+* **SpringBootServletInitializer**（`org.springframework.boot.web.servlet.support.SpringBootServletInitializer`）
 
-* **ServletContextInitializer**（org.springframework.boot.web.servlet.ServletContextInitializer）
+* **ServletContextInitializer**（`org.springframework.boot.web.servlet.ServletContextInitializer`）
 
 ## ServletContainerInitializer
 
@@ -84,9 +84,9 @@ public interface ServletContainerInitializer {
 
 ### SpringServletContainerInitializer和WebApplicationInitializer的关系
 
-它们之间的关系可以理解为，`SpringServletContainerInitializer`实现了servlet容器提供的接口带了个头，接下来的事可以交由 spring自己定义的`WebApplicationInitializer``
+它们之间的关系可以理解为，`SpringServletContainerInitializer`实现了servlet容器提供的接口带了个头，接下来的事可以交由 spring自己定义的`WebApplicationInitializer`
 
-``SpringServletContainerInitializer`源码如下，可以看到，`SpringServletContainerInitializer`将传入的 `webAppInitializerClasses` 通过反射实例化，然后根据`@Order`注解排序后，依次调用
+`SpringServletContainerInitializer`源码如下，可以看到，`SpringServletContainerInitializer`将传入的 `webAppInitializerClasses` 通过反射实例化，然后根据`@Order`注解排序后，依次调用
 
 ```java
 @HandlesTypes(WebApplicationInitializer.class)
@@ -129,7 +129,7 @@ public class SpringServletContainerInitializer implements ServletContainerInitia
 
 #### 继承AbstractAnnotationConfigDispatcherServletInitializer
 
-例如我们自顶一个类，继承Spring为我们提供的`AbstractAnnotationConfigDispatcherServletInitializer`,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的`MyCustomWebApplicationInitializer` class传入`SpringServletContainerInitializer#onStartup`，而`SpringServletContainerInitializer`会为我们实例化这个类并调用它。
+例如我们自定义一个类，继承Spring为我们提供的`AbstractAnnotationConfigDispatcherServletInitializer`,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的`MyCustomWebApplicationInitializer` class传入`SpringServletContainerInitializer#onStartup`，而`SpringServletContainerInitializer`会为我们实例化这个类并调用它。
 
 ```java
 public class MyCustomWebApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -567,7 +567,7 @@ public interface ServletContextInitializer {
 
 那ServletContextInitializer有现成的应用吗？
 
-有！`DispatcherServletRegistrationBean`，它是什么？`DispatcherServletRegistrationBean`就交由spring的IOC容器管理了，因此`ServletContextInitializer`能够被拿到
+有！`DispatcherServletRegistrationBean`，它是什么？在检测到`DispatcherServletAutoConfiguration`配置看，生效后`DispatcherServletRegistrationBean`就交由spring的IOC容器管理了，因此`ServletContextInitializer`能够被拿到
 
 ```java
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
