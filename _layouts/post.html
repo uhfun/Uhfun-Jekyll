@@ -23,7 +23,7 @@ layout: page
         <strong>版权协议，转载请附上原文出处链接和本声明。</strong>    
         <br>    
         <strong>本文链接：</strong> 
-        <a target="_blank" href="{{ site.url }}{{ page.url | url_decode }}">{{ site.url }}{{ page.url | url_decode }}</a>        
+        <a target="_blank" href="{{ site.domain }}{{ page.url | url_decode }}">{{ site.domain }}{{ page.url | url_decode }}</a>        
       </p>
     </div>
   {% endif %}
@@ -40,7 +40,7 @@ layout: page
     {% for post in site.posts %}
     {% if c == 1 and post.layout == 'post' %}
     {% assign c = 0 %}
-    <a class='post-previous' href="{{ post.url }}"> &nbsp;←  {{ post.title }}</a>
+    <a class='post-previous' href="{{ site.baseurl }}{{ post.url }}"> &nbsp;←  {{ post.title }}</a>
     {% endif %}
     {% if post == page %}
     {% assign c = 1 %}
@@ -51,7 +51,7 @@ layout: page
     {% for post in site.posts reversed%}
     {% if c == 1 and post.layout == 'post' %}
     {% assign c = 0 %}
-    <a class='post-next' href="{{ post.url }}">{{ post.title }} →&nbsp;</a>
+    <a class='post-next' href="{{ site.baseurl }}{{ post.url }}">{{ post.title }} →&nbsp;</a>
     {% endif %}
     {% if post == page %}
     {% assign c = 1 %}

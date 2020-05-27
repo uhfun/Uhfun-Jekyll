@@ -7,15 +7,15 @@ description: >- # this means to ignore newlines until "baseurl:"
   代码与生活、热爱唱歌的boy | 傅杭波的个人博客
 avatar: /img/avatar.png
 author: 傅杭波
-baseurl: "" # the subpath of your site, e.g. /blog
-url: http://uhfun.cn
+baseurl:  # the subpath of your site, e.g. /blog
+url: https://uhfun.cn
+domain: https://uhfun.cn
 timezone: Asia/Shanghai
 baidu_site_verification: 9DYfdd4yEo
 google_site_verification: uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo
 article_license:
   name: CC 4.0 BY-SA 
   url: http://creativecommons.org/licenses/by-sa/4.0/
-
 
 markdown: redcarpet
 redcarpet:
@@ -91,4 +91,3 @@ defaults:
       path: "README.md"
     values:
       permalink: "README.html"
-
