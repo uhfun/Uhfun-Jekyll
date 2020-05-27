@@ -60,7 +60,7 @@ jekyll-archives:
 
 utterances:
   repo: uhfun/Uhfun-Jekyll
-  issue-term: pathname
+  issue-term: og:title
   theme: github-light
 
 
