@@ -9,8 +9,7 @@ function onScroll(){
 }
  
 function realFunc(){    
-    $('.back-to-top').css("opacity", document.documentElement.scrollTop > maxHeight || document.body.scrollTop > maxHeight ? 1 : 0)
-    ticking = false;
+  ticking = false;
 }
 // 滚动事件监听
 window.addEventListener('scroll', onScroll, false);
