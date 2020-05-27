@@ -1,6 +1,6 @@
 ---
 layout: post
-# title: ABOUT
+title: ABOUT
 ---
 
 **生活不止工作，我并不想单纯把它作为一个技术博客，而是记录生活中的一切美好事物**
