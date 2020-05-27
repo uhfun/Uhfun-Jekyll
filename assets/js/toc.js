@@ -157,11 +157,10 @@
 
   $(window).scroll(() => {
     var scrollS = $(this).scrollTop(), $checkedA;  
-    let h = $toc.outerHeight(), hasToc = $toc.html() != '';   
+    let h = $toc.outerHeight() == undefined ? 0 : $toc.outerHeight(), hasToc = $toc.html() != '';   
     var $btt = $('.back-to-top');
     if (hasToc && titles.length == 0) {
       titles = headerOffsets( h + 30);
-      console.log(titles)    
     }       
     if (scrollS >= h + 240) {
       if (hasToc && !$toc.hasClass('toc-suspend') && $toc.is(":visible")) {
