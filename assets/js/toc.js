@@ -205,10 +205,14 @@
       }
     } 
     if (scrollS < 240) {
-      $toc.removeClass('toc-suspend')
-      $toc.fadeIn()        
-      closeLi($toc.children('.toc-ol').children('.toc-open'));
-      $btt.fadeOut();
+      if (hasToc) {
+        $toc.removeClass('toc-suspend')
+        $toc.fadeIn()        
+        closeLi($toc.children('.toc-ol').children('.toc-open'));
+      }
+      if ($btt.is(":visible")) {
+        $btt.fadeOut();
+      }
     }
     windowTop=scrollS;
   });
