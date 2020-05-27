@@ -19,7 +19,7 @@
   {% assign og-title = og-title | append:' | ' | append:site.title %}
   <meta property="og:title" content="{{ og-title }}" />
 
-  <meta property="og:image" content='{{ site.url }}{{ site.baseurl }}{{ "/assets" | append: site.avatar | relative_url }}' />
+  <meta property="og:image" content='{{ site.url }}{{ "/assets" | append: site.avatar }}' />
 
   <meta property="og:type" content="article">
   <meta property="og:description" content="{{ page.excerpt | strip_html | truncate:200 }}">
@@ -30,7 +30,7 @@
   {% assign head-img = page.head-img %}
   {% include component/head-img.html %}    
   <meta property="og:image" content="{% if head-image %}{{ head-image }}{% else %}{% assign head-image = site.avatar | prepend:'/assets' | prepend: site.url %}{% endif %}" >
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
   {% for tag in page.tags %}
   <meta property="article:tag" content="{{ tag }}">
   {% endfor %}
