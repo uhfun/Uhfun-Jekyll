@@ -353,7 +353,7 @@ protected WebApplicationContext createRootApplicationContext(ServletContext serv
 
 ## ServletContextInitializer
 
-#### 什么是ServletContextInitializer
+### 什么是ServletContextInitializer
 
 它的方法和`WebApplicationInitializer`一模一样，但是它是`SpringBoot`提供的
 
@@ -398,7 +398,7 @@ public interface ServletContextInitializer {
 }
 ```
 
-#### 为什么另外设计了这个接口？
+### 为什么另外设计了这个接口？
 
 不是可以直接实现一个`ServletContainerInitializer`吗？为什么要另外用这个接口去实现相同的功能。
 
@@ -437,7 +437,7 @@ public class DemoSpringmvcApplication extends SpringBootServletInitializer {
 
 如果内嵌容器支持`ServletContainerInitializer`，那这份代码运行就会有意向不到的问题，当然会有什么问题，我也不清楚😂
 
-#### ServletContextInitializer怎么被调用的
+### ServletContextInitializer怎么被调用的
 
 链路很长，我就找`ServletContextInitializer`被调用的关键代码
 
@@ -563,7 +563,7 @@ class TomcatStarter implements ServletContainerInitializer {
 public interface ServletContextInitializer {
 ```
 
-#### ServletContextInitializer应用
+### ServletContextInitializer应用
 
 那ServletContextInitializer有现成的应用吗？
 
