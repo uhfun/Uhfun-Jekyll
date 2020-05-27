@@ -36,7 +36,7 @@ layout: page
             {% assign current_tag_post_size = tags_size %}
         {% endif %}
         <div>
-            <a class='tags has-addons all-tags' href="/tag">
+            <a class='tags has-addons all-tags' href="{{ site.baseurl }}/tag">
                 <span class="tag is-primary">All Tags</span>
                 <span class="tag">{{ current_tag_post_size }}</span>
             </a>
@@ -51,7 +51,7 @@ layout: page
                     {% assign _size  = _size | plus:tag[1].size %}                    
                 {% endif %}
             {% endfor %}
-            <a class="tag-button {% if _tag == current_tag %} current-tag {% endif %}" href="/tag/{{ _tag }}" 
+            <a class="tag-button {% if _tag == current_tag %} current-tag {% endif %}" href="{{ site.baseurl }}/tag/{{ _tag }}" 
             style="font-size: {{ _size | times:7.2 | divided_by: tags_size | plus: 0.8 }}rem; 
             font-weight: {{ _size | times: 500.0 | divided_by: tags_size | plus: 300 }};" >            
                 {{ _tag }}            
@@ -74,7 +74,7 @@ layout: page
     <div class="container sketch-container">
         <div class="post_article">
             {% if post.layout == 'post' %}
-            {% assign post-link = post.url %}
+            {% assign post-link = post.url | prepend:site.baseurl %}
             {% elsif post.layout == 'media' %}
             {% assign post-link = post.media.link %}
             {% endif %}
