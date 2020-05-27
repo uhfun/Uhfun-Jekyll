@@ -438,16 +438,16 @@
     <p><strong>ServletContainerInitializer</strong>（<code class="language-plaintext highlighter-rouge">javax.servlet.ServletContainerInitializer</code>）</p>
   </li>
   <li>
-    <p><strong>SpringServletContainerInitializer</strong>（org.springframework.web.SpringServletContainerInitializer）</p>
+    <p><strong>SpringServletContainerInitializer</strong>（<code class="language-plaintext highlighter-rouge">org.springframework.web.SpringServletContainerInitializer</code>）</p>
   </li>
   <li>
-    <p><strong>WebApplicationInitializer</strong>（org.springframework.web.WebApplicationInitializer）</p>
+    <p><strong>WebApplicationInitializer</strong>（<code class="language-plaintext highlighter-rouge">org.springframework.web.WebApplicationInitializer</code>）</p>
   </li>
   <li>
-    <p><strong>SpringBootServletInitializer</strong>（org.springframework.boot.web.servlet.support.SpringBootServletInitializer）</p>
+    <p><strong>SpringBootServletInitializer</strong>（<code class="language-plaintext highlighter-rouge">org.springframework.boot.web.servlet.support.SpringBootServletInitializer</code>）</p>
   </li>
   <li>
-    <p><strong>ServletContextInitializer</strong>（org.springframework.boot.web.servlet.ServletContextInitializer）</p>
+    <p><strong>ServletContextInitializer</strong>（<code class="language-plaintext highlighter-rouge">org.springframework.boot.web.servlet.ServletContextInitializer</code>）</p>
   </li>
 </ul>
 
@@ -507,9 +507,9 @@
 
 <h3 id="springservletcontainerinitializer和webapplicationinitializer的关系">SpringServletContainerInitializer和WebApplicationInitializer的关系</h3>
 
-<p>它们之间的关系可以理解为，<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>实现了servlet容器提供的接口带了个头，接下来的事可以交由 spring自己定义的<code class="language-plaintext highlighter-rouge">WebApplicationInitializer</code>`</p>
+<p>它们之间的关系可以理解为，<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>实现了servlet容器提供的接口带了个头，接下来的事可以交由 spring自己定义的<code class="language-plaintext highlighter-rouge">WebApplicationInitializer</code></p>
 
-<p>``SpringServletContainerInitializer<code class="language-plaintext highlighter-rouge">源码如下，可以看到，</code>SpringServletContainerInitializer<code class="language-plaintext highlighter-rouge">将传入的 </code>webAppInitializerClasses<code class="language-plaintext highlighter-rouge"> 通过反射实例化，然后根据</code>@Order`注解排序后，依次调用</p>
+<p><code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>源码如下，可以看到，<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>将传入的 <code class="language-plaintext highlighter-rouge">webAppInitializerClasses</code> 通过反射实例化，然后根据<code class="language-plaintext highlighter-rouge">@Order</code>注解排序后，依次调用</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@HandlesTypes</span><span class="o">(</span><span class="nc">WebApplicationInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringServletContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ServletContainerInitializer</span> <span class="o">{</span>
@@ -551,7 +551,7 @@
 
 <h4 id="继承abstractannotationconfigdispatcherservletinitializer">继承AbstractAnnotationConfigDispatcherServletInitializer</h4>
 
-<p>例如我们自顶一个类，继承Spring为我们提供的<code class="language-plaintext highlighter-rouge">AbstractAnnotationConfigDispatcherServletInitializer</code>,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的<code class="language-plaintext highlighter-rouge">MyCustomWebApplicationInitializer</code> class传入<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer#onStartup</code>，而<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>会为我们实例化这个类并调用它。</p>
+<p>例如我们自定义一个类，继承Spring为我们提供的<code class="language-plaintext highlighter-rouge">AbstractAnnotationConfigDispatcherServletInitializer</code>,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的<code class="language-plaintext highlighter-rouge">MyCustomWebApplicationInitializer</code> class传入<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer#onStartup</code>，而<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>会为我们实例化这个类并调用它。</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCustomWebApplicationInitializer</span> <span class="kd">extends</span> <span class="nc">AbstractAnnotationConfigDispatcherServletInitializer</span> <span class="o">{</span>
 
@@ -987,7 +987,7 @@
 
 <p>那ServletContextInitializer有现成的应用吗？</p>
 
-<p>有！<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>，它是什么？<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>就交由spring的IOC容器管理了，因此<code class="language-plaintext highlighter-rouge">ServletContextInitializer</code>能够被拿到</p>
+<p>有！<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>，它是什么？在检测到<code class="language-plaintext highlighter-rouge">DispatcherServletAutoConfiguration</code>配置看，生效后<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>就交由spring的IOC容器管理了，因此<code class="language-plaintext highlighter-rouge">ServletContextInitializer</code>能够被拿到</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@AutoConfigureOrder</span><span class="o">(</span><span class="nc">Ordered</span><span class="o">.</span><span class="na">HIGHEST_PRECEDENCE</span><span class="o">)</span>
 <span class="nd">@Configuration</span><span class="o">(</span><span class="n">proxyBeanMethods</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
