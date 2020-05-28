@@ -2,12 +2,9 @@
 layout: page
 ---
 <div class="category-head">
-    {% for cat in site.custom_categories %}
-    {% if cat[0] == page.title %}
-    <h1 class="title">{{ cat[0] | upcase }}</h1>
-    <p>{{ cat[1].head-title }}</p>
-    {% endif %}
-    {% endfor %}
+    {% assign cat_mapping_title = site.categories_mapping | map:page.title %}
+    <h1 class="title">{{ page.title | upcase }}</h1>
+    <p>{{ cat_mapping_title }}</p>
 </div>
 <div class="category-posts">
     {% assign tmpYear = '' %}

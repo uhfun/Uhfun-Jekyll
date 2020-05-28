@@ -3,73 +3,75 @@ title: UhfunBlog
 sub_title: 傅杭波的博客
 keyword: "傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌"
 email: mynameisfhb@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
+description: >- # this means to ignore newlines until "avatar:"
   代码与生活、热爱唱歌的boy | 傅杭波的个人博客
 avatar: /img/avatar.png
 author: 傅杭波
-baseurl:  # the subpath of your site, e.g. /blog
+baseurl:  # 网站子路径, 例如 /Uhfun-jekyll
+github_username:  uhfun
 url: https://uhfun.cn
-domain: https://uhfun.cn
+fix_url: https://uhfun.cn
 timezone: Asia/Shanghai
+
 baidu_site_verification: 9DYfdd4yEo
 google_site_verification: uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo
+
 article_license:
   name: CC 4.0 BY-SA 
   url: http://creativecommons.org/licenses/by-sa/4.0/
 
+#  添加的插件
+plugins:
+  - jekyll-feed # 生成feed.xml
+  - jekyll-paginate # 分页
+  - jekyll-sitemap # site地图
+  - jekyll-archives # 归档
+
+# 分页配置
+paginate: 10 # 每页几篇文章
+paginate_path: "/page/:num" # 分页uri
+
+# 归档配置
+jekyll-archives:
+  enabled: 
+    - categories # 类别
+    - tags  # 标签
+  layouts: 
+    category: category # _layouts/category.html
+    tag: tag # _layouts/tag.html
+  permalinks:
+    tag: '/tag/:name/'
+    category: '/:name/'
+
+# 文章生成TOC
 markdown: redcarpet
 redcarpet:
   extensions: [with_toc_data]
 
-github_username:  uhfun
-plugins:
-  - jekyll-feed
-  - jekyll-paginate 
-  - jekyll-sitemap
-  - jekyll-archives
-
-paginate: 10
-paginate_path: "/page/:num"
-
-category_archive:
-  type: jekyll-archives
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: jekyll-archives
-  type: liquid
-  path: /tags/
+navbar_name_mapping:
+  HOME: 主页
+  README: 自述
+  TAG: 标签
+  LIFE: 生活
+  TECH: 技术
+  ABOUT: 关于
+  Report an issue: 报告问题
 
 # 非插件变量，自定义的categories变量，用于categories页面展示
-custom_categories:
-  life:
-    head-title: 我们站着，不说话，就十分美好。
-  tech:
-    head-title: 历史上任何伟大的成就都可以称为热情的胜利。
-
-jekyll-archives:
-  enabled: 
-    - categories
-    - tags  
-  layouts: 
-    category: category
-    tag: tag
-  permalinks:
-    tag: '/tag/:name/'
-    category: '/:name/'
+categories_mapping:
+  life: 我们站着，不说话，就十分美好。
+  tech: 历史上任何伟大的成就都可以称为热情的胜利。
 
 utterances:
   repo: uhfun/Uhfun-Jekyll
   issue-term: og:title
   theme: github-light
 
-
 # gitment:
 #   name: fu85
 #   repo: uhfun_comments
 #   clientID: 84e2fe14ccc9f6d56240
 #   clientSecret: 4fbad0f6ed21f166b24bd88d239a02f53ca326c6
-
 
 brief:
   color: 
