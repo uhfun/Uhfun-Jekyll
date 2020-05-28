@@ -16,11 +16,11 @@ layout: page
   {% if paginator.total_pages > 1 %}
   <nav class="pagination is-right is-small" role="navigation" aria-label="pagination">
     {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | replace: '//', '/' }}"
+    <a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"
       class="pagination-previous pagination-link">&lt;</a>
     {% endif %}
     {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | replace: '//', '/' }}" class="pagination-next pagination-link">&gt;</a>
+    <a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}" class="pagination-next pagination-link">&gt;</a>
     {% endif %}
     <ul class="pagination-list">
     {% assign size = paginator.total_pages %}
