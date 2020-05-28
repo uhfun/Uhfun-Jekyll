@@ -129,7 +129,10 @@ h6 {
   word-wrap:break-word; 
   word-break:break-all;
 }
-
+.content h2 {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ebec;
+}
 p, td{
   word-wrap:break-word; 
   word-break:break-all;
