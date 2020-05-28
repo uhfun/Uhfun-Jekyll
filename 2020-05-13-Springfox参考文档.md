@@ -1179,9 +1179,9 @@ Bean验证(JSR-303)是[支持Bean验证](https://github.com/springfox/springfox/
 
 3. 每个插件都有
 
-   * 一个 [*contentxt](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L47)，并提供对插件执行其工作可能需要的任何信息的访问。
+   * 一个 [*contentxt*](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L47)，并提供对插件执行其工作可能需要的任何信息的访问。
 
-   * 一个[*builder](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L49)，来支持的对象类型的*构建器(例如，ModelPropertyBuilderPlugin)将访问ModelPropertyBuilder。在所有插件都有权贡献/丰富底层对象之后，此构建器用于构建模型。
+   * 一个[*builder*](https://github.com/springfox/springfox/blob/master/springfox-swagger-common/src/main/java/springfox/documentation/swagger/readers/parameter/ApiParamParameterBuilder.java#L49)，来支持的对象类型的*构建器(例如，ModelPropertyBuilderPlugin)将访问ModelPropertyBuilder。在所有插件都有权贡献/丰富底层对象之后，此构建器用于构建模型。
 
 4. 更新插件关心的任何构建器属性
 
