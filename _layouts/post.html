@@ -23,7 +23,7 @@ layout: page
         <strong>版权协议，转载请附上原文出处链接和本声明。</strong>    
         <br>    
         <strong>本文链接：</strong> 
-        <a target="_blank" href="{{ site.domain }}{{ page.url | url_decode }}">{{ site.domain }}{{ page.url | url_decode }}</a>        
+        <a target="_blank" href="{{ site.fix_url }}{{ page.url | url_decode }}">{{ site.fix_url }}{{ page.url | url_decode }}</a>        
       </p>
     </div>
   {% endif %}
@@ -63,8 +63,7 @@ layout: page
 {% if site.utterances %}
 <div id='utterances' class="utterances-comments-header">
   <div>
-    <div>Comments </div>
-    <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
+    <div>评论由<strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;utterances&nbsp;</a></strong>支持</div>    
   </div>
   {% if page.post.title %}
   {% assign og-title = page.post.title %}
@@ -76,7 +75,7 @@ layout: page
   {% assign og-title = site.sub_title %}
   {% endif %}
   {% assign og-title = og-title | append:' | ' | append:site.title %}
-  <a target="_blank" href="https://github.com/{{ site.utterances.repo }}/issues?q={{ og-title }}">Issue Page</a>
+  <div><a target="_blank" href="https://github.com/{{ site.utterances.repo }}/issues?q={{ og-title }}"><strong>issue</strong></a></div>  
 </div>
 {% include utterances.html %}
 {% endif %}
