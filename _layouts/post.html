@@ -66,6 +66,16 @@ layout: page
     <div>Comments </div>
     <strong>[ If it doesn't show up, please wait a moment... ]</strong>&nbsp;
   </div>
+  {% if page.post.title %}
+  {% assign og-title = page.post.title %}
+  {% elsif page.media.title %}
+  {% assign og-title = page.media.title %}
+  {% elsif page.title %}
+  {% assign og-title = page.title %}  
+  {% else %}
+  {% assign og-title = site.sub_title %}
+  {% endif %}
+  {% assign og-title = og-title | append:' | ' | append:site.title %}
   <a target="_blank" href="https://github.com/{{ site.utterances.repo }}/issues?q={{ og-title }}">Issue Page</a>
 </div>
 {% include utterances.html %}
