@@ -74,9 +74,9 @@ svg { font-size: 10px !important; }
 
 /** Tables */
 table { margin-bottom: 30px; width: 100%; text-align: left; color: #3f3f3f; border-collapse: collapse; border: 1px solid #e8e8e8; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
-table tr:nth-child(even) { background-color: #f7f7f7; }
+table tr:nth-child(even) { background-color: #f6f8fa; }
 table th, table td { padding: 10px 15px; }
-table th { background-color: #f0f0f0; border: 1px solid #dedede; border-bottom-color: #c9c9c9; }
+table th { background-color: #f6f8fa; border: 1px solid #dedede; border-bottom-color: #c9c9c9; }
 table td { border: 1px solid #e8e8e8; }
 
 /* 滚动槽 */
@@ -114,9 +114,12 @@ table td { border: 1px solid #e8e8e8; }
 .post-footer { display: flex; justify-content: flex-end; padding-top: 6rem; padding-bottom: 2em; }
 .post-footer a { color: #0bd2b4d1 !important; }
 .post-footer a:hover { color: #161616 !important; }
-.post-footer .post-previous { margin-right: 20px; }
+.post-footer .post-next { margin-left: 20px; }
+.post-footer .post-next svg { margin-left: 5px; }
+.post-footer .post-previous svg { margin-right: 5px; }
 
-.post-next, .formated-date, .spot, .footer, .back-to-top, .tags { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.post-next, .post-previous, .formated-date, .spot, .footer, .back-to-top, .tags { -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.post-next svg, .post-previous svg, .formated-date svg, .spot svg, .footer svg, .back-to-top svg, .tags svg { font-size: 14px !important; height: 1.08em !important; }
 
 .sketch-article-img img { margin-bottom: 1em; border-radius: 0.2rem !important; box-shadow: 1px 6px 29px -2px rgba(0, 0, 0, 0.1) !important; height: 8rem !important; object-fit: cover; cursor: pointer; }
 @media screen and (max-width: 450px) { .sketch-article-img img { height: 6rem !important; } }
