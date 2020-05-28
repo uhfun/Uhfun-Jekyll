@@ -74,9 +74,9 @@ svg { font-size: 10px !important; }
 
 /** Tables */
 table { margin-bottom: 30px; width: 100%; text-align: left; color: #3f3f3f; border-collapse: collapse; border: 1px solid #e8e8e8; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
-table tr:nth-child(even) { background-color: #f6f8fa; }
+table tr:nth-child(even) { background-color: #fafcff; }
 table th, table td { padding: 10px 15px; }
-table th { background-color: #f6f8fa; border: 1px solid #dedede; border-bottom-color: #c9c9c9; }
+table th { background-color: #fafcff; border: 1px solid #dedede; border-bottom-color: #c9c9c9; }
 table td { border: 1px solid #e8e8e8; }
 
 /* 滚动槽 */
