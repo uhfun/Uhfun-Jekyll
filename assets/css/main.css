@@ -33,7 +33,7 @@ li > ul, li > ol { margin-bottom: 0; }
 /** Headings */
 h1, h2, h3, h4, h5, h6 { font-weight: 400; word-wrap: break-word; word-break: break-all; }
 
-p { word-wrap: break-word; word-break: break-all; }
+p, td { word-wrap: break-word; word-break: break-all; }
 
 /** Links */
 a { color: #0bd2b4d1; text-decoration: none; }
@@ -236,7 +236,7 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content a:hover { color: #0bd2b4d1 !important; cursor: pointer; }
 
 /** Syntax highlighting styles */
-code { word-wrap: break-word; word-break: break-all; }
+p code { word-wrap: break-word; word-break: break-all; }
 
 pre { background-color: #fdfdfd !important; box-shadow: 11px 14px 20px -15px rgba(0, 0, 0, 0.1) !important; }
 
