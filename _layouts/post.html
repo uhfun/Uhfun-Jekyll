@@ -40,7 +40,10 @@ layout: page
     {% for post in site.posts %}
     {% if c == 1 and post.layout == 'post' %}
     {% assign c = 0 %}
-    <a class='post-previous' href="{{ site.baseurl }}{{ post.url }}"> &nbsp;←  {{ post.title }}</a>
+    <a class='post-previous' href="{{ site.baseurl }}{{ post.url }}">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      {{ post.title }}
+    </a>
     {% endif %}
     {% if post == page %}
     {% assign c = 1 %}
@@ -51,7 +54,10 @@ layout: page
     {% for post in site.posts reversed%}
     {% if c == 1 and post.layout == 'post' %}
     {% assign c = 0 %}
-    <a class='post-next' href="{{ site.baseurl }}{{ post.url }}">{{ post.title }} →&nbsp;</a>
+    <a class='post-next' href="{{ site.baseurl }}{{ post.url }}">
+      {{ post.title }}
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </a>
     {% endif %}
     {% if post == page %}
     {% assign c = 1 %}
@@ -63,7 +69,7 @@ layout: page
 {% if site.utterances %}
 <div id='utterances' class="utterances-comments-header">
   <div>
-    <div>评论由<strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;utterances&nbsp;</a></strong>支持</div>    
+    <div>评论由<strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;utterances&nbsp;</a></strong>驱动</div>    
   </div>
   {% if page.post.title %}
   {% assign og-title = page.post.title %}
