@@ -60,6 +60,9 @@
 }
 
 // tag
+.tag:not(body).is-primary {
+  background-color: $base-color !important;
+}
 .tags {
   margin-bottom: 1.2em !important;
 
