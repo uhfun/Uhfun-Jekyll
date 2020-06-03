@@ -82,10 +82,6 @@ brief:
     - "#53aee4"
     # blue
 
-collections:
-  - .well-known
-
-
 defaults:
   -
     scope:
