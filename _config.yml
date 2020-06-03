@@ -73,6 +73,17 @@ utterances:
 #   clientID: 84e2fe14ccc9f6d56240
 #   clientSecret: 4fbad0f6ed21f166b24bd88d239a02f53ca326c6
 
+nodes:
+  - 
+    name: Github Pages
+    url: uhfun.cn
+  - 
+    name: Gitee Pages
+    url: uhfun.gitee.io/uhfun-jekyll
+  - 
+    name: Vps Pages
+    url: www.uhfun.cn    
+
 brief:
   color: 
     - "#f16181"
