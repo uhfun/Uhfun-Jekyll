@@ -1,6 +1,7 @@
 ---
 layout: post
-head-img: https://ww1.sinaimg.cn/large/babb3a97ly1gelc6trv2xj21a50u2agc.jpg
+head-img: https://s1.ax1x.com/2020/06/04/tw87ZV.png
+# https://ww1.sinaimg.cn/large/babb3a97ly1gelc6trv2xj21a50u2agc.jpg
 post: 
   title: Swagger more如何使用 ？？？
   type: article
