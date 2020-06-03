@@ -109,6 +109,8 @@ table td { border: 1px solid #e8e8e8; }
 .title { margin-bottom: 2.8rem !important; }
 .title a { color: #161616 !important; }
 
+.tag:not(body).is-primary { background-color: #38c7cce8 !important; }
+
 .tags { margin-bottom: 1.2em !important; }
 .tags .icon { margin-right: 5px; }
 .tags a, .tags .container { color: #7a8b9a !important; margin-right: 5px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; }
