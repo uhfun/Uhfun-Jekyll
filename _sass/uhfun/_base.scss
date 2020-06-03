@@ -60,6 +60,21 @@ figure,
   margin-bottom: $spacing-unit / 2;
 }
 
+::selection {
+  background:$base-color; 
+  color:$background-color;
+}
+
+::-moz-selection {
+  background:$base-color; 
+  color:$background-color;
+}
+
+::-webkit-selection {
+  background:$base-color; 
+  color:$background-color;
+}
+
 /**
  * `main` element
  */
