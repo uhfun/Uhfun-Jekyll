@@ -82,17 +82,22 @@ brief:
     - "#53aee4"
     # blue
 
+collections:
+  - .well-known
+
+
 defaults:
   -
     scope:
       path:            "assets/**/*.pdf"
     values:
-      sitemap:         false
+      sitemap:         false  
   - 
     scope:
       path: "README.md"
     values:
       permalink: "README.html"
+
   
 
   
