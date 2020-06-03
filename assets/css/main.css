@@ -57,7 +57,7 @@ a:hover { color: #161616 !important; text-decoration: none; cursor: pointer; }
 
 .content blockquote { position: relative; padding: 0 0 0 80px; margin: 40px 0; border: 0; }
 .content blockquote P { margin-bottom: auto; text-shadow: 0.08em 0.15em 0.3em #1f314d1c; }
-.content blockquote::before { content: "\201C"; position: absolute; display: block; top: 0; left: 0; width: 60px; height: 60px; font-size: 60px; line-height: 60px; color: #38c7cce8; font-family: sans-serif; text-align: center; z-index: 1; }
+.content blockquote::before { content: "\201C"; position: absolute; display: block; top: 0; left: 0; width: 60px; height: 60px; font-size: 60px; line-height: 60px; color: #38c7cce8; font-family: Courier, monospace; text-align: center; z-index: 1; }
 
 .content p { margin-bottom: 1.5rem; font-size: 1rem; line-height: 1.8; color: #1f314d !important; }
 .content p a { color: #38c7cce8; }
