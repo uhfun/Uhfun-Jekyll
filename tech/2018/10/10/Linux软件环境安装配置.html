@@ -490,8 +490,9 @@
 
 <p><a href="https://blog.csdn.net/forest_boy/article/details/50127691">参考网址</a></p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/src/nginx/configure <span class="nt">--prefix</span><span class="o">=</span>/usr/local/nginx   
-<span class="nt">--sbin-path</span><span class="o">=</span>/usr/local/nginx/sbin/nginx <span class="se">\ </span>   
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/src/nginx/configure <span class="nt">--prefix</span><span class="o">=</span>/usr/local/nginx  
+<span class="nt">--with-http_ssl_module</span> <span class="se">\ </span> 
+<span class="nt">--sbin-path</span><span class="o">=</span>/usr/local/nginx/sbin/nginx <span class="se">\ </span> 
 <span class="nt">--conf-path</span><span class="o">=</span>/usr/local/nginx/conf/nginx.conf <span class="se">\ </span> 
 <span class="nt">--pid-path</span><span class="o">=</span>/usr/local/nginx/logs/nginx.pid <span class="se">\ </span> 
 </code></pre></div></div>
@@ -507,8 +508,9 @@
 
 <h3 id="编译安装">编译、安装</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/src/nginx/make
-/usr/local/src/nginx/make <span class="nb">install</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /usr/local/src/nginx/ 
+make
+make <span class="nb">install</span>
 </code></pre></div></div>
 
 <h3 id="添加环境变量到统一的nginxsh文件中">添加环境变量(到统一的nginx.sh文件中)</h3>
