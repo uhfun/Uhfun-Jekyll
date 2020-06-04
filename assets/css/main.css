@@ -246,7 +246,7 @@ table td { border: 1px solid #e8e8e8; }
 .category-posts .month-list .month .day-list li .day-content .excerpt { border: none !important; color: #292929 !important; font-weight: 500; cursor: pointer; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content { display: none; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content .day-post-tags a { color: #7a8b9a !important; margin-right: 5px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; }
-.category-posts .month-list .month .day-list li .day-content .day-post-content .day-post-tags a:hover { color: #38c7cce8 !important; cursor: pointer; }
+.category-posts .month-list .month .day-list li .day-content .day-post-content .day-post-tags a:hover { color: #38c7cce8 !important; cursor: pointer; text-decoration: underline; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content a { font-size: 0.9rem !important; margin: .5rem 0 .5rem; color: #333e48 !important; }
 .category-posts .month-list .month .day-list li .day-content .day-post-content a:hover { color: #38c7cce8 !important; cursor: pointer; }
 
