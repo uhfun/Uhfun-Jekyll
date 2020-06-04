@@ -782,6 +782,7 @@ http://baseUrl:port/api/dubbo
 <script src="/uhfun-jekyll/assets/js/drop-down.js"></script>
 <script src="/uhfun-jekyll/assets/js/category-post-num.js"></script>
 <script src="/uhfun-jekyll/assets/js/baidu-push.js"></script>
+<script src="/uhfun-jekyll/assets/js/360-push.js"></script>
 <script src="/uhfun-jekyll/assets/js/toc.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -801,7 +802,6 @@ http://baseUrl:port/api/dubbo
         ];       
         const n = hashCode % list.length;
         const color =  list[(n < 0 ? n + list.length : n)];
-        console.log(color)
         $bt.css('color', color);
         $bt.children('.brief-quote').css('color', color);
     })
