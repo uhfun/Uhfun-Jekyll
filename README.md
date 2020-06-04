@@ -230,7 +230,7 @@ post:
   type: article
 ---
 
-<p align ='center' style='margin:30px 0;'><img src='https://uhfun.cn/assets/img/uhfun-jekyll logo.png' width = "280" height = "280" /></p>
+<p align ='center' style='margin:30px 0;'><img src='https://s1.ax1x.com/2020/06/04/t01MND.png' width = "280" height = "280" /></p>
 
 [![Codeship Status for uhfun/Uhfun-Jekyll](https://app.codeship.com/projects/f6209f60-009c-0138-cf9c-6ab62c942013/status?branch=master)](https://app.codeship.com/projects/378092) [![Join the chat at https://gitter.im/uhfun_opoen_source/Uhfun-Jekyll](https://badges.gitter.im/uhfun_opoen_source/Uhfun-Jekyll.svg)](https://gitter.im/uhfun_opoen_source/Uhfun-Jekyll?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
