@@ -51,7 +51,7 @@ layout: page
                     {%- assign _size  = _size | plus:tag[1].size -%}                    
                 {%- endif -%}
             {%- endfor -%}
-            <a class="tag-button {%- if _tag == current_tag -%} current-tag {%- endif -%}" href="{{ site.baseurl }}/tag/{{ _tag }}" 
+            <a class="tag-button {% if _tag == current_tag -%}current-tag{%- endif -%}" href="{{ site.baseurl }}/tag/{{ _tag }}" 
             style="font-size: {{ _size | times:7.2 | divided_by: tags_size | plus: 0.8 | append:'rem'}}{{ _size | times: 500.0 | divided_by: tags_size | plus: 300 | prepend:';font-weight: '}};" >            
                 {{ _tag }}            
                 <sup style="display: none;">{{ _size }}</sup>
