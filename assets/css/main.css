@@ -214,9 +214,9 @@ table td { border: 1px solid #e8e8e8; }
 
 .pagination { margin-top: 40px !important; }
 
-.pagination-link { border: 0px !important; background-color: #f4f5f9 !important; }
+.pagination-link { border: 0px !important; background-color: #f4f5f9 !important; color: #292929 !important; }
 .pagination-link:hover { color: #38c7cce8 !important; }
-.pagination-link.is-current { background-color: #38c7cce8 !important; border-color: #38c7cce8 !important; box-shadow: -1px 4px 14px 0px #38c7cc75; }
+.pagination-link.is-current { color: #f4f5f9 !important; background-color: #38c7cce8 !important; border-color: #38c7cce8 !important; box-shadow: -1px 4px 14px 0px #38c7cc75; }
 .pagination-link.is-current:hover { color: #292929 !important; }
 .pagination-link.pagination-next:hover, .pagination-link.pagination-previous:hover { background-color: #38c7cce8 !important; border-color: #38c7cce8 !important; box-shadow: 1px 2px 16px 1px #38c7cc75; color: #fff !important; }
 
