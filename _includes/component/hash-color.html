@@ -8,7 +8,6 @@
         {% endfor %}];       
         const n = hashCode % list.length;
         const color =  list[(n < 0 ? n + list.length : n)];
-        console.log(color)
         $bt.css('color', color);
         $bt.children('.brief-quote').css('color', color);
     })
