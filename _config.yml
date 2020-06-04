@@ -57,6 +57,7 @@ navbar_name_mapping:
   LIFE: 生活
   TECH: 技术
   ABOUT: 关于
+  SEARCH: 搜索
   Report an issue: 报告问题
 
 # 非插件变量，自定义的categories变量，用于categories页面展示
