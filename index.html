@@ -2,54 +2,53 @@
 layout: page
 --- 
  <div class="container">
-  {% for sketch in paginator.posts %}
+  {%- for sketch in paginator.posts -%}
   <div class="container sketch-container">
-    {% case sketch.layout %}
-    {% when 'media' %}
-    {% include sketch/media/general.html %}
-    {% when 'post' %}
-    {% include sketch/post/general.html %}
-    {% endcase %}
+    {%- case sketch.layout -%}
+    {%- when 'media' -%}
+    {%- include sketch/media/general.html -%}
+    {%- when 'post' -%}
+    {%- include sketch/post/general.html -%}
+    {%- endcase -%}
   </div>
-  {% endfor %}
-
-  {% if paginator.total_pages > 1 %}
+  {%- endfor -%}
+  {%- if paginator.total_pages > 1 -%}
   <nav class="pagination is-right is-small" role="navigation" aria-label="pagination">
-    {% if paginator.previous_page %}
+    {%- if paginator.previous_page -%}
     <a href="{{ site.baseurl }}{{ paginator.previous_page_path | replace: '//', '/' }}"
       class="pagination-previous pagination-link">&lt;</a>
-    {% endif %}
-    {% if paginator.next_page %}
+    {%- endif -%}
+    {%- if paginator.next_page -%}
     <a href="{{ site.baseurl }}{{ paginator.next_page_path | replace: '//', '/' }}" class="pagination-next pagination-link">&gt;</a>
-    {% endif %}
+    {%- endif -%}
     <ul class="pagination-list">
-    {% assign size = paginator.total_pages %}
-    {% assign size_minus1 = size | minus:1 %}
+    {%- assign size = paginator.total_pages -%}
+    {%- assign size_minus1 = size | minus:1 -%}
    
-    {% for page in (1..paginator.total_pages) %}
-    {% assign current = paginator.page %}
+    {%- for page in (1..paginator.total_pages) -%}
+    {%- assign current = paginator.page -%}
       
-    {% assign current_plus1 = current | plus:1 %}
-    {% assign current_minus1 = current | minus:1 %}   
-    {% if page == 1 or page == size or page == current or page == current_plus1 or page == current_minus1 %}          
-      {% if page == current_minus1 and current_minus1 > 2 %}
+    {%- assign current_plus1 = current | plus:1 -%}
+    {%- assign current_minus1 = current | minus:1 -%}   
+    {%- if page == 1 or page == size or page == current or page == current_plus1 or page == current_minus1 -%}          
+      {%- if page == current_minus1 and current_minus1 > 2 -%}
       <li><span class="pagination-ellipsis">&hellip;</span></li>
-      {% endif %}
+      {%- endif -%}
       <li>
-          {% if page == current %}
+          {%- if page == current -%}
           <a class="pagination-link is-current">{{ page }}</a>
-          {% elsif page == 1 %}
+          {%- elsif page == 1 -%}
           <a href="{{ '/' | relative_url }}" class="pagination-link">{{ page }}</a>
-          {% else %}
+          {%- else -%}
           <a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', page }}" class="pagination-link">{{ page }}</a> 
-          {% endif %}  
+          {%- endif -%}  
       </li>        
-      {% if page == current_plus1 and current_plus1 < size_minus1 %}
+      {%- if page == current_plus1 and current_plus1 < size_minus1 -%}
       <li><span class="pagination-ellipsis">&hellip;</span></li>
-      {% endif %}       
-    {% endif %}
-    {% endfor %} 
+      {%- endif -%}       
+    {%- endif -%}
+    {%- endfor -%} 
     </ul>
   </nav>  
-  {% endif %}
+  {%- endif -%}
 </div>

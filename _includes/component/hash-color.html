@@ -3,9 +3,9 @@
         $bt = $(e);
         const hashCode = $bt.text().hashCode();
         const list = [
-        {% for item in site.brief.color %}
+        {%- for item in site.brief.color -%}
         '{{ item }}',
-        {% endfor %}];       
+        {%- endfor -%}];       
         const n = hashCode % list.length;
         const color =  list[(n < 0 ? n + list.length : n)];
         $bt.css('color', color);

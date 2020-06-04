@@ -1,10 +1,10 @@
-{% if head-img %}
-{% assign imgae-start = head-img | truncate:5, '' %}
-{% assign imgae-start2 = head-img | truncate:1, '' %}
-{% if imgae-start == 'https'%}
-{% assign head-image = head-img %}
-{% elsif imgae-start2 == '/' %}
-{% assign head-image = head-img | prepend:'/assets' | prepend: site.url %}
-{% endif %}
-{% endif %}
+{%- if head-img -%}
+{%- assign imgae-start = head-img | truncate:5, '' -%}
+{%- assign imgae-start2 = head-img | truncate:1, '' -%}
+{%- if imgae-start == 'https'%}
+{%- assign head-image = head-img -%}
+{%- elsif imgae-start2 == '/' -%}
+{%- assign head-image = head-img | prepend:'/assets' | prepend: site.url -%}
+{%- endif -%}
+{%- endif -%}
 

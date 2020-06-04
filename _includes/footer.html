@@ -2,12 +2,12 @@
   <div class="container">
     <div class="content has-text-centered">          
       <p>        
-        {% for node in site.nodes %}
+        {%- for node in site.nodes -%}
         <a href="https://{{node.url}}{{page.url}}">{{node.name}}</a>  
-        {% if forloop.last != true %}
+        {%- if forloop.last != true -%}
         &nbsp;|&nbsp;
-        {% endif %}
-        {% endfor %}
+        {%- endif -%}
+        {%- endfor -%}
         <br>
         Copyright © Uhfun Blog 2019<br>
         Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
@@ -39,4 +39,4 @@
   $(document).ready(function() {
       $('#toc').toc();
   }); </script>
-{% include component/hash-color.html %}
+{%- include component/hash-color.html -%}

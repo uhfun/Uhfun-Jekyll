@@ -1,8 +1,8 @@
 <header class="navbar has-shadow is-spaced" role="banner">
   <div class="container">
-    {% assign default_paths = site.pages | map: "path" %}
-    {% assign page_paths = site.header_pages | default: default_paths %}
-    {% if page_paths %}
+    {%- assign default_paths = site.pages | map: "path" -%}
+    {%- assign page_paths = site.header_pages | default: default_paths -%}
+    {%- if page_paths -%}
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ '/' | relative_url }}">
         <img src='{{ "/assets/img/logo.png" | relative_url }}' width="160">
@@ -13,28 +13,23 @@
         <span aria-hidden="true"></span>
       </div>
     </div>
-
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class='navbar-item' href='{{ site.baseurl }}/'>{{ site.navbar_name_mapping | map:'HOME' }}</a>
-
-
-        {% for path in page_paths %}         
-        {% assign my_page = site.html_pages | where: "path", path | first %}      
-        {% assign my_page_path = my_page.path | downcase %}   
-        {% assign my_path = my_page.title | downcase | append:'/index.html' %}
-        {% assign my_path2 = my_page.title | downcase | append:'.md' %}
-
-        {% if my_path == my_page_path or my_path2 == my_page_path %}
+        {%- for path in page_paths -%}         
+        {%- assign my_page = site.html_pages | where: "path", path | first -%}      
+        {%- assign my_page_path = my_page.path | downcase -%}   
+        {%- assign my_path = my_page.title | downcase | append:'/index.html' -%}
+        {%- assign my_path2 = my_page.title | downcase | append:'.md' -%}
+        {%- if my_path == my_page_path or my_path2 == my_page_path -%}
         <a class="navbar-item" href="{{ my_page.url | relative_url }}">
-          {% assign key = my_page.title | escape | upcase %}
+          {%- assign key = my_page.title | escape | upcase -%}
           {{ site.navbar_name_mapping | map:key }}
         </a>
-        {% endif %}
-        {% endfor %}
+        {%- endif -%}
+        {%- endfor -%}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-              <!-- <img class="is-rounded" src="{{ site.avatar }}"> -->
               <img class="is-rounded" src='{{ "/assets" | append: site.avatar | relative_url }}'>
           </a>
           <div class="navbar-dropdown is-right">
@@ -45,12 +40,12 @@
               <i class="fab fa-github" aria-hidden="true"></i> Github
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" href="{{ site.baseurl }}/README.html{% if site.utterances %}#utterances{% elsif site.gitment %}#gitmentContainer{% endif %}"> {{ site.navbar_name_mapping | map:'Report an issue' }}
+            <a class="navbar-item" href="{{ site.baseurl }}/README.html{%- if site.utterances -%}#utterances{%- elsif site.gitment -%}#gitmentContainer{%- endif -%}"> {{ site.navbar_name_mapping | map:'Report an issue' }}
             </a>
           </div>
         </div>
       </div>
     </div>
-    {% endif %}
+    {%- endif -%}
   </div>
 </header>

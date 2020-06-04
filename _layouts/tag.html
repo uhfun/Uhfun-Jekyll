@@ -3,38 +3,38 @@ layout: page
 ---
 <div class="container">    
     <div class="tag-cloud">
-        {% assign current_tag = page.url | url_decode | replace:'/tag/','' | replace: '/', '' | downcase %}       
+        {%- assign current_tag = page.url | url_decode | replace:'/tag/','' | replace: '/', '' | downcase -%}       
         
-        {% assign tags_set = '' %}
-        {% for tag in site.tags %}
-        {% assign tag_name = tag[0] | downcase | rstrip %}   
-        {% unless tags_set contains tag_name %}         
-        {% assign tags_set = tags_set | append:tag_name | append:'###' %}
-        {% endunless %}             
-        {% endfor %}
+        {%- assign tags_set = '' -%}
+        {%- for tag in site.tags -%}
+        {%- assign tag_name = tag[0] | downcase | rstrip -%}   
+        {%- unless tags_set contains tag_name -%}         
+        {%- assign tags_set = tags_set | append:tag_name | append:'###' -%}
+        {%- endunless -%}             
+        {%- endfor -%}
 
-        {% assign tags_set = tags_set | split:'###' | sort_natural %}
-        {% assign tags_size = tags_set.size %}
+        {%- assign tags_set = tags_set | split:'###' | sort_natural -%}
+        {%- assign tags_size = tags_set.size -%}
 
         <!-- 计算tag下的文章数量 -->
-        {% if current_tag != '' %}
-            {% assign current_tag_post_size = 0 %}
-            {% for post in site.posts %}  
-            {% assign whether_contain = false %}
-            {% for item in post.tags %}
-                {% assign _tag = item | downcase %}    
-                {% if _tag == current_tag %}
-                    {% assign whether_contain = true %}
-                    {% break %}
-                {% endif %}
-            {% endfor %}
-            {% if whether_contain %}     
-            {% assign current_tag_post_size = current_tag_post_size | plus: 1 %}
-            {% endif %}
-            {% endfor %}
-        {% else %}
-            {% assign current_tag_post_size = site.posts.size %}
-        {% endif %}
+        {%- if current_tag != '' -%}
+            {%- assign current_tag_post_size = 0 -%}
+            {%- for post in site.posts -%}  
+            {%- assign whether_contain = false -%}
+            {%- for item in post.tags -%}
+                {%- assign _tag = item | downcase -%}    
+                {%- if _tag == current_tag -%}
+                    {%- assign whether_contain = true -%}
+                    {%- break -%}
+                {%- endif -%}
+            {%- endfor -%}
+            {%- if whether_contain -%}     
+            {%- assign current_tag_post_size = current_tag_post_size | plus: 1 -%}
+            {%- endif -%}
+            {%- endfor -%}
+        {%- else -%}
+            {%- assign current_tag_post_size = site.posts.size -%}
+        {%- endif -%}
         <div>
             <a class='tags has-addons all-tags' href="{{ site.baseurl }}/tag">
                 <span class="tag is-primary">共计</span>
@@ -43,61 +43,61 @@ layout: page
         </div>    
 
         <div class="tag-cloud-tags">    
-        {% for _tag in tags_set %}
-            {% assign _size = 0 %}
-            {% for tag in site.tags %}
+        {%- for _tag in tags_set -%}
+            {%- assign _size = 0 -%}
+            {%- for tag in site.tags -%}
                 {%- assign tag_name = tag[0] | downcase -%}               
-                {% if tag_name == _tag %}
-                    {% assign _size  = _size | plus:tag[1].size %}                    
-                {% endif %}
-            {% endfor %}
-            <a class="tag-button {% if _tag == current_tag %} current-tag {% endif %}" href="{{ site.baseurl }}/tag/{{ _tag }}" 
+                {%- if tag_name == _tag -%}
+                    {%- assign _size  = _size | plus:tag[1].size -%}                    
+                {%- endif -%}
+            {%- endfor -%}
+            <a class="tag-button {%- if _tag == current_tag -%} current-tag {%- endif -%}" href="{{ site.baseurl }}/tag/{{ _tag }}" 
             style="font-size: {{ _size | times:7.2 | divided_by: tags_size | plus: 0.8 | append:'rem'}}{{ _size | times: 500.0 | divided_by: tags_size | plus: 300 | prepend:';font-weight: '}};" >            
                 {{ _tag }}            
                 <sup style="display: none;">{{ _size }}</sup>
             </a>
-        {% endfor %}
+        {%- endfor -%}
         </div>
     </div> 
-    {% for post in site.posts %}  
+    {%- for post in site.posts -%}  
 
-    {% assign whether_contain = false %}
-    {% for item in post.tags %}
-        {% assign _tag = item | downcase %}    
-        {% if _tag == current_tag %}
-            {% assign whether_contain = true %}
-            {% break %}
-        {% endif %}
-    {% endfor %}
-    {% if whether_contain or current_tag == '' %} 
+    {%- assign whether_contain = false -%}
+    {%- for item in post.tags -%}
+        {%- assign _tag = item | downcase -%}    
+        {%- if _tag == current_tag -%}
+            {%- assign whether_contain = true -%}
+            {%- break -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if whether_contain or current_tag == '' -%} 
     <div class="container sketch-container">
         <div class="post_article">
-            {% if post.layout == 'post' %}
-            {% assign post-link = post.url | prepend:site.baseurl %}
-            {% elsif post.layout == 'media' %}
-            {% assign post-link = post.media.link %}
-            {% endif %}
+            {%- if post.layout == 'post' -%}
+            {%- assign post-link = post.url | prepend:site.baseurl -%}
+            {%- elsif post.layout == 'media' -%}
+            {%- assign post-link = post.media.link -%}
+            {%- endif -%}
             <a class="title" href="{{ post-link }}">
-                {% case post.layout %}
-                {% when 'media' %}
-                    {% case post.media.type %}
-                    {% when 'qmkg' %}
+                {%- case post.layout -%}
+                {%- when 'media' -%}
+                    {%- case post.media.type -%}
+                    {%- when 'qmkg' -%}
                     我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
-                    {% when 'changba' %}
+                    {%- when 'changba' -%}
                     我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
-                    {% endcase %}
+                    {%- endcase -%}
                     《{{ post.media.title }}》                    
-                    {% assign post-link = post.media.link %}
-                    {% assign post-content = post.media.content %}
-                {% when 'post' %}
-                    {% case post.post.type %}
-                    {% when 'article' %}            
-                    {% assign post-content = post.excerpt %}
-                    {% when 'brief' %}
-                    {% assign post-content = post.post.content %}  
-                    {% endcase %}                    
+                    {%- assign post-link = post.media.link -%}
+                    {%- assign post-content = post.media.content -%}
+                {%- when 'post' -%}
+                    {%- case post.post.type -%}
+                    {%- when 'article' -%}            
+                    {%- assign post-content = post.excerpt -%}
+                    {%- when 'brief' -%}
+                    {%- assign post-content = post.post.content -%}  
+                    {%- endcase -%}                    
                     {{ post.post.title }}
-                {% endcase %}
+                {%- endcase -%}
             </a>
 
             <div class="content">
@@ -120,7 +120,7 @@ layout: page
             </div>             
         </div>
     </div>    
-    {% endif %}        
-    {% endfor %}
+    {%- endif -%}        
+    {%- endfor -%}
   
 </div>
