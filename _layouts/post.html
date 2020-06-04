@@ -2,20 +2,20 @@
 layout: page
 ---
 <article class="post">
-  {% if page.title %}
+  {%- if page.title -%}
   <h1 class="title is-spaced">{{ page.post.title | escape }}</h1>
-  {% endif %}
-  {% assign tags = page.tags %}
-  {% assign date = page.date%}
-  {% include component/tag-and-date.html %}
+  {%- endif -%}
+  {%- assign tags = page.tags -%}
+  {%- assign date = page.date%}
+  {%- include component/tag-and-date.html -%}
   <div class='post-img'>
-    {% assign head-img = page.head-img %}
-    {% include component/head-img.html %}
-    {% if head-img %}
+    {%- assign head-img = page.head-img -%}
+    {%- include component/head-img.html -%}
+    {%- if head-img -%}
     <img src='{{ head-img }}'>
-    {% endif %}
+    {%- endif -%}
   </div>
-  {% if page.categories contains 'tech' and page.post.original %} 
+  {%- if page.categories contains 'tech' and page.post.original -%} 
     <div class="article_license">
       <p>
         <strong>版权声明：本文为博主原创文章，遵循</strong> 
@@ -26,65 +26,63 @@ layout: page
         <a target="_blank" href="{{ site.fix_url }}{{ page.url | url_decode }}">{{ site.fix_url }}{{ page.url | url_decode }}</a>        
       </p>
     </div>
-  {% endif %}
+  {%- endif -%}
   <div class='post-content'>
     <div id="toc"></div>
-    {% if page.post.type == "brief" %}
+    {%- if page.post.type == "brief" -%}
     <p>{{ page.post.content }}</p>
-    {% endif %}
+    {%- endif -%}
     {{ content }}
   </div>
-
   <div class='post-footer'>
-    {% assign c = 0 %}
-    {% for post in site.posts %}
-    {% if c == 1 and post.layout == 'post' %}
-    {% assign c = 0 %}
+    {%- assign c = 0 -%}
+    {%- for post in site.posts -%}
+    {%- if c == 1 and post.layout == 'post' -%}
+    {%- assign c = 0 -%}
     <a class='post-previous' href="{{ site.baseurl }}{{ post.url }}">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
       {{ post.title }}
     </a>
-    {% endif %}
-    {% if post == page %}
-    {% assign c = 1 %}
-    {% endif %}
-    {% endfor %}
+    {%- endif -%}
+    {%- if post == page -%}
+    {%- assign c = 1 -%}
+    {%- endif -%}
+    {%- endfor -%}
 
-    {% assign c = 0 %}
-    {% for post in site.posts reversed%}
-    {% if c == 1 and post.layout == 'post' %}
-    {% assign c = 0 %}
+    {%- assign c = 0 -%}
+    {%- for post in site.posts reversed%}
+    {%- if c == 1 and post.layout == 'post' -%}
+    {%- assign c = 0 -%}
     <a class='post-next' href="{{ site.baseurl }}{{ post.url }}">
       {{ post.title }}
       <i class="fa fa-chevron-right" aria-hidden="true"></i>
     </a>
-    {% endif %}
-    {% if post == page %}
-    {% assign c = 1 %}
-    {% endif %}
-    {% endfor %}
+    {%- endif -%}
+    {%- if post == page -%}
+    {%- assign c = 1 -%}
+    {%- endif -%}
+    {%- endfor -%}
   </div>
-
 </article>
-{% if site.utterances %}
+{%- if site.utterances -%}
 <div id='utterances' class="utterances-comments-header">
   <div>
     <div><strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;Utterances&nbsp;</a></strong>驱动</div>    
   </div>
-  {% if page.post.title %}
-  {% assign og-title = page.post.title %}
-  {% elsif page.media.title %}
-  {% assign og-title = page.media.title %}
-  {% elsif page.title %}
-  {% assign og-title = page.title %}  
-  {% else %}
-  {% assign og-title = site.sub_title %}
-  {% endif %}
-  {% assign og-title = og-title | append:' | ' | append:site.title %}
+  {%- if page.post.title -%}
+  {%- assign og-title = page.post.title -%}
+  {%- elsif page.media.title -%}
+  {%- assign og-title = page.media.title -%}
+  {%- elsif page.title -%}
+  {%- assign og-title = page.title -%}  
+  {%- else -%}
+  {%- assign og-title = site.sub_title -%}
+  {%- endif -%}
+  {%- assign og-title = og-title | append:' | ' | append:site.title -%}
   <div><a target="_blank" href="https://github.com/{{ site.utterances.repo }}/issues?q={{ og-title }}"><strong>issue</strong></a></div>  
 </div>
-{% include utterances.html %}
-{% endif %}
-{% if site.gitment.name %}
-{% include gitment.html %}
-{% endif %}
+{%- include utterances.html -%}
+{%- endif -%}
+{%- if site.gitment.name -%}
+{%- include gitment.html -%}
+{%- endif -%}

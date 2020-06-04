@@ -1,15 +1,15 @@
-{% case  sketch.media.type %}
-{% when '163' %}
-{% include sketch/media/music-163.html %}
-{% when 'qmkg' %}
+{%- case  sketch.media.type -%}
+{%- when '163' -%}
+{%- include sketch/media/music-163.html -%}
+{%- when 'qmkg' -%}
 <div class="media-music-kg">
-    {% assign kgLogo = 'qmkg.png' %}
-    {% include sketch/media/music-kg.html %}
+    {%- assign kgLogo = 'qmkg.png' -%}
+    {%- include sketch/media/music-kg.html -%}
 </div>
-{% when 'changba' %}
+{%- when 'changba' -%}
 <div class="media-music-kg">
-    {% assign kgLogo = 'changba.png' %}
-    {% include sketch/media/music-kg.html %}
+    {%- assign kgLogo = 'changba.png' -%}
+    {%- include sketch/media/music-kg.html -%}
 </div>
-{% else %}
-{% endcase %}
+{%- else -%}
+{%- endcase -%}

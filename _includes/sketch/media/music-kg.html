@@ -1,56 +1,54 @@
 <div class="content">
     <div class="columns">
-        {% assign this = sketch.media %}
-        
-        {% case  this.box-size %}
-        {% when '1/5' %}
-        {% assign size = 'is-one-fifth' %}
-        {% when '1/4' %}
-        {% assign size = 'is-one-quarter' %}
-        {% when '1/3' %}
-        {% assign size = 'is-one-third' %}
-        {% when '2/5' %}
-        {% assign size = 'is-two-fifths' %}
-        {% when '1/2' %}
-        {% assign size = 'is-half' %}
-        {% when '3/5' %}
-        {% assign size = 'is-three-fifths' %}
-        {% when '2/3' %}
-        {% assign size = 'is-two-thirds' %}
-        {% when '3/4' %}
-        {% assign size = 'is-three-quarters' %}
-        {% when '4/5' %}
-        {% assign size = 'is-four-fifths' %}
-        {% else %}
-        {% assign size = 'is-full' %}
-        {% endcase %}
+        {%- assign this = sketch.media -%}
+        {%- case  this.box-size -%}
+        {%- when '1/5' -%}
+        {%- assign size = 'is-one-fifth' -%}
+        {%- when '1/4' -%}
+        {%- assign size = 'is-one-quarter' -%}
+        {%- when '1/3' -%}
+        {%- assign size = 'is-one-third' -%}
+        {%- when '2/5' -%}
+        {%- assign size = 'is-two-fifths' -%}
+        {%- when '1/2' -%}
+        {%- assign size = 'is-half' -%}
+        {%- when '3/5' -%}
+        {%- assign size = 'is-three-fifths' -%}
+        {%- when '2/3' -%}
+        {%- assign size = 'is-two-thirds' -%}
+        {%- when '3/4' -%}
+        {%- assign size = 'is-three-quarters' -%}
+        {%- when '4/5' -%}
+        {%- assign size = 'is-four-fifths' -%}
+        {%- else -%}
+        {%- assign size = 'is-full' -%}
+        {%- endcase -%}
         <div class="column {{ size }}  sketch-media-music-kg">
             <a href="{{ this.link }}" class='columns is-mobile'>
                 <img class='column sketch-media-music-kg-img' src="{{ this.img }}">                
                 <span class='column sketch-media-music-kg-content'>
                     <span class='qmkg-title'>{{ this.title }}</span>                                      
-                    {% if this.source %}
+                    {%- if this.source -%}
                     <span class='qmkg-level' style="margin-left: 10px;">{{ this.level }}</span>
                     <div class='qmkg-audio'>
                         <audio controls>
                             <source src="{{ this.source }}">
                         </audio>                    
                     </div>
-                    {% else %}
+                    {%- else -%}
                     <div class='qmkg-level' style="margin-top: 12px;">{{ this.level }}</div>
-                    {% endif %}   
+                    {%- endif -%}   
                     <img class='qmkg-logo' src='{{ kgLogo | prepend:"/assets/img/" | relative_url }}'>
                 </span>
             </a>
         </div>
-
-        {% if this.content %}
+        {%- if this.content -%}
         <div class="column sketch-media-music-kg-right-content">
             {{ this.content }}
         </div>
-        {% endif %}
+        {%- endif -%}
     </div>
-    {% assign tags = sketch.tags %}
-    {% assign date = sketch.date %}
-    {% include component/tag-and-date.html %}
+    {%- assign tags = sketch.tags -%}
+    {%- assign date = sketch.date -%}
+    {%- include component/tag-and-date.html -%}
 </div>
