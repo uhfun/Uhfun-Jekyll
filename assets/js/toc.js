@@ -188,20 +188,22 @@
           $btt.fadeIn()
         }
       }      
-      if (scrollS < windowTop && !$(".back-to-top").hasClass('to-top')) {             
-        nearestTitle(scrollS);          
-        $('.checked-a').removeClass('checked-a')      
-        $checkedA = $("[href='"+ tocCheckedTitle.href +"']");
-        $checkedA.addClass('checked-a')
-        var $li = $checkedA.parent();      
-        if ($li.children('.toc-sub-ol').length == 0) {
-          closeLi($li.siblings('.toc-open'));
-          $li = $li.parent().parent();
-        }
-        while($li.parent().hasClass('toc-ol')) {
-          openLi($li);
-          $li = $li.parent().parent();
-        }
+      if (scrollS < windowTop && !$(".back-to-top").hasClass('to-top')) {  
+        if (hasToc) {
+          nearestTitle(scrollS);          
+          $('.checked-a').removeClass('checked-a')      
+          $checkedA = $("[href='"+ tocCheckedTitle.href +"']");
+          $checkedA.addClass('checked-a')
+          var $li = $checkedA.parent();      
+          if ($li.children('.toc-sub-ol').length == 0) {
+            closeLi($li.siblings('.toc-open'));
+            $li = $li.parent().parent();
+          }
+          while($li.parent().hasClass('toc-ol')) {
+            openLi($li);
+            $li = $li.parent().parent();
+          }
+        }                   
       }
     } 
     if (scrollS < 240) {
