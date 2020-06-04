@@ -588,11 +588,14 @@
   border: 0px !important;
   background-color: #f4f5f9 !important;
 
+  color: $minor-color !important;
+  
   &:hover {
     color: $base-color !important;
   }
 
   &.is-current {
+    color: #f4f5f9 !important;
     background-color: $base-color !important;
     border-color: $base-color !important;
     box-shadow: -1px 4px 14px 0px $base-shadow-color;
