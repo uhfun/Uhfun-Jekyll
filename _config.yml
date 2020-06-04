@@ -5,10 +5,12 @@ keyword: "傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson
 email: mynameisfhb@gmail.com
 description: >- # this means to ignore newlines until "avatar:"
   代码与生活、热爱唱歌的boy | 傅杭波的个人博客
-avatar: /img/avatar.png
+avatar: https://s1.ax1x.com/2020/06/04/t0QjeK.jpg
+# /img/avatar.png
 author: 傅杭波
 baseurl:  # 网站子路径, 例如 /Uhfun-jekyll
 github_username:  uhfun
+logo: https://s1.ax1x.com/2020/06/04/t0QDIg.png
 url: https://uhfun.cn
 fix_url: https://uhfun.cn
 timezone: Asia/Shanghai
