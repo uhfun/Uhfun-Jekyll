@@ -21,6 +21,9 @@ figure {
   padding: 0;
 }
 
+html, body { 
+  scroll-behavior:smooth; 
+}
 /**
  * Basic styling
  */
@@ -123,6 +126,9 @@ ol {
 }
 
 li {
+  a {
+    color: $base-color !important;
+  }
   // list-style: none;
 
   >ul,
@@ -188,20 +194,18 @@ a {
 /**
  * Blockquotes
  */
-.content blockquote {
-  background-color: white !important;
-  padding: 15px 0px 15px 65px !important;
-  border-left: 2px solid $base-color !important;
-  font-family: Segoe UI, "Microsoft Yahei" !important;
-  box-shadow: 1px 10px 20px -15px rgba(0, 0, 0, 0.1) !important;
-}
 
 .content {
   blockquote {
     position: relative;
     padding: 0 0 0 80px;
-    margin: 40px 0;
+    margin: 43px 0;
     border: 0;
+    background-color: white !important;
+    padding: 15px 0px 15px 50px !important;
+    border-left: 2px solid $base-color !important;
+    font-family: Segoe UI, "Microsoft Yahei" !important;
+    box-shadow: 1px 10px 20px -15px rgba(0, 0, 0, 0.1) !important;
 
     P {
       margin-bottom: auto;
@@ -213,7 +217,7 @@ a {
       position: absolute;
       display: block;
       top: 0;
-      left: 0;
+      left: -2px;
       width: 60px;
       height: 60px;
       font-size: 60px;

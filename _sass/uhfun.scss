@@ -10,8 +10,8 @@ $base-line-height: 1.5 !default;
 
 // color
 $base-color: #38c7cce8;
-$base-shadow-color: #00ffcd63;
-$minor-color: #161616;
+$base-shadow-color: #38c7cc75;
+$minor-color: #292929;
 $minor-shadow-color: #4a4a4a24;
 // link
 $link-color: $base-color;
@@ -25,6 +25,7 @@ $text-color:       #111111 ;
 $background-color: #fdfdfd !default;
 $brand-color:      #2a7ae2 !default;
 $light-bule:       #fafcff !default;
+$light-red:       #fdf6f8a6 !default;
 $grey-color:       #828282 !default;
 $grey-color-light: lighten($grey-color, 40%) !default;
 $grey-color-dark:  darken($grey-color, 25%) !default;
