@@ -296,25 +296,10 @@ http://baseUrl:port/api/dubbo
     </a>
 </div>
 <script src="/assets/js/back-to-top.js"></script>
-<script src="/assets/js/hash-code.js"></script>
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script src="/assets/js/baidu-push.js"></script>
 <script src="/assets/js/360-push.js"></script>
-<script src="/assets/js/toc.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-      $('#toc').toc();
-  }); </script><script>
-    $('.brief-content .content .title-content').each((i, e) => {
-        $bt = $(e);
-        const hashCode = $bt.text().hashCode();
-        const list = ['#f16181','#fd7676','#53aee4',];       
-        const n = hashCode % list.length;
-        const color =  list[(n < 0 ? n + list.length : n)];
-        $bt.css('color', color);
-        $bt.children('.brief-quote').css('color', color);
-    })
-</script></body>
+<script src="/assets/js/toc.js"></script></body>
 <script src="/assets/js/date-format.js"></script>
 </html>
