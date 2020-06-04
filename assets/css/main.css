@@ -56,7 +56,7 @@ a:hover { color: #292929 !important; text-decoration: none; cursor: pointer; }
 .footer .content p strong a:hover { color: #38c7cce8 !important; }
 
 /** Blockquotes */
-.content blockquote { position: relative; padding: 0 0 0 80px; margin: 43px 0; border: 0; background-color: white !important; padding: 15px 0px 15px 50px !important; border-left: 2px solid #38c7cce8 !important; font-family: Segoe UI, "Microsoft Yahei" !important; box-shadow: 1px 10px 20px -15px rgba(0, 0, 0, 0.1) !important; }
+.content blockquote { position: relative; margin: 20px 0; border: 0; background-color: white !important; padding: 15px 0px 15px 50px !important; border-left: 2px solid #38c7cce8 !important; font-family: Segoe UI, "Microsoft Yahei" !important; box-shadow: 1px 10px 20px -15px rgba(0, 0, 0, 0.1) !important; }
 .content blockquote P { margin-bottom: auto; text-shadow: 0.08em 0.15em 0.3em #1f314d1c; }
 .content blockquote::before { content: "\201C"; position: absolute; display: block; top: 0; left: -2px; width: 60px; height: 60px; font-size: 60px; line-height: 60px; color: #38c7cce8; font-family: Courier, monospace; text-align: center; z-index: 1; }
 
