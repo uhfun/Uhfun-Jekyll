@@ -9,7 +9,7 @@ $small-font-size:  $base-font-size * 0.875 !default;
 $base-line-height: 1.5 !default;
 
 // color
-$base-color: #38c7cce8;
+$base-color: #37a6b9e8;
 $base-shadow-color: #38c7cc75;
 $minor-color: #292929;
 $minor-shadow-color: #4a4a4a24;
@@ -83,6 +83,7 @@ $fullhd: 1200px;
   "uhfun/syntax-highlighting",
   "uhfun/gitment",
   "uhfun/toc",
+  "uhfun/_search-box",
   "uhfun/utterances",
   "bulma-0.8.0/bulma.sass"
 ;
