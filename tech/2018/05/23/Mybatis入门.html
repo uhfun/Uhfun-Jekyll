@@ -1872,6 +1872,7 @@ Spring和Mybatis整合所需的配置文件（Dao层的配置文件）-–-appli
 <script src="/assets/js/drop-down.js"></script>
 <script src="/assets/js/category-post-num.js"></script>
 <script src="/assets/js/baidu-push.js"></script>
+<script src="/assets/js/360-push.js"></script>
 <script src="/assets/js/toc.js"></script>
 <script type="text/javascript">
   $(document).ready(function() {
@@ -1891,7 +1892,6 @@ Spring和Mybatis整合所需的配置文件（Dao层的配置文件）-–-appli
         ];       
         const n = hashCode % list.length;
         const color =  list[(n < 0 ? n + list.length : n)];
-        console.log(color)
         $bt.css('color', color);
         $bt.children('.brief-quote').css('color', color);
     })
