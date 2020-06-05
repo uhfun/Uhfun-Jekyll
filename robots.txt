@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: 
+Disallow: /tag/
+Disallow: /search/
+Sitemap: https://uhfun.com/sitemap.xml
