@@ -1,1 +1,5 @@
-Sitemap: https://uhfun.cn/uhfun-jekyll/sitemap.xml
+User-agent: *
+Disallow: 
+Disallow: /tag/
+Disallow: /search/
+Sitemap: https://uhfun.com/sitemap.xml
