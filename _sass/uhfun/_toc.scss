@@ -49,3 +49,10 @@ span.show-sub {
   -ms-user-select: none;
   user-select: none;
 }
+.toc-corner {
+  display: none;
+  svg {
+    width: 65px !important;
+    height: 65px !important;
+  }
+}
