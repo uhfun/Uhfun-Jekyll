@@ -18,3 +18,4 @@ git commit -m '...'
 git push
 cd ..
 rm -rf _gh_site
+rm -rf _posts
