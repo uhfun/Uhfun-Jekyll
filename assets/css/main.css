@@ -365,7 +365,7 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 
 .gitment-header-like-btn { margin-right: 20px !important; }
 
-#toc { margin-bottom: 30px; padding: 20px; border: 1px solid #e8e8e8; border-radius: 0.2em; box-shadow: 9px 11px 20px 0px rgba(0, 0, 0, 0.15) !important; }
+#toc { margin-bottom: 30px; padding: 20px; border: 1px solid #e8e8e8; border-radius: 0.2em; box-shadow: 9px 11px 20px 0px rgba(0, 0, 0, 0.15) !important; display: none; }
 #toc .toc-link { word-wrap: break-word; word-break: break-all; color: #1f314d !important; }
 #toc .toc-link:hover { color: #40b9cee8 !important; }
 #toc .checked-a { color: #40b9cee8 !important; }
