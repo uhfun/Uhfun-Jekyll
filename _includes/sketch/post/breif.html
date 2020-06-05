@@ -1,0 +1,10 @@
+<div class='breif-content'>
+    <div class='breif-content-title'>
+        <a href="{{ sketch.url }}">
+            {{ sketch.post.title }} - {{ sketch.post.content}}
+        </a>        
+    </div>
+    {% assign tags = sketch.tags %}
+        {% assign date = sketch.date %}
+        {%- include component/tag-and-date.html -%}
+</div>

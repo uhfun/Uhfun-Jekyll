@@ -1,0 +1,10 @@
+{% case  sketch.post.type %}
+{% when 'article' %}
+<div class="post_article">
+  {%- include sketch/post/article.html -%}
+</div>
+{% when 'breif' %}
+<div class="post_breif">
+  {%- include sketch/post/breif.html -%}
+</div>
+{% endcase %}
