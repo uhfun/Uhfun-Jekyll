@@ -1,6 +1,5 @@
 ---
 layout: post
-title: README
 post: 
   title: README
   type: article

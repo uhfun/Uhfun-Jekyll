@@ -36,9 +36,6 @@
             <a class="icon-dropdown navbar-item" href="{{ site.baseurl }}/about.html">
               <i class="far fa-user" aria-hidden="true"></i> {{ site.navbar_name_mapping | map:'ABOUT' }}
             </a>
-            <a class="icon-dropdown navbar-item" href="https://github.com/{{ site.github_username }}">
-              <i class="fab fa-github" aria-hidden="true"></i> Github
-            </a>
             <hr class="navbar-divider">
             <a class="navbar-item" href="{{ site.baseurl }}/README.html{%- if site.utterances -%}#utterances{%- elsif site.gitment -%}#gitmentContainer{%- endif -%}"> {{ site.navbar_name_mapping | map:'Report an issue' }}
             </a>

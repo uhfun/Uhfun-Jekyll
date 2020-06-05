@@ -98,6 +98,16 @@
 
 // license
 .article_license {
+  margin-top: 5rem;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #1f314d !important;
+  border-top: 1px dashed #bfc1c180;
+  border-bottom: 1px dashed #bfc1c180;
+  font-style: italic;
+  p {
+    margin: 1.5rem 0;
+  }  
   strong {
     color:#464646;
   }
@@ -110,6 +120,7 @@
   justify-content: flex-end;
   padding-top: 6rem;
   padding-bottom: 2em;
+  font-size: x-large;
 
   a {
     color: $base-color !important;
