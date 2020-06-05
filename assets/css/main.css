@@ -377,8 +377,11 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 span.show-sub { margin-left: 12px; cursor: pointer; font-weight: bold; color: #40b9cee8; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 span.show-sub svg { font-size: 14px !important; }
 
+.toc-corner { display: none; }
+.toc-corner svg { width: 65px !important; height: 65px !important; }
+
 .github-corner { z-index: 999; }
-.github-corner svg { fill: #40b9cee8; color: #fff; position: absolute; top: 0; border: 0; right: 0; }
+.github-corner svg { width: 80px; height: 80px; fill: #40b9cee8; color: #fff; position: absolute; top: 0; border: 0; right: 0; }
 @media (max-width: 899px) { .github-corner svg { top: 76px; } }
 
 .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
