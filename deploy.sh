@@ -9,9 +9,12 @@ echo '编译...'
 bundle install && bundle exec jekyll build -d _gh_site
 echo 'uhfun.cn > CNAME' 
 echo 'uhfun.cn' > CNAME
-echo '提交...'
+echo '提交_site...'
+cd _gh_site
 git config --global user.email 2512500628@qq.com
 git config --global user.name fuhangbo
 git add . 
 git commit -m '...' 
 git push
+cd ..
+rm -rf _gh_site
