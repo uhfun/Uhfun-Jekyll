@@ -81,6 +81,8 @@
     font-family: Segoe UI, "Microsoft Yahei" !important;
     align-items: center;
     display: flex;
+    flex-wrap: wrap;
+    margin: 2px 0;
   }
 
   a:hover {
@@ -162,6 +164,7 @@
 }
 
 .sketch-media-music-kg {
+  margin-top: 1rem !important;
   a {
     margin: 0px !important;
     background-color: #f9f9f9;
