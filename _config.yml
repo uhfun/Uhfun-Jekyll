@@ -84,6 +84,9 @@ nodes:
     name: Gitee Pages
     url: uhfun.gitee.io/uhfun-jekyll
   - 
+    name: Coding Pages
+    url: blog.uhfun.cn
+  - 
     name: Vps Pages
     url: www.uhfun.cn    
 
