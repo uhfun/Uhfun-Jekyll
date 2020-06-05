@@ -1,30 +1,17 @@
-# Environment Variables
-# key                   value
-# GH_PAGES_BRANCH       gh-pages
-# CUSTOM_DOAMIN         uhfun.cn
-# GH_USER_EMAIL         2512500628@qq.com
-# GH_USER_NAME          uhfun   
-# GH_PAGES_REPOSITORY   Uhfun-Jekyll
-
-# master
-echo '添加posts分支内文章' && cd .. && git clone -b _posts git@github.com:${CI_REPO_NAME}.git _posts && ls _posts && mv _posts/*.md clone/_posts 
-echo '下载github pages 静态资源' && cd clone && git clone -b ${GH_PAGES_BRANCH} git@github.com:${CI_REPO_NAME}.git _site
-echo '删除除.git 外所有文件' && rm -rf _site/**/* || exit 0
-echo '重新编译生成静态文件' && bundle install && bundle exec jekyll build
-cd _site && echo '自定义域名' && echo ${CUSTOM_DOAMIN} > CNAME
-git config --global user.email ${GH_USER_EMAIL}
-git config --global user.name ${GH_USER_NAME}
-git add .
-git commit -m "Commit ${CI_COMMIT_ID} ${CI_COMMIT_MESSAGE} to branch ${GH_PAGES_BRANCH}" && git push origin ${GH_PAGES_BRANCH}
-
-#_posts
-cd .. && echo '下载github pages 源文件' && git clone -b master git@github.com:${CI_REPO_NAME}.git _source && cd _source
-echo '添加posts分支内文章' && mv ../clone/* _posts
-echo '下载github pages 静态资源' && git clone -b ${GH_PAGES_BRANCH} git@github.com:${CI_REPO_NAME}.git _site
-echo '删除除.git 外所有文件' && rm -rf _site/**/* || exit 0
-echo '重新编译生成静态文件' && bundle install && bundle exec jekyll build
-cd _site && echo '自定义域名' && echo ${CUSTOM_DOAMIN} > CNAME
-git config --global user.email ${GH_USER_EMAIL}
-git config --global user.name ${GH_USER_NAME}
-git add .
-git commit -m "Commit ${CI_COMMIT_ID} ${CI_COMMIT_MESSAGE} to branch ${GH_PAGES_BRANCH}" && git push origin ${GH_PAGES_BRANCH}
+echo '下载posts分支...'
+rm -rf _posts || exit 0
+git clone -b _posts https://github.com/uhfun/Uhfun-Jekyll.git  _posts
+echo '重建_site...'
+rm -rf _site
+git clone -b gh-pages https://github.com/uhfun/Uhfun-Jekyll.git _gh_site
+rm -rf _gh_site/**/* || exit 0
+echo '编译...'
+bundle install && bundle exec jekyll build -d _gh_site
+echo 'uhfun.cn > CNAME' 
+echo 'uhfun.cn' > CNAME
+echo '提交...'
+git config --global user.email 2512500628@qq.com
+git config --global user.name fuhangbo
+git add . 
+git commit -m '...' 
+git push
