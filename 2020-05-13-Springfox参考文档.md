@@ -4,8 +4,8 @@ post:
   title: Springfox参考文档
   type: article
   original: false
-  article: Dilip Krishnan
-  article_url: https://github.com/dilipkrish
+  author: Dilip Krishnan
+  author_url: https://github.com/dilipkrish
   url: https://springfox.github.io/springfox/docs/current/
 
 date: 2020-05-13 01:10:00 +0800
