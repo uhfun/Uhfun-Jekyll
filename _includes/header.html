@@ -17,10 +17,15 @@
     <div class="navbar-menu">
       <div class="navbar-end">
         <a class='navbar-item' href='/'>HOME</a>
-        {% for path in page_paths %}
-        {% assign my_page = site.html_pages | where: "path", path | first %}
+
+
+        {% for path in page_paths %}         
+        {% assign my_page = site.html_pages | where: "path", path | first %}      
+        {% assign my_page_path = my_page.path | downcase %}   
         {% assign my_path = my_page.title | downcase | append:'/index.html' %}
-        {% if my_path == my_page.path %}
+        {% assign my_path2 = my_page.title | downcase | append:'.md' %}
+
+        {% if my_path == my_page_path or my_path2 == my_page_path %}
         <a class="navbar-item" href="{{ my_page.url | relative_url }}">
           {{ my_page.title | escape | upcase}}
         </a>
@@ -39,7 +44,7 @@
               <i class="fab fa-github" aria-hidden="true"></i> Github
             </a>
             <hr class="navbar-divider">
-            <a class="navbar-item" href="/about.html{% if site.utterances %}#utterances{% elsif site.gitment %}#gitmentContainer{% endif %}"> Report an issue
+            <a class="navbar-item" href="/README.html{% if site.utterances %}#utterances{% elsif site.gitment %}#gitmentContainer{% endif %}"> Report an issue
             </a>
           </div>
         </div>
