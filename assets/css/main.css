@@ -113,7 +113,7 @@ table td { border: 1px solid #e8e8e8; }
 .tags { margin-bottom: 1.2em !important; }
 .tags .icon { margin-right: 10px; }
 .tags .icon svg { width: 1.15em; }
-.tags a, .tags .container { color: #7a8b9a !important; margin-right: 10px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; align-items: center; display: flex; }
+.tags a, .tags .container { color: #7a8b9a !important; margin-right: 10px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; align-items: center; display: flex; flex-wrap: wrap; margin: 2px 0; }
 .tags a:hover { text-decoration: underline; color: #40b9cee8 !important; }
 .tags .spot { margin: 0 10px; color: #40b9cee8; }
 
@@ -134,6 +134,7 @@ table td { border: 1px solid #e8e8e8; }
 
 .sketch-media-music-kg-right-content { color: #7a8b9a !important; font-size: .875rem !important; }
 
+.sketch-media-music-kg { margin-top: 1rem !important; }
 .sketch-media-music-kg a { margin: 0px !important; background-color: #f9f9f9; border-radius: 0.8rem !important; box-shadow: 1px 6px 29px -2px rgba(0, 0, 0, 0.1) !important; }
 .sketch-media-music-kg a:hover { cursor: pointer; }
 .sketch-media-music-kg a .sketch-media-music-kg-content { padding: 20px; margin: auto; }
@@ -374,6 +375,20 @@ a.gitment-header-issue-link:hover, a.gitment-header-issue-link:visited:hover { t
 span.show-sub { margin-left: 12px; cursor: pointer; font-weight: bold; color: #40b9cee8; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
 span.show-sub svg { font-size: 14px !important; }
 
+.github-corner { z-index: 999; }
+.github-corner svg { fill: #40b9cee8; color: #fff; position: absolute; top: 0; border: 0; right: 0; }
+@media (max-width: 899px) { .github-corner svg { top: 76px; } }
+
+.github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+
+@keyframes octocat-wave { 0% { transform: rotate(0deg); }
+  20% { transform: rotate(-25deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-25deg); }
+  80% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); } }
+@media (max-width: 500px) { .github-corner:hover .octo-arm { animation: none; }
+  .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; } }
 .gcse-searchbox-only table, .gcse-search table, .gsc-input-box table { margin-bottom: 0px !important; text-align: right !important; }
 
 .gsc-orderby-container { text-align: right !important; }
