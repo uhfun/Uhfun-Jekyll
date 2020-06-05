@@ -117,9 +117,11 @@ table td { border: 1px solid #e8e8e8; }
 .tags a:hover { text-decoration: underline; color: #40b9cee8 !important; }
 .tags .spot { margin: 0 10px; color: #40b9cee8; }
 
+.article_license { margin-top: 5rem; font-size: 1rem; line-height: 1.8; color: #1f314d !important; border-top: 1px dashed #bfc1c180; border-bottom: 1px dashed #bfc1c180; font-style: italic; }
+.article_license p { margin: 1.5rem 0; }
 .article_license strong { color: #464646; }
 
-.post-footer { display: flex; justify-content: flex-end; padding-top: 6rem; padding-bottom: 2em; }
+.post-footer { display: flex; justify-content: flex-end; padding-top: 6rem; padding-bottom: 2em; font-size: x-large; }
 .post-footer a { color: #40b9cee8 !important; }
 .post-footer a:hover { color: #292929 !important; }
 .post-footer .post-next { margin-left: 20px; }
