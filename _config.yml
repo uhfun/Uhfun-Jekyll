@@ -1,7 +1,7 @@
 
 title: UhfunBlog
 sub_title: 傅杭波的博客
-keyword: "傅杭波, Uhfun傅杭波, Uhfun, UhfunBlog, Hbson傅杭波, Hb, Hbson, 博客, 个人网站, 互联网, 后端, Web, Java, Spring, 翻唱, 唱歌"
+keyword: "傅杭波, Uhfun, 博客, 后端, Web, Java, Spring, 唱歌"
 email: mynameisfhb@gmail.com
 description: >- # this means to ignore newlines until "avatar:"
   代码与生活、热爱唱歌的boy | 傅杭波的个人博客
@@ -105,5 +105,8 @@ defaults:
     values:
       permalink: "README.html"
 
-
+leancloud:
+  enable: true
+  app_id: cGDrncliiY4PsYG2DTRfCAdQ-gzGzoHsz
+  app_key: 5cWQBitkqlz8lsL4cILd7Tea
   

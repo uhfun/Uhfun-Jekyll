@@ -15,7 +15,8 @@
         </span>
         {%- if page.title != nil  -%}
         <span class="spot">•</span>
-        <span>        
+        <span>
+            阅读时长 &nbsp;          
             {%- assign duration = content | number_of_words | divided_by:180 | round -%}
             {%- if duration < 1%}
             {%- assign duration = '小于1' -%}
