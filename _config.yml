@@ -86,12 +86,9 @@ nodes:
 
 brief:
   color: 
-    - "#f16181"
-    # pink
-    - "#fd7676"
-    # red
-    - "#53aee4"
-    # blue
+    - "#f16181" # pink    
+    - "#fd7676" # red    
+    - "#53aee4" # blue    
 
 defaults:
   -
