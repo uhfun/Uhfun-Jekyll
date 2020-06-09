@@ -3,7 +3,7 @@
     {%- assign default_paths = site.pages | map: "path" -%}
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     {%- if page_paths -%}
-    <div class="navbar-brand">
+    <div class="navbar-brand
       <a class="navbar-item" href="{{ '/' | relative_url }}">
         <img src='{%- if site.logo == nil -%}{{ "/assets/img/logo.png" | relative_url }}{%- else -%}{{ site.logo }}{%- endif -%}' width="160">
       </a>
@@ -36,7 +36,10 @@
             <a class="icon-dropdown navbar-item" href="{{ site.baseurl }}/about.html">
               <i class="far fa-user" aria-hidden="true"></i> {{ site.navbar_name_mapping | map:'ABOUT' }}
             </a>
-            <hr class="navbar-divider">
+            <a class="icon-dropdown navbar-item" href="{{ site.baseurl }}/feed.xml" target="_blank">
+              <i class="fa fa-rss "></i>RSS
+            </a>
+            <hr class="navbar-divider">        
             <a class="navbar-item" href="{{ site.baseurl }}/README.html{%- if site.utterances -%}#utterances{%- elsif site.gitment -%}#gitmentContainer{%- endif -%}"> {{ site.navbar_name_mapping | map:'Report an issue' }}
             </a>
           </div>
