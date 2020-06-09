@@ -1112,7 +1112,7 @@ public Model getAllThePets() {
 
 #### 6.8.3. 更改泛型类型的命名方式
 
-默认情况下，带有泛型的类型将标记为‘\u00ab’(<<)、‘\u00bb’(>>)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。可以通过实现自己的`GenericTypeNamingStrategy`来重写此行为。例如，如果希望`List<String>`编码为‘ListOfString’，而`Map<String，Object>`编码为‘MapOfStringAndObject’，你可以在插件定制过程中将`forCodeGeneration`定制选项设置为true：
+默认情况下，带有泛型的类型将标记为`‘\u00ab’`(<<)、`‘\u00bb’`(>>)和逗号。这对于像大摇大摆的编解码器这样的东西来说可能是有问题的。可以通过实现自己的`GenericTypeNamingStrategy`来重写此行为。例如，如果希望`List<String>`编码为‘ListOfString’，而`Map<String，Object>`编码为‘MapOfStringAndObject’，你可以在插件定制过程中将`forCodeGeneration`定制选项设置为true：
 
 ```json
 docket.forCodeGeneration(true|false);
