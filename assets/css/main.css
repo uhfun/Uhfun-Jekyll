@@ -166,7 +166,7 @@ table td { border: 1px solid #e8e8e8; }
 .avatar img { height: 100% !important; max-height: 100% !important; width: 100% !important; max-width: 100% !important; object-fit: cover; }
 
 .has-dropdown .navbar-dropdown { font-size: 15px; box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1) !important; }
-.has-dropdown .navbar-dropdown .icon-dropdown svg { margin-right: 10px; font-size: 20px !important; }
+.has-dropdown .navbar-dropdown .icon-dropdown svg { margin-right: 10px; font-size: 20px !important; color: #40b9cee8; }
 
 .footer { background-color: #fff !important; }
 .footer .container .content p { font-size: .75rem !important; color: #7a8b9a !important; }
