@@ -17,7 +17,7 @@
         <span class="spot">•</span>
         <span class='reading-time'>
             阅读时长 &nbsp;          
-            {%- assign duration = content | number_of_words | divided_by:180 | round -%}
+            {%- assign duration = content | number_of_words | divided_by:160 | round -%}
             {%- if duration < 1%}
             {%- assign duration = '小于1' -%}
             {%- endif -%}
