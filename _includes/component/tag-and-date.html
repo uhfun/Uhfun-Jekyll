@@ -14,15 +14,15 @@
             {{ date | date: "%Y-%m-%d" }}
         </span>
         {%- if page.title != nil  -%}
-        <span class="spot">•</span>
+        <!-- <span class="spot">•</span>
         <span class='reading-time'>
-            阅读时长 &nbsp;          
-            {%- assign duration = content | number_of_words | divided_by:160 | round -%}
+            阅读时长 &nbsp;       
+            {%- assign duration = content | number_of_words | divided_by:180 | round -%}
             {%- if duration < 1%}
             {%- assign duration = '小于1' -%}
             {%- endif -%}
             {{ duration }}分钟
-        </span>        
+        </span>         -->
         {%- endif -%} 
         {%- endif -%}               
     </div>
