@@ -17,7 +17,7 @@ tags:
   - 文档
 ---
 
-官方文档 : [`https://springfox.github.io/springfox/docs/current`](https://springfox.github.io/springfox/docs/current)
+当你能清晰地看到文档中所列的框架的整体架构以及功能扩展点，你才能更好的了解这个框架的运行逻辑 [https://springfox.github.io/springfox/docs/current](https://springfox.github.io/springfox/docs/current)
 
 Version 2.9.2-SNAPSHOT
  
