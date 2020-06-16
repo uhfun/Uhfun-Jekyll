@@ -1,8 +1,7 @@
 ---
 layout: post
-# head-img: 
 post: 
-  title: SpringBoot项目中web.xml去哪了
+  title: 为什么SpringBoot项目不需要web.xml
   type: article
   original: true
 date: 2020-05-22 15:10:00 +0800

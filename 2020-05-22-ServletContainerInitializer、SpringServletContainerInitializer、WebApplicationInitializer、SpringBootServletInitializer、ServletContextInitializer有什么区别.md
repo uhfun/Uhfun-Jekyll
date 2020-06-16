@@ -2,7 +2,7 @@
 layout: post
 # head-img: 
 post: 
-  title: 傻傻分不清，ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer都是些啥
+  title: ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别
   type: article
   original: true
 date: 2020-05-22 16:10:00 +0800

@@ -1,7 +1,7 @@
 ---
 layout: post
 post: 
-  title: Springfox参考文档
+  title: "Springfox参考文档 - Springfox Reference Documentation中文翻译"
   type: article
   original: false
   author: Dilip Krishnan
