@@ -6,16 +6,16 @@
   <meta name="keywords" content="傅杭波, Uhfun, 博客, 后端, Web, Java, Spring, 唱歌">
   <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
   <meta name="robots" content="all">
-  <meta property="og:type" content="post" /><meta property="og:title" content="傻傻分不清，ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer都是些啥 | UhfunBlog" />
+  <meta property="og:type" content="post" /><meta property="og:title" content="ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别 | UhfunBlog" />
   <meta property="og:image" content='https://uhfun.cn/assetshttps://s1.ax1x.com/2020/06/04/t0QjeK.jpg' />
   <meta property="og:type" content="article">
   <meta property="og:description" content="这几个类乍一看有点像，仔细一看还是有点像，特别是ServletContainerInitializer和ServletContextInitializer，眼神不好的可能还真看不出来。那它们之间到底有什么区别呢？它们之间有什么联系吗？
 
 "><meta property="article:published_time" content='2020-05-22T16:10:00Z'><meta property="article:author" content="傅杭波"><meta property="og:image" content="" >
-  <meta property="og:url" content="https://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html"><meta property="article:tag" content="SpringBoot"><meta property="article:tag" content="SpringMVC"><meta property="article:tag" content="Spring"><meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
+  <meta property="og:url" content="https://uhfun.cn/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html"><meta property="article:tag" content="SpringBoot"><meta property="article:tag" content="SpringMVC"><meta property="article:tag" content="Spring"><meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
   <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
   <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
-  <title>傻傻分不清，ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer都是些啥 | UhfunBlog</title>
+  <title>ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别 | UhfunBlog</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="/assets/img/favicon.ico">
   <!-- Custom CSS -->
@@ -70,7 +70,7 @@
     <div class="container">
       <article class="page">
   <div class="content">
-    <article class="post"><h1 class="title is-spaced">傻傻分不清，ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer都是些啥</h1><div class="tags">
+    <article class="post"><h1 class="title is-spaced">ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别</h1><div class="tags">
     <div class="container"><span class="icon is-small">
             <i class="fa fa-tags" aria-hidden="true"></i>
         </span><a href="/tag/springboot">SpringBoot</a><a href="/tag/springmvc">SpringMVC</a><a href="/tag/spring">Spring</a>
@@ -707,15 +707,15 @@
   <p>
     原文作者：<a target='_blank' href="/about.html">傅杭波      
     </a><br>   
-    原文链接：<a target="_blank" href="https://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html">https://uhfun.cn/tech/2020/05/22/傻傻分不清-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer都是些啥.html</a><br>                     
+    原文链接：<a target="_blank" href="https://uhfun.cn/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html">https://uhfun.cn/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer有什么区别.html</a><br>                     
     发表日期：2020.05.22 16:10<br>
     版权声明：<strong>本文为博主原创文章</strong>遵循      
     <a target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">CC 4.0 BY-SA</a>       
     版权协议，转载请附上原文出处链接和本声明
     <br></p>
-</div><div class='post-footer'><a class='post-previous' href="/tech/2020/05/22/SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%ADweb.xml%E5%8E%BB%E5%93%AA%E4%BA%86.html">
+</div><div class='post-footer'><a class='post-previous' href="/tech/2020/05/22/%E4%B8%BA%E4%BB%80%E4%B9%88SpringBoot%E9%A1%B9%E7%9B%AE%E4%B8%8D%E9%9C%80%E8%A6%81web.xml.html">
       <i class="fa fa-chevron-left" aria-hidden="true"></i>
-      Springboot项目中web.xml去哪了
+      为什么springboot项目不需要web.xml
     </a><a class='post-next' href="/life/2020/06/16/%E6%9D%A5%E8%87%AA%E7%81%B5%E9%AD%82%E7%9A%84%E7%83%A4%E9%97%AE%E5%90%AC%E5%90%AC%E5%86%85%E5%BF%83%E7%90%86%E6%80%A7%E7%9A%84%E5%A3%B0%E9%9F%B3.html">
       来自灵魂的烤问听听内心理性的声音
       <i class="fa fa-chevron-right" aria-hidden="true"></i>
@@ -723,7 +723,7 @@
 </article><div id='utterances' class="utterances-comments-header">
   <div>
     <div><strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;utteranc.es&nbsp;</a></strong>驱动</div>    
-  </div><div><a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=傻傻分不清，ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer都是些啥 | UhfunBlog"><strong>issue</strong></a></div>  
+  </div><div><a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别 | UhfunBlog"><strong>issue</strong></a></div>  
 </div><script src="https://utteranc.es/client.js"
         repo= "uhfun/Uhfun-Jekyll"
         issue-term="og:title"
@@ -738,14 +738,14 @@
   </div><footer class="footer">
   <div class="container">
     <div class="content has-text-centered">          
-      <p><a href="https://uhfun.cn/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html">Github / Coding Pages</a>&nbsp;|&nbsp;<a href="https://uhfun.gitee.io/uhfun-jekyll/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html">Gitee Pages</a><br>
+      <p><a href="https://uhfun.cn/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html">Github / Coding Pages</a>&nbsp;|&nbsp;<a href="https://uhfun.gitee.io/uhfun-jekyll/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html">Gitee Pages</a><br>
         Copyright © Uhfun Blog 2019<br>
         Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
         &nbsp;|&nbsp;Themed by <strong> <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll">Uhfun-Jekyll</a></strong> 
         &nbsp; <br> licensed <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
         &nbsp;
         <br>
-  <span id="/tech/2020/05/22/%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85-ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E9%83%BD%E6%98%AF%E4%BA%9B%E5%95%A5.html" class="leancloud_visitors" data-flag-title="傻傻分不清，servletcontainerinitializer、springservletcontainerinitializer、webapplicationinitializer、springbootservletinitializer、servletcontextinitializer都是些啥">
+  <span id="/tech/2020/05/22/ServletContainerInitializer-SpringServletContainerInitializer-WebApplicationInitializer-SpringBootServletInitializer-ServletContextInitializer%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB.html" class="leancloud_visitors" data-flag-title="Servletcontainerinitializer、springservletcontainerinitializer、webapplicationinitializer、springbootservletinitializer、servletcontextinitializer有什么区别">
     PV <a href="#"> <span class="old-visitors-count" style="display: none;"></span>
         <span class="leancloud-visitors-count"></span>&nbsp; :)</a>
   </span>
