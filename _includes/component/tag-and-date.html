@@ -10,12 +10,12 @@
         {%- endfor -%}
         {%- if date%}
         <span class="spot">•</span>
-        <span class='formated-date' data-time="{{ date | date: '%Y/%m/%d %H:%M:%S' }}">
+        <span class='formated-date formated-date-left-space' data-time="{{ date | date: '%Y/%m/%d %H:%M:%S' }}">
             {{ date | date: "%Y-%m-%d" }}
         </span>
         {%- if page.title != nil  -%}
         <span class="spot">•</span>
-        <span>
+        <span class='reading-time'>
             阅读时长 &nbsp;          
             {%- assign duration = content | number_of_words | divided_by:180 | round -%}
             {%- if duration < 1%}

@@ -85,13 +85,17 @@
     margin: 2px 0;
   }
 
+  
+  .formated-date-left-space, .reading-time {
+    margin: 0 10px !important;     
+  }
+
   a:hover {
     text-decoration: underline;
     color: $base-color !important;
   }
 
   .spot {
-    margin: 0 10px;
     color: $base-color;
   }
 }
@@ -415,11 +419,13 @@
 // post sketch
 .post_article {
 
-  .title a {
-    font-size: 1.25rem !important;
-
-    &:hover {
-      color: $base-color !important;
+  .title {
+    margin-bottom: 1rem !important;
+    a {
+      font-size: 1.25rem !important;      
+      &:hover {
+        color: $base-color !important;
+      }
     }
   }
 
@@ -433,18 +439,6 @@
 
       &:hover {
         cursor: pointer;
-      }
-    }
-
-    .title {
-      margin-bottom: 1rem !important;
-    }
-
-    .tags .container {
-
-      span,
-      a {
-        font-size: .875rem !important;
       }
     }
   }

@@ -77,29 +77,30 @@ layout: page
             {%- elsif post.layout == 'media' -%}
             {%- assign post-link = post.media.link -%}
             {%- endif -%}
-            <a class="title" href="{{ post-link }}">
-                {%- case post.layout -%}
-                {%- when 'media' -%}
-                    {%- case post.media.type -%}
-                    {%- when 'qmkg' -%}
-                    我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
-                    {%- when 'changba' -%}
-                    我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
+            <div class='title'>
+                <a href="{{ post-link }}">
+                    {%- case post.layout -%}
+                    {%- when 'media' -%}
+                        {%- case post.media.type -%}
+                        {%- when 'qmkg' -%}
+                        我在「 <span style="color: #ff003a;">全民k歌</span> 」唱了一首
+                        {%- when 'changba' -%}
+                        我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
+                        {%- endcase -%}
+                        《{{ post.media.title }}》                    
+                        {%- assign post-link = post.media.link -%}
+                        {%- assign post-content = post.media.content -%}
+                    {%- when 'post' -%}
+                        {%- case post.post.type -%}
+                        {%- when 'article' -%}            
+                        {%- assign post-content = post.excerpt -%}
+                        {%- when 'brief' -%}
+                        {%- assign post-content = post.post.content -%}  
+                        {%- endcase -%}                    
+                        {{ post.post.title }}
                     {%- endcase -%}
-                    《{{ post.media.title }}》                    
-                    {%- assign post-link = post.media.link -%}
-                    {%- assign post-content = post.media.content -%}
-                {%- when 'post' -%}
-                    {%- case post.post.type -%}
-                    {%- when 'article' -%}            
-                    {%- assign post-content = post.excerpt -%}
-                    {%- when 'brief' -%}
-                    {%- assign post-content = post.post.content -%}  
-                    {%- endcase -%}                    
-                    {{ post.post.title }}
-                {%- endcase -%}
-            </a>
-
+                </a>
+            </div>
             <div class="content">
                 <div class='columns'>
                     <div class="column">
@@ -122,5 +123,4 @@ layout: page
     </div>    
     {%- endif -%}        
     {%- endfor -%}
-  
 </div>
