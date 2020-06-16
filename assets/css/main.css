@@ -114,8 +114,9 @@ table td { border: 1px solid #e8e8e8; }
 .tags .icon { margin-right: 10px; }
 .tags .icon svg { width: 1.15em; }
 .tags a, .tags .container { color: #7a8b9a !important; margin-right: 10px !important; font-size: .875rem !important; font-family: Segoe UI, "Microsoft Yahei" !important; align-items: center; display: flex; flex-wrap: wrap; margin: 2px 0; }
+.tags .formated-date-left-space, .tags .reading-time { margin: 0 10px !important; }
 .tags a:hover { text-decoration: underline; color: #40b9cee8 !important; }
-.tags .spot { margin: 0 10px; color: #40b9cee8; }
+.tags .spot { color: #40b9cee8; }
 
 .article_license { margin-top: 5rem; font-size: 1rem; line-height: 1.8; color: #1f314d !important; border-top: 1px dashed #bfc1c180; border-bottom: 1px dashed #bfc1c180; font-style: italic; }
 .article_license p { margin: 1.5rem 0; }
@@ -182,13 +183,12 @@ table td { border: 1px solid #e8e8e8; }
 
 .sketch-container { padding: 1.6rem 0; border-bottom: 1px solid #e6ebecb5; border-radius: .22rem; }
 
+.post_article .title { margin-bottom: 1rem !important; }
 .post_article .title a { font-size: 1.25rem !important; }
 .post_article .title a:hover { color: #40b9cee8 !important; }
 .post_article .content { margin-top: 1rem !important; }
 .post_article .content .excerpt p, .post_article .content .excerpt { color: #333e48 !important; font-size: .875rem !important; }
 .post_article .content .excerpt p:hover, .post_article .content .excerpt:hover { cursor: pointer; }
-.post_article .content .title { margin-bottom: 1rem !important; }
-.post_article .content .tags .container span, .post_article .content .tags .container a { font-size: .875rem !important; }
 
 @media screen and (max-width: 500px) { .post_brief { padding-bottom: 1rem; } }
 @media screen and (max-width: 500px) { .post_brief .brief-content { background-color: white; border-radius: 6px; box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02); color: #4a4a4a; display: block; padding: 1.25rem !important; position: relative; width: 85%; height: 80%; background: #fff; box-shadow: 3px 4px 20px #ececec; border-radius: 25px; margin-left: auto; } }
