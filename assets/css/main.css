@@ -182,8 +182,8 @@ table td { border: 1px solid #e8e8e8; }
 
 .sketch-container { padding: 1.6rem 0; border-bottom: 1px solid #e6ebecb5; border-radius: .22rem; }
 
-.post_article a { font-size: 1.25rem !important; }
-.post_article a:hover { color: #40b9cee8 !important; }
+.post_article .title a { font-size: 1.25rem !important; }
+.post_article .title a:hover { color: #40b9cee8 !important; }
 .post_article .content { margin-top: 1rem !important; }
 .post_article .content .excerpt p, .post_article .content .excerpt { color: #333e48 !important; font-size: .875rem !important; }
 .post_article .content .excerpt p:hover, .post_article .content .excerpt:hover { cursor: pointer; }
