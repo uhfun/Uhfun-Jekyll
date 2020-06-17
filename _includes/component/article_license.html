@@ -1,13 +1,13 @@
 {%- if page.categories contains 'tech' -%} 
 <div class="article_license">
   <p>
-    原文作者：<a target='_blank' href="{%- if page.post.original -%}{{ site.baseurl }}/about.html{%- else -%}
+    原文作者：<a target='_blank' href="{%- if page.post.type == 'original' -%}{{ site.baseurl }}/about.html{%- else -%}
     {%- if page.post.author_url == nil -%}{{ page.post.url }}{% else %}{{ page.post.author_url }}{%- endif -%}
     {% endif %}">
-      {%- if page.post.original -%}{{ site.author }}{%- else -%}{{ page.post.author }}{% endif %}      
+      {%- if page.post.type == 'original' -%}{{ site.author }}{%- else -%}{{ page.post.author }}{% endif %}      
     </a><br>   
     原文链接：
-    {%- if page.post.original -%}
+    {%- if page.post.type == 'original' -%}
     <a target="_blank" href="{{ site.fix_url | append: page.url }}">{{ site.fix_url | append: page.url | url_decode }}</a><br>                     
     发表日期：{{ page.date | date: "%Y.%m.%d %H:%M" }}<br>
     版权声明：<strong>本文为博主原创文章</strong>遵循      

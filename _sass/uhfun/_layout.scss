@@ -418,6 +418,27 @@
   border-radius: .22rem;
 }
 
+.article-type-original {
+  background-color: $base-color;
+}
+.article-type-translate {
+  background-color: $article-type-color-pink;
+}
+.article-type {
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  padding: 3px 14px;
+  border-radius: 4px;
+  margin-right: 6px;
+}
+
+.post {
+  .article-type {
+    margin-left: 10px;
+  }
+}
+
 // post sketch
 .post_article {
 

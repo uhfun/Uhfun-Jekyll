@@ -46,7 +46,7 @@ layout: page
                 {%- when 'changba' -%}
                 我在「 <span style="color: #ff5047;">唱吧</span> 」唱了一首                       
             {%- endcase -%}
-            《{{ post.title }}》</a>
+            《{{ post.media.title }}》</a>
             {%- assign post-content  = post.media.content -%}
             {%- when 'post' -%}           
                 <span class="excerpt" onclick="$(this).next().slideToggle(240)" >{{ post.post.title }}</span>        
