@@ -3,8 +3,7 @@ layout: post
 # head-img: 
 post: 
   title: ServletContainerInitializer、SpringServletContainerInitializer、WebApplicationInitializer、SpringBootServletInitializer、ServletContextInitializer有什么区别
-  type: article
-  original: true
+  type: original
 date: 2020-05-22 16:10:00 +0800
 categories: 
   - tech

@@ -2,8 +2,7 @@
 layout: post
 post: 
   title: 为什么SpringBoot项目不需要web.xml
-  type: article
-  original: true
+  type: original
 date: 2020-05-22 15:10:00 +0800
 categories: 
   - tech

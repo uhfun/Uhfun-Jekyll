@@ -3,7 +3,7 @@ layout: post
 layout: post
 post: 
   title: Spring AOP入门
-  type: article
+  type: 
 categories:
   - tech
 tags:

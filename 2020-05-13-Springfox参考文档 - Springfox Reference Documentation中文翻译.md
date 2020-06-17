@@ -2,8 +2,7 @@
 layout: post
 post: 
   title: "Springfox参考文档 - Springfox Reference Documentation中文翻译"
-  type: article
-  original: false
+  type: translate
   author: Dilip Krishnan
   author_url: https://github.com/dilipkrish
   url: https://springfox.github.io/springfox/docs/current/

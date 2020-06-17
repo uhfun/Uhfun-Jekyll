@@ -3,8 +3,7 @@ layout: post
 head-img: https://s1.ax1x.com/2020/06/04/tw87ZV.png
 post: 
   title: Swagger more如何使用
-  type: article
-  original: true
+  type: original
 date: 2020-01-15 15:10:00 +0800
 categories: 
   - tech

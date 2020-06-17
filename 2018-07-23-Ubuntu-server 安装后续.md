@@ -2,8 +2,7 @@
 layout: post
 post: 
   title: Ubuntu-server 安装后续
-  type: article
-  original: true
+  type: 
 date: 2018-07-23 22:31:00 +0800
 categories: 
   - tech
