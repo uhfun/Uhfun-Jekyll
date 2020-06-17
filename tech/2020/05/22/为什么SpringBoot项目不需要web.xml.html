@@ -83,7 +83,8 @@
         </span>         --></div>
 </div><div class='post-img'></div>
   <div class='post-content'>
-    <div id="toc"></div><p>记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在<code class="language-plaintext highlighter-rouge">WEB-INF</code>目录下添加<code class="language-plaintext highlighter-rouge">web.xml</code>。为什么在SpringBoot项目中，<code class="language-plaintext highlighter-rouge">web.xml</code>消失的无影无踪呢？</p>
+    <div id="toc"></div>
+    <p>记得在Spring+SpringMVC的日子里，创建一个spring的web项目，必不可少的配置就是在<code class="language-plaintext highlighter-rouge">WEB-INF</code>目录下添加<code class="language-plaintext highlighter-rouge">web.xml</code>。为什么在SpringBoot项目中，<code class="language-plaintext highlighter-rouge">web.xml</code>消失的无影无踪呢？</p>
 
 <p>我的观点是：如果使用外部的tomcat，SpringBoot会通过<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>在<code class="language-plaintext highlighter-rouge">ApplicationContext</code>应用上下文创建之前就生成ServletContext，但是servlet配置的注册是由<code class="language-plaintext highlighter-rouge">DispatcherServletRegistrationBean</code>来完成的。而如果使用的内嵌tomcat，就跟<code class="language-plaintext highlighter-rouge">ServletContainerInitializer</code>没有任何关系了。</p>
 
