@@ -17,9 +17,6 @@ layout: page
   </div>
   <div class='post-content'>
     <div id="toc"></div>
-    {%- if page.post.type == "brief" -%}
-    <p>{{ page.post.content }}</p>
-    {%- endif -%}
     {{ content }}
   </div>
   {%- include component/article_license.html -%} 

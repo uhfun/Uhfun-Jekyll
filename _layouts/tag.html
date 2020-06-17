@@ -91,12 +91,7 @@ layout: page
                         {%- assign post-link = post.media.link -%}
                         {%- assign post-content = post.media.content -%}
                     {%- when 'post' -%}
-                        {%- case post.post.type -%}
-                        {%- when 'article' -%}            
-                        {%- assign post-content = post.excerpt -%}
-                        {%- when 'brief' -%}
-                        {%- assign post-content = post.post.content -%}  
-                        {%- endcase -%}                    
+                        {%- assign post-content = post.excerpt -%}                 
                         {{ post.post.title }}
                     {%- endcase -%}
                 </a>

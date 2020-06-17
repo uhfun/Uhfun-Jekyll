@@ -1,0 +1,28 @@
+<div class="post_article">
+  <div class="content">
+    <div class='columns'>
+      <div class="column">
+        <div class='title'>
+          <a href="{{ site.baseurl }}{{ sketch.url }}">{{ sketch.post.title }}</a>
+        </div>
+        <a class="excerpt" href="{{ site.baseurl }}{{ sketch.url }}">
+          {{ sketch.excerpt | truncate:400,'...' }}
+        </a>
+        {%- assign tags = sketch.tags -%}
+        {%- assign date = sketch.date -%}
+        {%- include component/tag-and-date.html -%}
+      </div>
+      {%- if sketch.head-img -%}
+      <div class="sketch-article-img column is-one-quarter image">
+        <a href="{{ site.baseurl }}{{ sketch.url }}">
+          {%- assign head-img = sketch.head-img -%}
+          {%- include component/head-img.html -%}
+          {%- if head-img -%}
+          <img src='{{ head-img }}'>
+          {%- endif -%}
+        </a>
+      </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
