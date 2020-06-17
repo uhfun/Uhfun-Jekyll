@@ -4,10 +4,8 @@ layout: page
 <article class="post">
   {%- if page.title -%}
   <h1 class="title is-spaced">{{ page.post.title | escape }}    
-    {%- if page.post.type != nil -%}
     {%- assign sketch = page -%}
     {%- include component/article_type_label.html -%}
-    {%- endif -%}
   </h1>
   {%- endif -%}
   {%- assign tags = page.tags -%}
