@@ -421,9 +421,13 @@
 .article-type-original {
   background-color: $base-color;
 }
-.article-type-translate {
+.article-type-translated {
   background-color: $article-type-color-pink;
 }
+.article-type-reprinted {
+  background-color: $article-type-color-yellow;
+}
+
 .article-type {
   font-size: 16px;
   font-weight: 500;
