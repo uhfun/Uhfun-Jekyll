@@ -800,14 +800,11 @@ one
 <h3 id="原始内容">原始内容</h3>
 
 <p><code class="language-plaintext highlighter-rouge">raw</code> 标记临时禁止处理其所包围的代码。如果输出的内容与 Liquid 模板语言有冲突时（例如 Mustache、Handlebars 模板语言）可以避免冲突。</p>
-<blockquote>
-  <p>下方应该是{% row %}, 没有空格，因为文章展示时有冲突，所以加了空格</p>
-</blockquote>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ % raw % }
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&#123;&#37; row &#37;&#125;
   In Handlebars, {{ this }} will be HTML-escaped, but
   {{{ that }}} will not.
-{ % endraw % }
+&#123;&#37; endraw &#37;&#125;
 →In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
 </code></pre></div></div>
 
