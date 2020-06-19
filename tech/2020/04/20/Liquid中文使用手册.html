@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="傅杭波, Uhfun, 博客, 后端, Web, Java, Spring, 唱歌">
+  <meta name="description" content='代码与生活、热爱唱歌的boy | 傅杭波的个人博客'>
+  <meta name="robots" content="all">
+  <meta property="og:type" content="post" /><meta property="og:title" content="Liquid中文使用手册 | UhfunBlog" />
+  <meta property="og:image" content='https://uhfun.cn/assetshttps://s1.ax1x.com/2020/06/04/t0QjeK.jpg' />
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Liquid 是一门开源的模板语言，由 Shopify 创造并用 Ruby 实现。它是 Shopify 主题的骨骼，并且被用于加载店铺系统的动态内容。
+从 2006 年起，Liquid 就被 Shopify 所使用，现在更是被大量 web 应用所使用。
+
+"><meta property="article:published_time" content='2020-04-20T21:10:00Z'><meta property="article:author" content="傅杭波"><meta property="og:image" content="" >
+  <meta property="og:url" content="https://uhfun.cn/tech/2020/04/20/Liquid%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html"><meta property="article:tag" content="liquid"><meta property="article:tag" content="文档"><meta property="og:site_name" content="傅杭波的博客UhfunBlog" />
+  <meta name="baidu-site-verification" content= "9DYfdd4yEo" />
+  <meta name="google-site-verification" content="uDSkqT9lEtkk2RsKYeldTKkmr4u_yI5aR3Y-tGgjcBo" />
+  <title>Liquid中文使用手册 | UhfunBlog</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/uhfun-jekyll/assets/img/favicon.ico">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/uhfun-jekyll/assets/css/main.css">
+  <link rel="alternate" type="application/atom+xml" title="UhfunBlog" href=""><link type="application/atom+xml" rel="alternate" href="https://uhfun.cn/uhfun-jekyll/feed.xml" title="UhfunBlog" /><!-- <script data-ad-client="ca-pub-1900429580469964" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/font-awesome/5.11.2/js/all.min.js"></script>
+</head><body><a target='_blank' href="https://github.com/uhfun" class="github-corner" aria-label="View source on GitHub">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+      <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+      <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+<header class="navbar has-shadow is-spaced" role="banner">
+  <div class="container"><div class="navbar-brand">
+      <a class="navbar-item" href="/uhfun-jekyll/">
+        <img src='https://s1.ax1x.com/2020/06/04/t0QDIg.png' width="160">
+      </a>
+      <div role="button" class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </div>
+    </div>
+    <div class="navbar-menu">      
+      <div class="navbar-end">
+        <a class='navbar-item' href='/uhfun-jekyll/'>主页</a><a class="navbar-item" href="/uhfun-jekyll/tag/">标签
+        </a><a class="navbar-item" href="/uhfun-jekyll/search/">搜索
+        </a><a class="navbar-item" href="/uhfun-jekyll/life/">生活
+        </a><a class="navbar-item" href="/uhfun-jekyll/tech/">技术
+        </a><div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+              <img class="is-rounded" src='https://s1.ax1x.com/2020/06/04/t0QjeK.jpg'>
+          </a>
+          <div class="navbar-dropdown is-right">
+            <a class="icon-dropdown navbar-item" href="/uhfun-jekyll/about.html">
+              <i class="far fa-user" aria-hidden="true"></i> 关于
+            </a>
+            <a class="icon-dropdown navbar-item" href="/uhfun-jekyll/feed.xml" target="_blank">
+              <i class="fa fa-rss "></i>RSS
+            </a>
+            <hr class="navbar-divider">        
+            <a class="navbar-item" href="/uhfun-jekyll/README.html#utterances"> 报告问题
+            </a>
+          </div>
+        </div>
+      </div>
+    </div></div>
+</header>
+<div class="section">
+    <div class="container">
+      <article class="page">
+  <div class="content">
+    <article class="post"><h1 class="title is-spaced">Liquid中文使用手册<span class="article-type article-type-reprinted">转载</span></h1><div class="tags">
+    <div class="container"><span class="icon is-small">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+        </span><a href="/uhfun-jekyll/tag/liquid">liquid</a><a href="/uhfun-jekyll/tag/%e6%96%87%e6%a1%a3">文档</a>
+        <span class="spot">•</span>
+        <span class='formated-date formated-date-left-space' data-time="2020/04/20 21:10:00">
+            2020-04-20
+        </span><!-- <span class="spot">•</span>
+        <span class='reading-time'>
+            阅读时长 &nbsp;25分钟
+        </span>         --></div>
+</div><div class='post-img'></div>
+  <div class='post-content'>
+    <div id="toc"></div>
+    <p><strong>Liquid</strong> 是一门开源的模板语言，由 <strong>Shopify</strong> 创造并用 <strong>Ruby</strong> 实现。它是 Shopify 主题的骨骼，并且被用于加载店铺系统的动态内容。
+从 2006 年起，<strong>Liquid</strong> 就被 <strong>Shopify</strong> 所使用，现在更是被大量 web 应用所使用。</p>
+
+<p><a href="https://github.com/Shopify/liquid">GitHub 源码仓库</a></p>
+
+<h2 id="基础">基础</h2>
+
+<h3 id="简介">简介</h3>
+
+<p>Liquid 代码可分为 <a href="https://liquid.bootcss.com/basics/introduction/#objects"><strong>对象（object）</strong></a>、<a href="https://liquid.bootcss.com/basics/introduction/#tags"><strong>标记（tag）</strong></a> 和 <a href="https://liquid.bootcss.com/basics/introduction/#filters"><strong>过滤器（filter）</strong></a>。</p>
+
+<h4 id="对象">对象</h4>
+
+<p><strong>对象</strong> 告诉 Liquid 在页面的哪个位置展示内容。对象和变量名由双花括号标识：<code class="language-plaintext highlighter-rouge">{{</code> 和 <code class="language-plaintext highlighter-rouge">}}</code>。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ page.title }}  
+→Introduction
+</code></pre></div></div>
+
+<p>上述实例中，Liquid 输出 <code class="language-plaintext highlighter-rouge">page.title</code> 对象的内容，此对象保存的是文本 <code class="language-plaintext highlighter-rouge">Introduction</code>。</p>
+
+<h4 id="标记tag">标记（tag）</h4>
+
+<p><strong>标记（tag）</strong> 创造了模板的逻辑和控制流。他们由单括号加百分号标识： <code class="language-plaintext highlighter-rouge">{%</code> 和 <code class="language-plaintext highlighter-rouge">%}</code>。</p>
+
+<p>标记（tag）并不产生任何可见的文本输出。这意味着你可以用他们为变量赋值、创建条件和循环逻辑，并且不在页面上显示出任何 Liquid 逻辑代码。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+→Hello Adam!
+</code></pre></div></div>
+
+<p>标记被分为三类：</p>
+
+<ul>
+  <li><a href="https://liquid.bootcss.com/tags/control-flow">控制流</a></li>
+  <li><a href="https://liquid.bootcss.com/tags/iteration">迭代</a></li>
+  <li><a href="https://liquid.bootcss.com/tags/variable">变量赋值</a></li>
+</ul>
+
+<p>你可以在每一类标记所对应的章节了解更多信息。</p>
+
+<h4 id="过滤器">过滤器</h4>
+
+<p><strong>过滤器</strong> 改变 Liquid 对象的输出。他们被用在输出上，通过一个 <code class="language-plaintext highlighter-rouge">|</code> 符号分隔。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "/my/fancy/url" | append: ".html" }}
+→/my/fancy/url.html
+</code></pre></div></div>
+
+<p>多个过滤器可以共同作用于同一个输出，并按照从左到右的顺序执行。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "adam!" | capitalize | prepend: "Hello " }}
+→Hello Adam!
+</code></pre></div></div>
+
+<h3 id="操作符">操作符</h3>
+
+<p>Liquid 包含了大量逻辑（logical）和比较操作符（comparison operator）。</p>
+
+<h4 id="基本操作符">基本操作符</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th><code class="language-plaintext highlighter-rouge">==</code></th>
+      <th>相等</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">!=</code></td>
+      <td>不相等</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;</code></td>
+      <td>大于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;</code></td>
+      <td>小于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&gt;=</code></td>
+      <td>大于或等于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">&lt;=</code></td>
+      <td>小于或等于</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">or</code></td>
+      <td>逻辑或</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">and</code></td>
+      <td>逻辑与</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>例如：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.title == "Awesome Shoes" %}
+  These shoes are awesome!
+{% endif %}
+</code></pre></div></div>
+
+<p>可以在一个标记（tag）中使用多个操作符：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.type == "Shirt" or product.type == "Shoes" %}
+  This is a shirt or a pair of shoes.
+{% endif %}
+</code></pre></div></div>
+
+<h4 id="contains包含">contains（包含）</h4>
+
+<p><code class="language-plaintext highlighter-rouge">contains</code> 用于检查在一个字符串中是否存在某个子串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.title contains 'Pack' %}
+  This product's title contains the word Pack.
+{% endif %}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">contains</code> 还可以用于检查一个字符串数组中是否存在某个字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.tags contains 'Hello' %}
+  This product has been tagged with 'Hello'.
+{% endif %}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">contains</code> 只能用于搜索字符串。你不能将其用于从一个对象数组中检查是否存在某个对象。</p>
+
+<h3 id="真值与假值">真值与假值</h3>
+
+<p>编程时，在条件判断中任何返回 <code class="language-plaintext highlighter-rouge">true</code> 的都被叫做 <strong>真值（truthy）</strong>。任何返回 <code class="language-plaintext highlighter-rouge">false</code> 的都被叫做 <strong>假值（falsy）</strong>。所有的对象（object）类型都可以被描述为真值（truthy）或假值（falsy）。</p>
+
+<ul>
+  <li><a href="https://liquid.bootcss.com/basics/truthy-and-falsy/#truthy">Truthy</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/truthy-and-falsy/#falsy">Falsy</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/truthy-and-falsy/#summary">Summary</a></li>
+</ul>
+
+<h4 id="真值truthy">真值（Truthy）</h4>
+
+<p>除了 <code class="language-plaintext highlighter-rouge">nil</code> 和 <code class="language-plaintext highlighter-rouge">false</code> 之外的所有值都是真值。</p>
+
+<p>如下例，字符串 “Tobi” 虽不是布尔类型，但是其在条件判断时被当做真值（truthy）：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign tobi = "Tobi" %}
+
+{% if tobi %}
+  This condition will always be true.
+{% endif %}
+</code></pre></div></div>
+
+<p><a href="https://liquid.bootcss.com/basics/types/#string">字符串（String）</a>，即便是空字符串，也是真值（truthy）。如下例，如果 <code class="language-plaintext highlighter-rouge">settings.fp_heading</code> 是个空字符串将会输出空 HTML 标签：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if settings.fp_heading %}
+  &lt;h1&gt;{{ settings.fp_heading }}&lt;/h1&gt;
+{% endif %}
+→&lt;h1&gt;&lt;/h1&gt;
+</code></pre></div></div>
+
+<h4 id="假值falsy">假值（Falsy）</h4>
+
+<p>在 Liquid 中，<a href="https://liquid.bootcss.com/basics/types/#nil"><code class="language-plaintext highlighter-rouge">nil</code></a> 和 <a href="https://liquid.bootcss.com/basics/types/#boolean"><code class="language-plaintext highlighter-rouge">false</code></a> 是假值。</p>
+
+<h4 id="总结">总结</h4>
+
+<p>下表总结了在 Liquid 中什么是真值什么是假值。</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"> </th>
+      <th style="text-align: center">真值（truthy）</th>
+      <th style="text-align: center">假值（falsy）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">true</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">false</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">nil</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">string</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">empty string</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">integer</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">float</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">array</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">empty array</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">page</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">EmptyDrop</td>
+      <td style="text-align: center">•</td>
+      <td style="text-align: center"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="数据类型">数据类型</h3>
+
+<p>Liquid 对象的类型可以是以下五种：</p>
+
+<ul>
+  <li><a href="https://liquid.bootcss.com/basics/types/#string">String</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/types/#number">Number</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/types/#boolean">Boolean</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/types/#nil">Nil</a></li>
+  <li><a href="https://liquid.bootcss.com/basics/types/#array">Array</a></li>
+</ul>
+
+<p>你可以通过 <a href="https://liquid.bootcss.com/tags/variable/#assign">assign</a> 或 <a href="https://liquid.bootcss.com/tags/variable/#capture">capture</a> 标记来初始化 Liquid 变量。</p>
+
+<h4 id="string字符串">String（字符串）</h4>
+
+<p>将变量的值包裹在单引号或双引号之中就声明了一个字符串：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_string = "Hello World!" %}
+</code></pre></div></div>
+
+<h4 id="number数字">Number（数字）</h4>
+
+<p>数字类型包括浮点数和整数：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_int = 25 %}
+{% assign my_float = 39.756 %}
+</code></pre></div></div>
+
+<h4 id="boolean布尔">Boolean（布尔）</h4>
+
+<p>Booleans 类型只能是 <code class="language-plaintext highlighter-rouge">true</code> 或 <code class="language-plaintext highlighter-rouge">false</code>。布尔值千万不能加引号，否则就成为字符串了。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign foo = true %}
+{% assign bar = false %}
+</code></pre></div></div>
+
+<h4 id="nil空">Nil（空）</h4>
+
+<p>Nil 是一个特殊的空值，当 Liquid 代码没有可输出的结果时将返回 Nil。他并<strong>不是</strong>由 “nil” 这个三个字符组成的字符串。</p>
+
+<p>在 <code class="language-plaintext highlighter-rouge">if</code> 条件判断和其他 Liquid 标记（tag）判断语句中，Nil <a href="https://liquid.bootcss.com/basics/truthy-and-falsy">被当做 false</a> 。</p>
+
+<p>下例中，如果 user 不存在（也就是 <code class="language-plaintext highlighter-rouge">user</code> 返回 <code class="language-plaintext highlighter-rouge">nil</code>），Liquid 不输出问候语：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if user %}
+  Hello {{ user.name }}!
+{% endif %}
+</code></pre></div></div>
+
+<p>如果 Liquid 标记（tag）或输出返回的是 <code class="language-plaintext highlighter-rouge">nil</code>，页面上将不会有任何内容。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The current user is {{ user.name }}
+→
+The current user is
+</code></pre></div></div>
+
+<h4 id="array数组">Array（数组）</h4>
+
+<p>数组能够存储一组任意类型的变量。</p>
+
+<h5 id="访问数组中的项">访问数组中的项</h5>
+
+<p>通过 <a href="https://liquid.bootcss.com/tags/iteration">迭代标记（iteration tag）</a> 可以访问数组中的所有项。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- if site.users = "Tobi", "Laura", "Tetsuro", "Adam" --&gt;
+{% for user in site.users %}
+  {{ user }}
+{% endfor %}
+→
+Tobi Laura Tetsuro Adam
+</code></pre></div></div>
+
+<h5 id="访问数组中的特定项">访问数组中的特定项</h5>
+
+<p>利用方括号 <code class="language-plaintext highlighter-rouge">[</code> <code class="language-plaintext highlighter-rouge">]</code> 能够访问数组中的特定项。数组的索引从 0 开始。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- if site.users = "Tobi", "Laura", "Tetsuro", "Adam" --&gt;
+{{ site.users[0] }}
+{{ site.users[1] }}
+{{ site.users[3] }}
+→
+Tobi
+Laura
+Adam
+</code></pre></div></div>
+
+<h5 id="初始化数组">初始化数组</h5>
+
+<p>你无法只通过 Liquid 语法初始化一个数组。</p>
+
+<p>然而，你可以利用 <a href="https://liquid.bootcss.com/filters/split">split</a> 过滤器将一个字符串分割为一个子字符串数组。</p>
+
+<h3 id="liquid-的各种分支">Liquid 的各种分支</h3>
+
+<p>Liquid 是一门灵活、安全的模版语言，被用于许多不同环境中。Liquid 被创建之初是用在 <a href="https://www.shopify.com/">Shopify</a> 商店系统中的，后来也被广泛用于 <a href="https://jekyllrb.com/">Jekyll</a> 网站中。随着时间的推移，Shopify 和 Jekyll 分别为 Liquid 添加了针对各自用途的对象（object）、标记（tag）和过滤器（filter）。目前最流行的 Liquid 版本包括 <strong>Liquid</strong>、<strong>Shopify Liquid</strong> 和 <strong>Jekyll Liquid</strong>。</p>
+
+<p>本站点托管的是最新版本的 <strong>Liquid</strong> 的文档，包括了 beta 和 release candidate 版本中包含的特性，也就是说，是独立于 Shopify 和 Jekyll 之外的 Liquid。如果你是从 Liquid 仓库下载的代码或者安装的的是 <a href="https://rubygems.org/gems/liquid">gem</a> 包，你所选择的 Liquid 版本对应你能够访问的对象（object）、标记（tag）和过滤器。</p>
+
+<h4 id="shopify">Shopify</h4>
+
+<p>Shopify 一直采用的都是最新版本的 Liquid，并且 Shopify 会针对 merchants’ store 为 Liquid 添加大量的对象（object）、标记（tag）和过滤器。这些新增的内容包括代表商店（store）、产品（product）和顾客信息的对象，以及用于展示商店数据和操作产品照片的过滤器。</p>
+
+<p>Shopify 版本的 Liquid 所对应的文档在 <a href="https://help.shopify.com/themes/liquid">Shopify Help Center</a>。如果你希望尝试 Shopify 版本的 Liquid，你可以<a href="https://www.shopify.com/signup">试用 Shopify</a> 或者使用类似 <a href="http://droppen.org/">DropPen</a> 的工具。</p>
+
+<h4 id="jekyll">Jekyll</h4>
+
+<p><a href="https://jekyllrb.com/">Jekyll</a> 是一个静态网站生成器，一个用于将模版和内容合并到一起从而创建网站的命令行工具。ekyll 将 Liquid 作为自身的模版语言，并且添加了许多对象（object）、标记（tag）和过滤器（filter）。这些新增内容包括代表内容页面的对象、用于在页面中引入内容片段的标记（tag），以及用于操作字符串和 URL 的过滤器。</p>
+
+<p>Jekyll 还是 <a href="https://pages.github.com/">GitHub Pages</a> 的底层引擎。GitHub Pages 是一项网站托管服务，允许你将 Jekyll 网站推送到 GitHub 仓库，最终得到一个发布到公网的站点。本网站就是由 GitHub Pages 托管的。</p>
+
+<p>Jekyll 可能使用的不是最新版本的 Liquid。也就意味着本文档所列出的标记（tag）和过滤器不能在 Jekyll 中使用。通常 Jekyll 项目使用的是稳定版的 Liquid，而不使用 beta 或 release candidate 版本。通过 <a href="https://rubygems.org/gems/jekyll">Jekyll 的 gem 信息也</a> 可查看 Jekyll 所依赖的所有 gem 包，从而可以了解 Jekyll 所使用的 Liquid 版本。</p>
+
+<p>Jekyll 版本的 Liquid 的文档在 <a href="http://jekyllrb.com/docs/templates/">Templates section of Jekyll’s documentation</a>。如果你希望尝试 Jekyll 版本的 Liquid，你可以克隆 Jekyll 项目或者安装 Jekyll 的 gem 包，然后在静态网站中测试 Liquid。</p>
+
+<h3 id="控制输出的空白符">控制输出的空白符</h3>
+
+<p>在 Liquid 模版中，你可以将连字符放在标记（tag）中，例如 <code class="language-plaintext highlighter-rouge">{{-</code>、<code class="language-plaintext highlighter-rouge">-}}</code>、<code class="language-plaintext highlighter-rouge">{%-</code> 和 <code class="language-plaintext highlighter-rouge">-%}</code>，用于将标记（tag）渲染之后的输出内容的左侧或右侧的空拍符剔除。</p>
+
+<p>通常，即使不输出文本，模版中的任何 Liquid 表达式仍然会在渲染之后输出的 HTML 中包含一个空行：</p>
+
+<p>请注意渲染之后输出的 “tomato” 字符前面包含了一个空行：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_variable = "tomato" %}
+{{ my_variable }}
+→tomato
+</code></pre></div></div>
+
+<p>通过为 <code class="language-plaintext highlighter-rouge">assign</code> 标记（tag）添加连字符，可以将渲染之后所输出的空拍符删除：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- assign my_variable = "tomato" -%}
+{{ my_variable }}
+→tomato
+</code></pre></div></div>
+
+<p>如果你不希望任何标记（tag）被渲染之后所输出的内容有任何空白符，只需在所有标记（tag）两侧全部添加连字符即可，例如 (<code class="language-plaintext highlighter-rouge">{%-</code> 和 <code class="language-plaintext highlighter-rouge">-%}</code>)：</p>
+
+<p>不做空白符控制的输出</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign username = "John G. Chalmers-Smith" %}
+{% if username and username.size &gt; 10 %}
+  Wow, {{ username }}, you have a long name!
+{% else %}
+  Hello there!
+{% endif %}
+→  Wow, John G. Chalmers-Smith, you have a long name!
+</code></pre></div></div>
+
+<p>带有空白符控制的输出</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{%- assign username = "John G. Chalmers-Smith" -%}
+{%- if username and username.size &gt; 10 -%}
+  Wow, {{ username }}, you have a long name!
+{%- else -%}
+  Hello there!
+{%- endif -%}
+→Wow, John G. Chalmers-Smith, you have a long name!
+</code></pre></div></div>
+
+<h2 id="标签">标签</h2>
+
+<h3 id="注释">注释</h3>
+
+<p><code class="language-plaintext highlighter-rouge">comment</code> 标记让你能够在 Liquid 模板中书写的内容不被输出。任何书写在 <code class="language-plaintext highlighter-rouge">comment</code> 起始与结束标记之间的内容都不会被输出，如果是 Liquid 代码则不会被执行。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Anything you put between {% comment %} and {% endcomment %} tags
+is turned into a comment.
+→
+Anything you put between  tags
+is turned into a comment.
+</code></pre></div></div>
+
+<h3 id="控制流">控制流</h3>
+
+<p>控制流标记（control flow tag）能够根据编程逻辑改变 Liquid 输出的信息。</p>
+
+<h4 id="if">if</h4>
+
+<p>只有当某个条件为 <code class="language-plaintext highlighter-rouge">true</code> 时才执行一段代码。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.title == 'Awesome Shoes' %}
+  These shoes are awesome!
+{% endif %}
+→These shoes are awesome!
+</code></pre></div></div>
+
+<h4 id="unless">unless</h4>
+
+<p>与 <code class="language-plaintext highlighter-rouge">if</code> 相对 – 只有当某个条件<strong>不</strong>成立时才执行一段代码。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% unless product.title == 'Awesome Shoes' %}
+  These shoes are not awesome.
+{% endunless %}
+→These shoes are not awesome.
+</code></pre></div></div>
+
+<p>和如下实例的执行结果一致：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if product.title != 'Awesome Shoes' %}
+  These shoes are not awesome.
+{% endif %}
+</code></pre></div></div>
+
+<h4 id="elsif--else">elsif / else</h4>
+
+<p>为 <code class="language-plaintext highlighter-rouge">if</code> 或 <code class="language-plaintext highlighter-rouge">unless</code> 添加更多状态判断。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- If customer.name = 'anonymous' --&gt;
+{% if customer.name == 'kevin' %}
+  Hey Kevin!
+{% elsif customer.name == 'anonymous' %}
+  Hey Anonymous!
+{% else %}
+  Hi Stranger!
+{% endif %}
+→Hey Anonymous!
+</code></pre></div></div>
+
+<h4 id="casewhen">case/when</h4>
+
+<p>创建一个开关表达式，用于将一个变量和多个不同值进行比较。<code class="language-plaintext highlighter-rouge">case</code> 用于初始化一个开关表达式，<code class="language-plaintext highlighter-rouge">when</code> 用于比较他们的值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign handle = 'cake' %}
+{% case handle %}
+  {% when 'cake' %}
+     This is a cake
+  {% when 'cookie' %}
+     This is a cookie
+  {% else %}
+     This is not a cake nor a cookie
+{% endcase %}
+→This is a cake
+</code></pre></div></div>
+
+<h3 id="迭代循环">迭代／循环</h3>
+
+<p>迭代（或循环）标记（iteration tag）用于重复运行一段代码。</p>
+
+<h4 id="for">for</h4>
+
+<p>重复运行一段代码。<code class="language-plaintext highlighter-rouge">for</code> 循环中所能够使用的属性请参考 <a href="https://docs.shopify.com/themes/liquid/objects/for-loops">forloop (object)</a>。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  {% for product in collection.products %}
+    {{ product.title }}
+  {% endfor %}
+  →hat shirt pants
+</code></pre></div></div>
+
+<h5 id="break">break</h5>
+
+<p>循环过程中若干遇到 <code class="language-plaintext highlighter-rouge">break</code> 标记（tag）即停止循环。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for i in (1..5) %}
+  {% if i == 4 %}
+    {% break %}
+  {% else %}
+    {{ i }}
+  {% endif %}
+{% endfor %}
+→1 2 3
+</code></pre></div></div>
+
+<h5 id="continue">continue</h5>
+
+<p>循环过程中若遇到 <code class="language-plaintext highlighter-rouge">continue</code> 标记（tag）则跳出当前循环。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for i in (1..5) %}
+  {% if i == 4 %}
+    {% continue %}
+  {% else %}
+    {{ i }}
+  {% endif %}
+{% endfor %}
+→1 2 3   5
+</code></pre></div></div>
+
+<h4 id="for-parameters">for (parameters)</h4>
+
+<h5 id="limit">limit</h5>
+
+<p>限定循环执行的次数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- if array = [1,2,3,4,5,6] --&gt;
+{% for item in array limit:2 %}
+  {{ item }}
+{% endfor %}
+→1 2
+</code></pre></div></div>
+
+<h5 id="offset">offset</h5>
+
+<p>从指定索引号开始执行循环。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- if array = [1,2,3,4,5,6] --&gt;
+{% for item in array offset:2 %}
+  {{ item }}
+{% endfor %}
+→3 4 5 6
+</code></pre></div></div>
+
+<h5 id="range">range</h5>
+
+<p>定义循环执行的范围。可利用数字或变量来定义此执行范围。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% for i in (3..5) %}
+  {{ i }}
+{% endfor %}
+
+{% assign num = 4 %}
+{% for i in (1..num) %}
+  {{ i }}
+{% endfor %}
+→
+3 4 5
+1 2 3 4
+</code></pre></div></div>
+
+<h5 id="reversed">reversed</h5>
+
+<p>反转循环的执行顺序。注意和 <code class="language-plaintext highlighter-rouge">reverse</code> 过滤器（filter）的拼写是不同的。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!-- if array = [1,2,3,4,5,6] --&gt;
+{% for item in array reversed %}
+  {{ item }}
+{% endfor %}
+→6 5 4 3 2 1
+</code></pre></div></div>
+
+<h4 id="cycle">cycle</h4>
+
+<p>循环一组字符串并按照它们传入的顺序将其输出。每次调用 <code class="language-plaintext highlighter-rouge">cycle</code> 时，传入的参数中的下一个字符串将被输出。</p>
+
+<p><code class="language-plaintext highlighter-rouge">cycle</code> 必须用在 <a href="https://liquid.bootcss.com/tags/iteration/#for">for</a> 循环中。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% cycle 'one', 'two', 'three' %}
+{% cycle 'one', 'two', 'three' %}
+{% cycle 'one', 'two', 'three' %}
+{% cycle 'one', 'two', 'three' %}
+→
+one
+two
+three
+one
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">cycle</code> 的使用场景包括：</p>
+
+<ul>
+  <li>对表格中的奇数／偶数行输出相应的类（class）</li>
+  <li>在一行中的最后一列输出一个唯一的类（class）</li>
+</ul>
+
+<h4 id="cycle-parameters">cycle (parameters)</h4>
+
+<p><code class="language-plaintext highlighter-rouge">cycle</code> 能够接受一个叫做 <code class="language-plaintext highlighter-rouge">cycle group</code> 的参数，以便满足你在模版中需要使用多个 <code class="language-plaintext highlighter-rouge">cycle</code> 代码块的情况。如果没有为 cycle group 命名，那么将会假定带有相同参数的 cycle 调用属于同一个组（group）。</p>
+
+<h4 id="tablerow">tablerow</h4>
+
+<p>生成一个 HTML 表格。必须用 <code class="language-plaintext highlighter-rouge">&lt;table&gt;</code> 和 <code class="language-plaintext highlighter-rouge">&lt;/table&gt;</code> 这两个 HTML 标签将其包裹起来。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;table&gt;
+{% tablerow product in collection.products %}
+  {{ product.title }}
+{% endtablerow %}
+&lt;/table&gt;
+→
+&lt;table&gt;
+  &lt;tr class="row1"&gt;
+    &lt;td class="col1"&gt;
+      Cool Shirt
+    &lt;/td&gt;
+    &lt;td class="col2"&gt;
+      Alien Poster
+    &lt;/td&gt;
+    &lt;td class="col3"&gt;
+      Batman Poster
+    &lt;/td&gt;
+    &lt;td class="col4"&gt;
+      Bullseye Shirt
+    &lt;/td&gt;
+    &lt;td class="col5"&gt;
+      Another Classic Vinyl
+    &lt;/td&gt;
+    &lt;td class="col6"&gt;
+      Awesome Jeans
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre></div></div>
+
+<h4 id="tablerow-parameters">tablerow (parameters)</h4>
+
+<h5 id="cols">cols</h5>
+
+<p>定义表格应当有多少列。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% tablerow product in collection.products cols:2 %}
+  {{ product.title }}
+{% endtablerow %}
+→
+&lt;table&gt;
+  &lt;tr class="row1"&gt;
+    &lt;td class="col1"&gt;
+      Cool Shirt
+    &lt;/td&gt;
+    &lt;td class="col2"&gt;
+      Alien Poster
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr class="row2"&gt;
+    &lt;td class="col1"&gt;
+      Batman Poster
+    &lt;/td&gt;
+    &lt;td class="col2"&gt;
+      Bullseye Shirt
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr class="row3"&gt;
+    &lt;td class="col1"&gt;
+      Another Classic Vinyl
+    &lt;/td&gt;
+    &lt;td class="col2"&gt;
+      Awesome Jeans
+    &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre></div></div>
+
+<h5 id="limit-1">limit</h5>
+
+<p>在执行到指定的脚标（index）之后退出 tablerow 。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% tablerow product in collection.products cols:2 limit:3 %}
+  {{ product.title }}
+{% endtablerow %}
+</code></pre></div></div>
+
+<h5 id="offset-1">offset</h5>
+
+<p>在指定的脚标（index）之后开始执行 tablerow 。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% tablerow product in collection.products cols:2 offset:3 %}
+  {{ product.title }}
+{% endtablerow %}
+</code></pre></div></div>
+
+<h5 id="range-1">range</h5>
+
+<p>定义循环执行的范围。可利用数字和变量来定义执行范围。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!--variable number example--&gt;
+
+{% assign num = 4 %}
+&lt;table&gt;
+{% tablerow i in (1..num) %}
+  {{ i }}
+{% endtablerow %}
+&lt;/table&gt;
+
+&lt;!--literal number example--&gt;
+
+&lt;table&gt;
+{% tablerow i in (3..5) %}
+  {{ i }}
+{% endtablerow %}
+&lt;/table&gt;
+</code></pre></div></div>
+
+<h3 id="原始内容">原始内容</h3>
+
+<p><code class="language-plaintext highlighter-rouge">raw</code> 标记临时禁止处理其所包围的代码。如果输出的内容与 Liquid 模板语言有冲突时（例如 Mustache、Handlebars 模板语言）可以避免冲突。</p>
+<blockquote>
+  <p>下方应该是 {%, 没有空格，因为文章展示时有冲突，所以加了空格</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{ % raw % }
+  In Handlebars, {{ this }} will be HTML-escaped, but
+  {{{ that }}} will not.
+{ % endraw % }
+→In Handlebars, {{ this }} will be HTML-escaped, but {{{ that }}} will not.
+</code></pre></div></div>
+
+<h3 id="变量">变量</h3>
+
+<p>变量标记（variable tag）用于创建新的 Liquid 变量。</p>
+
+<h4 id="assign">assign</h4>
+
+<p>创建一个新变量。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_variable = false %}
+{% if my_variable != true %}
+  This statement is valid.
+{% endif %}
+→  This statement is valid.
+</code></pre></div></div>
+
+<p>将变量用 <code class="language-plaintext highlighter-rouge">"</code> 包裹之后则将其当做字符串对待。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign foo = "bar" %}
+{{ foo }}
+→bar
+</code></pre></div></div>
+
+<h4 id="capture">capture</h4>
+
+<p>将 <code class="language-plaintext highlighter-rouge">capture</code> 开始与结束标记之间的字符串捕获之后赋值给一个变量。通过 <code class="language-plaintext highlighter-rouge">{% capture %}</code> 创建的变量都是字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% capture my_variable %}I am being captured.{% endcapture %}
+{{ my_variable }}
+→I am being captured.
+</code></pre></div></div>
+
+<p>使用 <code class="language-plaintext highlighter-rouge">capture</code> 时，你还可以利用 <code class="language-plaintext highlighter-rouge">assign</code> 创建的其他变量创造一个复杂的字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign favorite_food = 'pizza' %}
+{% assign age = 35 %}
+
+{% capture about_me %}
+I am {{ age }} and my favorite food is {{ favorite_food }}.
+{% endcapture %}
+
+{{ about_me }}
+→I am 35 and my favourite food is pizza.
+</code></pre></div></div>
+
+<h4 id="increment">increment</h4>
+
+<p>创建一个全新的数值变量，并且在后续每次调用时将此变量的值加 1。初始值是 0。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% increment my_counter %}
+{% increment my_counter %}
+{% increment my_counter %}
+→
+0
+1
+2
+</code></pre></div></div>
+
+<p>通过 <code class="language-plaintext highlighter-rouge">increment</code> 标记（tag）创建的变量与通过 <code class="language-plaintext highlighter-rouge">assign</code> 或 <code class="language-plaintext highlighter-rouge">capture</code> 创建的变量是相互独立的。</p>
+
+<p>在下面的实例中，名为 “var” 的变量是通过 <code class="language-plaintext highlighter-rouge">assign</code> 创建的。然后将 <code class="language-plaintext highlighter-rouge">increment</code> 标记（tag）在相同的变量名上应用了几次。注意，<code class="language-plaintext highlighter-rouge">increment</code> 标记（tag）不会对 <code class="language-plaintext highlighter-rouge">assign</code> 创建的变量 “var” 及其值产生任何影响。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign var = 10 %}
+{% increment var %}
+{% increment var %}
+{% increment var %}
+{{ var }}
+→
+0
+1
+2
+10
+</code></pre></div></div>
+
+<h4 id="decrement">decrement</h4>
+
+<p>创建一个全新的数值变量，并且在后续每次调用时将此变量的值减 1。初始值是 -1。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% decrement variable %}
+{% decrement variable %}
+{% decrement variable %}
+→
+-1
+-2
+-3
+</code></pre></div></div>
+
+<p>和 <a href="https://liquid.bootcss.com/tags/variable/#increment">increment</a> 类似，在 <code class="language-plaintext highlighter-rouge">decrement</code> 之中创建的变量与通过 <code class="language-plaintext highlighter-rouge">assign</code> 或 <code class="language-plaintext highlighter-rouge">capture</code> 创建的变量是互相独立的。</p>
+
+<h2 id="筛选器">筛选器</h2>
+
+<h3 id="abs">abs</h3>
+
+<p>返回一个数字的绝对值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ -17 | abs }}
+→17
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | abs }}
+→4
+</code></pre></div></div>
+
+<p>如果组成字符串的各个字符全是数字，<code class="language-plaintext highlighter-rouge">abs</code> 也能够对此字符串求绝对值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "-19.86" | abs }}
+→19.86
+</code></pre></div></div>
+
+<h3 id="append">append</h3>
+
+<p>将两个字符串拼接起来并返回拼接之后的值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "/my/fancy/url" | append: ".html" }}
+→/my/fancy/url.html
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">append</code> 同样能够作用于变量：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign filename = "/index.html" %}
+{{ "website.com" | append: filename }}
+→website.com/index.html
+</code></pre></div></div>
+
+<h3 id="at_least">at_least</h3>
+
+<p>将数字限制在最小值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | at_least: 5 }}
+→5
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | at_least: 3 }}
+→4
+</code></pre></div></div>
+
+<h3 id="at_most">at_most</h3>
+
+<p>将数字限制在最大值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | at_most: 5 }}
+→
+4
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | at_most: 3 }}
+→
+3
+</code></pre></div></div>
+
+<h3 id="capitalize">capitalize</h3>
+
+<p>将字符串首字母转为大写。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "title" | capitalize }}
+→
+Title
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">capitalize</code> 只把字符串的首字母转为大写，其他字符不受影响：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "my great title" | capitalize }}
+→
+My great title
+</code></pre></div></div>
+
+<h3 id="ceil">ceil</h3>
+
+<p>将一个浮点数向上取整并返回一个最接近的整数。在 ceil 过滤器执行之前 Liquid 会先尝试将输入转换为数字格式。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 1.2 | ceil }}
+→
+2
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 2.0 | ceil }}
+→
+2
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | ceil }}
+→
+184
+</code></pre></div></div>
+
+<p>以下实例所用输入是字符串：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "3.5" | ceil }}
+→
+4
+</code></pre></div></div>
+
+<h3 id="compact">compact</h3>
+
+<p>删除数组中的所有 <code class="language-plaintext highlighter-rouge">nil</code> 值。</p>
+
+<p>例如，假定整个网站所有内容页面作为一个数组保存在 <code class="language-plaintext highlighter-rouge">site.pages</code> 变量中，其中某些页面被设置了 <code class="language-plaintext highlighter-rouge">category</code> 属性用于指定该页面的内容分类。如果我们利用 <code class="language-plaintext highlighter-rouge">map</code> 过滤器将所有页面的 <code class="language-plaintext highlighter-rouge">category</code> 属性保存到一个数组中，就会出现如果某个页面没有 <code class="language-plaintext highlighter-rouge">category</code> 属性，其在数组中的值就会是 <code class="language-plaintext highlighter-rouge">nil</code>。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign site_categories = site.pages | map: 'category' %}
+
+{% for category in site_categories %}
+  {{ category }}
+{% endfor %}
+→
+  business
+  celebrities
+
+  lifestyle
+  sports
+
+  technology
+</code></pre></div></div>
+
+<p>在创建 <code class="language-plaintext highlighter-rouge">site_categories</code> 数组时，通过使用 <code class="language-plaintext highlighter-rouge">compact</code> 过滤器我们可以删除此数组中的所有 <code class="language-plaintext highlighter-rouge">nil</code> 值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign site_categories = site.pages | map: 'category' | compact %}
+
+{% for category in site_categories %}
+  {{ category }}
+{% endfor %}
+→
+  business
+  celebrities
+  lifestyle
+  sports
+  technology
+</code></pre></div></div>
+
+<h3 id="concat">concat</h3>
+
+<p>连接(联接)多个数组。结果数组包含输入数组中的所有项。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign fruits = "apples, oranges, peaches" | split: ", " %}
+{% assign vegetables = "carrots, turnips, potatoes" | split: ", " %}
+
+{% assign everything = fruits | concat: vegetables %}
+
+{% for item in everything %}
+- {{ item }}
+{% endfor %}
+→
+- apples
+- oranges
+- peaches
+- carrots
+- turnips
+- potatoes
+</code></pre></div></div>
+
+<p>您可以将<code class="language-plaintext highlighter-rouge">linat</code>过滤器串在一起，连接两个以上的数组：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign furniture = "chairs, tables, shelves" | split: ", " %}
+
+{% assign everything = fruits | concat: vegetables | concat: furniture %}
+
+{% for item in everything %}
+- {{ item }}
+{% endfor %}
+→
+- apples
+- oranges
+- peaches
+- carrots
+- turnips
+- potatoes
+- chairs
+- tables
+- shelves
+</code></pre></div></div>
+
+<h3 id="date">date</h3>
+
+<p>将时间戳（timestamp）转换为另一种日期格式。格式化语法与 <a href="http://strftime.net/"><code class="language-plaintext highlighter-rouge">strftime</code></a> 一致。输入格式与 Ruby 中的 <a href="https://ruby-doc.org/stdlib/libdoc/time/rdoc/Time.html#method-c-parse"><code class="language-plaintext highlighter-rouge">Time.parse</code></a> 一致。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ article.published_at | date: "%a, %b %d, %y" }}
+→
+Fri, Jul 17, 15
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ article.published_at | date: "%Y" }}
+→
+2015
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">date</code> 能够作用于包含良好格式化的日期字符串：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "March 14, 2016" | date: "%b %d, %y" }}
+→
+Mar 14, 16
+</code></pre></div></div>
+
+<p>将 <code class="language-plaintext highlighter-rouge">"now"</code> (或 <code class="language-plaintext highlighter-rouge">"today"</code>) 单词传入 <code class="language-plaintext highlighter-rouge">date</code> 过滤器可以获取当前时间：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>This page was last updated at {{ "now" | date: "%Y-%m-%d %H:%M" }}.
+→
+This page was last updated at 2020-05-01 14:41.
+</code></pre></div></div>
+
+<p>注意，上述实例输出的日期是最后一次生成当前页面的时间，并不是页面呈现给用户的时间。</p>
+
+<h3 id="default">default</h3>
+
+<p>指定一个默认值，以防预期的值不存在。如果左侧的值为 <code class="language-plaintext highlighter-rouge">nil</code>、<code class="language-plaintext highlighter-rouge">false</code> 或空，<code class="language-plaintext highlighter-rouge">default</code> 将输出此默认值。</p>
+
+<p>如下实例中，<code class="language-plaintext highlighter-rouge">product_price</code> 并未被定义，因此将输出默认值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ product_price | default: 2.99 }}
+→
+2.99
+</code></pre></div></div>
+
+<p>如下实例中，<code class="language-plaintext highlighter-rouge">product_price</code> 已被定义，不再输出默认值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign product_price = 4.99 %}
+{{ product_price | default: 2.99 }}
+→
+4.99
+</code></pre></div></div>
+
+<p>如下实例中，<code class="language-plaintext highlighter-rouge">product_price</code> 的值为空，因此将输出默认值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign product_price = "" %}
+{{ product_price | default: 2.99 }}
+→
+2.99
+</code></pre></div></div>
+
+<h3 id="divided_by">divided_by</h3>
+
+<p>将两个数相除。</p>
+
+<p>如果除数（divisor）为整数，则将相除之后得到的结果向下取整得到最接近的整数（也就是对应 <a href="https://liquid.bootcss.com/filters/floor">floor</a> 的功能）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 16 | divided_by: 4 }}
+→
+4
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 5 | divided_by: 3 }}
+→
+1
+</code></pre></div></div>
+
+<h4 id="控制舍入">控制舍入</h4>
+
+<p><code class="language-plaintext highlighter-rouge">divided_by</code> 返回的结果于除数是同一数据类型的，也就是说，如果除数是整数，返回的结果也是整数；如果除数是浮点数（带有小数），返回的结果也是浮点数。</p>
+
+<p>如下实例，除数为整数：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 20 | divided_by: 7 }}
+→
+2
+</code></pre></div></div>
+
+<p>除数为浮点数：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 20 | divided_by: 7.0 }}
+→
+2.857142857142857
+</code></pre></div></div>
+
+<h4 id="改变变量的类型">改变变量的类型</h4>
+
+<p>某些情况你需要将除数设置为一个变量，这种情况下你无法简单的给这个变量添加 <code class="language-plaintext highlighter-rouge">.0</code> 将其转变为浮点数。这时，你可以通过 <code class="language-plaintext highlighter-rouge">times</code> 过滤器将其转变为浮点数，并通过 <code class="language-plaintext highlighter-rouge">assign</code> 创建一个新变量来保存转换之后的浮点数。</p>
+
+<p>下例中，除数是一个变量，保存的是一个整数，所以返回值也是一个整数：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_integer = 7 %}
+{{ 20 | divided_by: my_integer }}
+→
+2
+</code></pre></div></div>
+
+<p>下面，我们将这个变量<a href="https://liquid.bootcss.com/filters/times">乘以</a> <code class="language-plaintext highlighter-rouge">1.0</code> 来得到一个浮点数，然后将此浮点数作为除数进行运算：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_integer = 7 %}
+{% assign my_float = my_integer | times: 1.0 %}
+{{ 20 | divided_by: my_float }}
+→
+2.857142857142857
+</code></pre></div></div>
+
+<h3 id="downcase">downcase</h3>
+
+<p>用于将字符串中的各个字符转换为小写形式。对于已经是小写形式的字符串没有任何影响。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Parker Moore" | downcase }}
+→
+parker moore
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "apple" | downcase }}
+→
+apple
+</code></pre></div></div>
+
+<h3 id="escape">escape</h3>
+
+<p>对字符串转义操作就是将字符串中的某些字符替换为转义序列（escape sequence），这样整个字符串就能够用于 URL 了。如果字符串不需要转义则不会对字符串做任何操作。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Have you read 'James &amp; the Giant Peach'?" | escape }}
+→
+Have you read &amp;#39;James &amp;amp; the Giant Peach&amp;#39;?
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Tetsuro Takara" | escape }}
+→
+Tetsuro Takara
+</code></pre></div></div>
+
+<h3 id="escape_once">escape_once</h3>
+
+<p>转义一个字符串并且不修改已经转义过的实体（entities)。对于无须转义的字符串不做任何修改。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "1 &lt; 2 &amp; 3" | escape_once }}
+→
+1 &amp;lt; 2 &amp;amp; 3
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "1 &amp;lt; 2 &amp;amp; 3" | escape_once }}
+→
+1 &amp;lt; 2 &amp;amp; 3
+</code></pre></div></div>
+
+<h3 id="first">first</h3>
+
+<p>返回数组的第一项。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "apples, oranges, peaches, plums" | split: ", " %}
+
+{{ my_array.first }}
+→
+apples
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "zebra, octopus, giraffe, tiger" | split: ", " %}
+
+{{ my_array.first }}
+→
+zebra
+</code></pre></div></div>
+
+<h3 id="floor">floor</h3>
+
+<p>将一个浮点数通过舍弃小数部分得到最近的整数。在 floor 过滤器执行之前 Liquid 会先尝试将输入转换为数字格式。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 1.2 | floor }}
+→
+1
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 2.0 | floor }}
+→
+2
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | floor }}
+→
+183
+</code></pre></div></div>
+
+<p>以下实例所用输入是字符串：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "3.5" | floor }}
+→
+3
+</code></pre></div></div>
+
+<h3 id="join">join</h3>
+
+<p>将数组中的各个字符串合并为一个字符串，并将 <code class="language-plaintext highlighter-rouge">split</code> 参数作为字符串之间的分隔符。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
+
+{{ beatles | join: " and " }}
+→join将数组中的各个字符串合并为一个字符串，并将 split 参数作为字符串之间的分隔符。输入{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}{{ beatles | join: " and " }}输出John and Paul and George and Ringo
+John and Paul and George and Ringo
+</code></pre></div></div>
+
+<h3 id="last">last</h3>
+
+<p>返回数组中的最后一项。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "apples, oranges, peaches, plums" | split: ", " %}
+
+{{ my_array.last }}
+→
+plums
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "zebra, octopus, giraffe, tiger" | split: ", " %}
+
+{{ my_array.last }}
+→
+tiger
+</code></pre></div></div>
+
+<h3 id="lstrip">lstrip</h3>
+
+<p>删除字符串左侧的所有空白符（制表符、空格和换行符）。字符串中间的所有空白符不受影响。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "          So much room for activities!          " | lstrip }}
+→
+So much room for activities!          
+</code></pre></div></div>
+
+<h3 id="map">map</h3>
+
+<p>从对象（object）中提取指定名称的属性的值，并用这些值构建一个数组。</p>
+
+<p>以下实例中，假定 <code class="language-plaintext highlighter-rouge">site.pages</code> 包含了整个网站的元数据信息。利用 <code class="language-plaintext highlighter-rouge">assign</code> 和 <code class="language-plaintext highlighter-rouge">map</code> 过滤器创建一个变量，此变量只包含 <code class="language-plaintext highlighter-rouge">site.pages</code> 对象中 <code class="language-plaintext highlighter-rouge">category</code> 属性对应的所有值。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign all_categories = site.pages | map: "category" %}
+
+{% for item in all_categories %}
+{{ item }}
+{% endfor %}
+→
+business
+celebrities
+lifestyle
+sports
+technology
+</code></pre></div></div>
+
+<h3 id="minus">minus</h3>
+
+<p>从一个数中减去另一个数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | minus: 2 }}
+→
+2
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 16 | minus: 4 }}
+→
+12
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | minus: 12 }}
+→
+171.357
+</code></pre></div></div>
+
+<h3 id="modulo">modulo</h3>
+
+<p>返回除法运算的余数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 3 | modulo: 2 }}
+→
+1
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 24 | modulo: 7 }}
+→
+3
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | modulo: 12 }}
+→
+3.357
+</code></pre></div></div>
+
+<h3 id="newline_to_br">newline_to_br</h3>
+
+<p>将所有换行符(<code class="language-plaintext highlighter-rouge">\n</code>) 替换为 HTML 的 (<code class="language-plaintext highlighter-rouge">&lt;br&gt;</code>) 标签。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% capture string_with_newlines %}
+Hello
+there
+{% endcapture %}
+
+{{ string_with_newlines | newline_to_br }}
+→
+&lt;br /&gt;
+Hello&lt;br /&gt;
+there&lt;br /&gt;
+</code></pre></div></div>
+
+<h3 id="plus">plus</h3>
+
+<p>两个数相加。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 4 | plus: 2 }}
+→
+6
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 16 | plus: 4 }}
+→
+20
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | plus: 12 }}
+→
+195.357
+</code></pre></div></div>
+
+<h3 id="prepend">prepend</h3>
+
+<p>在一个字符串前面附加另一个字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "apples, oranges, and bananas" | prepend: "Some fruit: " }}
+→
+Some fruit: apples, oranges, and bananas
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">prepend</code> 也能作用于变量：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign url = "example.com" %}
+
+{{ "/index.html" | prepend: url }}
+→
+example.com/index.html
+</code></pre></div></div>
+
+<h3 id="remove">remove</h3>
+
+<p>从一个字符串中删除所有出现的另一个子字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "I strained to see the train through the rain" | remove: "rain" }}
+→
+I sted to see the t through the 
+</code></pre></div></div>
+
+<h3 id="remove_first">remove_first</h3>
+
+<p>从一个字符串中仅仅删除第一次出现的另一个子字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "I strained to see the train through the rain" | remove_first: "rain" }}
+→
+I sted to see the train through the rain
+</code></pre></div></div>
+
+<h3 id="replace">replace</h3>
+
+<p>将参数中给出的第一个参数全部替换为第二个参数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Take my protein pills and put my helmet on" | replace: "my", "your" }}
+→
+Take your protein pills and put your helmet on
+</code></pre></div></div>
+
+<h3 id="replace_first">replace_first</h3>
+
+<p>将字符串中出现的第一个参数替换为第二个参数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_string = "Take my protein pills and put my helmet on" %}
+{{ my_string | replace_first: "my", "your" }}
+→
+Take your protein pills and put my helmet on
+</code></pre></div></div>
+
+<h3 id="reverse">reverse</h3>
+
+<p>将数组中的所有项的顺序反转。<code class="language-plaintext highlighter-rouge">reverse</code> 不能操作字符串。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "apples, oranges, peaches, plums" | split: ", " %}
+
+{{ my_array | reverse | join: ", " }}
+→
+plums, peaches, oranges, apples
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">reverse</code> 不能直接应用到字符串上，但是你可以先将字符串分割成字符数组，然后再将数组反转，最后将反转之后的数组合并。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | split: "" | reverse | join: "" }}
+→
+.moT rojaM ot lortnoc dnuorG
+</code></pre></div></div>
+
+<h3 id="round">round</h3>
+
+<p>将浮点数舍入到最近的整数，或者，如果传入的参数是一个数值的话，将浮点数舍入到参数指定的小数位。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 1.2 | round }}
+→
+1
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 2.7 | round }}
+→
+3
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | round: 2 }}
+→
+183.36
+</code></pre></div></div>
+
+<h3 id="rstrip">rstrip</h3>
+
+<p>将字符串右侧的所有空白字符（制表符 - tab、空格符 - space 和 回车符 - newline）删除。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "          So much room for activities!          " | rstrip }}
+→
+          So much room for activities!
+</code></pre></div></div>
+
+<h3 id="size">size</h3>
+
+<p>返回字符串中所包含的字符数或者数组中所包含的条目数量。<code class="language-plaintext highlighter-rouge">size</code> 还支持“点标记”（例如 <code class="language-plaintext highlighter-rouge">{{ my_string.size }}</code>）。这种用法便于你在标签（tag）中使用 <code class="language-plaintext highlighter-rouge">size</code> 过滤器，例如条件判断标签（tag）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | size }}
+→
+28
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "apples, oranges, peaches, plums" | split: ", " %}
+
+{{ my_array | size }}
+→
+4
+</code></pre></div></div>
+
+<p>使用“点标记”：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if site.pages.size &gt; 10 %}
+  This is a big website!
+{% endif %}
+</code></pre></div></div>
+
+<h3 id="slice">slice</h3>
+
+<p>只传入一个参数时将返回此参数作为下标所对应的单个字符。第二个参数是可选的，用于指定返回的子字符串的长度。</p>
+
+<p>String indices are numbered starting from 0.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Liquid" | slice: 0 }}
+→
+L
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Liquid" | slice: 2 }}
+→
+q
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Liquid" | slice: 2, 5 }}
+→
+quid
+</code></pre></div></div>
+
+<p>If the first parameter is a negative number, the indices are counted from the end of the string:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Liquid" | slice: -3, 2 }}
+→
+ui
+</code></pre></div></div>
+
+<h3 id="sort">sort</h3>
+
+<p>对数组中的所有进行排序。排序后的数组是按照区分大小写的顺序排列的。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "zebra, octopus, giraffe, Sally Snake" | split: ", " %}
+
+{{ my_array | sort | join: ", " }}
+→
+Sally Snake, giraffe, octopus, zebra
+</code></pre></div></div>
+
+<h3 id="sort_natural">sort_natural</h3>
+
+<p>对数组进行排序，并且大小写无关。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "zebra, octopus, giraffe, Sally Snake" | split: ", " %}
+
+{{ my_array | sort_natural | join: ", " }}
+→
+giraffe, octopus, Sally Snake, zebra
+</code></pre></div></div>
+
+<h3 id="split">split</h3>
+
+<p>根据参数传入的分隔符将字符串分解为数组。<code class="language-plaintext highlighter-rouge">split</code> 通常被用于将以逗号为分隔符的字符串转换为数组。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign beatles = "John, Paul, George, Ringo" | split: ", " %}
+
+{% for member in beatles %}
+  {{ member }}
+{% endfor %}
+→
+  John
+
+  Paul
+
+  George
+
+  Ringo
+</code></pre></div></div>
+
+<h3 id="strip">strip</h3>
+
+<p>删除字符串左右两侧的所有空白符号（包括制表符、空格、换行符）。对于字符串中间的空白符不做任何处理。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "          So much room for activities!          " | strip }}
+→So much room for activities!
+</code></pre></div></div>
+
+<h3 id="strip_html">strip_html</h3>
+
+<p>从字符串中删除所有 HTML 标签。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Have &lt;em&gt;you&lt;/em&gt; read &lt;strong&gt;Ulysses&lt;/strong&gt;?" | strip_html }}
+→
+Have you read Ulysses?
+</code></pre></div></div>
+
+<h3 id="strip_newlines">strip_newlines</h3>
+
+<p>从字符串中删除所有换行字符（newline character）。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% capture string_with_newlines %}
+Hello
+there
+{% endcapture %}
+
+{{ string_with_newlines | strip_newlines }}
+→
+Hellothere
+</code></pre></div></div>
+
+<h3 id="times">times</h3>
+
+<p>将一个数乘以另一个数。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 3 | times: 2 }}
+→
+6
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 24 | times: 7 }}
+→
+168
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ 183.357 | times: 12 }}
+→
+2200.284
+</code></pre></div></div>
+
+<h3 id="truncate">truncate</h3>
+
+<p><code class="language-plaintext highlighter-rouge">truncate</code> 将字符串截短为指定的字符个数。如果指定的字符数量小于字符串的长度，则会在字符串末尾添加一个省略号(…) 并将此省略号计入字符个数中。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncate: 20 }}
+→
+Ground control to...
+</code></pre></div></div>
+
+<h4 id="自定义省略号">自定义省略号</h4>
+
+<p><code class="language-plaintext highlighter-rouge">truncate</code> 还支持第二个可选参数，用于指定一个字符序列，此字符序列将被添加到截短字符串的后面。默认是省略号(…)，但是你可以按照你的需要传递一个新的。</p>
+
+<p>第二个参数的长度将被计入第一个参数的字符个数中。例如，如果你希望将字符串截短为 10 个字符，并且使用由 3 个字符组成的省略号，这时，你需要将 <code class="language-plaintext highlighter-rouge">truncate</code> 的第一个参数设置为 <strong>13</strong>，是因为需要计入省略号的 3 个字符。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncate: 25, ", and so on" }}
+→
+Ground control, and so on
+</code></pre></div></div>
+
+<h4 id="无省略号">无省略号</h4>
+
+<p>你可以将字符串按照第一个参数截短为指定长度，并且可以通过传递一个空字符作为第二个参数，从而让截短之后的字符串不显示省略号。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncate: 20, "" }}
+→
+Ground control to Ma
+</code></pre></div></div>
+
+<h3 id="truncatewords">truncatewords</h3>
+
+<p>将字符串截短为指定的单词个数。如果指定的单词数量小于字符串中包含的单词个数，则会在字符串末尾添加一个省略号(…)。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncatewords: 3 }}
+→
+Ground control to...
+</code></pre></div></div>
+
+<h4 id="自定义省略号-1">自定义省略号</h4>
+
+<p><code class="language-plaintext highlighter-rouge">truncatewords</code> 还支持第二个可选参数，用于指定一个字符序列，此字符序列将被添加到截短字符串的后面。默认是省略号(…)，但是你可以按照你的需要传递一个新的。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncatewords: 3, "--" }}
+→
+Ground control to--
+</code></pre></div></div>
+
+<h4 id="无省略号-1">无省略号</h4>
+
+<p>如果你不希望在末尾添加省略号，可以将 <code class="language-plaintext highlighter-rouge">truncatewords</code> 的第二个参数设置为空字符串：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Ground control to Major Tom." | truncatewords: 3, "" }}
+→
+Ground control to
+</code></pre></div></div>
+
+<h3 id="uniq">uniq</h3>
+
+<p>删除数组中的所有冗余项。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% assign my_array = "ants, bugs, bees, bugs, ants" | split: ", " %}
+
+{{ my_array | uniq | join: ", " }}
+→
+ants, bugs, bees
+</code></pre></div></div>
+
+<h3 id="upcase">upcase</h3>
+
+<p>将字符串中的每个字符都转换为大写形式。对于已经全是大写的字符串不做任何操作。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Parker Moore" | upcase }}
+→
+PARKER MOORE
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "APPLE" | upcase }}
+→
+APPLE
+</code></pre></div></div>
+
+<h3 id="url_decode">url_decode</h3>
+
+<p>对于作为 URL 进行编码或通过 <a href="https://liquid.bootcss.com/filters/url_encode"><code class="language-plaintext highlighter-rouge">url_encode</code></a> 编码的字符串进行解码。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "%27Stop%21%27+said+Fred" | url_decode }}
+→
+'Stop!' said Fred
+</code></pre></div></div>
+
+<h3 id="url_encode">url_encode</h3>
+
+<p>将字符串中非 URL 安全的字符转换为百分号编码（percent-encoded）的字符。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "john@liquid.com" | url_encode }}
+→
+john%40liquid.com
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{{ "Tetsuro Takara" | url_encode }}
+→
+Tetsuro+Takara
+</code></pre></div></div>
+
+
+  </div><div class="article_license">
+  <p>
+    原文作者：<a target='_blank' href="https://liquid.bootcss.com/">liquid.bootcss.com      
+    </a><br>   
+    原文链接：<a target="_blank" href="https://liquid.bootcss.com/">https://liquid.bootcss.com/</a><br></p>
+</div><div class='post-footer'><a class='post-previous' href="/uhfun-jekyll/tech/2020/01/15/Swagger-more%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8.html">
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      Swagger more如何使用
+    </a><a class='post-next' href="/uhfun-jekyll/tech/2020/05/07/Uhfun%E5%8D%9A%E5%AE%A2%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B.html">
+      Uhfun博客使用简单示例
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </a></div>
+</article><div id='utterances' class="utterances-comments-header">
+  <div>
+    <div><strong></strong><a target="_blank" href="https://utteranc.es/">&nbsp;utteranc.es&nbsp;</a></strong>驱动</div>    
+  </div><div><a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll/issues?q=Liquid中文使用手册 | UhfunBlog"><strong>issue</strong></a></div>  
+</div><script src="https://utteranc.es/client.js"
+        repo= "uhfun/Uhfun-Jekyll"
+        issue-term="og:title"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+  </div>
+</article>
+
+    </div>
+  </div><footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">          
+      <p><a href="https://uhfun.cn/tech/2020/04/20/Liquid%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html">Github / Coding Pages</a>&nbsp;|&nbsp;<a href="https://uhfun.gitee.io/uhfun-jekyll/tech/2020/04/20/Liquid%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html">Gitee Pages</a><br>
+        Copyright © Uhfun Blog 2019<br>
+        Powered by <strong> <a target="_blank" href="https://github.com/jekyll/jekyll">Jekyll</a></strong>
+        &nbsp;|&nbsp;Themed by <strong> <a target="_blank" href="https://github.com/uhfun/Uhfun-Jekyll">Uhfun-Jekyll</a></strong> 
+        &nbsp; <br> licensed <a target="_blank" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></a>.
+        &nbsp;
+        <br>
+  <span id="/tech/2020/04/20/Liquid%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C.html" class="leancloud_visitors" data-flag-title="Liquid中文使用手册">
+    PV <a href="#"> <span class="old-visitors-count" style="display: none;"></span>
+        <span class="leancloud-visitors-count"></span>&nbsp; :)</a>
+  </span>
+</p>      
+    </div>
+  </div>
+</footer>
+<div class="back-to-top is-info">
+    <a class="icon-stack">
+        <ion-icon name="arrow-dropup">
+            <svg class="svg-icon">
+                <use xlink:href="/uhfun-jekyll/assets/arrow-dropup.svg"></use>
+            </svg>
+        </ion-icon>
+        <span class="back-to-top-text">Top</span>
+    </a>
+</div>
+<script src="/uhfun-jekyll/assets/js/back-to-top.js"></script>
+<script src="/uhfun-jekyll/assets/js/drop-down.js"></script>
+<script async src="/uhfun-jekyll/assets/js/category-post-num.js"></script>
+<script async src="/uhfun-jekyll/assets/js/baidu-push.js"></script>
+<script src="/uhfun-jekyll/assets/js/360-push.js"></script>
+<script async src="/uhfun-jekyll/assets/js/toc.js"></script>
+<script async src="/uhfun-jekyll/assets/js/gcse.js"></script>   
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+<script>AV.initialize("cGDrncliiY4PsYG2DTRfCAdQ-gzGzoHsz", "5cWQBitkqlz8lsL4cILd7Tea");</script>
+<script async src="/uhfun-jekyll/assets/js/leancloud_pv.js"></script>   
+<!-- <script async src="https://cse.google.com/cse.js?cx=008845838503066136412:qlzdwp3e2z8"></script> --></body>
+<script src="/uhfun-jekyll/assets/js/date-format.js"></script>
+</html>
