@@ -208,7 +208,7 @@
 
 <h4 id="继承abstractannotationconfigdispatcherservletinitializer">继承AbstractAnnotationConfigDispatcherServletInitializer</h4>
 
-<p>例如我们自定义一个类，继承Spring为我们提供的<code class="language-plaintext highlighter-rouge">AbstractAnnotationConfigDispatcherServletInitializer</code>,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的<code class="language-plaintext highlighter-rouge">MyCustomWebApplicationInitializer</code> class传入<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer#onStartup</code>，而<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>会为我们实例化这个类并调用它。</p>
+<p>例如我们自定义一个类，继承Spring为我们提供的<code class="language-plaintext highlighter-rouge">AbstractAnnotationConfigDispatcherServletInitializer</code>,不需要添加@Configuration等注解，因为Servlet容器会自动将我们自定义的<code class="language-plaintext highlighter-rouge">MyCustomWebApplicationInitializer</code> class传入<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer#onStartup</code>，而<code class="language-plaintext highlighter-rouge">SpringServletContainerInitializer</code>会为我们实例化这个类并调用它。</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyCustomWebApplicationInitializer</span> <span class="kd">extends</span> <span class="nc">AbstractAnnotationConfigDispatcherServletInitializer</span> <span class="o">{</span>
 
