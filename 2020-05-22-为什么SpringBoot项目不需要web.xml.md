@@ -66,7 +66,7 @@ Tomcat容器在部署web应用时，会在初始化阶段加载`web.xml`文件�
 
 在普通的Java web应用中，我们需要开发很多的Servlet来处理不同的请求。而SpringMVC的核心思想是设计一个功能强大的Servlet（聚合了Spring容器的各种能力）作为前端控制器，协调组织不同的组件，完成请求处理和返回响应。
 
-`DispatcherServlet`是一个继承自`FrameworkServlet`的servlet，在源码中它是这么描述的
+`DispatcherServlet`是一个继承自`FrameworkServlet`的servlet，在源码中它是这么描述的
 
 ```java
 /*
